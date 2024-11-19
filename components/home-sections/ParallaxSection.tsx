@@ -2,7 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
+
+// Dynamic import of Lottie
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 import balloon from '@/assets/img/balloon.png';
 import X from '@/components/icons/X';
