@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-separator-color {
+  background-image: linear-gradient(to right, rgb(247, 244, 255), rgb(32, 35, 58), rgb(32, 35, 58), rgb(247, 244, 255));
+}
+
+.swipe-left {
+  animation: swipe 10s linear infinite backwards;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

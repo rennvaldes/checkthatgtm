@@ -1,0 +1,29 @@
+import { AxiosInstance } from 'axios';
+import QueryString from 'qs';
+
+import { STRAPI_BASE_URL, STRAPI_DEV_TOKEN } from '@/static/constants';
+
+import { createApiInstance } from '../config';
+
+export const strapiAPI = createApiInstance({
+  baseURL: `${STRAPI_BASE_URL ?? ''}/api`,
+  devMiddleware(api: AxiosInstance) {
+    if (!STRAPI_DEV_TOKEN) return api;
+
+    api.interceptors.request.use(config => {
+      config.headers['Authorization'] = `bearer ${STRAPI_DEV_TOKEN}`;
+      return config;
+    });
+
+    return api;
+  },
+});
+
+export async function getWithQsParams(path: string, params?: any) {
+  let url = path;
+  if (params) url += `?${QueryString.stringify(params)}`;
+
+  const { data } = await strapiAPI({ method: 'GET', url });
+
+  return data;
+}
