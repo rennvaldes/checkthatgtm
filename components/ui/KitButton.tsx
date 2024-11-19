@@ -86,7 +86,7 @@ function KitButton({
   extraProps,
   arrowClassName,
   sameBrowserTab,
-  useLeftArrow = false, 
+  useLeftArrow = false,
 }: React.PropsWithChildren<Props>) {
   const router = useRouter();
   const pathname = usePathname();
@@ -146,14 +146,16 @@ function KitButton({
       if (pathname !== '/') router.push('/');
       setTimeout(
         () => {
-          document.getElementById(scrollTo)?.scrollIntoView({
-            behavior: 'smooth',
-          });
+          if (typeof document !== 'undefined') {
+            document.getElementById(scrollTo)?.scrollIntoView({
+              behavior: 'smooth',
+            });
+          }
         },
         pathname !== '/' ? 500 : 0
       );
     }
-  }, [scrollTo]);
+  }, [scrollTo, pathname, router]);
 
   let buttonElement = (
     <button
