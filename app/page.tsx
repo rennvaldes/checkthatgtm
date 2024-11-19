@@ -1,9 +1,9 @@
 'use client';
 
 // import BookSection from '@/components/home-sections/BookSection';
-// import HelpedGrowSection from '@/components/home-sections/HelpedGrowSection';
-// import HeroSection from '@/components/home-sections/HeroSection';
-// import HeroVideoSection from '@/components/home-sections/HeroVideoSection';
+import HelpedGrowSection from '@/components/home-sections/HelpedGrowSection';
+import HeroSection from '@/components/home-sections/HeroSection';
+import HeroVideoSection from '@/components/home-sections/HeroVideoSection';
 // import HowItWorksSection from '@/components/home-sections/HowItWorksSection';
 // import ParallaxSection from '@/components/home-sections/ParallaxSection';
 // import PricingSection from '@/components/home-sections/PricingSection';
@@ -16,9 +16,9 @@
 export default function Home() {
   return (
     <main className='relative flex min-h-screen flex-col items-center justify-between'>
-      {/* <HeroSection /> */}
-      {/* <HelpedGrowSection /> */}
-      {/* <HeroVideoSection /> */}
+      <HeroSection />
+      <HelpedGrowSection />
+      <HeroVideoSection />
       {/* <ParallaxSection /> */}
       {/* <ResultsSection /> */}
       {/* <WhoWeAreForSection /> */}
