@@ -1,72 +1,102 @@
-import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
+/* eslint-disable @next/next/no-img-element */
+'use client';
+
+import React from 'react';
 import Check from '../icons/Check';
 import DotPatternBackground from '../ui/DotPatternBackground';
 import KitButton from '../ui/KitButton';
-import { getDataWithPlansWithBenefits } from '@/lib/api/strapi/pricing-section';
-import React from 'react';
-import { Skeleton } from '@/lib/shadcn/ui/skeleton';
-import useResponsiveDevice from '@/hooks/useResponsiveDevice';
 
 function PricingSection() {
-  const { isDesktop, isProcessing } = useResponsiveDevice();
-  const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
-    key: 'pricing-section',
-    getFn: getDataWithPlansWithBenefits,
-  });
-
-  const { mainData, plans } = React.useMemo(() => {
-    if (!rawData) return {};
-
-    const { plans: rawPlansData, ...mainData } = rawData.data.attributes;
-
-    const plans = rawPlansData.data.map(({ attributes }: any) => ({
-      ...attributes,
-      benefits: attributes.benefits.data.map(({ attributes }: any) => attributes),
-    }));
-
-    return { mainData, plans };
-  }, [rawData]);
+  // Static data
+  const staticData = {
+    plans: [
+      {
+        title: 'Content Workstream',
+        description: 'Boost strategy with Content Workstream. Automated workflows and analytics for better engagement.',
+        monthly_price: 9000,
+        button_text: 'Talk to Strategist',
+        button_url: '/contact',
+        benefits: [
+          'Up to 50,000 words/month published',
+          'Hands-on strategist with track record',
+          'Dedicated managing editor',
+          'Content and keyword strategy',
+          'Fully managed end-to-end publishing',
+          'Custom Content OS & CMS Integration',
+          'Advanced AI workflows built for you',
+          'Network of vetted experts, writers & editors',
+          'Artwork and custom images included',
+          'Weekly monitoring and reporting',
+          'We work in Slack as an extension of your team',
+        ],
+      },
+      {
+        title: 'pSEO Workstream',
+        description: 'Boost strategy with Content Workstream. Automated workflows and analytics for better engagement.',
+        monthly_price: 9000,
+        button_text: 'Talk to Strategist',
+        button_url: '/contact',
+        benefits: [
+          'Up to 1,200 pages per year',
+          'Hands-on strategist with track record',
+          'Dedicated managing editor',
+          'Content and keyword strategy',
+          'Fully managed end-to-end publishing',
+          'Custom Content OS & CMS Integration',
+          'Advanced AI workflows built for you',
+          'Network of vetted experts, writers & editors',
+          'Artwork and custom images included',
+          'Weekly monitoring and reporting',
+          'We work in Slack as an extension of your team',
+        ],
+      },
+      {
+        title: 'Custom Workstream',
+        description: 'Unlock potential with Custom Workstream. Personalized strategies and dedicated support.',
+        monthly_price: null,
+        button_text: 'Talk to Strategist',
+        button_url: '/contact',
+        benefits: [
+          'AI-powered outbound',
+          'Lifecycle & email marketing',
+          'Content repurposing',
+          'Link building campaigns',
+          'AI CRM enrichment',
+          'AI research & prospecting',
+        ],
+      },
+    ],
+  };
 
   return (
     <section
       id='pricing-section'
       className='bg-ui-black text-ui-whitest relative mx-auto mt-[80px] flex w-full flex-col items-center pb-[33px] pt-[30px] lg:mt-[148px] lg:pt-[90px]'>
-      {!isProcessing && (
-        <>
-          <DotPatternBackground
-            dotsColorStyle='bg-ui-peach/50'
-            dotPatternTopPaddingPx={5}
-            dotsSeparationPx={{ vertical: isDesktop ? 45 : 28, horizontal: isDesktop ? 45 : 28 }}
-            dotWidthPxIncreasePerRow={0}
-            className='z-10 !h-[414px] overflow-hidden lg:!h-[450px]'
-          />
-          <div className='to-ui-black from-ui-black/0 absolute left-0 top-0 z-20 h-[420px] w-full bg-gradient-to-b lg:h-[460px]' />
-        </>
-      )}
+      <>
+        <DotPatternBackground
+          dotsColorStyle='bg-ui-peach/50'
+          dotPatternTopPaddingPx={5}
+          dotsSeparationPx={{ vertical: 45, horizontal: 45 }}
+          dotWidthPxIncreasePerRow={0}
+          className='z-10 !h-[414px] overflow-hidden lg:!h-[450px]'
+        />
+        <div className='to-ui-black from-ui-black/0 absolute left-0 top-0 z-20 h-[420px] w-full bg-gradient-to-b lg:h-[460px]' />
+      </>
 
-      {isLoading ? (
-        <Skeleton className='bg-ui-whitest/50 relative z-30 h-[62px] w-[320px] lg:h-[57px] lg:w-[780px]' />
-      ) : (
-        <h3 className='bg-ui-black relative z-30 w-[320px] text-center text-[28px] font-medium leading-[31px] lg:w-auto lg:max-w-[1280px] lg:text-[52px] lg:leading-[57px]'>
-          {mainData.title_left}{' '}
-          <span className='font-kepler-std text-ui-green-light text-[32px] italic lg:text-[60px]'>
-            {mainData.title_colored}
-          </span>
-        </h3>
-      )}
+      <h3 className='bg-ui-black relative z-30 w-[320px] text-center text-[28px] font-medium leading-[31px] lg:w-auto lg:max-w-[1280px] lg:text-[52px] lg:leading-[57px]'>
+        Custom plans that fit your&nbsp;
+        <span className='font-kepler-std text-ui-green-light text-[32px] italic lg:text-[60px]'>
+          scale
+        </span>
+      </h3>
 
       <div className='mt-[40px] flex w-[320px] flex-col gap-[20px] lg:mt-[64px] lg:w-auto lg:max-w-[1280px] lg:flex-row lg:gap-[32px]'>
-        {(plans || [1, 2, 3]).map((planData: any) => {
+        {staticData.plans.map((planData, index) => {
           const hasPrice = !!planData.monthly_price;
 
-          return isLoading ? (
-            <Skeleton
-              key={planData}
-              className='bg-ui-whitest/50 relative z-30 h-[500px] w-[320px] lg:w-auto lg:flex-1'
-            />
-          ) : (
+          return (
             <article
-              key={planData.title}
+              key={index}
               className='bg-ui-black relative z-30 border-[1px] border-[#5F6382] px-[20px] py-[32px] lg:w-auto lg:flex-1 lg:px-[32px] lg:py-[40px]'>
               <h4 className='text-ui-peach text-[20px] font-medium leading-[23px] lg:text-[24px] lg:leading-[28px]'>
                 {planData.title}
@@ -98,10 +128,10 @@ function PricingSection() {
               </div>
 
               <div className='font-elza mt-[32px] flex flex-col gap-[16px]'>
-                {planData.benefits.map((benefitData: any, index: number) => (
-                  <div key={`${benefitData}-${index}`} className='flex gap-[12px]'>
+                {planData.benefits.map((benefit, benefitIndex) => (
+                  <div key={benefitIndex} className='flex gap-[12px]'>
                     <Check className='text-ui-green-light h-[24px] w-[16px] shrink-0' />
-                    <h6 className='text-[16px] leading-[24px]'>{benefitData.description}</h6>
+                    <h6 className='text-[16px] leading-[24px]'>{benefit}</h6>
                   </div>
                 ))}
               </div>

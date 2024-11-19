@@ -1,65 +1,100 @@
 /* eslint-disable @next/next/no-img-element */
-import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/lib/shadcn/ui/carousel';
-import React from 'react';
+'use client';
 
-import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
-import { getCards } from '@/lib/api/strapi/results-section';
-import { STRAPI_BASE_URL, STRAPI_IS_LOCAL_ENV } from '@/static/constants';
+import React, { useState } from 'react';
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/lib/shadcn/ui/carousel';
 
 import ArrowRight from '../icons/ArrowRight';
 import KitButton from '../ui/KitButton';
-import { Skeleton } from '@/lib/shadcn/ui/skeleton';
-import useResponsiveDevice from '@/hooks/useResponsiveDevice';
 
 function ResultsSection() {
-  const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({ key: 'results-section', getFn: getCards });
-  const { isDesktop } = useResponsiveDevice();
+  // Static data based on your screenshots
+  const staticData = {
+    title: {
+      blackLeft: 'Our',
+      colored: 'results',
+      blackRight: 'speak for themselves',
+    },
+    cards: [
+      {
+        name: 'Deepgram',
+        logo: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Deepgram_logo_ca172c4fe3.svg',
+        title: '24x',
+        sub_title: 'Organic growth one year. Published 4,000+ pages and delivered 6.5M organic visits.',
+        redirect_to_url: null,
+        link_title: null,
+      },
+      {
+        name: 'Ramp',
+        logo: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg',
+        title: '3X',
+        sub_title: 'High-quality content production in 6 weeks. Publishing 12 articles per week across multiple topic categories.',
+        redirect_to_url: null,
+        link_title: null,
+      },
+      {
+        name: 'Reddit',
+        logo: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/reddit_logo_b80d54a7ab.svg',
+        title: '10X',
+        sub_title: 'Increase in content velocity without sacrificing quality. Their AI-driven workflows and expert-in-the-loop model have completely transformed our output.',
+        redirect_to_url: null,
+        link_title: null,
+      },
+      {
+        name: 'Steadily',
+        logo: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/steadily_logo_2_a9fb3f3b54.svg',
+        title: '100K',
+        sub_title: "Organic visitors monthly. That's 5X traffic growth and 1,700 pages published.",
+        redirect_to_url: null,
+        link_title: null,
+      },
+      {
+        name: 'Swoogo',
+        logo: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/swoogo_logo_449d7f6b4c.svg',
+        title: '2X',
+        sub_title: "Traffic increase in just 2 months. Over 100 pages published or refreshed. Ranking for 3x more keywords.",
+        redirect_to_url: null,
+        link_title: null,
+      }
+    ],
+  };
 
-  const [carouselApi, setCarouselApi] = React.useState<CarouselApi>();
-  const [carouselWall, setCarouselWall] = React.useState<'left' | 'right'>();
-
-  const { data, cards } = React.useMemo(
-    () => ({
-      data: rawData?.data.attributes,
-      cards: rawData?.data.attributes.cards.data.map((cardData: any) => {
-        const logoData = cardData.attributes.logo.data.attributes;
-        return {
-          ...cardData.attributes,
-          logo: STRAPI_IS_LOCAL_ENV ? `${STRAPI_BASE_URL}${logoData.url}` : logoData.url,
-        };
-      }),
-    }),
-    [rawData?.data.attributes]
-  );
+  const { title, cards } = staticData;
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [carouselWall, setCarouselWall] = useState<'left' | 'right' | undefined>();
+  const [isDesktop, setIsDesktop] = useState(false);
 
   React.useEffect(() => {
     if (!carouselApi) return;
 
     const onSnapChange = () => {
       const currentIndex = carouselApi.selectedScrollSnap();
-      if (currentIndex == 0) setCarouselWall('left');
-      else if (cards && currentIndex >= cards.length - (isDesktop ? 3 : 1)) setCarouselWall('right');
-      else if (carouselWall) setCarouselWall(undefined);
+      if (currentIndex === 0) setCarouselWall('left');
+      else if (currentIndex >= cards.length - 1) setCarouselWall('right');
+      else setCarouselWall(undefined);
     };
 
     onSnapChange();
     carouselApi.on('select', onSnapChange);
-  }, [cards, carouselApi, carouselWall, isDesktop]);
+  }, [cards.length, carouselApi]);
+
+  React.useEffect(() => {
+    const updateIsDesktop = () => setIsDesktop(window.innerWidth >= 1024); // 1024px is typical lg breakpoint
+    updateIsDesktop();
+    window.addEventListener('resize', updateIsDesktop);
+    return () => window.removeEventListener('resize', updateIsDesktop);
+  }, []);
 
   return (
     <section
       id='results-section'
       className='mx-auto flex w-[260px] flex-col items-center self-stretch overflow-hidden pt-12 lg:w-full lg:max-w-[1280px] lg:pt-20 lg:pr-40'>
       <div className='flex w-full flex-col lg:flex-row lg:items-end lg:justify-between'>
-        {isLoading ? (
-          <Skeleton className='h-[62px] w-[260px] lg:h-[114px] lg:w-[600px]' />
-        ) : (
-          <h3 className='w-[260px] text-[28px] font-[500] leading-[31px] lg:w-[600px] lg:text-[52px] lg:leading-[57px]'>
-            {data.title_black_left}{' '}
-            <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[60px]'>{data.title_colored}</span>{' '}
-            {data.title_black_right}
-          </h3>
-        )}
+        <h3 className='w-[260px] text-[28px] font-[500] leading-[31px] lg:w-[600px] lg:text-[52px] lg:leading-[57px]'>
+          {title.blackLeft}{' '}
+          <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[60px]'>{title.colored}</span>{' '}
+          {title.blackRight}
+        </h3>
 
         <div className='mt-[8px] flex h-[32px] justify-end gap-[8px] lg:h-[64px]'>
           <KitButton
@@ -81,42 +116,41 @@ function ResultsSection() {
         </div>
       </div>
 
-      {isLoading ? (
-        <Skeleton className='mt-[24px] h-[308px] w-full lg:mt-[64px] lg:h-[434px] lg:max-w-[1440px]' />
-      ) : (
-        <Carousel className='mt-[24px] w-full lg:mt-[64px] lg:max-w-[1440px]' setApi={setCarouselApi}>
-          <CarouselContent className='w-[260px] lg:w-[382px]'>
-            {cards.map(({ name, logo, title, sub_title, redirect_to_url, link_title }: any) => (
-              <CarouselItem key={name}>
-                <article className='bg-ui-whitest flex h-[308px] w-[240px] flex-col justify-between border-[1px] border-[#ECECF6] p-[20px] lg:h-[434px] lg:w-[350px] lg:p-[32px]'>
-                  <div>
-                    <img alt='logo' src={logo} style={{ height: '30px' }} />
-                    <p className='font-clash-display mt-[24px] text-[40px] font-[600] leading-[38px] lg:mt-[40px] lg:text-[70px] lg:leading-[67px]'>
-                      {title}
-                    </p>
-                    <p className='font-elza mt-[8px] text-[16px] font-[400] leading-[24px] lg:mt-[20px] lg:text-[20px] lg:leading-[30px]'>
-                      {sub_title}
-                    </p>
+      <Carousel className='mt-[24px] w-full lg:mt-[64px] lg:max-w-[1440px]' setApi={setCarouselApi} opts={{
+        slidesToScroll: isDesktop ? 3 : 1,
+        startIndex: 0,
+      }}>
+        <CarouselContent className='-ml-4 lg:-ml-8'>
+          {cards.map(({ name, logo, title, sub_title, redirect_to_url, link_title }) => (
+            <CarouselItem key={name} className='pl-4 lg:pl-8 lg:basis-1/3'>
+              <article className='bg-ui-whitest flex h-[308px] w-[240px] flex-col justify-between border-[1px] border-[#ECECF6] p-[20px] lg:h-[434px] lg:w-full lg:p-[32px]'>
+                <div>
+                  <img alt={`${name} logo`} src={logo} style={{ height: '30px' }} />
+                  <p className='font-clash-display mt-[24px] text-[40px] font-[600] leading-[38px] lg:mt-[40px] lg:text-[70px] lg:leading-[67px]'>
+                    {title}
+                  </p>
+                  <p className='font-elza mt-[8px] text-[16px] font-[400] leading-[24px] lg:mt-[20px] lg:text-[20px] lg:leading-[30px]'>
+                    {sub_title}
+                  </p>
+                </div>
+                {redirect_to_url && (
+                  <div className='flex'>
+                    <KitButton
+                      isDisabled={!redirect_to_url}
+                      href={redirect_to_url}
+                      className='disabled:text-ui-black/50 flex items-center justify-start gap-[16px] pl-0 text-[18px] font-[500]'
+                      size='medium'
+                      withAnimatedArrow={redirect_to_url ? 'to-right' : undefined}
+                      variant='ghost'>
+                      {link_title || 'See this case'}
+                    </KitButton>
                   </div>
-                  {redirect_to_url && (
-                    <div className='flex'>
-                      <KitButton
-                        isDisabled={!redirect_to_url}
-                        href={redirect_to_url}
-                        className='disabled:text-ui-black/50 flex items-center justify-start gap-[16px] pl-0 text-[18px] font-[500]'
-                        size='medium'
-                        withAnimatedArrow={redirect_to_url ? 'to-right' : undefined}
-                        variant='ghost'>
-                        {link_title || 'See this case'}
-                      </KitButton>
-                    </div>
-                  )}
-                </article>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      )}
+                )}
+              </article>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </section>
   );
 }

@@ -19,17 +19,15 @@ export default function Home() {
       <HeroSection />
       <HelpedGrowSection />
       <HeroVideoSection />
-      {/*
-      <HeroVideoSection />
       <ParallaxSection />
       <ResultsSection />
       <WhoWeAreForSection />
       <HowItWorksSection />
-      <ReviewsSection />
+      {/* <ReviewsSection /> */}
       <PricingSection />
-      <BookSection />
-      <FaqSection />
-      <EarthSection /> */}
+      {/* <BookSection /> */}
+      {/* <FaqSection /> */}
+      <EarthSection />
     </main>
   );
 }

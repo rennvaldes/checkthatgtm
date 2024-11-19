@@ -2,7 +2,7 @@
 import { cn } from '@/lib/litebox-lib/utils/cn';
 
 type Props = {
-  images: { src: string; height: number; width: number }[];
+  images: { src: string; height: number; }[];
   fullSwipeDurationMs?: number;
   className?: string;
 };

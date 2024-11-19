@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: site-frontend
+    runtime: node
+    plan: starter
+    buildCommand: |
+      NODE_ENV=production npm install --include=dev
+      NODE_ENV=production npm run build:next
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production

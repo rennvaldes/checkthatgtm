@@ -1,14 +1,11 @@
+'use client';
+
 import React from 'react';
-
-import useResponsiveDevice from '@/hooks/useResponsiveDevice';
-import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
-import { getMainData } from '@/lib/api/strapi/who-we-are-for';
-
 import CornerDeco from '../icons/CornerDecoration';
 import DotPatternBackground from '../ui/DotPatternBackground';
 import KitButton from '../ui/KitButton';
-import { Skeleton } from '@/lib/shadcn/ui/skeleton';
 
+// Decorations Component
 function Decorations() {
   return (
     <svg
@@ -62,23 +59,13 @@ function Decorations() {
 }
 
 function WhoWeAreForSection() {
-  const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
-    key: 'who-we-are-for-section',
-    getFn: getMainData,
-  });
-
-  const { isDesktop } = useResponsiveDevice();
-
-  const data = React.useMemo(() => rawData?.data.attributes, [rawData?.data]);
-
   return (
     <section className='relative mt-[110px] w-full lg:mt-[197px] lg:h-[433px]'>
       <div className='bg-ui-green-light absolute left-0 top-0 -z-20 h-full w-screen' />
-
       <div className='from-ui-green-light to-ui-green-light/0 absolute left-0 top-0 -z-10 h-[300px] w-full bg-gradient-to-t lg:h-full' />
       <DotPatternBackground
         className='h-[250px] px-[10px] lg:h-full lg:max-h-full lg:px-[25px]'
-        dotsSeparationPx={{ horizontal: isDesktop ? 45 : 27, vertical: isDesktop ? 45 : 26 }}
+        dotsSeparationPx={{ horizontal: 27, vertical: 26 }}
         dotWidthPxIncreasePerRow={0}
         dotPatternTopPaddingPx={2}
       />
@@ -86,35 +73,22 @@ function WhoWeAreForSection() {
       <div className='relative mx-auto w-[320px] pt-[32px] lg:h-full lg:w-full lg:max-w-[1280px] lg:pt-[64px]'>
         <CornerDeco className='text-ui-peach absolute left-0 top-0 h-[40px] w-[40px] translate-y-[-100%] -rotate-90 lg:left-[67px] lg:h-[72px] lg:w-[72px]' />
 
-        {isLoading ? (
-          <Skeleton className='h-[31px] w-[200px] lg:h-[57px] lg:w-[360px]' />
-        ) : (
-          <h3 className='bg-ui-green-light w-[200px] text-[28px] font-medium leading-[31px] lg:w-[360px] lg:text-[52px] lg:leading-[57px]'>
-            {data.title}
-          </h3>
-        )}
-        {isLoading ? (
-          <Skeleton className='mt-[16px] h-[96px] w-[320px] lg:mt-[12px] lg:h-[60px] lg:w-[800px]' />
-        ) : (
-          <p className='bg-ui-green-light font-elza mt-[16px] w-[320px] text-[16px] leading-[24px] lg:mt-[12px] lg:w-[800px] lg:text-[20px] lg:leading-[30px]'>
-            {data.sub_title}
-          </p>
-        )}
+        <h3 className='bg-ui-green-light w-[200px] text-[28px] font-medium leading-[31px] lg:w-[360px] lg:text-[52px] lg:leading-[57px]'>
+          Who we&apos;re for
+        </h3>
+        <p className='bg-ui-green-light font-elza mt-[16px] w-[320px] text-[16px] leading-[24px] lg:mt-[12px] lg:w-[800px] lg:text-[20px] lg:leading-[30px]'>
+          Whether you&apos;re a budding startup or an established enterprise, discover how our AI can streamline your content creation and fuel your growth.
+        </p>
 
         <div className='flex'>
-          {isLoading ? (
-            <Skeleton className='mt-[20px] h-[52px] w-[187px] lg:mt-[32px]' />
-          ) : (
-            <KitButton
-              isDisabled={isLoading}
-              href={data.button_url}
-              className='mt-[20px] lg:mt-[32px]'
-              variant='primary'
-              size='large'
-              withAnimatedArrow='to-right'>
-              {data.button_text}
-            </KitButton>
-          )}
+          <KitButton
+            href='/learn-more'
+            className='mt-[20px] lg:mt-[32px]'
+            variant='primary'
+            size='large'
+            withAnimatedArrow='to-right'>
+            Learn More
+          </KitButton>
         </div>
 
         <Decorations />
