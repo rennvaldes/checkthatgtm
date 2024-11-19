@@ -1,13 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import WhiteLogoX from '../icons/WhiteLogoX';
 import DotPatternBackground from '../ui/DotPatternBackground';
 import CornerDeco from '../icons/CornerDecoration';
-import useResponsiveDevice from '@/hooks/useResponsiveDevice';
-import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
-import { getData } from '@/lib/api/strapi/book-calendar-section';
-import { Skeleton } from '@/lib/shadcn/ui/skeleton';
 
 function LineDecoMobile() {
   return (
@@ -86,13 +82,10 @@ function Clock() {
 }
 
 function BookSection() {
-  const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({ key: 'book-section', getFn: getData });
+  const isDesktop = true; // Set based on your static design requirements
 
-  const { isDesktop, isProcessing } = useResponsiveDevice();
-
-  const data = React.useMemo(() => rawData?.data.attributes ?? {}, [rawData]);
-
-  React.useEffect(() => {
+  // Static Data
+  useEffect(() => {
     const head = document.querySelector('head');
     const script = document.createElement('script');
     script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
@@ -101,54 +94,35 @@ function BookSection() {
 
   return (
     <section className='bg-ui-black text-ui-whitest relative flex w-full flex-col items-center overflow-visible pt-[39px] lg:pt-[100px]'>
-      {isProcessing ? null : isDesktop ? <LineDecoDesktop /> : <LineDecoMobile />}
+      {isDesktop ? <LineDecoDesktop /> : <LineDecoMobile />}
       <div className='absolute top-0 h-full w-[320px] lg:w-[886px]'>
         <HalfCircleDeco />
       </div>
 
-      {isLoading ? (
-        <Skeleton
-          id='book-section'
-          className='bg-ui-white/50 mt-[30px] h-[31px] w-[200px] lg:mt-[92px] lg:h-[57px] lg:w-[300px]'
-        />
-      ) : (
-        <h3
-          id='book-section'
-          className='max-w-[320px] pt-[30px] text-[28px] font-medium leading-[31px] lg:pt-[92px] lg:text-[52px] lg:leading-[57px]'>
-          {data.section_title_left}{' '}
-          <span className='font-kepler-std text-ui-peach text-[32px] italic lg:text-[60px]'>
-            {data.section_title_colored}
-          </span>
-        </h3>
-      )}
+      <h3
+        id='book-section'
+        className='max-w-[320px] pt-[30px] text-[28px] font-medium leading-[31px] lg:pt-[92px] lg:text-[52px] lg:leading-[57px]'>
+        Book a&nbsp;
+        <span className='font-kepler-std text-ui-peach text-[32px] italic lg:text-[60px]'>Call</span>
+      </h3>
 
       <div className='relative z-20 -mb-[165px] mt-[40px] flex flex-col bg-white lg:mt-[64px] lg:w-[866px] lg:flex-row'>
         <div className='bg-ui-whitest text-ui-black relative z-20 flex w-[320px] flex-col items-center border-b-[1px] border-[#CBC8D9] px-[20px] py-[40px] lg:w-auto lg:items-start lg:border-b-0 lg:border-r-[1px] lg:p-[40px]'>
           <WhiteLogoX className='text-ui-blue' />
 
           <p className='font-elza mt-[20px] text-[16px] font-[600] leading-[21px] text-[#85889D]'>GrowthX</p>
-          {isLoading ? (
-            <Skeleton className='h-[31px] w-[200px] lg:h-[37px] lg:w-[300px]' />
-          ) : (
-            <h4 className='font-elza text-center text-[28px] font-[600] leading-[31px] lg:leading-[37px]'>
-              {data.calendar_title}
-            </h4>
-          )}
+          <h4 className='font-elza text-center text-[28px] font-[600] leading-[31px] lg:leading-[37px]'>
+            Intro Call
+          </h4>
 
           <div className='mt-[26px] flex items-center gap-[12px] self-stretch'>
             <Clock />
-            {isLoading ? (
-              <Skeleton className='h-[18px] w-[50px]' />
-            ) : (
-              <p className='mt-[2px] font-[600] leading-[18px]'>{data.duration}</p>
-            )}
+            <p className='mt-[2px] font-[600] leading-[18px]'>30 minutes</p>
           </div>
 
-          {isLoading ? (
-            <Skeleton className='mt-[24px] h-[72px] lg:h-[54px]' />
-          ) : (
-            <h5 className='font-elza mt-[24px] leading-[18px]'>{data.description}</h5>
-          )}
+          <h5 className='font-elza mt-[24px] leading-[18px]'>
+            Book a call with our team by selecting an available date from the calendar and we’ll walk you through the plan to boost your organic traffic and revenue via content.
+          </h5>
         </div>
 
         <div className='relative z-20 w-full overflow-scroll bg-white lg:w-[433px] lg:flex-shrink-0'>
