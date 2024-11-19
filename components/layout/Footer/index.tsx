@@ -7,26 +7,18 @@ import React from 'react';
 
 const RIGHTS_TEXT = `©${new Date().getFullYear()} GrowthX. All rights reserved.`;
 
-// Hardcoded data derived from your database or mock values
-const mainData = {
-  title_left: 'Your Growth Starts Here',
-  title_colored: 'GrowthX',
-  title_right: 'with us.',
-  button_text: 'Get Started',
-};
-
-const socialLinks = [
+const socialLinks: Array<{ text: string; url: string }> = [
   { text: 'LinkedIn', url: 'https://linkedin.com' },
   { text: 'Twitter', url: 'https://twitter.com' },
   { text: 'Facebook', url: 'https://facebook.com' },
 ];
 
-const bottomLinks = [
+const bottomLinks: Array<{ text: string; url: string }> = [
   { text: 'Privacy Policy', url: '/privacy-policy' },
   { text: 'Terms of Service', url: '/terms-of-service' },
 ];
 
-const docs_url = 'https://growthxlabs.com/docs';
+const DOCS_URL = 'https://growthxlabs.com/docs';
 
 function Footer() {
   return (
@@ -35,11 +27,11 @@ function Footer() {
         <div className='flex flex-col justify-between lg:flex-row'>
           <div>
             <h3 className='font-clash-display w-[300px] text-[44px] font-medium leading-[48px] lg:w-[730px] lg:text-[70px] lg:leading-[77px]'>
-              {mainData.title_left}{' '}
+              Your Growth Starts Here{' '}
               <span className='font-kepler-std text-ui-blue text-[52px] italic lg:text-[80px]'>
-                {mainData.title_colored}
+                GrowthX
               </span>{' '}
-              {mainData.title_right}
+              with us.
             </h3>
             <div className='flex'>
               <KitButton
@@ -48,7 +40,7 @@ function Footer() {
                 withAnimatedArrow='to-right'
                 size='large'
                 className='mt-[24px] lg:mt-[32px]'>
-                {mainData.button_text}
+                Get Started
               </KitButton>
             </div>
           </div>
@@ -61,7 +53,7 @@ function Footer() {
                 { to: 'reviews-section', text: 'Reviews' },
                 { to: 'pricing-section', text: 'Pricing' },
                 { isExternal: true, sameBrowserTab: true, to: '/blog', text: 'Blog' },
-                { isExternal: true, to: docs_url, text: 'Docs' },
+                { isExternal: true, to: DOCS_URL, text: 'Docs' },
               ]}
             />
             <LinksColumn
