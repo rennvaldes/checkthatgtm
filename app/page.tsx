@@ -5,7 +5,7 @@ import HelpedGrowSection from '@/components/home-sections/HelpedGrowSection';
 import HeroSection from '@/components/home-sections/HeroSection';
 import HeroVideoSection from '@/components/home-sections/HeroVideoSection';
 // import HowItWorksSection from '@/components/home-sections/HowItWorksSection';
-// import ParallaxSection from '@/components/home-sections/ParallaxSection';
+import ParallaxSection from '@/components/home-sections/ParallaxSection';
 // import PricingSection from '@/components/home-sections/PricingSection';
 // import ResultsSection from '@/components/home-sections/ResultsSection';
 // import ReviewsSection from '@/components/home-sections/ReviewsSection';
@@ -19,7 +19,7 @@ export default function Home() {
       <HeroSection />
       <HelpedGrowSection />
       <HeroVideoSection />
-      {/* <ParallaxSection /> */}
+      <ParallaxSection />
       {/* <ResultsSection /> */}
       {/* <WhoWeAreForSection /> */}
       {/* <HowItWorksSection /> */}
