@@ -1,159 +1,175 @@
-/* eslint-disable @next/next/no-img-element */
-import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
-import Quotes from '../icons/Quotes';
-import { getDataWithReviews } from '@/lib/api/strapi/reviews-section';
 import React from 'react';
-import { STRAPI_BASE_URL, STRAPI_IS_LOCAL_ENV } from '@/static/constants';
-import Video from '@/lib/litebox-lib/ui/Video/Video';
-import { Skeleton } from '@/lib/shadcn/ui/skeleton';
-import { divide } from '@/lib/utils';
+import Quotes from '../icons/Quotes';
 import { cn } from '@/lib/litebox-lib/utils/cn';
 import KitButton from '../ui/KitButton';
-import useResponsiveDevice from '@/hooks/useResponsiveDevice';
 import { usePathname } from 'next/navigation';
 
-function ReviewCard({ reviewData, isLoading }: any) {
-  return isLoading ? (
-    <Skeleton className='h-[300px] w-[320px] lg:h-[353px] lg:w-[405px]' />
-  ) : (
-    <article className='bg-ui-whitest'>
-      <div className='px-[20px] py-[16px] lg:px-[32px] lg:py-[20px]'>
+const reviewsData = [
+  {
+    "review_body": "Your guidance and execution on this SEO journey has been invaluable and we love working with you!",
+    "name": "Stacey Baer",
+    "legend": "VP of Marketing, Swoogo",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Stacey_Baer_Swoogo_VP_Marketing_b086dddd58.jpeg"
+  },
+  {
+    "review_body": "GrowthX doesn’t just hand over a playbook—they dive in and do the work for you. Marcel and his team are all about delivering real, impactful growth without adding more to your plate.",
+    "name": "Bob Summers",
+    "legend": "CEO, Goodcall",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Bob_Summers_Goodcall_CEO_1_fbb6692987.jpg"
+  },
+  {
+    "review_body": "I’ll be honest—I thought content automation sounded a bit 'too good to be true,' but GrowthX proved me wrong. It's already paying huge dividends.",
+    "name": "Chaz Ross-Munro",
+    "legend": "Head of Marketing, Datumate",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Chaz_Ross_Munro_0541aa7b70.jpeg"
+  },
+  {
+    "review_body": "GrowthX is the real deal for practical AI workflows. I've pulled so much value from their frameworks and applied it directly to my work. Highly recommend if you’re ready to 100X your growth workflows!",
+    "name": "Francesco Garofalo",
+    "legend": "Growth Engineer, Teleport",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Francesco_Garofalo_f6ee387324.jpeg"
+  },
+  {
+    "review_body": "If you're looking to dive into the next-gen of marketing, I'd definitely recommend.",
+    "name": "Kenneth Tsai",
+    "legend": "Growth Marketing, Constrafor",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Kenneth_Tsai_51ba3cc1c6.jpeg"
+  },
+  {
+    "review_body": "GrowthX is truly defining AI-led growth, setting a new benchmark for what’s possible. Their expert-in-the-loop model combines a powerful blend of strategy, execution, and AI, delivering a hands-on, scalable approach that drives real impact.",
+    "name": "Rajan Sheth",
+    "legend": "CMO, Together AI",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Rajan_Sheth_6e1bd4180a.jpeg"
+  },
+  {
+    "review_body": "Highly recommended, folks. Marcel knows his thing!",
+    "name": "Paulo Martins",
+    "legend": "CEO & Founder, Arena",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Paulo_Martins_Arena_CEO_profile_aeefc81b0d.jpg"
+  },
+  {
+    "review_body": "Marcel is the mastermind behind the scaled LLM SEO strategy that’s driving results for us. He’s hands-on, incredibly technical, and his work speaks for itself. We’re seeing real, measurable impact thanks to his approach.",
+    "name": "Guillaume Cabane",
+    "legend": "General Partner, Hypergrowth",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Guillaume_Cabane_c9ba290b63.jpg"
+  },
+  {
+    "review_body": "With GrowthX, AI-led growth is no longer a guessing game. Their systematic, AI-driven approach drives reliable results again and again. It’s impressive to see the impact they deliver.",
+    "name": "Carilu Dietrich",
+    "legend": "CMO & Hypergrowth Advisor",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Carilu_Dietrich_68f83955e6.jpeg"
+  },
+  {
+    "review_body": "We've tried other partners, but GrowthX blew us away. Insanely responsive and fast, they deliver top-notch quality every time. Finally found a team that actually gets it.",
+    "name": "Luke Tubinis",
+    "legend": "Director of Growth, Ramp",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Luke_Tubinis_66f81f5f00.jpeg"
+  },
+  {
+    "review_body": "It was a huge light bulb moment for me, rethinking what was possible and how we could approach things at Homebase.",
+    "name": "John Waldmann",
+    "legend": "CEO, Homebase",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/John_Waldmann_1caa942e27.jpeg"
+  },
+  {
+    "review_body": "We’re scaling fast at HeyGen, and GrowthX is the only partner that can keep up without sacrificing quality. Their programmatic SEO expertise has been a game-changer for our content growth.",
+    "name": "Nav Singh",
+    "legend": "Head of Growth, HeyGen",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Nav_Singh_968be95bb4.jpeg"
+  }
+];
+
+function ReviewCard({ reviewData }: { reviewData: any }) {
+  return (
+    <article className="bg-ui-whitest">
+      <div className="px-[20px] py-[16px] lg:px-[32px] lg:py-[20px]">
         <Quotes />
-        <p
-          className={cn(
-            'font-elza mt-[12px]',
-            reviewData.avatar && 'text-[14px] leading-[21px] lg:text-[16px] lg:leading-[24px]',
-            reviewData.video && 'text-[16px] leading-[24px] lg:text-[20px] lg:leading-[30px]'
-          )}>
+        <p className="font-elza mt-[12px] text-[16px] leading-[24px] lg:text-[20px] lg:leading-[30px]">
           {reviewData.review_body}
         </p>
       </div>
-      {reviewData.video ? (
-        <div className='bg-ui-black/0 relative'>
-          <Video src={reviewData.video} className='rounded-none' />
-          <div className='font-elza text-ui-whitest absolute bottom-[16px] left-[20px] font-[600]'>
-            <h4 className='text-[16px] leading-[24px]'>{reviewData.name}</h4>
-            <p className='text-[14px] leading-[21px]'>{reviewData.legend}</p>
-          </div>
+      <div className="flex items-center gap-[12px] px-[20px] pb-[16px] lg:px-[32px] lg:pb-[20px]">
+        <img
+          src={reviewData.avatar}
+          alt={`Avatar of ${reviewData.name}`}
+          className="h-[40px] w-[40px] rounded-full lg:h-[52px] lg:w-[52px]"
+        />
+        <div className="font-elza">
+          <h4 className="text-[14px] font-[600] leading-[21px] lg:text-[16px] lg:leading-[24px]">
+            {reviewData.name}
+          </h4>
+          <p className="text-[14px] leading-[21px]">{reviewData.legend}</p>
         </div>
-      ) : (
-        <div className='flex items-center gap-[12px] px-[20px] pb-[16px] lg:px-[32px] lg:pb-[20px]'>
-          <img
-            src={reviewData.avatar}
-            alt='User profile'
-            className='h-[40px] w-[40px] rounded-full lg:h-[52px] lg:w-[52px]'
-          />
-          <div className='font-elza'>
-            <h4 className='text-[14px] font-[600] leading-[21px] lg:text-[16px] lg:leading-[24px]'>
-              {reviewData.name}
-            </h4>
-            <p className='text-[14px] leading-[21px]'>{reviewData.legend}</p>
-          </div>
-        </div>
-      )}
+      </div>
     </article>
   );
 }
 
 function ReviewsSection() {
-  const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
-    key: 'reviews-section',
-    getFn: getDataWithReviews,
-  });
-  const [isExpanded, setIsExpanded] = React.useState(false);
-  const { isDesktop, isProcessing } = useResponsiveDevice();
-
   const pathname = usePathname();
   const isTestimonialsPage = pathname === '/testimonials';
 
-  const { mainData, reviews } = React.useMemo(() => {
-    if (!rawData) return {};
-
-    const { reviews: rawReviewsData, ...mainData } = rawData.data.attributes;
-
-    const reviews = rawReviewsData.data.map(({ attributes }: any) => {
-      const avatarURL = attributes.avatar.data?.attributes.url;
-      const videoURL = attributes.video.data?.attributes.url;
-
-      return {
-        ...attributes,
-        avatar: avatarURL ? (STRAPI_IS_LOCAL_ENV ? `${STRAPI_BASE_URL}${avatarURL}` : avatarURL) : undefined,
-        video: videoURL ? (STRAPI_IS_LOCAL_ENV ? `${STRAPI_BASE_URL}${videoURL}` : videoURL) : undefined,
-      };
-    });
-
-    return { mainData, reviews };
-  }, [rawData]);
-
-  const reviewsWithPlaceholders = reviews ?? Array.from({ length: 10 });
-  const chunkedReviews: any[][] = divide(reviewsWithPlaceholders, 3);
-
-  const isExpandedByFewElements =
-    !!reviews && !isProcessing && ((!isDesktop && reviews.length <= 2) || (isDesktop && reviews.length <= 6));
-
   return (
     <section
-      id='reviews-section'
-      data-expanded={isExpanded || isExpandedByFewElements}
+      id="reviews-section"
       className={cn(
-        'relative mx-auto mt-[60px] flex max-w-[320px] flex-col items-center overflow-hidden pt-[50px] data-[expanded=true]:max-h-max lg:mt-[90px] lg:max-w-[1280px] lg:pt-[75px]',
+        'relative mx-auto mt-[60px] flex max-w-[320px] flex-col items-center overflow-hidden pt-[50px] lg:mt-[90px] lg:max-w-[1280px] lg:pt-[75px]',
         {
           'max-h-[1200px]': !isTestimonialsPage,
         }
-      )}>
-      {isLoading ? (
-        <Skeleton className='mx-auto h-[31px] w-[300px] flex-shrink-0 lg:h-[57px] lg:w-[500px]' />
-      ) : (
-        <h3 className='flex-shrink-0 text-center text-[28px] leading-[31px] lg:text-[52px] lg:leading-[57px]'>
-          {mainData.title_left}{' '}
-          <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[57px]'>
-            {mainData.title_colored}
-          </span>
-        </h3>
       )}
+    >
+      <h3 className="flex-shrink-0 text-center text-[28px] leading-[31px] lg:text-[52px] lg:leading-[57px]">
+        Real people, real{' '}
+        <span className="font-kepler-std text-ui-blue text-[32px] italic lg:text-[57px]">results</span>
+      </h3>
 
-      <div className='relative z-10 mt-[40px] flex flex-col gap-[20px] lg:hidden'>
-        {reviewsWithPlaceholders.map((reviewData: any, index: number) => (
-          <ReviewCard key={`review-${index}`} reviewData={reviewData} reviewIndex={index} isLoading={isLoading} />
+      {/* Mobile view */}
+      <div className="relative z-10 mt-[40px] flex flex-col gap-[20px] lg:hidden">
+        {reviewsData.map((reviewData, index) => (
+          <ReviewCard key={`review-${index}`} reviewData={reviewData} />
         ))}
       </div>
 
-      <div className='relative z-10 hidden lg:mt-[64px] lg:flex lg:gap-[32px]'>
-        {chunkedReviews.map((reviewsColumn, index) => (
-          <div key={`reviews-column-${index}`} className='flex flex-1 flex-col gap-[32px]'>
-            {reviewsColumn.map((reviewData: any, index: number) => (
-              <ReviewCard key={`review-${index}`} reviewData={reviewData} reviewIndex={index} isLoading={isLoading} />
-            ))}
+      {/* Desktop view */}
+      <div className="relative z-10 hidden lg:mt-[64px] lg:flex lg:gap-[32px]">
+        {[0, 1, 2].map((columnIndex) => (
+          <div key={`column-${columnIndex}`} className="flex flex-1 flex-col gap-[32px]">
+            {reviewsData
+              .filter((_, index) => index % 3 === columnIndex)
+              .map((reviewData, index) => (
+                <ReviewCard key={`review-${index}`} reviewData={reviewData} />
+              ))}
           </div>
         ))}
       </div>
 
-      {!(isExpanded || isExpandedByFewElements || isTestimonialsPage) && (
-        <div className='to-ui-white via-ui-white/80 from-ui-white/0 absolute bottom-0 left-0 z-20 h-[300px] w-full bg-gradient-to-b' />
+      {/* Gradient overlay for non-testimonials pages */}
+      {!isTestimonialsPage && (
+        <div className="to-ui-white via-ui-white/80 from-ui-white/0 absolute bottom-0 left-0 z-20 h-[300px] w-full bg-gradient-to-b" />
       )}
-      {!isExpandedByFewElements && !isTestimonialsPage && (
+
+      {/* Conditional button rendering */}
+      {isTestimonialsPage ? (
         <KitButton
-          extraProps={{ 'data-expanded': isExpanded }}
-          onClick={() => setIsExpanded(prev => !prev)}
-          className='absolute bottom-8 z-30 mx-auto data-[expanded=true]:static data-[expanded=true]:mt-8'
-          size='large'
-          variant='primary'
-          withAnimatedArrow={isExpanded ? 'to-top-right' : 'to-bottom-right'}
-          href='/testimonials'
-        >
-          More testimonials
-        </KitButton>
-      )}
-      {isTestimonialsPage && (
-        <KitButton
-          className='mt-[64px] mb-[169px]'
-          size='large'
-          variant='primary'
-          withAnimatedArrow='to-left'
+          className="mt-[64px] mb-[169px]"
+          size="large"
+          variant="primary"
+          withAnimatedArrow="to-left"
           useLeftArrow
-          href='/'
+          href="/"
         >
           Back to Home
+        </KitButton>
+      ) : (
+        <KitButton
+          className="absolute bottom-8 z-30 mx-auto"
+          size="large"
+          variant="primary"
+          withAnimatedArrow="to-bottom-right"
+          href="/testimonials"
+        >
+          More testimonials
         </KitButton>
       )}
     </section>

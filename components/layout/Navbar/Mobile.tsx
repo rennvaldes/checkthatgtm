@@ -111,9 +111,9 @@ function Mobile() {
                 Pricing
               </button>
             </li>
-            <li>
+            {/* <li>
               <Dropdown docs_url={docs_url} />
-            </li>
+            </li> */}
           </ul>
 
           <KitButton

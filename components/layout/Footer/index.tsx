@@ -5,7 +5,7 @@ import KitButton from '@/components/ui/KitButton';
 import LinksColumn from './LinksColumn';
 import React from 'react';
 
-const RIGHTS_TEXT = '©2024 GrowthX Labs. All rights reserved.';
+const RIGHTS_TEXT = `©${new Date().getFullYear()} GrowthX. All rights reserved.`;
 
 // Hardcoded data derived from your database or mock values
 const mainData = {

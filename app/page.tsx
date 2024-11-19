@@ -7,7 +7,7 @@ const ParallaxSection = dynamic(() => import('@/components/home-sections/Paralla
 import ResultsSection from '@/components/home-sections/ResultsSection';
 import WhoWeAreForSection from '@/components/home-sections/WhoWeAreForSection';
 import HowItWorksSection from '@/components/home-sections/HowItWorksSection';
-// import ReviewsSection from '@/components/home-sections/ReviewsSection';
+import ReviewsSection from '@/components/home-sections/ReviewsSection';
 import PricingSection from '@/components/home-sections/PricingSection';
 import BookSection from '@/components/home-sections/BookSection';
 import FaqSection from '@/components/home-sections/FaqSection';
@@ -25,7 +25,7 @@ export default function Home() {
       <ResultsSection />
       <WhoWeAreForSection />
       <HowItWorksSection />
-      {/* <ReviewsSection /> */}
+      <ReviewsSection />
       <PricingSection />
       <BookSection />
       <FaqSection />

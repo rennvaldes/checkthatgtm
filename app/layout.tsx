@@ -7,7 +7,7 @@ import { clashDisplay } from '@/assets/fonts';
 import '@/static/globals.css';
 
 export const metadata: Metadata = {
-  title: 'GrowthX Labs: AI-Powered Growth Agency',
+  title: 'GrowthX: AI-Powered Growth Strategy',
   description:
     'We help teams build end-to-end AI-powered, human-guided automated content workflows that actually drive growth. We have tons of results to back it up!',
   icons: {
