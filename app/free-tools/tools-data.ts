@@ -1,8 +1,20 @@
+import {
+  DocumentTextIcon,
+  FilmIcon,
+  MagnifyingGlassIcon
+} from '@heroicons/react/24/outline';
+
+export const heroIcons = {
+  'text': DocumentTextIcon,
+  'camera-movie': FilmIcon,
+  'sparkles': MagnifyingGlassIcon,
+} as const;
+
 export interface Tool {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon: keyof typeof heroIcons;
   videoUrl?: string;
   iframeUrl?: string;
 }

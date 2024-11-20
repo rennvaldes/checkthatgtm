@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 import ChevronThin from '@/components/icons/ChevronThin';
 import KitButton from '@/components/ui/KitButton';
@@ -58,7 +59,9 @@ function Desktop() {
     <nav
       aria-hidden={!isVisible}
       className='bg-ui-white fixed z-[100] flex w-screen items-center justify-between bg-opacity-[80%] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]'>
-      <Logo />
+      <Link href="/">
+        <Logo />
+      </Link>
 
       <ul className='flex items-center justify-center'>
         <li>

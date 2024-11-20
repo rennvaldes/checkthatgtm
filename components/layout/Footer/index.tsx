@@ -46,8 +46,8 @@ function Footer() {
                 { to: '/', scrollTo: 'reviews-section', text: 'Reviews' },
                 { to: '/', scrollTo: 'pricing-section', text: 'Pricing' },
                 { to: '/free-tools', text: 'Free Tools', sameBrowserTab: true },
-                { to: '/blog', text: 'Blog', sameBrowserTab: true },
-                { to: DOCS_URL, text: 'Docs', isExternal: true },
+                // { to: '/blog', text: 'Blog', sameBrowserTab: true },
+                // { to: DOCS_URL, text: 'Docs', isExternal: true },
               ]}
             />
             <LinksColumn
@@ -64,12 +64,12 @@ function Footer() {
         <div className='mt-[80px] flex flex-col justify-between lg:mt-[160px] lg:flex-row lg:items-center'>
           <Logo className='h-[24px] w-[136px]' />
           <div className='mt-[32px] flex gap-[20px] leading-[20px] lg:mt-0 lg:gap-[40px]'>
-            <KitButton size='custom' variant='ghost' className='hover:underline' href='/privacy-policy'>
+            {/* <KitButton size='custom' variant='ghost' className='hover:underline' href='/privacy-policy'>
               Privacy Policy
             </KitButton>
             <KitButton size='custom' variant='ghost' className='hover:underline' href='/terms-of-service'>
               Terms of Service
-            </KitButton>
+            </KitButton> */}
             <p className='hidden lg:block'>{RIGHTS_TEXT}</p>
           </div>
           <p className='mt-[20px] lg:hidden'>{RIGHTS_TEXT}</p>

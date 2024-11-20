@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { TOOLS } from './tools-data';
+import { TOOLS, heroIcons } from './tools-data';
+import React from 'react';
 
 export default function FreeTools() {
   return (
@@ -16,6 +17,11 @@ export default function FreeTools() {
               className="block group"
             >
               <div className="bg-white rounded-lg shadow-lg p-6 h-full transition-transform duration-200 group-hover:-translate-y-1">
+                <div className="mb-4">
+                  {React.createElement(heroIcons[tool.icon], {
+                    className: "h-8 w-8 text-gray-600"
+                  })}
+                </div>
                 <h2 className="text-2xl font-semibold mb-3">{tool.title}</h2>
                 <p className="text-gray-600">{tool.description}</p>
               </div>
