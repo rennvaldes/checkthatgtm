@@ -14,7 +14,7 @@ function HowItWorksSection() {
       {
         step_number: 1,
         title: 'Content Strategy & Research',
-        description: 'Every client is assigned a growth strategist with a proven track record...',
+        description: 'Every client is assigned a growth strategist with a proven track record.',
         image: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/1_ba71ab2212.png', // Replace with your actual image paths
       },
       {
