@@ -8,7 +8,7 @@ function LinksColumn({
 }: {
   isLoading?: boolean;
   title: string;
-  links: { isExternal?: boolean; sameBrowserTab?: boolean; to: string; text: string }[];
+  links: { isExternal?: boolean; sameBrowserTab?: boolean; to: string; text: string; scrollTo?: string }[];
 }) {
   return isLoading ? (
     <Skeleton className='h-[200px] w-[160px]' />
@@ -17,7 +17,7 @@ function LinksColumn({
       <h4 className='text-[16px] font-[600]'>{title}</h4>
 
       <div className='mt-[24px] flex flex-col items-start gap-[12px]'>
-        {links.map(({ to, text, isExternal, sameBrowserTab }, index) =>
+        {links.map(({ to, text, isExternal, sameBrowserTab, scrollTo }, index) =>
           isExternal ? (
             <KitButton
               withAnimatedArrow='to-top-right'
@@ -32,7 +32,13 @@ function LinksColumn({
               {text}
             </KitButton>
           ) : (
-            <KitButton className='hover:underline' scrollTo={to} variant='ghost' size='custom' key={index}>
+            <KitButton
+              className='hover:underline'
+              href={scrollTo ? undefined : to}
+              scrollTo={scrollTo}
+              variant='ghost'
+              size='custom'
+              key={index}>
               {text}
             </KitButton>
           )
