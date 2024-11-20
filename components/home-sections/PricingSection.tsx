@@ -14,8 +14,6 @@ function PricingSection() {
         title: 'Content Workstream',
         description: 'Boost strategy with Content Workstream. Automated workflows and analytics for better engagement.',
         monthly_price: 9000,
-        button_text: 'Talk to Strategist',
-        button_url: '/contact',
         benefits: [
           'Up to 50,000 words/month published',
           'Hands-on strategist with track record',
@@ -34,8 +32,6 @@ function PricingSection() {
         title: 'pSEO Workstream',
         description: 'Boost strategy with Content Workstream. Automated workflows and analytics for better engagement.',
         monthly_price: 9000,
-        button_text: 'Talk to Strategist',
-        button_url: '/contact',
         benefits: [
           'Up to 1,200 pages per year',
           'Hands-on strategist with track record',
@@ -54,8 +50,6 @@ function PricingSection() {
         title: 'Custom Workstream',
         description: 'Unlock potential with Custom Workstream. Personalized strategies and dedicated support.',
         monthly_price: null,
-        button_text: 'Talk to Strategist',
-        button_url: '/contact',
         benefits: [
           'AI-powered outbound',
           'Lifecycle & email marketing',
@@ -119,11 +113,11 @@ function PricingSection() {
 
               <div className='mt-[32px] flex lg:mt-[52px]'>
                 <KitButton
-                  href={planData.button_url}
+                  scrollTo='book-section'
                   className='bg-ui-whitest text-ui-black hover:bg-ui-blue hover:text-ui-whitest focus:bg-ui-blue focus:text-ui-whitest w-full rounded-full font-medium transition-colors duration-300'
                   size='large'
                   variant='ghost'>
-                  {planData.button_text}
+                  Talk to a Strategist
                 </KitButton>
               </div>
 
