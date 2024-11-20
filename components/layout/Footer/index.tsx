@@ -22,7 +22,11 @@ const DOCS_URL = 'https://growthxlabs.com/docs';
 
 function Footer() {
   return (
-    <footer id='footer' className='font-elza bg-ui-veige pb-[64px] pt-[52px] lg:pb-[64px] lg:pt-[64px]'>
+    <footer
+      id='footer'
+      className='font-elza bg-ui-veige pb-[64px] pt-[52px] lg:pb-[64px] lg:pt-[64px] relative z-[1]'
+      onClick={() => {}}
+    >
       <div className='mx-auto w-[320px] overflow-hidden lg:w-full lg:max-w-[1280px]'>
         <div className='flex flex-col justify-between lg:flex-row'>
           <div>
