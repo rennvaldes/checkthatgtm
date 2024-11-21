@@ -11,7 +11,7 @@ export const strapiAPI = createApiInstance({
     if (!STRAPI_DEV_TOKEN) return api;
 
     api.interceptors.request.use(config => {
-      config.headers['Authorization'] = `bearer ${STRAPI_DEV_TOKEN}`;
+      config.headers['Authorization'] = `Bearer ${STRAPI_DEV_TOKEN}`;
       return config;
     });
 

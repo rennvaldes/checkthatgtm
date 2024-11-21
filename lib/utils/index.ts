@@ -25,16 +25,15 @@ export function divide<T>(array: Array<T>, divisions: number) {
 
 export function getCardFromStrapiRawData(rawCardData: any) {
   if (!rawCardData) return {};
+  const { id, ...attributes } = rawCardData;
 
-  const { id, attributes } = rawCardData;
-
-  const category = attributes.category.data.attributes.name;
-  const imageData = attributes.image.data.attributes;
-  const publisher_avatar = attributes.publisher_avatar.data.attributes;
+  const category = attributes.category.name;
+  const imageData = attributes.image;
+  const publisher_avatar = attributes.publisher_avatar;
 
   let related_articles;
   if (attributes.related_articles) {
-    const relatedArticlesRawData = attributes.related_articles.data;
+    const relatedArticlesRawData = attributes.related_articles;
     related_articles = relatedArticlesRawData.map(getCardFromStrapiRawData);
   }
 

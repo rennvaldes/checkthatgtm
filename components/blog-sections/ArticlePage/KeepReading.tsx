@@ -5,6 +5,8 @@ import { CardData } from '@/static/types';
 import { chunk } from 'lodash';
 
 function KeepReading({ relatedArticles }: { relatedArticles: CardData[] }) {
+  if (!relatedArticles?.length) return null;
+
   return (
     <>
       <div className='border-ui-black w-full border-t-[1px]' />

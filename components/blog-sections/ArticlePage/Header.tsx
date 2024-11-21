@@ -78,6 +78,7 @@ function Twitter() {
 
 function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) {
   const { category, title, publisher_name, publisher_avatar, publisher_legend } = data;
+  const categoryName = category?.name || category;
 
   const { data: rawData, isLoading: isGeneralDataLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-data-hero',
@@ -100,7 +101,7 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
         <Skeleton className='bg-ui-black/50 mt-[32px] h-[28px] w-[112px] rounded-full lg:mt-[40px]' />
       ) : (
         <div className='mt-[32px] rounded-full bg-[#DEDEF0] px-[12px] py-[8px] text-[12px] font-medium lg:mt-[40px]'>
-          {category}
+          {categoryName}
         </div>
       )}
       {isLoading ? (

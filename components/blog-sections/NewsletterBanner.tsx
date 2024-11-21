@@ -89,6 +89,8 @@ function Decoration() {
 }
 
 function NewsletterBanner({ className }: { className?: string }) {
+  return (<></>);
+
   const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-data-newsletter',
     getFn: () => getMainDataAndArticles(),

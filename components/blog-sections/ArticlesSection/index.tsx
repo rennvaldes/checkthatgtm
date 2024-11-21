@@ -41,11 +41,11 @@ function ArticlesSection() {
 
   const articles = React.useMemo(() => {
     if (!rawData) return [];
-    return rawData.data.attributes.articles.data.map(getCardFromStrapiRawData);
+    return rawData.data.articles.map(getCardFromStrapiRawData);
   }, [rawData]);
 
   const categories = React.useMemo(
-    () => rawCategoriesData?.data.map(({ attributes }: any) => attributes.name) ?? [],
+    () => rawCategoriesData?.data.map(({ name }: { name: string }) => name) ?? [],
     [rawCategoriesData]
   );
 
@@ -85,13 +85,13 @@ function ArticlesSection() {
           <p className='mr-[20px] hidden flex-shrink-0 text-[14px] font-medium lg:block'>Filter by</p>
           {(areCategoriesLoading ? ['1', '2', '3', '4', '5'] : ['all', ...categories]).map((filter: string) =>
             areCategoriesLoading ? (
-              <Skeleton key={filter} className='h-[40px] w-[90px] rounded-full' />
+              <Skeleton key={filter} className='mr-[8px] h-[40px] w-[90px] rounded-full' />
             ) : (
               <button
                 onClick={() => setSelectedFilter(filter)}
                 key={filter}
                 aria-selected={filter == selectedFilter}
-                className='aria-selected:bg-ui-black transition-color focus:bg-ui-black focus:text-ui-whitest hover:bg-ui-black hover:text-ui-whitest aria-selected:text-ui-whitest group flex h-[40px] items-center rounded-full bg-[#DEDEF0] px-[16px] py-[12px] text-[14px] font-medium duration-300 aria-selected:gap-[8px]'>
+                className='mr-[8px] aria-selected:bg-ui-black transition-color focus:bg-ui-black focus:text-ui-whitest hover:bg-ui-black hover:text-ui-whitest aria-selected:text-ui-whitest group flex h-[40px] items-center rounded-full bg-[#DEDEF0] px-[16px] py-[12px] text-[14px] font-medium duration-300 aria-selected:gap-[8px]'>
                 <Check className='w-0 transition-all duration-300 group-aria-selected:w-[16px] group-aria-selected:flex-shrink-0' />
                 {capitalize(filter)}
               </button>

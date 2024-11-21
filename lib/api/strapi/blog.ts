@@ -41,29 +41,11 @@ export async function getMainDataAndArticles({
   });
 }
 
-export async function getArticle(id: number) {
-  return await getWithQsParams('/blog-articles', {
-    filters: {
-      id: {
-        $eq: [id],
-      },
-    },
-    populate: {
-      image: true,
-      publisher_avatar: true,
-      category: true,
-      content: true,
-      related_articles: {
-        populate: {
-          image: true,
-          publisher_avatar: true,
-          category: true,
-        },
-      },
-    },
-  });
+export async function getArticle(id: string) {
+  const data = await getWithQsParams(`/articles/${id}`, { populate: "*" });
+  return data;
 }
 
 export async function getArticleCategories() {
-  return await getWithQsParams('/blog-article-categories');
+  return await getWithQsParams('/categories');
 }

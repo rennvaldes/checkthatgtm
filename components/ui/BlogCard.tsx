@@ -13,7 +13,7 @@ type Props = {
 
 function BlogCard({
   isLoading,
-  id,
+  documentId,
   image,
   image_alt,
   category,
@@ -25,7 +25,7 @@ function BlogCard({
 }: CardData & Props) {
   return (
     <article className={cn('group relative z-20 mt-[52px] cursor-pointer', className)}>
-      <Link href={`/blog/${id}/${slug(title)}`} className='block'>
+      <Link href={`/blog/${documentId}/${slug(title)}`} className='block'>
         {isLoading ? (
           <Skeleton className='h-[184px] w-full rounded-none lg:h-[236px]' />
         ) : (

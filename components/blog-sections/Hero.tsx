@@ -37,9 +37,9 @@ function BlogHero() {
 
   const { title, sub_title, main_article, id } = React.useMemo(() => {
     if (!rawData) return {};
-
-    const { title, sub_title, main_article: rawMainArticleData } = rawData.data.attributes;
-    const main_article = getCardFromStrapiRawData(rawMainArticleData.data);
+    console.log(rawData);
+    const { title, sub_title, main_article: rawMainArticleData } = rawData.data;
+    const main_article = getCardFromStrapiRawData(rawMainArticleData);
 
     return { main_article, title, sub_title, id: rawData.data.id };
   }, [rawData]);

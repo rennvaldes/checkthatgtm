@@ -102,10 +102,12 @@ function PortableNewsletterBanner({ className }: { className?: string }) {
 
   const newsletter_banner_title = React.useMemo(() => {
     if (!rawData) return {};
-    return rawData.data.attributes.newsletter_banner_title;
+    return rawData.data.newsletter_banner_title;
   }, [rawData]);
 
   const generalData = React.useMemo(() => generalDataRaw?.data.attributes || {}, [generalDataRaw]);
+  // TODO: Disabling newsletter banner for now
+  return (<></>)
 
   return (
     <div className={cn('bg-ui-green-light relative w-[327px] overflow-hidden px-[25px] pt-[20px]', className)}>

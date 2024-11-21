@@ -11,14 +11,14 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 
 export default function ArticlePage() {
-  const articleId = +usePathname().split('/')[2];
+  const articleId = usePathname().split('/')[2];
 
   const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-article-data',
     getFn: () => getArticle(articleId),
   });
 
-  const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data[0]) : {}), [rawData]);
+  const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data) : {}), [rawData]);
 
   return (
     <main className='relative flex min-h-screen flex-col items-center justify-between pt-20 lg:pt-28'>

@@ -4,6 +4,7 @@ export type IconProps = {
 };
 
 export type CardData = {
+  documentId: string;
   id: number;
   image: string;
   image_alt: string;
