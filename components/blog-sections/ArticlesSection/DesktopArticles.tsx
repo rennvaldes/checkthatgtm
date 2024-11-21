@@ -29,7 +29,7 @@ function DesktopArticles({ cardsData, isLoading }: Props) {
         {firstRows.map((row, rowIndex) => (
           <div key={rowIndex} className='flex justify-between'>
             {row.map(card => (
-              <BlogCard isLoading={isLoading} key={card.id} className='!mt-0 w-[405px]' {...card} />
+              <BlogCard isLoading={isLoading} key={card.documentId} className='!mt-0 w-[405px]' {...card} />
             ))}
           </div>
         ))}
@@ -41,7 +41,7 @@ function DesktopArticles({ cardsData, isLoading }: Props) {
         {restRows.map((row, rowIndex) => (
           <div key={rowIndex + firstRows.length} className='flex justify-between'>
             {row.map(card => (
-              <BlogCard isLoading={isLoading} key={card.id} className='!mt-0 w-[405px]' {...card} />
+              <BlogCard isLoading={isLoading} key={card.documentId} className='!mt-0 w-[405px]' {...card} />
             ))}
           </div>
         ))}

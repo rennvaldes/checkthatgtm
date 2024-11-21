@@ -49,6 +49,7 @@ export function getCardFromStrapiRawData(rawCardData: any) {
 
 export function getPlaceholderCards(amount: number) {
   return Array.from({ length: amount }).map((_, index) => ({
+    documentId: `${index + 1}`,
     id: index + 1,
     image: 'https://i.ytimg.com/vi/LPe56fezmoo/maxresdefault.jpg',
     image_alt: 'placeholder',

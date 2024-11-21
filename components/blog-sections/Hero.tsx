@@ -35,13 +35,13 @@ function BlogHero() {
 
   const { isDesktop } = useResponsiveDevice();
 
-  const { title, sub_title, main_article, id } = React.useMemo(() => {
+  const { title, sub_title, main_article, documentId } = React.useMemo(() => {
     if (!rawData) return {};
-    console.log(rawData);
     const { title, sub_title, main_article: rawMainArticleData } = rawData.data;
     const main_article = getCardFromStrapiRawData(rawMainArticleData);
+    const documentId = rawMainArticleData.documentId;
 
-    return { main_article, title, sub_title, id: rawData.data.id };
+    return { main_article, title, sub_title, documentId };
   }, [rawData]);
 
   return (
@@ -64,7 +64,7 @@ function BlogHero() {
       <article className='cursor-pointe group relative z-20 mt-[52px] lg:mt-[64px]'>
         <SemicircleDeco />
 
-        <Link href={`/blog/${id}/${slug(main_article?.title ?? '')}`} className='flex flex-col lg:flex-row'>
+        <Link href={`/blog/${documentId}/${slug(main_article?.title ?? '')}`} className='flex flex-col lg:flex-row'>
           {isLoading ? (
             <Skeleton className='h-[184px] w-full rounded-none lg:h-[440px] lg:w-[765px] lg:flex-shrink-0' />
           ) : (
