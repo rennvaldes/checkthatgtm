@@ -44,8 +44,8 @@ export function getCardFromStrapiRawData(rawCardData: any) {
     if (imageObj.url.startsWith('http')) {
       return imageObj.url;
     }
-    // Otherwise, prepend the base URL for local development
-    return STRAPI_IS_LOCAL_ENV ? `${STRAPI_BASE_URL}${imageObj.url}` : imageObj.url;
+    // Only prepend base URL for relative paths
+    return `${STRAPI_BASE_URL}${imageObj.url}`;
   };
 
   return {
