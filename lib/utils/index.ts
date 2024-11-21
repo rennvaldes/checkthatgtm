@@ -37,12 +37,23 @@ export function getCardFromStrapiRawData(rawCardData: any) {
     related_articles = relatedArticlesRawData.map(getCardFromStrapiRawData);
   }
 
+  // Handle URLs properly based on environment
+  const getImageUrl = (imageObj: any) => {
+    if (!imageObj?.url) return '';
+    // If it's already a full URL (starts with http/https), use it as is
+    if (imageObj.url.startsWith('http')) {
+      return imageObj.url;
+    }
+    // Otherwise, prepend the base URL for local development
+    return STRAPI_IS_LOCAL_ENV ? `${STRAPI_BASE_URL}${imageObj.url}` : imageObj.url;
+  };
+
   return {
     ...attributes,
     id,
     category,
-    image: STRAPI_IS_LOCAL_ENV ? `${STRAPI_BASE_URL}${imageData.url}` : imageData.url,
-    publisher_avatar: STRAPI_IS_LOCAL_ENV ? `${STRAPI_BASE_URL}${publisher_avatar.url}` : publisher_avatar.url,
+    image: getImageUrl(imageData),
+    publisher_avatar: getImageUrl(publisher_avatar),
     related_articles,
   };
 }
