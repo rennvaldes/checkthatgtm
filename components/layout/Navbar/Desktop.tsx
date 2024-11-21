@@ -84,11 +84,14 @@ function Desktop() {
             Pricing
           </KitButton>
         </li>
-        {/* Temporarily removed Resources dropdown
         <li>
-          <Dropdown docs_url={docs_url} />
+          <KitButton sameBrowserTab href='/blog' variant='secondary' size='medium'>
+            Blog
+          </KitButton>
         </li>
-        */}
+        {/* <li>
+          <Dropdown docs_url={docs_url} />
+        </li> */}
       </ul>
       <KitButton scrollTo='book-section' variant='outline' size='medium'>
         Book a call

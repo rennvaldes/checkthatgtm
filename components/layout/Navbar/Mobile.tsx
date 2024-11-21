@@ -111,6 +111,16 @@ function Mobile() {
                 Pricing
               </button>
             </li>
+            <li>
+              <KitButton
+                href='/blog'
+                sameBrowserTab
+                variant='ghost'
+                size='custom'
+                className={OPTION_STYLES}>
+                Blog
+              </KitButton>
+            </li>
             {/* <li>
               <Dropdown docs_url={docs_url} />
             </li> */}

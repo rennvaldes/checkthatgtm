@@ -46,7 +46,7 @@ function Footer() {
                 { to: '/', scrollTo: 'reviews-section', text: 'Reviews' },
                 { to: '/', scrollTo: 'pricing-section', text: 'Pricing' },
                 { to: '/free-tools', text: 'Free Tools', sameBrowserTab: true },
-                // { to: '/blog', text: 'Blog', sameBrowserTab: true },
+                { to: '/blog', text: 'Blog', sameBrowserTab: true },
                 // { to: DOCS_URL, text: 'Docs', isExternal: true },
               ]}
             />

@@ -38,6 +38,7 @@ function LinksColumn({
               scrollTo={scrollTo}
               variant='ghost'
               size='custom'
+              sameBrowserTab={sameBrowserTab}
               key={index}>
               {text}
             </KitButton>
