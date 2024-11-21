@@ -4,8 +4,8 @@ services:
     runtime: node
     plan: starter
     buildCommand: |
-      NODE_ENV=production npm install --include=dev
-      NODE_ENV=production npm run build
+      NODE_ENV=production GENERATE_SOURCEMAP=true npm install --include=dev
+      NODE_ENV=production GENERATE_SOURCEMAP=true npm run build
     startCommand: npm run start
     envVars:
       - key: NODE_ENV
