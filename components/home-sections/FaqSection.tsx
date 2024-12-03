@@ -55,19 +55,19 @@ function FaqSection() {
             <p>In Week 2, we perform initial research to identify AI-powered content opportunities, develop a playbook for AI workflows, and start building the Content Workflow Management system.</p>
           </FaqItem>
 
-          <FaqItem title="What is the process for workflow and content calibration?">
+          <FaqItem title={'What is the process for workflow and content calibration?'}>
             <p>Weeks 3 and 4 involve further development and refinement of AI workflows (AirOps) and the Content Workflow Management system (usually Airtable) based on feedback.</p>
           </FaqItem>
 
-          <FaqItem title="When does content production begin?">
+          <FaqItem title={'When does content production begin?'}>
             <p>Usually by week 5, we ramp up content production and collect feedback on the initial batches of content produced. Our goal is to always get to publishing as quickly as possible to start showing results.</p>
           </FaqItem>
 
-          <FaqItem title="How is content quality assured before publishing?">
+          <FaqItem title={'How is content quality assured before publishing?'}>
             <p>First, we use the first 6 weeks to set the right strategy and calibrate on what great quality looks like for you. We then build multiple custom AI workflows to deliver that quality programmatically and add in several human input and review steps. Finally, we use dozens of tools and standard processes to do a final QA and review of each piece of content before publishing.</p>
           </FaqItem>
 
-          <FaqItem title="Who would be the GrowthX team member dedicated for the day-to-day?">
+          <FaqItem title={'Who would be the GrowthX team member dedicated for the day-to-day?'}>
             <p>Every customer is assigned a fully dedicated content operations lead with a strong background in SEO and writing. This person has advanced verbal and written English proficiency.</p>
             <p>Everyone on our team goes through 300+ hours of intensive training on a variety of topics like:</p>
             <p>SEO, keyword research, backlinking<br/>
@@ -79,7 +79,7 @@ function FaqSection() {
             <p>On top of that, every customer assigned an experienced strategist with a proven track record. This person will be guiding the strategy and execution every step of the way and will be heavily involved especially in the first six weeks.</p>
           </FaqItem>
 
-          <FaqItem title="How KPIs should we measure? What would you consider success?">
+          <FaqItem title={'How KPIs should we measure? What would you consider success?'}>
             <p>Our ultimate goal is to drive real revenue for your business but we understand you often have to build distribution before conversion and monetization.</p>
             <p>Our approach emphasizes a strong focus on controllable inputs rather than outputs. This philosophy is rooted in the belief that by optimizing the factors we can control, the desired outcomes will naturally follow over time.</p>
             <p>Here's how we think about it but we are open to adapting to what works best for you.</p>
