@@ -36,7 +36,7 @@ function FaqSection() {
 
       <div className='lg:mt-[64px] justify-center lg:flex'>
         <div className='flex flex-col lg:w-[820px]'>
-          <FaqItem title="What services does GrowthX offer?">
+          <FaqItem title={'What services does GrowthX offer?'}>
             <p>After the initial content launch our goal is to aggressively refine, iterate, and scale content production based on ongoing feedback. The exact volume depends on your goals and the strategy we align on. We usually recommend a mix of creating new pages and constantly refreshing existing one.</p>
             <p>Below is a sample content ramp up plan.</p>
 
@@ -47,11 +47,11 @@ function FaqSection() {
             />
           </FaqItem>
 
-          <FaqItem title="What happens during the onboarding and discovery phase?">
+          <FaqItem title={'What happens during the onboarding and discovery phase?'}>
             <p>In Week 1, we conduct a kick-off call to introduce teams and discuss project goals. We also engage in discovery sessions to go deeper in understanding your company, product, use cases, ideal customer profile (ICP), current strategy, etc. Finally we align on expectations and how to measure success.</p>
           </FaqItem>
 
-          <FaqItem title="How do you start the project after onboarding?">
+          <FaqItem title={'How do you start the project after onboarding?'}>
             <p>In Week 2, we perform initial research to identify AI-powered content opportunities, develop a playbook for AI workflows, and start building the Content Workflow Management system.</p>
           </FaqItem>
 
