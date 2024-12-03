@@ -13,13 +13,13 @@ function TitleAndButtons() {
     <>
       {/* Static Title */}
       <h1 className='font-clash-display mx-auto w-[300px] text-center text-[36px] font-medium leading-[40px] lg:w-auto lg:text-[70px] lg:leading-[77px]'>
-      Expert-Led, AI-Powered&nbsp;
+      Expert-Led,<br/> AI-Powered&nbsp;
         <span className='font-kepler-std text-ui-blue text-[42px] italic lg:text-[80px]'>Growth</span>
       </h1>
 
       {/* Static Subtitle */}
-      <h2 className='font-elza mx-auto mt-[8px] w-[320px] text-center text-[16px] font-normal leading-[24px] text-[#5F5D78] lg:mt-[4px] lg:w-auto lg:text-[20px] lg:leading-[26px] lg:text-[#20233A]'>
-        We build growth engines that blend AI workflows with experts. From content to distribution to conversion.
+      <h2 className='font-elza mx-auto mt-[8px] w-[320px] text-center text-[16px] font-normal leading-[24px] text-[#5F5D78] lg:mt-[4px] lg:mb-[10px] lg:w-auto lg:text-[20px] lg:leading-[26px] lg:text-[#20233A]'>
+        We build growth engines that blend AI workflows with experts.<br/> From content to distribution to conversion.
       </h2>
 
       {/* Buttons */}

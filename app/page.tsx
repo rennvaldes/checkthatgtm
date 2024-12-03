@@ -21,7 +21,7 @@ export default function Home() {
     <main className='relative flex min-h-screen flex-col items-center justify-between'>
       <HeroSection />
       <HelpedGrowSection />
-      <HeroVideoSection />
+      {/* <HeroVideoSection /> */}
       <ParallaxSection />
       <ResultsSection />
       {/* <WhoWeAreForSection /> */}
