@@ -12,6 +12,7 @@ import PricingSection from '@/components/home-sections/PricingSection';
 import BookSection from '@/components/home-sections/BookSection';
 import FaqSection from '@/components/home-sections/FaqSection';
 import EarthSection from '@/components/home-sections/EarthSection';
+import ServiceAsSoftware from '@/components/home-sections/ServiceAsSoftware';
 
 import dynamic from 'next/dynamic';
 
@@ -23,7 +24,8 @@ export default function Home() {
       <HeroVideoSection />
       <ParallaxSection />
       <ResultsSection />
-      <WhoWeAreForSection />
+      {/* <WhoWeAreForSection /> */}
+      <ServiceAsSoftware />
       <HowItWorksSection />
       <ReviewsSection />
       <PricingSection />

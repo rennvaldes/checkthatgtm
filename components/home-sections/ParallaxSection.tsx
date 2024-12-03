@@ -62,13 +62,12 @@ function ParallaxSection() {
     <section id='parallax-section' className='relative z-20 mx-auto h-[1396px] w-[360px] lg:h-[1978px] lg:w-[1250px]'>
       {/* Sticky Background Text */}
       <h2 className='sticky top-0 mx-auto mt-[-200px] w-[320px] pb-[100px] pt-[290px] text-center text-[36px] font-medium leading-[40px] lg:mt-[-140px] lg:w-auto lg:pt-[310px] lg:text-[70px] lg:leading-[77px]'>
-        {backgroundText.line1}
+        AI falls short.
         <br />
-        {backgroundText.line2}{' '}
-        <span className='font-kepler-std text-ui-blue text-[42px] italic lg:mr-0 lg:text-[80px]'>
-          {backgroundText.line2Colored}
-        </span>
-        <br className='hidden lg:block' /> {backgroundText.line3}
+        Experts don’t scale.<br/> Together:&nbsp;<br/>
+        a <span className='font-kepler-std text-ui-blue text-[42px] italic lg:mr-0 lg:text-[80px]'>
+          growth flywheel
+        </span>.
       </h2>
 
       {/* Lottie Animations */}

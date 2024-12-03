@@ -75,7 +75,7 @@ const Accordion = ({ id, title, variant = 'outlined', isOpen = false, content, c
         className={cn(
           'max-h-0 overflow-hidden transition-all duration-600 ease-in',
           contentVariants[variant],
-          'peer-checked:max-h-[1000px] peer-checked:pb-4'
+          'peer-checked:max-h-[1500px] peer-checked:pb-4'
         )}
       >
         <div className='pb-4 overflow-hidden font-elza'>
