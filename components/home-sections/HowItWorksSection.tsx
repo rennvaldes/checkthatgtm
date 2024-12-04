@@ -63,7 +63,7 @@ function HowItWorksSection() {
         lastTimeout.current = setTimeout(() => onChangeStep(nextStepIndex), STEP_DURATION);
       }
     },
-    [isAutoPlaying]
+    [isAutoPlaying, staticData.steps.length]
   );
 
   const onResetStep = useCallback(

@@ -70,11 +70,11 @@ function FaqSection() {
           <FaqItem title={'Who would be the GrowthX team member dedicated for the day-to-day?'}>
             <p>Every customer is assigned a fully dedicated content operations lead with a strong background in SEO and writing. This person has advanced verbal and written English proficiency.</p>
             <p>Everyone on our team goes through 300+ hours of intensive training on a variety of topics like:</p>
-            <p>SEO, keyword research, backlinking<br/>
-            Tools training like Notion, Airtable, SEMRush, Ahref, etc<br/>
-            Prompt engineering<br/>
-            Building AI workflows in AirOps<br/>
-            Content marketing and strategy<br/>
+            <p>SEO, keyword research, backlinking<br />
+            Tools training like Notion, Airtable, SEMRush, Ahref, etc<br />
+            Prompt engineering<br />
+            Building AI workflows in AirOps<br />
+            Content marketing and strategy<br />
             Hands-on exercises to simulate day-to-day</p>
             <p>On top of that, every customer assigned an experienced strategist with a proven track record. This person will be guiding the strategy and execution every step of the way and will be heavily involved especially in the first six weeks.</p>
           </FaqItem>
@@ -82,19 +82,19 @@ function FaqSection() {
           <FaqItem title={'How KPIs should we measure? What would you consider success?'}>
             <p>Our ultimate goal is to drive real revenue for your business but we understand you often have to build distribution before conversion and monetization.</p>
             <p>Our approach emphasizes a strong focus on controllable inputs rather than outputs. This philosophy is rooted in the belief that by optimizing the factors we can control, the desired outcomes will naturally follow over time.</p>
-            <p>Here's how we think about it but we are open to adapting to what works best for you.</p>
+            <p>Here&apos;s how we think about it but we are open to adapting to what works best for you.</p>
 
             <p><strong>Phase 1 - Establish content production</strong></p>
-            <p>Here we want to make sure we have a clear content strategy and a way to scale it. In this phase we're looking at metrics like:</p>
+            <p>Here we want to make sure we have a clear content strategy and a way to scale it. In this phase we&apos;re looking at metrics like:</p>
             <ul className="list-disc pl-6 mb-6">
               <li>Articles published</li>
               <li>Total words published</li>
               <li>Pages indexed by search engines</li>
-              <li>Keywords ranked for (early signals that we're publishing the right thing)</li>
+              <li>Keywords ranked for (early signals that we&apos;re publishing the right thing)</li>
             </ul>
 
             <p><strong>Phase 2 - Content refinement, enrichment and refresh</strong></p>
-            <p>This is where we start to nurture existing content to continuously make them better. We want to send Google tons of signals that we're constantly improving our content.</p>
+            <p>This is where we start to nurture existing content to continuously make them better. We want to send Google tons of signals that we&apos;re constantly improving our content.</p>
             <ul className="list-disc pl-6 mb-6">
               <li>Organic search impressions</li>
               <li>Organic search traffic (clicks, visits)</li>
@@ -106,7 +106,7 @@ function FaqSection() {
             </ul>
 
             <p><strong>Phase 3 - Conversion to irresistible offers + nurture</strong></p>
-            <p>We like to think of this as your "front-end" offer. What is something of high value that can be a lead magnet and drive a ton of subscribers.</p>
+            <p>We like to think of this as your &quot;front-end&quot; offer. What is something of high value that can be a lead magnet and drive a ton of subscribers.</p>
             <ul className="list-disc pl-6 mb-6">
               <li>Visit → subscriber / lead</li>
               <li>Conversion by offer / by page / by topic</li>
@@ -115,7 +115,7 @@ function FaqSection() {
             </ul>
 
             <p><strong>Phase 4 - Monetization</strong></p>
-            <p>We like to think of this as your "back-end" offer. While the previous steps are helping to increase your sellable surface area, this step is about finding the best ways to convert them into paying customers.</p>
+            <p>We like to think of this as your &quot;back-end&quot; offer. While the previous steps are helping to increase your sellable surface area, this step is about finding the best ways to convert them into paying customers.</p>
             <ul className="list-disc pl-6 mb-6">
               <li>Lead → meeting (or product signup)</li>
               <li>Meeting → sales opp (or product activation)</li>
