@@ -3,6 +3,7 @@
 import KitButton from '@/components/ui/KitButton';
 import { cn } from '@/lib/litebox-lib/utils/cn';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 function TitleAndButtons() {
   // Static data
@@ -10,7 +11,11 @@ function TitleAndButtons() {
   const right_button = 'Talk to a strategist';
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       {/* Static Title */}
       <h1 className='font-clash-display mx-auto w-[300px] text-center text-[36px] font-medium leading-[40px] lg:w-auto lg:text-[70px] lg:leading-[77px]'>
       Expert-Led,<br/> AI-Powered&nbsp;
@@ -40,7 +45,7 @@ function TitleAndButtons() {
           {right_button}
         </KitButton>
       </div>
-    </>
+    </motion.div>
   );
 }
 
