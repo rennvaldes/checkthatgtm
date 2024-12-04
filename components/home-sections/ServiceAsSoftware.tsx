@@ -36,7 +36,7 @@ function ServiceAsSoftware() {
         ],
       },
       {
-        title: 'Service-as-Software',
+        title: 'GrowthX',
         description: 'AI-powered outcomes delivered through expert-guided workflows.',
         characteristics: [
           'Fully managed outcomes',
