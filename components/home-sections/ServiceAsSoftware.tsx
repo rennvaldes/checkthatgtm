@@ -62,7 +62,7 @@ function ServiceAsSoftware() {
       <div className='to-ui-black from-ui-black/0 absolute left-0 top-0 z-20 h-[420px] w-full bg-gradient-to-b lg:h-[460px]' />
 
       <h3 className='bg-ui-black relative z-30 w-[320px] text-center text-[20px] font-medium leading-[24px] lg:w-auto lg:max-w-[1280px] lg:text-[28px] lg:leading-[36px]'>
-        <div>Beyond SaaS & Agencies</div>
+        <div>Beyond SaaS or Agencies</div>
         <span className='font-kepler-std text-ui-green-light text-[32px] italic lg:text-[56px] lg:leading-[60px] block mt-2'>
           AI Service-as-Software
         </span>
