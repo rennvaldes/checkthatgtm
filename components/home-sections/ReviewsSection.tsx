@@ -158,6 +158,7 @@ function ReviewsSection() {
           withAnimatedArrow="to-left"
           useLeftArrow
           href="/"
+          sameBrowserTab={true}
         >
           Back to Home
         </KitButton>
@@ -168,6 +169,7 @@ function ReviewsSection() {
           variant="primary"
           withAnimatedArrow="to-bottom-right"
           href="/testimonials"
+          sameBrowserTab={true}
         >
           More testimonials
         </KitButton>

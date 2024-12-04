@@ -14,54 +14,62 @@ function HowItWorksSection() {
       {
         step_number: 1,
         title: 'Content Strategy & Research',
-        description: 'Every client is assigned a growth strategist with a proven track record.',
+        description: 'We begin by immersing ourselves in your company, industry, business objectives, and audience. This deep research lays the foundation for everything we do, ensuring every decision and strategy is data-driven and with the right context. The right foundation sets the stage for the right content strategy, distribution, and conversion down the line.',
         image: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/1_ba71ab2212.png', // Replace with your actual image paths
       },
       {
         step_number: 2,
         title: 'AI Workflow Adaptation + Content OS Setup',
-        description: 'We know exactly how to adapt workflows to your company and use case.',
+        description: 'Next, we deploy AI-powered workflows tailored to your needs. We establish a content engine designed to produce high-quality, resonant content at scale. Our experts guide the adaptation of workflows to your brand’s voice and objectives, making sure we balance speed with precision and leverage automation to drive efficiency.',
         image: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/2_af36c02e9c.png',
       },
       {
         step_number: 3,
         title: 'Content Calibration',
-        description: 'You get a fully dedicated growth lead who runs end-to-end AI workflow operations and handles any tedious groundwork to deliver results.',
+        description: 'Once the engine is running, we calibrate every piece of content, ensuring it aligns with your strategy. Then, we publish and optimize it for maximum reach. We focus on rapid iteration—analyzing results in real-time and making quick adjustments to capture opportunities and build early wins.',
         image: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/3_b42326d460.png',
       },
       {
         step_number: 4,
         title: 'Publish',
-        description: "Growth comes from trying things. That's why everything we do is to get you results fast and double down on what's working.",
+        description: "With content in place, we expand our efforts to include developing lead magnets, building social distribution channels, and growing newsletters to amplify reach and engagement. We convert audience attention into leads and opportunities by crafting targeted calls to action and optimizing content for conversion. Our approach ensures that we’re not just creating content, but also turning it into tangible growth by systematically capturing and nurturing audience interest.",
         image: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/4_1607d3bc80.png',
       },
       {
         step_number: 5,
         title: 'Scale, Refine, Test, Iterate, Optimize',
-        description: "Growth comes from trying things. That's why everything we do is to get you results fast and double down on what's working.",
+        description: "Growth is a continuous process. We constantly adapt by doubling down on what's working, refreshing content non-stop, and deploying new tactics quickly. By using data-driven insights, we ensure that every cycle of content creation and distribution builds on the last, driving sustained growth at scale.",
         image: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/5_7a64e11e1a.png',
       },
     ],
   };
 
   const [selectedStepIndex, setSelectedStepIndex] = useState(-1);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const lastTimeout = useRef<NodeJS.Timeout>();
 
   const onChangeStep = useCallback(
-    (newIndex: number) => {
+    (newIndex: number, isManualInteraction = false) => {
       if (lastTimeout.current) clearTimeout(lastTimeout.current);
       setSelectedStepIndex(newIndex);
 
-      const nextStepIndex = newIndex + 1 > staticData.steps.length - 1 ? 0 : newIndex + 1;
-      lastTimeout.current = setTimeout(() => onChangeStep(nextStepIndex), STEP_DURATION);
+      if (isManualInteraction) {
+        setIsAutoPlaying(false);
+        return;
+      }
+
+      if (isAutoPlaying) {
+        const nextStepIndex = newIndex + 1 > staticData.steps.length - 1 ? 0 : newIndex + 1;
+        lastTimeout.current = setTimeout(() => onChangeStep(nextStepIndex), STEP_DURATION);
+      }
     },
-    []
+    [isAutoPlaying]
   );
 
   const onResetStep = useCallback(
     (stepIndex: number) => {
       onChangeStep(-1);
-      setTimeout(() => onChangeStep(stepIndex), 10);
+      setTimeout(() => onChangeStep(stepIndex, true), 10);
     },
     [onChangeStep]
   );
@@ -85,13 +93,13 @@ function HowItWorksSection() {
             const isSelected = selectedStepIndex === index;
             return (
               <article
-                onKeyDown={(e) => e.key === 'Enter' && (isSelected ? onResetStep(index) : onChangeStep(index))}
-                onClick={() => (isSelected ? onResetStep(index) : onChangeStep(index))}
+                onKeyDown={(e) => e.key === 'Enter' && (isSelected ? onResetStep(index) : onChangeStep(index, true))}
+                onClick={() => (isSelected ? onResetStep(index) : onChangeStep(index, true))}
                 tabIndex={0}
                 role='button'
                 aria-hidden={!isSelected}
                 key={step.step_number}
-                className='group h-[150px] overflow-hidden transition-all duration-500 aria-hidden:h-[70px]'>
+                className='group overflow-hidden transition-all duration-500 aria-hidden:h-[70px]'>
                 <div className='flex gap-[32px]'>
                   <p
                     className={cn(
@@ -113,8 +121,12 @@ function HowItWorksSection() {
                 </div>
                 <div className='bg-ui-black/20 h-[2px] w-full'>
                   <div
-                    style={{ transitionDuration: isSelected ? `${STEP_DURATION}ms` : '0ms' }}
-                    className='bg-ui-blue h-full w-full transition-all ease-linear group-aria-hidden:w-0'
+                    style={{ transitionDuration: isAutoPlaying && isSelected ? `${STEP_DURATION}ms` : '0ms' }}
+                    className={cn(
+                      'bg-ui-blue h-full transition-all ease-linear',
+                      isAutoPlaying && isSelected ? 'w-full' : '',
+                      !isAutoPlaying && isSelected ? 'w-full' : 'w-0'
+                    )}
                   />
                 </div>
               </article>
