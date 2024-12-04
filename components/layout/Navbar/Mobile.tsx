@@ -65,8 +65,6 @@ function Mobile() {
     );
   }, []);
 
-  const docs_url = React.useMemo(() => rawData?.data.attributes.docs_url, [rawData]);
-
   return (
     <>
       <nav

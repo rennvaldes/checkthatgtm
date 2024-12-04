@@ -80,11 +80,14 @@ function ResultsSection() {
   }, [cards.length, carouselApi]);
 
   React.useEffect(() => {
-    const updateIsDesktop = () => setIsDesktop(window.innerWidth >= 1024); // 1024px is typical lg breakpoint
+    const updateIsDesktop = () => setIsDesktop(window.innerWidth >= 1024);
     updateIsDesktop();
     window.addEventListener('resize', updateIsDesktop);
     return () => window.removeEventListener('resize', updateIsDesktop);
   }, []);
+
+  // Add this to control slides per view
+  const slidesPerView = isDesktop ? 3 : 1.5;
 
   return (
     <motion.section
@@ -93,7 +96,7 @@ function ResultsSection() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
       id='results-section'
-      className='mx-auto flex w-[260px] flex-col items-center self-stretch overflow-hidden pt-12 lg:w-full lg:max-w-[1280px] lg:pt-20'>
+      className='mx-auto flex w-full max-w-[calc(100vw-32px)] flex-col items-center self-stretch overflow-hidden pt-12 lg:w-full lg:max-w-[1280px] lg:pt-20'>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -101,13 +104,13 @@ function ResultsSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
         className='flex w-full flex-col lg:flex-row lg:items-end lg:justify-between'>
-        <h3 className='w-[260px] text-[28px] font-[500] leading-[31px] lg:w-[600px] lg:text-[32px] lg:leading-[37px]'>
+        <h3 className='w-full text-[28px] font-[500] leading-[31px] lg:w-[600px] lg:text-[32px] lg:leading-[37px]'>
           Our{' '}
           <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[37px]'>results</span>{' '}
           speak for themselves
         </h3>
 
-        <div className='mt-[8px] flex h-[32px] justify-end gap-[8px] lg:h-[64px]'>
+        <div className='mt-[24px] flex justify-end gap-[8px]'>
           <KitButton
             variant='secondary'
             size='custom'
@@ -127,19 +130,23 @@ function ResultsSection() {
         </div>
       </motion.div>
 
-      <Carousel className='mt-[24px] w-full lg:mt-[64px] lg:max-w-[1440px]' setApi={setCarouselApi} opts={{
-        slidesToScroll: isDesktop ? 3 : 1,
-        startIndex: 0,
-      }}>
+      <Carousel
+        className='mt-[24px] w-full lg:mt-[64px] lg:max-w-[1440px]'
+        setApi={setCarouselApi}
+        opts={{
+          align: "start",
+          slidesToScroll: 1,
+          startIndex: 0,
+        }}>
         <CarouselContent className='-ml-4 lg:-ml-8'>
           {cards.map(({ name, logo, title, sub_title, redirect_to_url, link_title }, index) => (
-            <CarouselItem key={name} className='pl-4 lg:pl-8 lg:basis-1/3'>
+            <CarouselItem key={name} className='pl-4 lg:pl-8 basis-full lg:basis-1/3'>
               <motion.article
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                className='bg-ui-whitest flex h-[308px] w-[240px] flex-col justify-between border-[1px] border-[#ECECF6] p-[20px] lg:h-[434px] lg:w-full lg:p-[32px]'>
+                className='bg-ui-whitest flex h-[308px] w-full flex-col justify-between border-[1px] border-[#ECECF6] p-[20px] lg:h-[434px] lg:w-full lg:p-[32px]'>
                 <div>
                   <img alt={`${name} logo`} src={logo} style={{ height: '30px' }} />
                   <p className='font-clash-display mt-[24px] text-[40px] font-[600] leading-[38px] lg:mt-[40px] lg:text-[70px] lg:leading-[67px]'>

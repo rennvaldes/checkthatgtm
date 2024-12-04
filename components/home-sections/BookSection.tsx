@@ -82,9 +82,6 @@ function Clock() {
 }
 
 function BookSection() {
-  const isDesktop = true; // Set based on your static design requirements
-
-  // Static Data
   useEffect(() => {
     const head = document.querySelector('head');
     const script = document.createElement('script');
@@ -93,9 +90,15 @@ function BookSection() {
   }, []);
 
   return (
-    <section className='bg-ui-black text-ui-whitest relative flex w-full flex-col items-center overflow-visible pt-[39px] lg:pt-[100px]'>
-      {isDesktop ? <LineDecoDesktop /> : <LineDecoMobile />}
-      <div className='absolute top-0 h-full w-[320px] lg:w-[886px]'>
+    <section className='bg-ui-black text-ui-whitest relative flex w-full flex-col items-center overflow-visible overflow-x-hidden pt-[39px] lg:pt-[100px]'>
+      <div className='hidden lg:block'>
+        <LineDecoDesktop />
+      </div>
+      <div className='block lg:hidden'>
+        <LineDecoMobile />
+      </div>
+
+      <div className='absolute top-0 h-full w-full max-w-[320px] lg:max-w-[886px]'>
         <HalfCircleDeco />
       </div>
 
@@ -106,8 +109,8 @@ function BookSection() {
         <span className='font-kepler-std text-ui-peach text-[32px] italic lg:text-[60px]'>Call</span>
       </h3>
 
-      <div className='relative z-20 -mb-[165px] mt-[40px] flex flex-col bg-white lg:mt-[64px] lg:w-[866px] lg:flex-row'>
-        <div className='bg-ui-whitest text-ui-black relative z-20 flex w-[320px] flex-col items-center border-b-[1px] border-[#CBC8D9] px-[20px] py-[40px] lg:w-auto lg:items-start lg:border-b-0 lg:border-r-[1px] lg:p-[40px]'>
+      <div className='relative z-20 -mb-[165px] mt-[40px] flex w-full max-w-[320px] flex-col bg-white lg:mt-[64px] lg:max-w-[866px] lg:flex-row'>
+        <div className='bg-ui-whitest text-ui-black relative z-20 flex w-full flex-col items-center border-b-[1px] border-[#CBC8D9] px-[20px] py-[40px] lg:w-auto lg:items-start lg:border-b-0 lg:border-r-[1px] lg:p-[40px]'>
           <WhiteLogoX className='text-ui-blue' />
 
           <p className='font-elza mt-[20px] text-[16px] font-[600] leading-[21px] text-[#85889D]'>GrowthX</p>
@@ -125,24 +128,27 @@ function BookSection() {
           </h5>
         </div>
 
-        <div className='relative z-20 w-full overflow-scroll bg-white lg:w-[433px] lg:flex-shrink-0'>
+        <div className='relative z-20 w-full bg-white lg:w-[433px] lg:flex-shrink-0 overflow-hidden'>
           <div
-            className='calendly-inline-widget mx-auto w-full'
+            className='calendly-inline-widget mx-auto w-full h-[520px] max-w-[285px] lg:max-w-[413px]'
             data-url='https://calendly.com/growthxai/intro?hide_event_type_details=1&hide_gdpr_banner=1'
-            style={{ width: isDesktop ? 413 : 285, height: isDesktop ? 600 : 520 }}></div>
+          ></div>
         </div>
       </div>
 
       <div className='bg-ui-white relative flex h-[315px] w-full flex-col items-center'>
         <DotPatternBackground
           className='relative z-10 h-[315px]'
-          dotsSeparationPx={{ vertical: isDesktop ? 70 : 40, horizontal: isDesktop ? 70 : 40 }}
+          dotsSeparationPx={{
+            vertical: 50,
+            horizontal: 50
+          }}
           dotPatternTopPaddingPx={10}
           dotWidthPxIncreasePerRow={0}
         />
 
         <div className='to-ui-white from-ui-white/0 absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b' />
-        <div className='absolute top-0 z-10 h-full w-[360px] lg:w-[866px]'>
+        <div className='absolute top-0 z-10 h-full w-full max-w-[360px] lg:max-w-[866px]'>
           <CornerDeco className='text-ui-peach lg: absolute left-[6px] top-[128px] rotate-180 lg:-left-[31px] lg:top-[118px] lg:h-[82px] lg:w-[82px]' />
         </div>
       </div>

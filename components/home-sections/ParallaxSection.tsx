@@ -49,45 +49,52 @@ function ParallaxSection() {
     {
       animationData: lottieAnimation1,
       containerStyles:
-        'bg-ui-black/40 absolute left-[14px] w-[165px] h-[186px] lg:left-[275px] top-[292px] lg:top-[355px] flex lg:h-[350px] lg:w-[310px] items-center justify-center text-xl', // Reduced top value by 100px
+        'bg-ui-black/40 absolute left-[5%] w-[165px] h-[186px] lg:left-[22%] top-[292px] lg:top-[355px] flex lg:h-[350px] lg:w-[310px] items-center justify-center text-xl',
     },
     {
       animationData: lottieAnimation2,
       containerStyles:
-        'bg-ui-black/40 parallax-section-lottie-2 absolute w-[180px] h-[204px] right-[-15px] top-[676px] lg:right-0 lg:top-[848px] flex lg:h-[384px] lg:w-[340px] items-center justify-center text-xl', // Reduced top value by 100px
+        'bg-ui-black/40 parallax-section-lottie-2 absolute w-[180px] h-[204px] right-[5%] top-[676px] lg:right-[5%] lg:top-[848px] flex lg:h-[384px] lg:w-[340px] items-center justify-center text-xl',
     },
     {
       animationData: lottieAnimation3,
       containerStyles:
-        'bg-ui-black/40 parallax-section-lottie-3 absolute bottom-[395px] lg:bottom-[508px] left-[-9px] w-[135px] h-[152px] lg:left-0 flex lg:h-[284px] lg:w-[252px] items-center justify-center text-xl', // Increased bottom value by 100px
+        'bg-ui-black/40 parallax-section-lottie-3 absolute bottom-[395px] lg:bottom-[508px] left-[5%] w-[135px] h-[152px] lg:left-[5%] flex lg:h-[284px] lg:w-[252px] items-center justify-center text-xl',
     },
   ];
 
   return (
-    <section ref={sectionRef} id='parallax-section' className='relative z-20 mx-auto h-[1396px] w-[360px] lg:h-[1978px] lg:w-[1250px]'>
-      <h2 className='sticky top-0 mx-auto mt-[-200px] w-[320px] pb-[100px] pt-[290px] text-center font-medium lg:mt-[-140px] lg:w-auto lg:pt-[310px]'>
+    <section
+      ref={sectionRef}
+      id='parallax-section'
+      className='relative z-20 mx-auto min-h-[1396px] w-full max-w-[1250px] px-4 lg:min-h-[1978px]'
+    >
+      <h2 className='sticky top-0 mx-auto mt-[-200px] w-full max-w-[320px] pb-[100px] pt-[290px] text-center font-medium sm:w-[400px] lg:mt-[-140px] lg:w-auto lg:max-w-none lg:pt-[310px]'>
         <motion.div
           style={{ opacity: text1Opacity }}
-          className="will-change-opacity text-[36px] leading-[40px] lg:text-[70px] lg:leading-[77px]"
+          className="will-change-opacity mb-2 text-[32px] leading-[1.1] sm:text-[36px] lg:mb-4 lg:text-[70px] lg:leading-[77px]"
         >
           AI falls short.
         </motion.div>
 
         <motion.div
           style={{ opacity: text2Opacity }}
-          className="will-change-opacity text-[36px] leading-[40px] lg:text-[70px] lg:leading-[77px]"
+          className="will-change-opacity mb-2 text-[32px] leading-[1.1] sm:text-[36px] lg:mb-4 lg:text-[70px] lg:leading-[77px]"
         >
           Experts don&apos;t scale.
         </motion.div>
 
         <motion.div
           style={{ opacity: text3Opacity }}
-          className="will-change-opacity text-[36px] leading-[40px] lg:text-[70px] lg:leading-[77px]"
+          className="will-change-opacity text-[32px] leading-[1.1] sm:text-[36px] lg:text-[70px] lg:leading-[77px]"
         >
-          Together:&nbsp;
-          <span className='font-kepler-std text-ui-blue text-[42px] italic lg:mr-0 lg:text-[80px]'>
-            Growth
-          </span> Flywheel
+          <span className="block lg:inline">Together:</span>
+          <div className="inline-flex flex-wrap items-baseline mt-1 lg:mt-0 lg:inline">
+            <span className='font-kepler-std text-ui-blue text-[38px] italic sm:text-[42px] lg:text-[80px]'>
+              Growth
+            </span>
+            <span className="leading-none">&nbsp;Flywheel</span>
+          </div>
         </motion.div>
       </h2>
 

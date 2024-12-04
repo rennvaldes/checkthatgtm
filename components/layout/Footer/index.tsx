@@ -20,9 +20,11 @@ function Footer() {
         <div className='flex flex-col justify-between lg:flex-row'>
           <div>
             <h3 className='font-clash-display w-[300px] text-[44px] font-medium leading-[48px] lg:w-[730px] lg:text-[70px] lg:leading-[77px]'>
-              Get Started with<br/>
-              AI-Led <span className='font-kepler-std text-ui-blue text-[52px] italic lg:text-[80px]'>
-                Growth
+              <span className='max-w-[300px] lg:max-w-[730px] block'>
+                Get Started with AI-Led{' '}
+                <span className='font-kepler-std text-ui-blue text-[52px] italic lg:text-[80px]'>
+                  Growth
+                </span>
               </span>
             </h3>
             <div className='flex'>
