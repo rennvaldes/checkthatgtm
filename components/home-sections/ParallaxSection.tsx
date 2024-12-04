@@ -77,7 +77,7 @@ function ParallaxSection() {
           style={{ opacity: text2Opacity }}
           className="will-change-opacity text-[36px] leading-[40px] lg:text-[70px] lg:leading-[77px]"
         >
-          Experts don't scale.
+          Experts don&apos;t scale.
         </motion.div>
 
         <motion.div
