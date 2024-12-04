@@ -10,12 +10,12 @@ const nextConfig = {
   swcMinify: true,
   outputFileTracing: true,
 
-  // Add this section to handle the base URL
-  env: {
-    NEXT_PUBLIC_BASE_URL: `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}`,
-  },
+  // Add assetPrefix for production
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}`
+      : "",
 
-  // Keep your existing Strapi config if needed
   images: {
     remotePatterns: [
       {

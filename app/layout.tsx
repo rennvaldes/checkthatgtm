@@ -8,6 +8,11 @@ import { clashDisplay } from '@/assets/fonts';
 import '@/static/globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === 'production'
+      ? `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}`
+      : 'http://localhost:3555'
+  ),
   title: 'GrowthX: Expert-Led, AI‑Powered Growth',
   description:
     'We build growth engines that blend AI workflows with experts. From content to distribution to conversion.',
