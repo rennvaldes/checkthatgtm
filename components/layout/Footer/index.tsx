@@ -21,7 +21,7 @@ function Footer() {
           <div>
             <h3 className='font-clash-display w-[300px] text-[44px] font-medium leading-[48px] lg:w-[730px] lg:text-[70px] lg:leading-[77px]'>
               <span className='max-w-[300px] lg:max-w-[730px] block'>
-                Get Started with AI-Led{' '}
+                Get Started with <span className='whitespace-nowrap'>AI‑Led</span>{' '}
                 <span className='font-kepler-std text-ui-blue text-[52px] italic lg:text-[80px]'>
                   Growth
                 </span>
@@ -47,7 +47,7 @@ function Footer() {
                 { to: '/', scrollTo: 'reviews-section', text: 'Reviews' },
                 { to: '/', scrollTo: 'pricing-section', text: 'Pricing' },
                 { to: '/free-tools', text: 'Free Tools', sameBrowserTab: true },
-                { to: '/blog', text: 'Blog', sameBrowserTab: true },
+                // { to: '/blog', text: 'Blog', sameBrowserTab: true },
                 // { to: DOCS_URL, text: 'Docs', isExternal: true },
               ]}
             />
