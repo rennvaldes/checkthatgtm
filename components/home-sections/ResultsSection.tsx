@@ -88,12 +88,12 @@ function ResultsSection() {
   return (
     <section
       id='results-section'
-      className='mx-auto flex w-[260px] flex-col items-center self-stretch overflow-hidden pt-12 lg:w-full lg:max-w-[1280px] lg:pt-20 lg:pr-40'>
+      className='mx-auto flex w-[260px] flex-col items-center self-stretch overflow-hidden pt-12 lg:w-full lg:max-w-[1280px] lg:pt-20'>
       <div className='flex w-full flex-col lg:flex-row lg:items-end lg:justify-between'>
-        <h3 className='w-[260px] text-[28px] font-[500] leading-[31px] lg:w-[600px] lg:text-[52px] lg:leading-[57px]'>
-          {title.blackLeft}{' '}
-          <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[60px]'>{title.colored}</span>{' '}
-          {title.blackRight}
+        <h3 className='w-[260px] text-[28px] font-[500] leading-[31px] lg:w-[600px] lg:text-[32px] lg:leading-[37px]'>
+          Our{' '}
+          <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[37px]'>results</span>{' '}
+          speak for themselves
         </h3>
 
         <div className='mt-[8px] flex h-[32px] justify-end gap-[8px] lg:h-[64px]'>
