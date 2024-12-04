@@ -15,11 +15,21 @@ export const metadata: Metadata = {
     icon: 'icon.svg',
   },
   openGraph: {
-    images: ['/assets/img/social.png'],
+    images: [{
+      url: '/assets/img/social.png',
+      width: 1200,
+      height: 630,
+      alt: 'GrowthX: Expert-Led, AI-Powered Growth',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/assets/img/social.png'],
+    images: [{
+      url: '/assets/img/social.png',
+      width: 1200,
+      height: 630,
+      alt: 'GrowthX: Expert-Led, AI-Powered Growth',
+    }],
   },
 };
 
