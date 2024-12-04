@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/lib/shadcn/ui/carousel';
+import { motion } from 'framer-motion';
 
 import ArrowRight from '../icons/ArrowRight';
 import KitButton from '../ui/KitButton';
@@ -86,10 +87,20 @@ function ResultsSection() {
   }, []);
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6 }}
       id='results-section'
       className='mx-auto flex w-[260px] flex-col items-center self-stretch overflow-hidden pt-12 lg:w-full lg:max-w-[1280px] lg:pt-20'>
-      <div className='flex w-full flex-col lg:flex-row lg:items-end lg:justify-between'>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className='flex w-full flex-col lg:flex-row lg:items-end lg:justify-between'>
         <h3 className='w-[260px] text-[28px] font-[500] leading-[31px] lg:w-[600px] lg:text-[32px] lg:leading-[37px]'>
           Our{' '}
           <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[37px]'>results</span>{' '}
@@ -114,16 +125,21 @@ function ResultsSection() {
             <ArrowRight className='lg:h-[32px] lg:w-[32px]' />
           </KitButton>
         </div>
-      </div>
+      </motion.div>
 
       <Carousel className='mt-[24px] w-full lg:mt-[64px] lg:max-w-[1440px]' setApi={setCarouselApi} opts={{
         slidesToScroll: isDesktop ? 3 : 1,
         startIndex: 0,
       }}>
         <CarouselContent className='-ml-4 lg:-ml-8'>
-          {cards.map(({ name, logo, title, sub_title, redirect_to_url, link_title }) => (
+          {cards.map(({ name, logo, title, sub_title, redirect_to_url, link_title }, index) => (
             <CarouselItem key={name} className='pl-4 lg:pl-8 lg:basis-1/3'>
-              <article className='bg-ui-whitest flex h-[308px] w-[240px] flex-col justify-between border-[1px] border-[#ECECF6] p-[20px] lg:h-[434px] lg:w-full lg:p-[32px]'>
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
+                className='bg-ui-whitest flex h-[308px] w-[240px] flex-col justify-between border-[1px] border-[#ECECF6] p-[20px] lg:h-[434px] lg:w-full lg:p-[32px]'>
                 <div>
                   <img alt={`${name} logo`} src={logo} style={{ height: '30px' }} />
                   <p className='font-clash-display mt-[24px] text-[40px] font-[600] leading-[38px] lg:mt-[40px] lg:text-[70px] lg:leading-[67px]'>
@@ -146,12 +162,12 @@ function ResultsSection() {
                     </KitButton>
                   </div>
                 )}
-              </article>
+              </motion.article>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-    </section>
+    </motion.section>
   );
 }
 

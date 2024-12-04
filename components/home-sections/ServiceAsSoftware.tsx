@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import Check from '../icons/Check';
 import DotPatternBackground from '../ui/DotPatternBackground';
 import X from '../icons/X';
@@ -70,8 +71,12 @@ function ServiceAsSoftware() {
 
       <div className='mt-[40px] flex w-full flex-col gap-[20px] lg:mt-[64px] lg:max-w-[1280px] lg:flex-row lg:gap-[32px]'>
         {comparisonData.categories.map((category, index) => (
-          <article
+          <motion.article
             key={index}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            viewport={{ once: true }}
             className='bg-ui-black relative z-30 border-[1px] border-[#5F6382] px-[20px] py-[32px] lg:flex-1 lg:px-[32px] lg:py-[40px]'>
             <h4 className={`text-[20px] font-medium leading-[23px] lg:text-[24px] lg:leading-[28px] ${
               index === 2 ? 'text-ui-green-light' : 'text-ui-peach'
@@ -94,7 +99,7 @@ function ServiceAsSoftware() {
                 </div>
               ))}
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>

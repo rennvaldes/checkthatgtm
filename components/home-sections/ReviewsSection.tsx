@@ -3,6 +3,7 @@ import Quotes from '../icons/Quotes';
 import { cn } from '@/lib/litebox-lib/utils/cn';
 import KitButton from '../ui/KitButton';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 const reviewsData = [
   {
@@ -81,7 +82,13 @@ const reviewsData = [
 
 function ReviewCard({ reviewData }: { reviewData: any }) {
   return (
-    <article className="bg-ui-whitest">
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="bg-ui-whitest"
+    >
       <div className="px-[20px] py-[16px] lg:px-[32px] lg:py-[20px]">
         <Quotes />
         <p className="font-elza mt-[12px] text-[16px] leading-[24px] lg:text-[20px] lg:leading-[30px]">
@@ -101,7 +108,7 @@ function ReviewCard({ reviewData }: { reviewData: any }) {
           <p className="text-[14px] leading-[21px]">{reviewData.legend}</p>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -127,20 +134,35 @@ function ReviewsSection() {
       {/* Mobile view */}
       <div className="relative z-10 mt-[40px] flex flex-col gap-[20px] lg:hidden">
         {reviewsData.map((reviewData, index) => (
-          <ReviewCard key={`review-${index}`} reviewData={reviewData} />
+          <motion.div
+            key={`review-${index}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <ReviewCard reviewData={reviewData} />
+          </motion.div>
         ))}
       </div>
 
       {/* Desktop view */}
       <div className="relative z-10 hidden lg:mt-[64px] lg:flex lg:gap-[32px]">
         {[0, 1, 2].map((columnIndex) => (
-          <div key={`column-${columnIndex}`} className="flex flex-1 flex-col gap-[32px]">
+          <motion.div
+            key={`column-${columnIndex}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: columnIndex * 0.2 }}
+            viewport={{ once: true }}
+            className="flex flex-1 flex-col gap-[32px]"
+          >
             {reviewsData
               .filter((_, index) => index % 3 === columnIndex)
               .map((reviewData, index) => (
                 <ReviewCard key={`review-${index}`} reviewData={reviewData} />
               ))}
-          </div>
+          </motion.div>
         ))}
       </div>
 
