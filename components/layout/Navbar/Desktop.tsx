@@ -84,7 +84,7 @@ function Desktop() {
             Pricing
           </KitButton>
         </li>
-        <li>
+        <li className='hidden'>
           <KitButton sameBrowserTab href='/blog' variant='secondary' size='medium'>
             Blog
           </KitButton>

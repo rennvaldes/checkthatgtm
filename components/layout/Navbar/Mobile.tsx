@@ -109,7 +109,7 @@ function Mobile() {
                 Pricing
               </button>
             </li>
-            <li>
+            <li className='hidden'>
               <KitButton
                 href='/blog'
                 sameBrowserTab
