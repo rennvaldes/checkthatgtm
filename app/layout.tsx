@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   description:
     'We build growth engines that blend AI workflows with experts. From content to distribution to conversion.',
   icons: {
-    icon: 'icon.svg',
+    icon: '/icon.svg',
   },
   openGraph: {
     images: [{
-      url: '/assets/img/social.png',
+      url: '/social.png',
       width: 1200,
       height: 630,
       alt: 'GrowthX: Expert-Led, AI-Powered Growth',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     images: [{
-      url: '/assets/img/social.png',
+      url: '/social.png',
       width: 1200,
       height: 630,
       alt: 'GrowthX: Expert-Led, AI-Powered Growth',

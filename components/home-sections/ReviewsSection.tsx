@@ -4,6 +4,7 @@ import { cn } from '@/lib/litebox-lib/utils/cn';
 import KitButton from '../ui/KitButton';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const reviewsData = [
   {
@@ -96,9 +97,11 @@ function ReviewCard({ reviewData }: { reviewData: any }) {
         </p>
       </div>
       <div className="flex items-center gap-[12px] px-[20px] pb-[16px] lg:px-[32px] lg:pb-[20px]">
-        <img
+        <Image
           src={reviewData.avatar}
           alt={`Avatar of ${reviewData.name}`}
+          width={52}
+          height={52}
           className="h-[40px] w-[40px] rounded-full lg:h-[52px] lg:w-[52px]"
         />
         <div className="font-elza">
