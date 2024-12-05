@@ -8,7 +8,7 @@ export const heroIcons = {
   'video': VideoCameraIcon,
 } as const;
 
-export interface Presentation {
+export interface Resource {
   id: string;
   title: string;
   description: string;
@@ -17,7 +17,7 @@ export interface Presentation {
   videoUrl?: string;
 }
 
-export const PRESENTATIONS: Presentation[] = [
+export const RESOURCES: Resource[] = [
   {
     id: 'ai-led-growth',
     title: "AI-Led Growth",

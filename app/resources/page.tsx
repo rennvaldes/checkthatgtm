@@ -13,7 +13,7 @@ export default function Presentations() {
           {PRESENTATIONS.map((presentation) => (
             <Link
               key={presentation.id}
-              href={`/presentations/${presentation.id}`}
+              href={`/resources/${presentation.id}`}
               className="block group"
             >
               <div className="bg-white rounded-lg shadow-lg p-6 h-full transition-transform duration-200 group-hover:-translate-y-1">
