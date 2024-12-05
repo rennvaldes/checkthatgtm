@@ -4,6 +4,7 @@ import Logo from '@/components/icons/Logo';
 import KitButton from '@/components/ui/KitButton';
 import LinksColumn from './LinksColumn';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const RIGHTS_TEXT = `©${new Date().getFullYear()} GrowthX. All rights reserved.`;
 
@@ -11,7 +12,11 @@ const DOCS_URL = 'https://growthxlabs.com/docs';
 
 function Footer() {
   return (
-    <footer
+    <motion.footer
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       id='footer'
       className='font-elza bg-ui-veige pb-[64px] pt-[52px] lg:pb-[64px] lg:pt-[64px] relative z-[1]'
       onClick={() => {}}
@@ -47,6 +52,7 @@ function Footer() {
                 { to: '/', scrollTo: 'reviews-section', text: 'Reviews' },
                 { to: '/', scrollTo: 'pricing-section', text: 'Pricing' },
                 { to: '/free-tools', text: 'Free Tools', sameBrowserTab: true },
+                { to: '/presentations', text: 'Presentations', sameBrowserTab: true },
                 // { to: '/blog', text: 'Blog', sameBrowserTab: true },
                 // { to: DOCS_URL, text: 'Docs', isExternal: true },
               ]}
@@ -76,7 +82,7 @@ function Footer() {
           <p className='mt-[20px] lg:hidden'>{RIGHTS_TEXT}</p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
 

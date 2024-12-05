@@ -1,12 +1,12 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { TOOLS } from '../tools-data';
+import { DATA } from '../data';
 import Link from 'next/link';
 
 export default function ToolPage() {
   const { id } = useParams();
-  const tool = TOOLS.find(t => t.id === id);
+  const tool = DATA.find(t => t.id === id);
 
   if (!tool) {
     return (

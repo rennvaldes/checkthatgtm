@@ -19,7 +19,7 @@ export interface Tool {
   iframeUrl?: string;
 }
 
-export const TOOLS: Tool[] = [
+export const DATA: Tool[] = [
   {
     id: 'keyword-intent-outline',
     title: "Keyword → Intent + Outline",

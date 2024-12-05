@@ -39,7 +39,7 @@ function FaqSection() {
           <FaqItem title={'What services does GrowthX offer?'}>
             <p>GrowthX offers a suite of AI-powered growth services, each designed to build sustainable and scalable growth engines:</p>
             <ul className="list-disc pl-6">
-              <li><strong>Editorial & Content Refreshes</strong>: We provide a fully managed editorial program that delivers up to 50,000 words of high-quality content each month. This includes content strategy, expert editors, SEO optimization, and continuous performance monitoring to ensure maximum impact.</li>
+              <li><strong>Editorial &amp; Content Refreshes</strong>: We provide a fully managed editorial program that delivers up to 50,000 words of high-quality content each month. This includes content strategy, expert editors, SEO optimization, and continuous performance monitoring to ensure maximum impact.</li>
               <li><strong>Programmatic SEO (pSEO)</strong>: Our programmatic SEO solution scales your organic growth by generating up to 1,200 templated, SEO-optimized pages annually. This helps drive traffic and visibility with minimal manual effort, leveraging advanced AI workflows and consistent quality oversight.</li>
               <li><strong>Interview-First Long-Form Content</strong>: We create high-quality, story-driven content based on interviews with key individuals in your ecosystem. This content is transformed into compelling long-form articles and repurposed for multiple platforms, helping you establish thought leadership and boost audience engagement.</li>
               <li><strong>Cross-Format Content Repurposing</strong>: We transform anchor content like webinars, podcasts, and reports into a broad range of derivative assets—including blog posts, social snippets, and videos—ensuring your message reaches audiences across various channels, maximizing both engagement and reach.</li>
@@ -53,23 +53,23 @@ function FaqSection() {
           </FaqItem>
 
           <FaqItem title={'How do you start the project after onboarding?'}>
-            <p>After onboarding, we kick things off with tailored strategy sessions to finalize your growth plan. We set up AI workflows, integrate our systems with yours, and create an operational framework for content production. The focus here is on getting all gears in motion—defining your content calendar, setting key milestones, and preparing for efficient execution.</p>
+            <p>After onboarding, we kick things off with tailored strategy sessions to finalize your growth plan. We set up AI workflows, integrate our systems with yours, and create an operational framework for content production. The focus here is on getting all gears in motion&mdash;defining your content calendar, setting key milestones, and preparing for efficient execution.</p>
           </FaqItem>
 
           <FaqItem title={'What is the process for workflow and content calibration?'}>
-            <p>Workflow and content calibration involve tailoring our processes to suit your brand's voice, objectives, and style. We collaborate closely with you to review initial drafts, gather feedback, and refine our approach. It's an iterative process where we use both expert insight and AI-powered analytics to align content with your brand, ensuring it's both impactful and authentic.</p>
+            <p>Workflow and content calibration involve tailoring our processes to suit your brand&apos;s voice, objectives, and style. We collaborate closely with you to review initial drafts, gather feedback, and refine our approach. It&apos;s an iterative process where we use both expert insight and AI-powered analytics to align content with your brand, ensuring it&apos;s both impactful and authentic.</p>
           </FaqItem>
 
           <FaqItem title={'When does content production begin?'}>
-            <p>Content production begins immediately after the calibration phase. Once we've aligned on the workflows and content strategy, we start executing, often within the first few weeks of onboarding. We prioritize quick wins, so expect to see content flowing early, as we believe in building momentum from the start.</p>
+            <p>Content production begins immediately after the calibration phase. Once we&apos;ve aligned on the workflows and content strategy, we start executing, often within the first few weeks of onboarding. We prioritize quick wins, so expect to see content flowing early, as we believe in building momentum from the start.</p>
           </FaqItem>
 
           <FaqItem title={'How is content quality assured before publishing?'}>
-            <p>Content quality is assured through a rigorous review process that combines AI-enhanced checks and human expertise. Every piece undergoes several stages of review—from SEO and keyword optimization to stylistic edits by a managing editor. Our content specialists, along with a dedicated growth lead, ensure every piece aligns with your standards and is ready to make an impact before going live.</p>
+            <p>Content quality is assured through a rigorous review process that combines AI-enhanced checks and human expertise. Every piece undergoes several stages of review&mdash;from SEO and keyword optimization to stylistic edits by a managing editor. Our content specialists, along with a dedicated growth lead, ensure every piece aligns with your standards and is ready to make an impact before going live.</p>
           </FaqItem>
 
           <FaqItem title={'Who would be the GrowthX team member dedicated for the day-to-day?'}>
-            <p>Your day-to-day contact will be a dedicated Growth Strategist, someone with a proven track record in driving growth and managing content programs. They'll be your point of contact, deeply involved in everything from strategy to execution, ensuring that your growth initiatives are on track. They're supported by a managing editor and a team of experts working in sync to deliver results.</p>
+            <p>Your day-to-day contact will be a dedicated Growth Strategist, someone with a proven track record in driving growth and managing content programs. They&apos;ll be your point of contact, deeply involved in everything from strategy to execution, ensuring that your growth initiatives are on track. They&apos;re supported by a managing editor and a team of experts working in sync to deliver results.</p>
           </FaqItem>
 
           <FaqItem title={'Which KPIs should we measure? What would you consider success?'}>
