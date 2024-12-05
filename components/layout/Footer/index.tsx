@@ -51,8 +51,9 @@ function Footer() {
                 { to: '/', scrollTo: 'how-it-works-section', text: 'How it works' },
                 { to: '/', scrollTo: 'reviews-section', text: 'Reviews' },
                 { to: '/', scrollTo: 'pricing-section', text: 'Pricing' },
-                { to: '/free-tools', text: 'Free Tools', sameBrowserTab: true },
-                { to: '/presentations', text: 'Presentations', sameBrowserTab: true },
+                { to: 'https://growthx.workable.com/', text: 'Careers', isExternal: true },
+                { to: '/tools', text: 'Tools', sameBrowserTab: true },
+                { to: '/resources', text: 'Resources', sameBrowserTab: true },
                 // { to: '/blog', text: 'Blog', sameBrowserTab: true },
                 // { to: DOCS_URL, text: 'Docs', isExternal: true },
               ]}
