@@ -76,16 +76,16 @@ function FaqSection() {
             <p>Our ultimate goal is to drive real revenue for your business, but we recognize that it starts by building effective content, gaining distribution, and then converting that distribution into paying customers. We focus on optimizing controllable inputs because doing so consistently leads to the right outcomes over time. Here&apos;s how we approach each stage:</p>
 
             <p><strong>Phase 1 - Content Production</strong></p>
-            <p>The first priority is getting a content strategy in place that scales. We focus on KPIs that ensure we're generating enough valuable content to get noticed:</p>
+            <p>The first priority is getting a content strategy in place that scales. We focus on KPIs that ensure we&apos;re generating enough valuable content to get noticed:</p>
             <ul className="list-disc pl-6">
               <li>Articles Published</li>
               <li>Total Words Published</li>
               <li>Pages Indexed by Search Engines</li>
-              <li>Keywords Ranked (early signals we're on the right track)</li>
+              <li>Keywords Ranked (early signals we&apos;re on the right track)</li>
             </ul>
 
             <p><strong>Phase 2 - Distribution & Reach</strong></p>
-            <p>Once content is flowing, it's about ensuring people find and engage with it. This means nurturing and amplifying existing content to grow your audience and expand reach:</p>
+            <p>Once content is flowing, it&apos;s about ensuring people find and engage with it. This means nurturing and amplifying existing content to grow your audience and expand reach:</p>
             <ul className="list-disc pl-6">
               <li>Organic Search Impressions</li>
               <li>Organic Search Traffic (clicks, visits)</li>
@@ -95,7 +95,7 @@ function FaqSection() {
             </ul>
 
             <p><strong>Phase 3 - Conversion to Leads</strong></p>
-            <p>Here, we leverage the reach we've established to create meaningful conversions. Our goal is to convert interest into real leads:</p>
+            <p>Here, we leverage the reach we&apos;ve established to create meaningful conversions. Our goal is to convert interest into real leads:</p>
             <ul className="list-disc pl-6">
               <li>Visit → Subscriber / Lead Conversion</li>
               <li>Conversion Rates by Offer, Page, or Topic</li>
