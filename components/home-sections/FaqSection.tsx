@@ -3,8 +3,6 @@
 
 import React from 'react';
 import Accordion from '@/lib/litebox-lib/ui/Accordion/Accordion';
-import rampImage from '@/assets/img/FaqSection/ramp.jpg';
-import Image from 'next/image';
 
 function FaqItem({ children, title }: { children: React.ReactNode; title: string }) {
   return (
@@ -43,7 +41,7 @@ function FaqSection() {
               <li><strong>Programmatic SEO (pSEO)</strong>: Our programmatic SEO solution scales your organic growth by generating up to 1,200 templated, SEO-optimized pages annually. This helps drive traffic and visibility with minimal manual effort, leveraging advanced AI workflows and consistent quality oversight.</li>
               <li><strong>Interview-First Long-Form Content</strong>: We create high-quality, story-driven content based on interviews with key individuals in your ecosystem. This content is transformed into compelling long-form articles and repurposed for multiple platforms, helping you establish thought leadership and boost audience engagement.</li>
               <li><strong>Cross-Format Content Repurposing</strong>: We transform anchor content like webinars, podcasts, and reports into a broad range of derivative assets—including blog posts, social snippets, and videos—ensuring your message reaches audiences across various channels, maximizing both engagement and reach.</li>
-              <li><strong>AI-Powered Link Building & Content Collaboration</strong>: GrowthX uses AI to acquire high-quality backlinks from authoritative sites, boosting your domain authority and improving organic search performance. We combine targeted outreach, link-building strategies, and ongoing analysis to enhance your content's SEO value continuously.</li>
+              <li><strong>AI-Powered Link Building & Content Collaboration</strong>: GrowthX uses AI to acquire high-quality backlinks from authoritative sites, boosting your domain authority and improving organic search performance. We combine targeted outreach, link-building strategies, and ongoing analysis to enhance your content&apos;s SEO value continuously.</li>
             </ul>
             <p>Together, these services provide an end-to-end growth engine that combines AI efficiencies with expert insight to drive meaningful, lasting growth.</p>
           </FaqItem>
@@ -57,7 +55,7 @@ function FaqSection() {
           </FaqItem>
 
           <FaqItem title="What is the process for workflow and content calibration?">
-            <p>Workflow and content calibration involve tailoring our processes to suit your brand's voice, objectives, and style. We collaborate closely with you to review initial drafts, gather feedback, and refine our approach. It's an iterative process where we use both expert insight and AI-powered analytics to align content with your brand, ensuring it's both impactful and authentic.</p>
+            <p>Workflow and content calibration involve tailoring our processes to suit your brand&apos;s voice, objectives, and style. We collaborate closely with you to review initial drafts, gather feedback, and refine our approach. It&apos;s an iterative process where we use both expert insight and AI-powered analytics to align content with your brand, ensuring it&apos;s both impactful and authentic.</p>
           </FaqItem>
 
           <FaqItem title={'When does content production begin?'}>
