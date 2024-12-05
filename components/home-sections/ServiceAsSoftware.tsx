@@ -20,6 +20,7 @@ function ServiceAsSoftware() {
           'You manage the strategy',
           'Learning curve for your team',
           'Scalable but requires effort',
+          'Quickly outdated by AI advances'
         ],
       },
       {
