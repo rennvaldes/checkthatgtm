@@ -16,7 +16,7 @@ function FaqItem({ children, title }: { children: React.ReactNode; title: string
         </span>
       }
       content={
-        <div className="[&>p]:mb-6 [&>p:last-child]:mb-0 [&>p]:leading-[24px] [&>p]:text-[16px] [&>ul]:mb-6 [&>ul:last-child]:mb-0 [&>ul>li]:mb-2 [&>ul>li:last-child]:mb-0">
+        <div className="[&>p]:mb-6 [&>p:last-child]:mb-0 [&>p]:leading-[24px] [&>p]:text-[16px] [&>ul]:mb-6 [&>ul:last-child]:mb-0 [&>ul>li]:mb-2 [&>ul>li:last-child]:mb-0 [&>ul>li]:leading-[26px]">
           {children}
         </div>
       }
@@ -37,92 +37,83 @@ function FaqSection() {
       <div className='lg:mt-[64px] justify-center lg:flex'>
         <div className='flex flex-col lg:w-[820px]'>
           <FaqItem title={'What services does GrowthX offer?'}>
-            <p>After the initial content launch our goal is to aggressively refine, iterate, and scale content production based on ongoing feedback. The exact volume depends on your goals and the strategy we align on. We usually recommend a mix of creating new pages and constantly refreshing existing one.</p>
-            <p>Below is a sample content ramp up plan.</p>
-
-            <Image
-              alt='Mountain'
-              className='max-w-[100%]'
-              src={rampImage}
-            />
+            <p>GrowthX offers a suite of AI-powered growth services, each designed to build sustainable and scalable growth engines:</p>
+            <ul className="list-disc pl-6">
+              <li><strong>Editorial & Content Refreshes</strong>: We provide a fully managed editorial program that delivers up to 50,000 words of high-quality content each month. This includes content strategy, expert editors, SEO optimization, and continuous performance monitoring to ensure maximum impact.</li>
+              <li><strong>Programmatic SEO (pSEO)</strong>: Our programmatic SEO solution scales your organic growth by generating up to 1,200 templated, SEO-optimized pages annually. This helps drive traffic and visibility with minimal manual effort, leveraging advanced AI workflows and consistent quality oversight.</li>
+              <li><strong>Interview-First Long-Form Content</strong>: We create high-quality, story-driven content based on interviews with key individuals in your ecosystem. This content is transformed into compelling long-form articles and repurposed for multiple platforms, helping you establish thought leadership and boost audience engagement.</li>
+              <li><strong>Cross-Format Content Repurposing</strong>: We transform anchor content like webinars, podcasts, and reports into a broad range of derivative assets—including blog posts, social snippets, and videos—ensuring your message reaches audiences across various channels, maximizing both engagement and reach.</li>
+              <li><strong>AI-Powered Link Building & Content Collaboration</strong>: GrowthX uses AI to acquire high-quality backlinks from authoritative sites, boosting your domain authority and improving organic search performance. We combine targeted outreach, link-building strategies, and ongoing analysis to enhance your content's SEO value continuously.</li>
+            </ul>
+            <p>Together, these services provide an end-to-end growth engine that combines AI efficiencies with expert insight to drive meaningful, lasting growth.</p>
           </FaqItem>
 
           <FaqItem title={'What happens during the onboarding and discovery phase?'}>
-            <p>In Week 1, we conduct a kick-off call to introduce teams and discuss project goals. We also engage in discovery sessions to go deeper in understanding your company, product, use cases, ideal customer profile (ICP), current strategy, etc. Finally we align on expectations and how to measure success.</p>
+            <p>During onboarding, we dive deep into understanding your brand, audience, and unique growth challenges. We conduct a thorough analysis of your business history, market positioning, and existing content strategies to set a strong foundation. This phase is all about aligning on goals, ensuring our team knows your brand inside and out, and building the blueprint for success.</p>
           </FaqItem>
 
           <FaqItem title={'How do you start the project after onboarding?'}>
-            <p>In Week 2, we perform initial research to identify AI-powered content opportunities, develop a playbook for AI workflows, and start building the Content Workflow Management system.</p>
+            <p>After onboarding, we kick things off with tailored strategy sessions to finalize your growth plan. We set up AI workflows, integrate our systems with yours, and create an operational framework for content production. The focus here is on getting all gears in motion—defining your content calendar, setting key milestones, and preparing for efficient execution.</p>
           </FaqItem>
 
           <FaqItem title={'What is the process for workflow and content calibration?'}>
-            <p>Weeks 3 and 4 involve further development and refinement of AI workflows (AirOps) and the Content Workflow Management system (usually Airtable) based on feedback.</p>
+            <p>Workflow and content calibration involve tailoring our processes to suit your brand's voice, objectives, and style. We collaborate closely with you to review initial drafts, gather feedback, and refine our approach. It's an iterative process where we use both expert insight and AI-powered analytics to align content with your brand, ensuring it's both impactful and authentic.</p>
           </FaqItem>
 
           <FaqItem title={'When does content production begin?'}>
-            <p>Usually by week 5, we ramp up content production and collect feedback on the initial batches of content produced. Our goal is to always get to publishing as quickly as possible to start showing results.</p>
+            <p>Content production begins immediately after the calibration phase. Once we've aligned on the workflows and content strategy, we start executing, often within the first few weeks of onboarding. We prioritize quick wins, so expect to see content flowing early, as we believe in building momentum from the start.</p>
           </FaqItem>
 
           <FaqItem title={'How is content quality assured before publishing?'}>
-            <p>First, we use the first 6 weeks to set the right strategy and calibrate on what great quality looks like for you. We then build multiple custom AI workflows to deliver that quality programmatically and add in several human input and review steps. Finally, we use dozens of tools and standard processes to do a final QA and review of each piece of content before publishing.</p>
+            <p>Content quality is assured through a rigorous review process that combines AI-enhanced checks and human expertise. Every piece undergoes several stages of review—from SEO and keyword optimization to stylistic edits by a managing editor. Our content specialists, along with a dedicated growth lead, ensure every piece aligns with your standards and is ready to make an impact before going live.</p>
           </FaqItem>
 
           <FaqItem title={'Who would be the GrowthX team member dedicated for the day-to-day?'}>
-            <p>Every customer is assigned a fully dedicated content operations lead with a strong background in SEO and writing. This person has advanced verbal and written English proficiency.</p>
-            <p>Everyone on our team goes through 300+ hours of intensive training on a variety of topics like:</p>
-            <p>SEO, keyword research, backlinking<br />
-            Tools training like Notion, Airtable, SEMRush, Ahref, etc<br />
-            Prompt engineering<br />
-            Building AI workflows in AirOps<br />
-            Content marketing and strategy<br />
-            Hands-on exercises to simulate day-to-day</p>
-            <p>On top of that, every customer assigned an experienced strategist with a proven track record. This person will be guiding the strategy and execution every step of the way and will be heavily involved especially in the first six weeks.</p>
+            <p>Your day-to-day contact will be a dedicated Growth Strategist, someone with a proven track record in driving growth and managing content programs. They'll be your point of contact, deeply involved in everything from strategy to execution, ensuring that your growth initiatives are on track. They're supported by a managing editor and a team of experts working in sync to deliver results.</p>
           </FaqItem>
 
-          <FaqItem title={'How KPIs should we measure? What would you consider success?'}>
-            <p>Our ultimate goal is to drive real revenue for your business but we understand you often have to build distribution before conversion and monetization.</p>
-            <p>Our approach emphasizes a strong focus on controllable inputs rather than outputs. This philosophy is rooted in the belief that by optimizing the factors we can control, the desired outcomes will naturally follow over time.</p>
-            <p>Here&apos;s how we think about it but we are open to adapting to what works best for you.</p>
+          <FaqItem title={'Which KPIs should we measure? What would you consider success?'}>
+            <p>Our ultimate goal is to drive real revenue for your business, but we recognize that it starts by building effective content, gaining distribution, and then converting that distribution into paying customers. We focus on optimizing controllable inputs because doing so consistently leads to the right outcomes over time. Here's how we approach each stage:</p>
 
-            <p><strong>Phase 1 - Establish content production</strong></p>
-            <p>Here we want to make sure we have a clear content strategy and a way to scale it. In this phase we&apos;re looking at metrics like:</p>
-            <ul className="list-disc pl-6 mb-6">
-              <li>Articles published</li>
-              <li>Total words published</li>
-              <li>Pages indexed by search engines</li>
-              <li>Keywords ranked for (early signals that we&apos;re publishing the right thing)</li>
+            <p><strong>Phase 1 - Content Production</strong></p>
+            <p>The first priority is getting a content strategy in place that scales. We focus on KPIs that ensure we're generating enough valuable content to get noticed:</p>
+            <ul className="list-disc pl-6">
+              <li>Articles Published</li>
+              <li>Total Words Published</li>
+              <li>Pages Indexed by Search Engines</li>
+              <li>Keywords Ranked (early signals we're on the right track)</li>
             </ul>
 
-            <p><strong>Phase 2 - Content refinement, enrichment and refresh</strong></p>
-            <p>This is where we start to nurture existing content to continuously make them better. We want to send Google tons of signals that we&apos;re constantly improving our content.</p>
-            <ul className="list-disc pl-6 mb-6">
-              <li>Organic search impressions</li>
-              <li>Organic search traffic (clicks, visits)</li>
-              <li>Average CTR</li>
-              <li>Average position</li>
-              <li># of keywords rising (top 3, 4-10, 11-20, 21-50, etc)</li>
-              <li>Domain authority</li>
-              <li>Referring domains</li>
+            <p><strong>Phase 2 - Distribution & Reach</strong></p>
+            <p>Once content is flowing, it's about ensuring people find and engage with it. This means nurturing and amplifying existing content to grow your audience and expand reach:</p>
+            <ul className="list-disc pl-6">
+              <li>Organic Search Impressions</li>
+              <li>Organic Search Traffic (clicks, visits)</li>
+              <li>Average CTR (Click-Through Rate)</li>
+              <li>Number of Keywords Rising in Rank (top 3, 4-10, etc.)</li>
+              <li>Domain Authority and Referring Domains</li>
             </ul>
 
-            <p><strong>Phase 3 - Conversion to irresistible offers + nurture</strong></p>
-            <p>We like to think of this as your &quot;front-end&quot; offer. What is something of high value that can be a lead magnet and drive a ton of subscribers.</p>
-            <ul className="list-disc pl-6 mb-6">
-              <li>Visit → subscriber / lead</li>
-              <li>Conversion by offer / by page / by topic</li>
-              <li>Lead volume</li>
-              <li>Lead engagement (open rates, etc)</li>
+            <p><strong>Phase 3 - Conversion to Leads</strong></p>
+            <p>Here, we leverage the reach we've established to create meaningful conversions. Our goal is to convert interest into real leads:</p>
+            <ul className="list-disc pl-6">
+              <li>Visit → Subscriber / Lead Conversion</li>
+              <li>Conversion Rates by Offer, Page, or Topic</li>
+              <li>Lead Volume and Quality</li>
+              <li>Lead Engagement (e.g., Open Rates, Interaction Levels)</li>
             </ul>
 
-            <p><strong>Phase 4 - Monetization</strong></p>
-            <p>We like to think of this as your &quot;back-end&quot; offer. While the previous steps are helping to increase your sellable surface area, this step is about finding the best ways to convert them into paying customers.</p>
-            <ul className="list-disc pl-6 mb-6">
-              <li>Lead → meeting (or product signup)</li>
-              <li>Meeting → sales opp (or product activation)</li>
-              <li>Sales opp → win (or monetization)</li>
-              <li>Average deal size (or average order value)</li>
-              <li>LTV</li>
+            <p><strong>Phase 4 - Conversion to Revenue</strong></p>
+            <p>The final step is about converting engaged leads into paying customers, making sure our content has ultimately driven business growth:</p>
+            <ul className="list-disc pl-6">
+              <li>Lead → Meeting (or Product Signup) Conversion</li>
+              <li>Meeting → Sales Opportunity (or Product Activation)</li>
+              <li>Sales Opportunity → Closed Deal (Monetization)</li>
+              <li>Average Deal Size or Order Value</li>
+              <li>Customer Lifetime Value (LTV)</li>
             </ul>
+
+            <p>Success for us means creating a growth engine—starting with content that earns trust, building a distribution network that scales that trust, and then strategically converting that reach into tangible business outcomes. Every KPI ties back to this journey from content to conversion.</p>
           </FaqItem>
         </div>
       </div>
