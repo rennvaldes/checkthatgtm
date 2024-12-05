@@ -26,7 +26,7 @@ function TitleAndButtons() {
       {/* Buttons */}
       <div className='relative z-50 mt-[20px] flex w-full flex-col items-center justify-center gap-[8px] px-4 lg:mt-[30px] lg:w-auto lg:flex-row lg:px-0'>
         <KitButton
-          scrollTo='video-section'
+          scrollTo='parallax-section'
           size='large'
           variant='primary'
           className='w-[280px] lg:w-auto flex justify-center align-middle'
