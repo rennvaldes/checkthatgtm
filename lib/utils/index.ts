@@ -62,12 +62,11 @@ export function getPlaceholderCards(amount: number) {
   return Array.from({ length: amount }).map((_, index) => ({
     documentId: `${index + 1}`,
     id: index + 1,
-    image: 'https://i.ytimg.com/vi/LPe56fezmoo/maxresdefault.jpg',
+    image: '',
     image_alt: 'placeholder',
     category: 'Stories',
-    title: 'Labore adipisicing deserunt nulla reprehenderit id proident pariatur est.',
-    publisher_name: 'Marcel Santilli',
-    publisher_avatar:
-      'https://static.vecteezy.com/system/resources/thumbnails/036/594/092/small_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg',
+    title: '',
+    publisher_name: 'Author',
+    publisher_avatar:'',
   }));
 }
