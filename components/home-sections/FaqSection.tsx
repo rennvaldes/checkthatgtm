@@ -73,7 +73,7 @@ function FaqSection() {
           </FaqItem>
 
           <FaqItem title={'Which KPIs should we measure? What would you consider success?'}>
-            <p>Our ultimate goal is to drive real revenue for your business, but we recognize that it starts by building effective content, gaining distribution, and then converting that distribution into paying customers. We focus on optimizing controllable inputs because doing so consistently leads to the right outcomes over time. Here's how we approach each stage:</p>
+            <p>Our ultimate goal is to drive real revenue for your business, but we recognize that it starts by building effective content, gaining distribution, and then converting that distribution into paying customers. We focus on optimizing controllable inputs because doing so consistently leads to the right outcomes over time. Here&apos;s how we approach each stage:</p>
 
             <p><strong>Phase 1 - Content Production</strong></p>
             <p>The first priority is getting a content strategy in place that scales. We focus on KPIs that ensure we're generating enough valuable content to get noticed:</p>
