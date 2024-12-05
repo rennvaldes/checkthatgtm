@@ -30,8 +30,7 @@ export function VideoEmbed({ url, title }: VideoEmbedProps) {
         className="absolute top-0 left-0 w-full h-full rounded-lg"
         frameBorder="0"
         allowFullScreen
-        webkitallowfullscreen="true"
-        mozallowfullscreen="true"
+        allow="fullscreen"
       />
     </div>
   );
