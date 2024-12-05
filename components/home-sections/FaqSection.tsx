@@ -56,8 +56,8 @@ function FaqSection() {
             <p>After onboarding, we kick things off with tailored strategy sessions to finalize your growth plan. We set up AI workflows, integrate our systems with yours, and create an operational framework for content production. The focus here is on getting all gears in motion&mdash;defining your content calendar, setting key milestones, and preparing for efficient execution.</p>
           </FaqItem>
 
-          <FaqItem title={'What is the process for workflow and content calibration?'}>
-            <p>Workflow and content calibration involve tailoring our processes to suit your brand&apos;s voice, objectives, and style. We collaborate closely with you to review initial drafts, gather feedback, and refine our approach. It&apos;s an iterative process where we use both expert insight and AI-powered analytics to align content with your brand, ensuring it&apos;s both impactful and authentic.</p>
+          <FaqItem title="What is the process for workflow and content calibration?">
+            <p>Workflow and content calibration involve tailoring our processes to suit your brand's voice, objectives, and style. We collaborate closely with you to review initial drafts, gather feedback, and refine our approach. It's an iterative process where we use both expert insight and AI-powered analytics to align content with your brand, ensuring it's both impactful and authentic.</p>
           </FaqItem>
 
           <FaqItem title={'When does content production begin?'}>
