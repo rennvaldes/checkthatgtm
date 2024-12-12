@@ -13,7 +13,7 @@ export default function FreeTools() {
           {DATA.map((tool) => (
             <Link
               key={tool.id}
-              href={`/free-tools/${tool.id}`}
+              href={`/tools/${tool.id}`}
               className="block group"
             >
               <div className="bg-white rounded-lg shadow-lg p-6 h-full transition-transform duration-200 group-hover:-translate-y-1">
