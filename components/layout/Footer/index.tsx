@@ -54,7 +54,7 @@ function Footer() {
                 { to: '/tools', text: 'Tools', sameBrowserTab: true },
                 { to: '/resources', text: 'Resources', sameBrowserTab: true },
                 { to: '/blog', text: 'Blog', sameBrowserTab: true },
-                { to: 'https://growthx.workable.com/', text: 'Careers', isExternal: true },
+                { to: '/careers', text: 'Careers', sameBrowserTab: true },
                 // { to: DOCS_URL, text: 'Docs', isExternal: true },
               ]}
             />

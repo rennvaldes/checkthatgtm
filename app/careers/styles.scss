@@ -1,0 +1,39 @@
+#whr_embed_hook {
+  @apply w-full;
+}
+
+.whr-items {
+  @apply flex flex-col;
+}
+
+.whr-item {
+  @apply py-6 border-b border-ui-veige transition-colors last:border-0;
+}
+
+.whr-title {
+  @apply text-xl font-semibold mb-2;
+}
+
+.whr-title a {
+  @apply block text-ui-black;
+}
+
+.whr-title a:hover {
+  @apply text-ui-blue;
+}
+
+.whr-info {
+  @apply text-ui-grey;
+}
+
+.whr-date {
+  @apply hidden;
+}
+
+.whr-dept {
+  @apply text-sm;
+}
+
+.whr-dept span {
+  @apply hidden;
+}
