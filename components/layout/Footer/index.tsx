@@ -61,9 +61,8 @@ function Footer() {
             <LinksColumn
               title='Social'
               links={[
-                { text: 'LinkedIn', to: 'https://linkedin.com', isExternal: true },
-                { text: 'Twitter', to: 'https://twitter.com', isExternal: true },
-                { text: 'Facebook', to: 'https://facebook.com', isExternal: true },
+                { text: 'LinkedIn', to: 'https://www.linkedin.com/company/growthx-ai', isExternal: true },
+                // { text: 'Twitter', to: 'https://twitter.com', isExternal: true },
               ]}
             />
           </div>

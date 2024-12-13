@@ -137,9 +137,9 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
         {isGeneralDataLoading ? (
           <Skeleton className='mb-[8px] mt-[16px] h-[44px] lg:w-[300px]' />
         ) : (
-          <div className='mt-[16px] flex items-center justify-start'>
-            <p className='mr-[20px] p-[16px] font-medium'>Share</p>
-            <a
+          <div className='mt-[16px] flex items-center justify-start mb-[8px]'>
+            <p className='p-[16px] font-medium'>Share</p>
+            {/* <a
               href={blog_linkedin_link}
               className='hover:bg-ui-black/10 transition-color rounded-full p-[16px] duration-300'>
               <Linkedin />
@@ -151,7 +151,7 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
               href={blog_instagram_link}
               className='hover:bg-ui-black/10 transition-color rounded-full p-[16px] duration-300'>
               <Instagram />
-            </a>
+            </a> */}
 
             <div className='relative flex items-center justify-center gap-1'>
               <button
