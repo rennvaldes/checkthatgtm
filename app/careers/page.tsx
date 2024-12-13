@@ -30,14 +30,14 @@ export default function Career() {
         <h1 className="text-4xl font-bold text-center mb-6">Help Us Redefine Growth</h1>
         <div className="text-ui-grey text-center max-w-2xl mx-auto mb-8 space-y-4 text-lg">
           <p>
-            We're building the future of growth marketing by combining AI with human expertise.
+            We&apos;re building the future of growth marketing by combining AI with human expertise.
             We help companies achieve real, sustainable growth through AI-powered workflows and expert guidance.
           </p>
         </div>
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-2 text-ui-grey font-medium border border-ui-veige rounded-lg p-4">
             <span>🌎</span>
-            <p>We're a remote-first company — all we ask is 4 hours of overlap with San Francisco</p>
+            <p>We&apos;re a remote-first company — all we ask is 4 hours of overlap with San Francisco</p>
           </div>
           <Script
             src='https://www.workable.com/assets/embed.js'
