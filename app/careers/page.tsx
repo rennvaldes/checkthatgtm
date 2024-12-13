@@ -11,7 +11,7 @@ export default function Career() {
       // @ts-ignore
       window.whr_embed(662209, { detail: 'titles', base: 'jobs', zoom: 'country', grouping: 'none' });
       // @ts-ignore
-      window.whr(document).on('click', 'li.whr-item a', function(e) {
+      window.whr(document).on('click', 'li.whr-item a', function(this: any, e) {
         e.preventDefault();
         window.open(this.href, '_blank');
       });
@@ -19,6 +19,7 @@ export default function Career() {
   };
 
   useEffect(() => {
+    // @ts-ignore
     if (window.whr) {
       initializeWorkable();
     }
