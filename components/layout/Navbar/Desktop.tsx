@@ -84,6 +84,16 @@ function Desktop() {
             Pricing
           </KitButton>
         </li>
+        <li>
+          <KitButton
+            className='secondary'
+            href='/careers'
+            variant='ghost'
+            size='custom'
+            sameBrowserTab={true}>
+            Careers
+          </KitButton>
+        </li>
         <li className='hidden'>
           <KitButton sameBrowserTab href='/blog' variant='secondary' size='medium'>
             Blog

@@ -109,6 +109,17 @@ function Mobile() {
                 Pricing
               </button>
             </li>
+            <li>
+              <KitButton
+                className={OPTION_STYLES}
+                href='/careers'
+                variant='ghost'
+                size='custom'
+                sameBrowserTab={true}>
+                Careers
+              </KitButton>
+            </li>
+
             <li className='hidden'>
               <KitButton
                 href='/blog'
