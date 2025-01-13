@@ -31,7 +31,7 @@ function PricingSection() {
       {
         title: 'pSEO Workstream',
         description: 'Boost strategy with Content Workstream. Automated workflows and analytics for better engagement.',
-        monthly_price: 9000,
+        monthly_price: 12000,
         benefits: [
           'Up to 1,200 pages per year',
           'Hands-on strategist with track record',
