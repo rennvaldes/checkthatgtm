@@ -131,7 +131,7 @@ function BookSection() {
         <div className='relative z-20 w-full bg-white lg:w-[433px] lg:flex-shrink-0 overflow-hidden'>
           <div
             className='calendly-inline-widget mx-auto w-full h-[520px] max-w-[285px] lg:max-w-[413px]'
-            data-url='https://calendly.com/growthxai/intro?hide_event_type_details=1&hide_gdpr_banner=1'
+            data-url='https://calendly.com/d/cmyv-tmf-jyq?hide_event_type_details=1&hide_gdpr_banner=1'
           ></div>
         </div>
       </div>
