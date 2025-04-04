@@ -1,0 +1,140 @@
+/* Default Form Styling */
+.formContainer {
+  --def-border-color: #E5E7F0;
+  --def-hover-bg: #F8F9FF;
+  --def-focus-border: #5F6382;
+  --ui-blue: #4945FF;
+  --ui-black: #20233A;
+  padding: 40px 0;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.formContainer :global(.def-form) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formContainer :global(.def-input-group) {
+  margin-bottom: 0;
+}
+
+.formContainer :global(.def-input-group-label) {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--ui-black);
+}
+
+.formContainer :global(.def-form-input),
+.formContainer :global(.def-email-input-input),
+.formContainer :global(.def-url-input) {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid var(--def-border-color);
+  outline: none;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  background: white;
+}
+
+.formContainer :global(.def-form-input:hover),
+.formContainer :global(.def-email-input-input:hover),
+.formContainer :global(.def-url-input:hover) {
+  border-color: var(--def-focus-border);
+}
+
+.formContainer :global(.def-form-input:focus),
+.formContainer :global(.def-email-input-input:focus),
+.formContainer :global(.def-url-input:focus) {
+  border-color: var(--def-focus-border);
+  box-shadow: none;
+}
+
+.formContainer :global(.def-form-radio-options-container) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.formContainer :global(.def-form-radio) {
+  accent-color: var(--ui-blue);
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.formContainer :global(.def-form-radio-options-container label) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--def-border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  background: white;
+  margin: 0;
+}
+
+.formContainer :global(.def-form-radio-options-container label:hover) {
+  border-color: var(--def-focus-border);
+}
+
+.formContainer :global(.def-form-submit) {
+  width: auto;
+  min-width: 120px;
+  height: 44px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--ui-black);
+  border: none;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 12px;
+  padding: 0 24px;
+  align-self: flex-start;
+}
+
+.formContainer :global(.def-form-submit:hover) {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Form States */
+.formContainer :global(.def-form-submitting .def-form-submit) {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.formContainer :global(.def-form-submit-error) {
+  border-color: #FF4444;
+}
+
+/* Additional form styling */
+.formContainer :global(.def-email-input-container),
+.formContainer :global(.def-url-input-container) {
+  margin-bottom: 0;
+}
+
+.formContainer :global(.def-email-input-label),
+.formContainer :global(.def-url-input-label) {
+  font-weight: 500;
+  color: var(--ui-black);
+  margin-bottom: 12px;
+  display: block;
+  font-size: 16px;
+}
+
+/* Hide Default Form Processing Modal */
+.formContainer :global([data-default-form-processing-modal]) {
+  display: none !important;
+}
