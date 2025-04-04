@@ -2,10 +2,17 @@
 
 import KitButton from '@/components/ui/KitButton';
 import { cn } from '@/lib/litebox-lib/utils/cn';
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 function TitleAndButtons() {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // The Default form handler will take care of the submission
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,24 +30,34 @@ function TitleAndButtons() {
         We build growth engines that blend AI workflows with experts. From content to distribution to conversion.
       </h2>
 
-      {/* Buttons */}
-      <div className='relative z-50 mt-[20px] flex w-full flex-col items-center justify-center gap-[8px] px-4 lg:mt-[30px] lg:w-auto lg:flex-row lg:px-0'>
-        <KitButton
-          scrollTo='parallax-section'
-          size='large'
-          variant='primary'
-          className='w-[280px] lg:w-auto flex justify-center align-middle'
-          withAnimatedArrow='to-bottom-right'>
-          Explore
-        </KitButton>
-        <KitButton
-          scrollTo='book-section'
-          bgOverlayStyles='bg-ui-white'
-          className='w-[280px] bg-ui-white lg:w-auto'
-          size='large'
-          variant='outline'>
-          Talk to a strategist
-        </KitButton>
+      {/* Email Form */}
+      <div className='relative z-50 mt-[20px] flex w-full flex-col items-center justify-center px-4 lg:mt-[30px]'>
+        <form 
+          onSubmit={handleSubmit}
+          data-default-form-id="828228"
+          className="relative w-full max-w-[500px]"
+        >
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="What's your work email?"
+            className="w-full h-[52px] lg:h-[64px] rounded-full border border-[#E5E7F0] bg-white pl-8 pr-8 lg:pr-[200px] font-elza text-[16px] text-ui-black outline-none placeholder:text-[#5F5D78] shadow-sm text-center lg:text-left"
+            required
+          />
+          <div className="mt-2 lg:mt-0 lg:absolute lg:right-3 lg:top-1/2 lg:-translate-y-1/2">
+            <KitButton
+              type="submit"
+              size="large"
+              variant="primary"
+              className="w-full lg:w-auto h-[52px] !px-8 flex justify-center items-center text-center"
+              withAnimatedArrow="to-right"
+            >
+              Book a demo
+            </KitButton>
+          </div>
+        </form>
       </div>
     </motion.div>
   );

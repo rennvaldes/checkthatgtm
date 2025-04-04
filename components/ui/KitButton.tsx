@@ -24,7 +24,8 @@ type Props = {
   bgOverlayStyles?: string;
   arrowClassName?: string;
   sameBrowserTab?: boolean;
-  useLeftArrow?: boolean
+  useLeftArrow?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 };
 
 const VARIANT_STYLES: Record<ButtonVariant, string> = {
@@ -87,6 +88,7 @@ function KitButton({
   arrowClassName,
   sameBrowserTab,
   useLeftArrow = false,
+  type = 'button',
 }: React.PropsWithChildren<Props>) {
   const router = useRouter();
   const pathname = usePathname();
