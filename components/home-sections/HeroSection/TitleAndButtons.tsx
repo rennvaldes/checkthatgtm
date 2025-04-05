@@ -54,7 +54,7 @@ function TitleAndButtons() {
               className="w-full lg:w-auto h-[52px] !px-8 flex justify-center items-center text-center"
               withAnimatedArrow="to-right"
             >
-              Book a demo
+              Work with us
             </KitButton>
           </div>
         </form>

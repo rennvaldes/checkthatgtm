@@ -34,7 +34,7 @@ function Footer() {
             </h3>
             <div className='flex'>
               <KitButton
-                scrollTo='book-section'
+                href='/book-demo'
                 variant='primary'
                 withAnimatedArrow='to-right'
                 size='large'

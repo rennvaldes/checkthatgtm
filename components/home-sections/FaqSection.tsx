@@ -27,7 +27,7 @@ function FaqSection() {
   return (
     <section
       id='faq-section'
-      className='mx-auto w-[320px] lg:w-full lg:max-w-[1280px] lg:mb-[123px] mb-[34px]'>
+      className='mx-auto w-[320px] mt-[80px] lg:mt-[148px] lg:w-full lg:max-w-[1280px] lg:mb-[123px] mb-[34px]'>
       <h3 className='mb-[40px] text-center text-[28px] font-medium leading-[31px] lg:mb-[64px] lg:text-[52px] lg:leading-[57px]'>
         FAQs
       </h3>

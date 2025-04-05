@@ -136,11 +136,10 @@ function Mobile() {
           </ul>
 
           <KitButton
-            onClick={() => scrollTo('book-section')}
-            bgOverlayStyles='bg-ui-white'
-            variant='outline'
+            href='/book-demo'
+            variant='primary'
             size='large'
-            className='w-full'>
+            className='rounded-full bg-ui-black text-ui-whitest hover:bg-ui-blue w-full'>
             Book a call
           </KitButton>
         </div>
