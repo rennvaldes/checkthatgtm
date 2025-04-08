@@ -6,44 +6,33 @@ export default function BookDemoPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  // Set iframe to full height on load
   useEffect(() => {
+    document.body.classList.add('hide-nav');
+
     const setIframeHeight = () => {
-      const vh = window.innerHeight;
       const iframe = document.getElementById('form-iframe') as HTMLIFrameElement;
       if (iframe) {
-        iframe.style.height = `${vh}px`;
+        iframe.style.height = `${window.innerHeight}px`;
       }
     };
 
-    // Initial setup
     setIframeHeight();
-    
-    // Adjust on resize
     window.addEventListener('resize', setIframeHeight);
-    
+
     return () => {
+      document.body.classList.remove('hide-nav');
       window.removeEventListener('resize', setIframeHeight);
     };
   }, []);
 
-  const handleIframeLoad = () => {
-    setIsLoading(false);
-  };
-
-  const handleIframeError = () => {
-    setIsLoading(false);
-    setHasError(true);
-  };
-
   return (
-    <div className="w-full h-screen overflow-hidden relative">
+    <div className="w-full h-screen overflow-hidden relative [&:has(*)>nav]:hidden [&:has(*)>footer]:hidden">
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-ui-white">
           <div className="animate-pulse text-ui-black">Loading...</div>
         </div>
       )}
-      
+
       {hasError ? (
         <div className="absolute inset-0 flex items-center justify-center bg-ui-white">
           <div className="text-red-500">
@@ -51,13 +40,16 @@ export default function BookDemoPage() {
           </div>
         </div>
       ) : (
-        <iframe 
+        <iframe
           id="form-iframe"
-          src="https://forms.default.com/639407"  // Replace with your actual Default form URL
+          src="https://forms.default.com/639407"
           className="w-full border-0"
           title="Book a Demo"
-          onLoad={handleIframeLoad}
-          onError={handleIframeError}
+          onLoad={() => setIsLoading(false)}
+          onError={() => {
+            setIsLoading(false);
+            setHasError(true);
+          }}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
           referrerPolicy="no-referrer-when-downgrade"
@@ -67,4 +59,4 @@ export default function BookDemoPage() {
       )}
     </div>
   );
-} 
+}

@@ -38,3 +38,8 @@ html {
     --radius: 0.5rem;
   }
 }
+
+.hide-nav nav,
+.hide-nav footer {
+  display: none !important;
+}
