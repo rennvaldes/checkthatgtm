@@ -53,7 +53,7 @@ function FeatureCard({
         </p>
       )}
       {images && (
-        <div className="flex gap-3  scale-[0.8] -translate-x-[1.6rem] lg:scale-100 lg:-translate-x-0">
+        <div className="flex gap-3  scale-[0.8] -translate-x-[10%] lg:scale-100 lg:-translate-x-0">
           {images.map((image, index) => (
             <Image
               key={index}
