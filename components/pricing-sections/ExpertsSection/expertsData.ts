@@ -30,6 +30,21 @@ import ClickUpImage from "@/assets/img/brands/clickup-small.jpg";
 /* Brands images mobile */
 import DeepGramMobileImage from "@/assets/img/brands/deepgram-transparent.png";
 import ScaleMobileImage from "@/assets/img/brands/scale-transparent.png";
+import HomebaseMobileImage from "@/assets/img/brands/homebase-transparent.png";
+import TrayMobileImage from "@/assets/img/brands/tray-transparent.png";
+import BardeenMobileImage from "@/assets/img/brands/bardeen-transparent.png";
+import AffirmMobileImage from "@/assets/img/brands/affirm-transparent.png";
+import TripAdvisorMobileImage from "@/assets/img/brands/tripadvisor-transparent.png";
+import FanaticsMobileImage from "@/assets/img/brands/fanatics-large-transparent.png";
+import SoftrMobileImage from "@/assets/img/brands/softr-transparent.png";
+import G2MobileImage from "@/assets/img/brands/g2-transparent.png";
+import VerbatimMobileImage from "@/assets/img/brands/verbatim-transparent.png";
+import BusinessInsiderMobileImage from "@/assets/img/brands/business-insider-transparent.png";
+import NerdwalletMobileImage from "@/assets/img/brands/nerdwallet-transparent.png";
+import WorkatoMobileImage from "@/assets/img/brands/workato-transparent.png";
+import TechcrunchMobileImage from "@/assets/img/brands/tech-crunch-transparent.png";
+import ClickUpMobileImage from "@/assets/img/brands/clickup-transparent.png";
+import KiteImage from "@/assets/img/brands/kite-transparent.png";
 
 export interface ExpertsData {
   name: string;
@@ -93,16 +108,16 @@ const expertsData: ExpertsData[] = [
     ],
     mobileImages: [
       {
-        src: DeepGramMobileImage.src,
-        alt: "Deepgram",
-        width: 65,
-        height: 18,
+        src: HomebaseMobileImage.src,
+        alt: "Homebase",
+        width: 55,
+        height: 16,
       },
       {
-        src: ScaleMobileImage.src,
-        alt: "Scale AI",
-        width: 18,
-        height: 18,
+        src: TrayMobileImage.src,
+        alt: "Tray",
+        width: 49,
+        height: 16,
       },
     ],
   },
@@ -126,17 +141,24 @@ const expertsData: ExpertsData[] = [
     ],
     mobileImages: [
       {
-        src: DeepGramMobileImage.src,
-        alt: "Deepgram",
-        width: 65,
+        src: AffirmMobileImage.src,
+        alt: "Affirm",
+        width: 32,
         height: 18,
       },
       {
-        src: ScaleMobileImage.src,
-        alt: "Scale AI",
+        src: BardeenMobileImage.src,
+        alt: "Bardeen",
         width: 18,
         height: 18,
       },
+      {
+        src: KiteImage.src,
+        alt: "Kite",
+        width: 18,
+        height: 18,
+      },
+
     ],
   },
   {
@@ -159,15 +181,15 @@ const expertsData: ExpertsData[] = [
     ],
     mobileImages: [
       {
-        src: DeepGramMobileImage.src,
-        alt: "Deepgram",
-        width: 65,
+        src: TripAdvisorMobileImage.src,
+        alt: "TripAdvisor",
+        width: 18,
         height: 18,
       },
       {
-        src: ScaleMobileImage.src,
-        alt: "Scale AI",
-        width: 18,
+        src: FanaticsMobileImage.src,
+        alt: "Fanatics",
+        width: 69,
         height: 18,
       },
     ],
@@ -192,14 +214,14 @@ const expertsData: ExpertsData[] = [
     ],
     mobileImages: [
       {
-        src: DeepGramMobileImage.src,
-        alt: "Deepgram",
-        width: 65,
-        height: 18,
+        src: SoftrMobileImage.src,
+        alt: "Softr",
+        width: 32,
+        height: 32,
       },
       {
-        src: ScaleMobileImage.src,
-        alt: "Scale AI",
+        src: G2MobileImage.src,
+        alt: "G2",
         width: 18,
         height: 18,
       },
@@ -225,14 +247,14 @@ const expertsData: ExpertsData[] = [
     ],
     mobileImages: [
       {
-        src: DeepGramMobileImage.src,
-        alt: "Deepgram",
-        width: 65,
-        height: 18,
+        src: VerbatimMobileImage.src,
+        alt: "Verbatim",
+        width: 24,
+        height: 24,
       },
       {
-        src: ScaleMobileImage.src,
-        alt: "Scale AI",
+        src: BusinessInsiderMobileImage.src,
+        alt: "Business Insider",
         width: 18,
         height: 18,
       },
@@ -258,14 +280,14 @@ const expertsData: ExpertsData[] = [
     ],
     mobileImages: [
       {
-        src: DeepGramMobileImage.src,
-        alt: "Deepgram",
-        width: 65,
+        src: NerdwalletMobileImage.src,
+        alt: "Nerdwallet",
+        width: 18,
         height: 18,
       },
       {
-        src: ScaleMobileImage.src,
-        alt: "Scale AI",
+        src: WorkatoMobileImage.src,
+        alt: "Workato",
         width: 18,
         height: 18,
       },
@@ -278,17 +300,17 @@ const expertsData: ExpertsData[] = [
     desktopImages: [
       {
         src: TechcrunchImage.src,
-        alt: "Deepgram",
+        alt: "Tech Crunch",
         width: 56,
         height: 56,
       },
     ],
     mobileImages: [
       {
-        src: DeepGramMobileImage.src,
-        alt: "Deepgram",
-        width: 65,
-        height: 18,
+        src: TechcrunchMobileImage.src,
+        alt: "Tech Crunch",
+        width: 24,
+        height: 24,
       },
     ],
   },
@@ -306,10 +328,10 @@ const expertsData: ExpertsData[] = [
     ],
     mobileImages: [
       {
-        src: DeepGramMobileImage.src,
-        alt: "Deepgram",
-        width: 65,
-        height: 18,
+        src: ClickUpMobileImage.src,
+        alt: "ClickUp",
+        width: 14,
+        height: 14,
       },
     ],
   },

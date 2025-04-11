@@ -10,6 +10,10 @@
   animation: swipe 10s linear infinite backwards;
 }
 
+.swipe-right {
+  animation: swipe-right 10s linear infinite backwards;
+}
+
 html::-webkit-scrollbar {
   display: none;
 }
@@ -30,6 +34,16 @@ html {
 
   100% {
     transform: translate(-100%);
+  }
+}
+
+@keyframes swipe-right {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(100%);
   }
 }
 

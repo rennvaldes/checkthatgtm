@@ -10,7 +10,7 @@ function MarqueeDesktop({
   fullSwipeDurationMs?: number;
 }) {
   return (
-    <div className="relative w-full mb-[7.5rem] overflow-hidden">
+    <div className="relative w-full mb-[7rem] overflow-hidden hidden lg:block">
       <div className="flex">
         {Array.from({ length: 3 }).map((_, i) => (
           <div
