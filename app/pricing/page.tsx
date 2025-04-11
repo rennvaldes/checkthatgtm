@@ -1,4 +1,5 @@
 import HelpedGrowSection from "@/components/home-sections/HelpedGrowSection";
+import ExpertsSection from "@/components/pricing-sections/ExpertsSection";
 import HeroSection from "@/components/pricing-sections/HeroSection";
 import WorkstreamsSection from "@/components/pricing-sections/WorkstreamsSection";
 
@@ -8,6 +9,7 @@ export default function Pricing() {
       <HeroSection />
       <HelpedGrowSection />
       <WorkstreamsSection />
+      <ExpertsSection />
     </main>
   );
 }

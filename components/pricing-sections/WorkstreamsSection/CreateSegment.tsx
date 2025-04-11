@@ -1,17 +1,21 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import FeatureCard from "./FeatureCard";
 import MagicWandIcon from "@/assets/img/workstreamsSection/icons/magic-wand.svg";
 import PenIcon from "@/assets/img/workstreamsSection/cardIcons/pen.svg";
 import WorldIcon from "@/assets/img/workstreamsSection/cardIcons/world.svg";
 import BookIcon from "@/assets/img/workstreamsSection/cardIcons/books.svg";
-import AnimalzImage from "@/assets/img/workstreamsSection/brands/animalz.jpg";
-import NerdWalletImage from "@/assets/img/workstreamsSection/brands/nerdwallet.jpg";
-import TCImage from "@/assets/img/workstreamsSection/brands/tech-crunch.jpg";
-import ClickUpImage from "@/assets/img/workstreamsSection/brands/clickup.jpg";
-import G2Image from "@/assets/img/workstreamsSection/brands/g2.jpg";
-import FanaticsImage from "@/assets/img/workstreamsSection/brands/fanatics.jpg";
-import VerbatimImage from "@/assets/img/workstreamsSection/brands/verbatim.jpg";
-import BIImage from "@/assets/img/workstreamsSection/brands/bi.jpg";
+import AnimalzImage from "@/assets/img/brands/animalz.jpg";
+import NerdWalletImage from "@/assets/img/brands/nerdwallet.jpg";
+import TCImage from "@/assets/img/brands/tech-crunch.jpg";
+import ClickUpImage from "@/assets/img/brands/clickup.jpg";
+import G2Image from "@/assets/img/brands/g2.jpg";
+import FanaticsImage from "@/assets/img/brands/fanatics.jpg";
+import VerbatimImage from "@/assets/img/brands/verbatim.jpg";
+import BIImage from "@/assets/img/brands/bi.jpg";
+
 
 const staticData = [
   {
@@ -89,16 +93,28 @@ const CreateSegment = () => {
   return (
     <div className="mt-[6.25rem]">
       <div className="flex items-center gap-5 lg:gap-12 relative -left-[3.1rem] mb-4 lg:mb-6">
-        <Image src={MagicWandIcon} alt="Magic Wand" width={40} height={40} className="scale-[0.70] lg:scale-100 translate-x-[0.8rem] lg:translate-x-[0.08rem]" />
+        <Image
+          src={MagicWandIcon}
+          alt="Magic Wand"
+          width={40}
+          height={40}
+          className="scale-[0.70] lg:scale-100 translate-x-[0.8rem] lg:translate-x-[0.08rem]"
+        />
         <h4 className="font-kepler-std text-ui-blue text-2xl italic lg:text-[2.625rem]">
           Create
         </h4>
       </div>
-      <div className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-[58.25rem]">
+      <motion.div
+        className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-[58.25rem]"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         {staticData.map((item) => (
           <FeatureCard key={item.title} {...item} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

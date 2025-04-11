@@ -1,11 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import FeatureCard from "./FeatureCard";
 import CubeIcon from "@/assets/img/workstreamsSection/icons/cube.svg";
 import LightIcon from "@/assets/img/workstreamsSection/cardIcons/light.svg";
 import ContentIcon from "@/assets/img/workstreamsSection/cardIcons/content.svg";
 import LinkIcon from "@/assets/img/workstreamsSection/cardIcons/link.svg";
-import SemrushIcon from "@/assets/img/workstreamsSection/brands/semrush.jpg";
-import DeepGramIcon from "@/assets/img/workstreamsSection/brands/deepgram.jpg";
+import SemrushIcon from "@/assets/img/brands/semrush.jpg";
+import DeepGramIcon from "@/assets/img/brands/deepgram.jpg";
 
 const staticData = [
   {
@@ -56,11 +59,17 @@ const DistributeSegment = () => {
           Distribute
         </h4>
       </div>
-      <div className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-[58.25rem]">
+      <motion.div
+        className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-[58.25rem]"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         {staticData.map((item) => (
           <FeatureCard key={item.title} {...item} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

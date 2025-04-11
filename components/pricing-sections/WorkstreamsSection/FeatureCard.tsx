@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cn } from '@/lib/litebox-lib/utils/cn';
 
 interface ImageProps {
   src: string;
@@ -26,7 +27,7 @@ function FeatureCard({
   className,
 }: FeatureCardProps) {
   return (
-    <div className={`bg-[#20233A] py-6 px-4 lg:px-10 lg:py-8 ${className}`}>
+    <div className={cn(`bg-[#20233A] py-6 px-4 lg:px-10 lg:py-8`, className)}>
       {icon && (
         <Image
           src={icon}

@@ -1,18 +1,21 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import FeatureCard from "./FeatureCard";
 import StarIcon from "@/assets/img/workstreamsSection/icons/star.svg";
 import RefreshIcon from "@/assets/img/workstreamsSection/cardIcons/refresh.svg";
 import ShieldIcon from "@/assets/img/workstreamsSection/cardIcons/shield.svg";
 import ChartIcon from "@/assets/img/workstreamsSection/cardIcons/chart.svg";
-import TrayImage from "@/assets/img/workstreamsSection/brands/tray.jpg";
-import BardeenImage from "@/assets/img/workstreamsSection/brands/bardeen.jpg";
-import YImage from "@/assets/img/workstreamsSection/brands/y.jpg";
+import TrayImage from "@/assets/img/brands/tray.jpg";
+import BardeenImage from "@/assets/img/brands/bardeen.jpg";
+import YImage from "@/assets/img/brands/y.jpg";
 import DBIcon from "@/assets/img/workstreamsSection/cardIcons/database.svg";
 import BorderChartIcon from "@/assets/img/workstreamsSection/cardIcons/border-chart.svg";
-import BasecampImage from "@/assets/img/workstreamsSection/brands/basecamp.jpg";
-import IFTTTImage from "@/assets/img/workstreamsSection/brands/ifttt.jpg";
-import HomebaseImage from "@/assets/img/workstreamsSection/brands/homebase.jpg";
-import AffirmImage from "@/assets/img/workstreamsSection/brands/affirm.jpg";
+import BasecampImage from "@/assets/img/brands/basecamp.jpg";
+import IFTTTImage from "@/assets/img/brands/ifttt.jpg";
+import HomebaseImage from "@/assets/img/brands/homebase.jpg";
+import AffirmImage from "@/assets/img/brands/affirm.jpg";
 
 const staticData = [
   {
@@ -119,11 +122,17 @@ const ConvertSegment = () => {
           Convert
         </h4>
       </div>
-      <div className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-[58.25rem]">
+      <motion.div
+        className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-[58.25rem]"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         {staticData.map((item) => (
           <FeatureCard key={item.title} {...item} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

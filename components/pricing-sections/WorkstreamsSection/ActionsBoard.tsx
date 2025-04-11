@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import arrowDownIcon from "@/assets/img/workstreamsSection/icons/arrow-down.svg";
 import CreateSegment from "./CreateSegment";
 import DistributeSegment from "./DistributeSegment";
@@ -37,7 +36,7 @@ function ActionsBoard() {
           dotStartingWidthPx={1}
           dotWidthPxIncreasePerRow={undefined}
           dotsSeparationPx={undefined}
-          dotPatternTopPaddingPx={1600}
+          dotPatternTopPaddingPx={1800}
         />
       </div>
     </div>
