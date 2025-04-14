@@ -27,7 +27,7 @@ function FeatureCard({
   className,
 }: FeatureCardProps) {
   return (
-    <div className={cn(`bg-[#20233A] py-6 px-4 lg:px-10 lg:py-8`, className)}>
+    <div className={cn(`bg-[#20233A] py-6 px-4 lg:px-10 lg:py-8 group`, className)}>
       {icon && (
         <Image
           src={icon}
@@ -44,12 +44,12 @@ function FeatureCard({
         {description}
       </p>
       {highlightText && (
-        <p className="font-elza text-[#33FF9D] text-base leading-relaxed mb-4">
+        <p className="font-elza text-[#33FF9D] text-base leading-relaxed mb-4 group-hover:scale-110 group-hover:ml-[1.1rem] transition-all duration-300">
           {highlightText}
         </p>
       )}
       {smallCopy && (
-        <p className="text-[#9FA3BD] text-[0.75rem] lg:text-sm mb-4">
+        <p className="text-[#9FA3BD] text-[0.75rem] lg:text-sm mb-4 group-hover:text-[#33FF9D] group-hover:text-[1rem] transition-all duration-300">
           {smallCopy}
         </p>
       )}
@@ -62,6 +62,7 @@ function FeatureCard({
               alt={image.alt}
               width={image.width}
               height={40}
+              className="group-hover:scale-110 group-hover:mr-2 transition-all duration-300"
             />
           ))}
         </div>

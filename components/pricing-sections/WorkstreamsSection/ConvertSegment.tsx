@@ -8,7 +8,7 @@ import RefreshIcon from "@/assets/img/workstreamsSection/cardIcons/refresh.svg";
 import ShieldIcon from "@/assets/img/workstreamsSection/cardIcons/shield.svg";
 import ChartIcon from "@/assets/img/workstreamsSection/cardIcons/chart.svg";
 import TrayImage from "@/assets/img/brands/tray.jpg";
-import BardeenImage from "@/assets/img/brands/bardeen.jpg";
+import BardeenImage from "@/assets/img/brands/bardeen.svg";
 import YImage from "@/assets/img/brands/y.jpg";
 import DBIcon from "@/assets/img/workstreamsSection/cardIcons/database.svg";
 import BorderChartIcon from "@/assets/img/workstreamsSection/cardIcons/border-chart.svg";
