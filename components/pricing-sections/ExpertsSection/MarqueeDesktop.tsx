@@ -35,7 +35,7 @@ function MarqueeDesktop({
                         <h4 className="text-[1.25rem] font-elza font-semibold mb-2">
                           {expert.name}
                         </h4>
-                        <p className="text-sm font-elza max-w-[10rem] leading-relaxed">
+                        <p className="text-sm font-elza max-w-[10rem] leading-tight">
                           {expert.description}
                         </p>
                       </div>

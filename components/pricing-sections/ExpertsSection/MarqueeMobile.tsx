@@ -66,7 +66,7 @@ function MarqueeMobile({
                   <h4 className="text-sm font-elza text-[#20233A] font-semibold">
                     {expert.name}
                   </h4>
-                  <p className="text-[0.75rem] text-[#797E9F] font-elza max-w-[8rem] leading-relaxed">
+                  <p className="text-[0.75rem] text-[#797E9F] font-elza max-w-[8rem] leading-tight">
                     {expert.description}
                   </p>
                 </div>
@@ -119,7 +119,7 @@ function MarqueeMobile({
                   <h4 className="text-sm font-elza text-[#20233A] font-semibold">
                     {expert.name}
                   </h4>
-                  <p className="text-[0.75rem] text-[#797E9F] font-elza max-w-[8rem] leading-relaxed">
+                  <p className="text-[0.75rem] text-[#797E9F] font-elza max-w-[8rem] leading-tight">
                     {expert.description}
                   </p>
                 </div>

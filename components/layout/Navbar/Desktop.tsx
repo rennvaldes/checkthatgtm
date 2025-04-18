@@ -124,10 +124,9 @@ function Desktop() {
         </li>
         <li>
           <KitButton
-            className="secondary"
             href="/careers"
-            variant="ghost"
-            size="custom"
+            variant="secondary"
+            size="medium"
             sameBrowserTab={true}
           >
             Careers
