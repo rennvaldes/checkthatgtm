@@ -1,4 +1,3 @@
-import ArrowDown from "@/components/icons/ArrowDown";
 import Check from "@/components/icons/Check";
 
 const staticData = {

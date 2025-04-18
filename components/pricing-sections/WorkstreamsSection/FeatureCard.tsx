@@ -44,17 +44,17 @@ function FeatureCard({
         {description}
       </p>
       {highlightText && (
-        <p className="font-elza text-[#33FF9D] text-base leading-relaxed mb-4 group-hover:scale-110 group-hover:ml-[1.1rem] transition-all duration-300">
+        <p className="font-elza text-[#33FF9D] text-base leading-relaxed mb-4 group-hover:scale-110 origin-left transition-all duration-300">
           {highlightText}
         </p>
       )}
       {smallCopy && (
-        <p className="text-[#9FA3BD] text-[0.75rem] lg:text-sm mb-4 group-hover:text-[#33FF9D] group-hover:text-[1rem] transition-all duration-300">
+        <p className="text-[#9FA3BD] text-[0.75rem] lg:text-sm mb-4 group-hover:text-[#33FF9D] group-hover:scale-110 origin-left transition-all duration-300">
           {smallCopy}
         </p>
       )}
       {images && (
-        <div className="flex gap-3  scale-[0.8] -translate-x-[10%] lg:scale-100 lg:-translate-x-0">
+        <div className="flex gap-3 group-hover:scale-105 origin-left transition-all duration-300">
           {images.map((image, index) => (
             <Image
               key={index}
@@ -62,7 +62,7 @@ function FeatureCard({
               alt={image.alt}
               width={image.width}
               height={40}
-              className="group-hover:scale-110 group-hover:mr-2 transition-all duration-300"
+              className="group-hover:scale-[1.01] origin-left transition-all duration-300"
             />
           ))}
         </div>
