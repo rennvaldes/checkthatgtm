@@ -44,12 +44,12 @@ function FeatureCard({
         {description}
       </p>
       {highlightText && (
-        <p className="font-elza text-[#33FF9D] text-base leading-relaxed mb-4 group-hover:scale-110 origin-left transition-all duration-300">
+        <p className="font-elza text-[#33FF9D] text-base leading-relaxed mb-4 group-hover:text-[#FDFDFF] origin-left transition-all duration-300">
           {highlightText}
         </p>
       )}
       {smallCopy && (
-        <p className="text-[#9FA3BD] text-[0.75rem] lg:text-sm mb-4 group-hover:text-[#33FF9D] group-hover:scale-110 origin-left transition-all duration-300">
+        <p className="text-[#9FA3BD] text-[0.75rem] lg:text-sm mb-4 group-hover:text-[#33FF9D] group-hover:scale-105 origin-left transition-all duration-300">
           {smallCopy}
         </p>
       )}
