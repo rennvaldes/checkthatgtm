@@ -14,13 +14,13 @@ function InfiniteImagesSlider({ images, fullSwipeDurationMs, className }: Props)
         {Array.from({ length: 3 }).map((_, index) => (
           <div
             key={`infinite-image-slider-${index}`}
-            className='swipe-left flex items-center gap-[40px] pr-[87.1px] lg:gap-[87.1px]'
+            className='swipe-left flex items-center gap-[40px] pr-[87.1px] lg:gap-[70px]'
             style={{ animationDuration: `${fullSwipeDurationMs}ms` }}>
             {images.map((image, index) => (
               <div key={`sliderImage${index}`}>
                 <img
                   style={{ height: image.height }}
-                  className='h-full max-w-[150px] object-cover px-[15px] py-0 last-of-type:pl-0'
+                  className='h-full max-w-[200px] object-cover px-[15px] py-0 last-of-type:pl-0'
                   src={image.src}
                   alt={`sliderImage${index}`}
                 />
