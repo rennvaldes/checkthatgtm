@@ -50,3 +50,8 @@ html {
     background-color: #fff;
   }
 }
+
+.demo-dotted-pattern {
+  --d: 2.5px; 
+  background: radial-gradient(circle at var(--d) var(--d),#FFDACA calc(var(--d) - 1px), #FFDACA calc(var(--d) - 1px), transparent var(--d)) 0 0 / 50px 50px;
+}
