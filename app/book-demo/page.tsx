@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Quotes from '@/components/icons/Quotes';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -36,9 +37,22 @@ const reviewsData = [
   }
 ];
 
+const allLogos = [
+  { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Deepgram_logo_ca172c4fe3.svg', alt: 'Deepgram', height: 20 },
+  { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg', alt: 'Ramp', height: 20 },
+  { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/metadata_4323b9c4fd.svg', alt: 'Metadata', height: 20 },
+  { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/service_titan_fbd8ccb6f1.svg', alt: 'Service Titan', height: 20 },
+  { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/swoogo_logo_449d7f6b4c.svg', alt: 'Swoogo', height: 20 },
+  { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/steadily_logo_2_a9fb3f3b54.svg', alt: 'Steadily', height: 15 },
+  { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/reddit_logo_b80d54a7ab.svg', alt: 'Reddit', height: 26 },
+  { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/webstacks_5f9bb33e5c.svg', alt: 'Webstacks', height: 20 },
+];
+
 export default function BookDemoPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+
+  const paginationRef = useRef(null);
 
   useEffect(() => {
     document.body.classList.add('hide-nav');
@@ -100,7 +114,7 @@ export default function BookDemoPage() {
         )}
       </div>
       <div className="hidden lg:flex lg:w-1/2 h-full flex-col justify-center items-center bg-ui-black text-white">
-        <div className="flex flex-col items-center justify-center bg-[rgba(247,244,255,0.7)] p-4 rounded-xl">
+        <div className="flex flex-col items-center justify-center bg-[rgba(247,244,255,0.7)] p-3 rounded-2xl relative">
           <Swiper
             // install Swiper modules
             modules={[Navigation, Pagination, A11y]}
@@ -108,26 +122,53 @@ export default function BookDemoPage() {
             loop={true}
             slidesPerView={1}
             navigation={false}
-            pagination={{ clickable: true }}
-            className="max-w-[420px] h-[340px] bg-white rounded-xl"
+            pagination={{ clickable: true, el: paginationRef.current }}
+            onSwiper={(swiper) => {
+              if (swiper.params.pagination && typeof swiper.params.pagination !== 'boolean') {
+                swiper.params.pagination.el = paginationRef.current;
+                swiper.pagination.init();
+                swiper.pagination.render();
+                swiper.pagination.update();
+              }
+            }}
+            className="max-w-[420px] h-[340px] bg-white rounded-2xl"
           >
             {reviewsData.map((review, index) => (
-              <SwiperSlide key={index} className="!flex flex-col text-black font-elza text-lg p-12">
-                <div className="h-full !flex-grow !flex flex-col">
-                  <p className="">{review.review_body}</p>
+              <SwiperSlide key={index} className="text-black font-elza text-lg cursor-grab active:cursor-grabbing p-12">
+                <div className="h-full flex flex-col">
+                  <div className="flex-grow">
+                    <Quotes className="text-ui-black mb-4" />
+                    <p className="text-lg">{review.review_body}</p>
+                  </div>
                   <div className="w-full flex flex-row items-center">
                     <div className="flex flex-col items-center justify-center">
-                      <Image src={review.avatar} alt={review.name} width={48} height={48} className="rounded-full object-cover" />
+                      <Image src={review.avatar} alt={review.name} width={52} height={52} className="rounded-full object-cover" />
                     </div>
-                    <div className="mt-auto">
-                      <p className="">{review.name}</p>
-                      <p className="">{review.legend}</p>
+                    <div className="flex flex-col ml-2 gap-0.5">
+                      <p className="text-base font-medium">{review.name}</p>
+                      <p className="text-sm -mt-1">{review.legend}</p>
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+        <div id="custom-pagination-container" ref={paginationRef} className="flex flex-row items-center gap-2 mt-4 justify-center">
+          {reviewsData.map((review, index) => (
+            <div 
+              key={index} 
+              className={`w-2 h-2 bg-white rounded-full transition-opacity ${index === 0 ? 'opacity-100' : 'opacity-50'}`}
+            ></div>
+          ))}
+        </div>
+        <div className="flex flex-col items-center justify-center mt-12 p-8">
+          <p className="text-sm">Trusted by</p>
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4">
+            {allLogos.map((logo, index) => (
+              <img src={logo.src} alt={logo.alt} key={index} className="w-auto brightness-0 invert" style={{ height: logo.height }} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
