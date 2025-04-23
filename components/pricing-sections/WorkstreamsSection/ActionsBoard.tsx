@@ -1,6 +1,6 @@
 import Image from "next/image";
 import arrowDownIcon from "@/assets/img/workstreamsSection/icons/arrow-down.svg";
-import CreateSegment from "./CreateSegment";
+import ContentSegment from "./CreateSegment";
 import DistributeSegment from "./DistributeSegment";
 import ConvertSegment from "./ConvertSegment";
 import DotPatternBackground from "@/components/ui/DotPatternBackground";
@@ -28,7 +28,7 @@ function ActionsBoard() {
             </div>
           </div>
           <div className="relative z-[2]">
-            <CreateSegment />
+            <ContentSegment />
             <DistributeSegment />
             <ConvertSegment />
           </div>

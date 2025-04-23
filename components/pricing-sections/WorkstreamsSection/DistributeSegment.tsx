@@ -16,19 +16,22 @@ const staticData = [
     title: "Thought Leadership",
     description:
       "Build an audience by turning your thoughts and existing content into posts that drives engagement on every social platform.",
+    highlightText: "Up to 5 posts per week",
   },
   {
     icon: ContentIcon,
     title: "Content Repurposing",
     description:
       "Adapt your best content for distribution across all channels, from video to audio.",
+    highlightText: "Up to 5 posts per week",
   },
   {
     icon: LinkIcon,
     title: "Link Building",
     description:
       "Full service backlink campaigns to build domain authority and help your content rank in the most competitive searches.",
-    smallCopy: "Powered by Experts from",
+    highlightText: "20+ DR 60-90 backlinks per month",
+    smallCopy: "Powered by experts from",
     images: [
       {
         src: SemrushIcon.src,

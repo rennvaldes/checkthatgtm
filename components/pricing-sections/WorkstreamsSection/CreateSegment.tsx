@@ -24,7 +24,7 @@ const staticData = [
     description:
       "High-quality, expert-written content that drives organic growth and brand authority.",
     highlightText: "Up to 50,000 words per month",
-    smallCopy: "Powered by Editors from",
+    smallCopy: "Powered by editors from",
     images: [
       {
         src: AnimalzImage.src,
@@ -73,6 +73,7 @@ const staticData = [
     title: "Case Studies",
     description:
       "Create stories that closes deals with turnkey content creation from sourcing to interviewing to writing.",
+    highlightText: "Up to 4 case studies per month",
     smallCopy: "Powered by Product marketing leaders from",
     images: [
       {
@@ -89,7 +90,7 @@ const staticData = [
   },
 ];
 
-const CreateSegment = () => {
+const ContentSegment = () => {
   return (
     <div className="mt-[6.25rem]">
       <div className="flex items-center gap-5 lg:gap-12 relative -left-[3.1rem] mb-4 lg:mb-6">
@@ -101,7 +102,7 @@ const CreateSegment = () => {
           className="scale-[0.70] lg:scale-100 translate-x-[0.8rem] lg:translate-x-[0.08rem]"
         />
         <h4 className="font-kepler-std text-ui-blue text-2xl italic lg:text-[2.625rem]">
-          Create
+          Content
         </h4>
       </div>
       <motion.div
@@ -119,4 +120,4 @@ const CreateSegment = () => {
   );
 };
 
-export default CreateSegment;
+export default ContentSegment;

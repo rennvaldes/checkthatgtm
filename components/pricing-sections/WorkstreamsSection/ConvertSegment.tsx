@@ -22,7 +22,7 @@ const staticData = [
     icon: RefreshIcon,
     title: "Content Refresh",
     description:
-      "Update and optimize old content to boost rankings, drive more traffic, and stay competitive.",
+      "Update and optimize stale content to boost rankings, drive more traffic, and stay competitive.",
     highlightText: "Up to 50,000 words per month",
   },
   {
@@ -38,7 +38,7 @@ const staticData = [
     description:
       "Tighten messaging, design, and UX to turn more visitors into leads and customers.",
     highlightText: "Up to 5 ongoing experiments",
-    smallCopy: "Powered by Heads of growth from",
+    smallCopy: "Powered by heads of growth from",
     images: [
       {
         src: TrayImage.src,
@@ -83,7 +83,7 @@ const staticData = [
     description:
       "Highly efficient campaigns adapted to your audience and optimizes with AI creatives.",
     highlightText: "Up to $250k in monthly budget",
-    smallCopy: "Powered by principle engineers from",
+    smallCopy: "Powered by growth marketers from",
     images: [
       {
         src: HomebaseImage.src,
@@ -103,6 +103,7 @@ const staticData = [
     title: "Outbound Sales",
     description:
       "Direct outreach to convert warm leads or cold prospects into paying customers.",
+    highlightText: "Up to 3 concurrent campaigns",
     className: "h-fit",
   },
 ];
