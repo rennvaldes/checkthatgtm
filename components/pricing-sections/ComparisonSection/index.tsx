@@ -6,19 +6,19 @@ import { cn } from '@/lib/litebox-lib/utils/cn';
 const comparisonData = [
   {
     feature: 'Cost',
-    growthx: '$9,000-12,000/mo with predictable pricing',
-    traditional: 'High overhead with no completion cap',
-    saas: 'Subscription plus staff costs',
+    growthx: 'Predictable pricing starting at $9,000/mo',
+    traditional: 'High overhead and hourly rates',
+    saas: 'Subscription plus inhouse staff costs',
   },
   {
     feature: 'Quality',
-    growthx: 'AI workflows with expert editors',
+    growthx: 'Domain experts with AI workflows',
     traditional: 'Variable quality across team members',
     saas: 'Only as good as your implementation',
   },
   {
     feature: 'Time to Start',
-    growthx: 'Content published within first few weeks',
+    growthx: 'Immedate',
     traditional: '3+ weeks of meetings before execution',
     saas: 'Months to hire and train your team',
   },

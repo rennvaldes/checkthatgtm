@@ -261,39 +261,6 @@ const expertsData: ExpertsData[] = [
     ],
   },
   {
-    name: "Stewart Mohammadi",
-    description: "Ex Head of SEO Nerdwallet, Workato",
-    picture: StewartImage.src,
-    desktopImages: [
-      {
-        src: NerdwalletImage.src,
-        alt: "Nerdwallet",
-        width: 56,
-        height: 56,
-      },
-      {
-        src: WorkatoImage.src,
-        alt: "Workato",
-        width: 56,
-        height: 56,
-      },
-    ],
-    mobileImages: [
-      {
-        src: NerdwalletMobileImage.src,
-        alt: "Nerdwallet",
-        width: 18,
-        height: 18,
-      },
-      {
-        src: WorkatoMobileImage.src,
-        alt: "Workato",
-        width: 18,
-        height: 18,
-      },
-    ],
-  },
-  {
     name: "Matthew Panzarino",
     description: "Ex Editor in Chief at Techcrunch",
     picture: MatthewImage.src,
