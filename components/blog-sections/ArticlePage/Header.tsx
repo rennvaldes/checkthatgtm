@@ -82,7 +82,7 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
           )}
         </div>
         {isGeneralDataLoading ? (
-          <Skeleton className='mb-[8px] mt-[16px] h-[44px] lg:w-[300px]' />
+          <Skeleton className='mb-[8px] mt-[16px] h-[44px] md:w-[300px]' />
         ) : (
           <div className='mt-[16px] flex items-center justify-start mb-[8px]'>
             <p className='pl-0 md:p-[16px] mr-5 font-medium'>Share</p>
