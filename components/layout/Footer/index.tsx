@@ -35,12 +35,11 @@ function Footer() {
             </h3>
             <div className="flex">
               <KitButton
-                scrollTo="book-section"
-                variant="primary"
-                withAnimatedArrow="to-right"
-                size="large"
-                className="mt-[24px] lg:mt-[32px]"
-              >
+                href='/book-demo'
+                variant='primary'
+                withAnimatedArrow='to-right'
+                size='large'
+                className='mt-[24px] lg:mt-[32px]'>
                 Book a call
               </KitButton>
             </div>

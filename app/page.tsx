@@ -14,7 +14,7 @@ import ResultsSection from "@/components/home-sections/ResultsSection";
 import WhoWeAreForSection from "@/components/home-sections/WhoWeAreForSection";
 import HowItWorksSection from "@/components/home-sections/HowItWorksSection";
 import ReviewsSection from "@/components/home-sections/ReviewsSection";
-import PricingSection from "@/components/home-sections/PricingSection";
+// import PricingSection from "@/components/home-sections/PricingSection";
 import BookSection from "@/components/home-sections/BookSection";
 import { FaqSectionHomepage } from '@/components/home-sections/FaqSection';
 import EarthSection from "@/components/home-sections/EarthSection";

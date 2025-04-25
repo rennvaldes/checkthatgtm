@@ -146,7 +146,11 @@ function Desktop() {
           <Dropdown docs_url={docs_url} />
         </li> */}
       </ul>
-      <KitButton scrollTo="book-section" variant="outline" size="medium">
+      <KitButton 
+        href='/book-demo' 
+        variant='primary' 
+        size='medium'
+        className='rounded-full hover:bg-ui-blue'>
         Book a call
       </KitButton>
     </nav>
