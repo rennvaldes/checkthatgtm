@@ -16,7 +16,7 @@ import HowItWorksSection from "@/components/home-sections/HowItWorksSection";
 import ReviewsSection from "@/components/home-sections/ReviewsSection";
 import PricingSection from "@/components/home-sections/PricingSection";
 import BookSection from "@/components/home-sections/BookSection";
-import FaqSection from "@/components/home-sections/FaqSection";
+import { FaqSectionHomepage } from '@/components/home-sections/FaqSection';
 import EarthSection from "@/components/home-sections/EarthSection";
 import ServiceAsSoftware from "@/components/home-sections/ServiceAsSoftware";
 
@@ -36,7 +36,7 @@ export default function Home() {
       <ReviewsSection />
       {/*     <PricingSection /> */}
       <BookSection />
-      <FaqSection />
+      <FaqSectionHomepage />
       <EarthSection />
     </main>
   );
