@@ -2,8 +2,8 @@ import KitButton from "@/components/ui/KitButton";
 
 const staticData = {
   lead: "Starting at $9,000 per month",
-  highlightedWord: "Growth",
-  title: "as a service",
+  highlightedWord: "Outcomes",
+  title: "not tools",
   description:
     "We build scalable growth engines that generate demand.  From content creation and SEO to link building and analytics, a GrowthX subscription gives you access to our full suite of workstreams. You choose how to budget each month based on your business needs.",
   disclaimer: "Typical engagements range from $9,000 to $20,000 USD/month.",
@@ -18,7 +18,7 @@ function PromoCard() {
           {staticData.lead}
         </span>
       </div>
-      <h3 className="font-clash-display mx-auto text-left text-[#FDFDFF] text-[1.875rem] font-medium leading-[40px] lg:text-[3.375rem] lg:leading-[77px] pb-4 lg:pb-2">
+      <h3 className="font-clash-display mx-auto text-left text-[#FDFDFF] text-[1.5rem] font-medium leading-[40px] lg:text-[2.5rem] lg:leading-[77px] pb-4 lg:pb-2">
         <span className="font-kepler-std text-[#33FF9D] text-[2rem] italic lg:text-[3.375rem]">
           {staticData.highlightedWord}&nbsp;
         </span>

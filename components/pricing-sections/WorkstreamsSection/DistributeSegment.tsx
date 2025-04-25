@@ -10,21 +10,7 @@ import LinkIcon from "@/assets/img/workstreamsSection/cardIcons/link.svg";
 import SemrushIcon from "@/assets/img/brands/semrush.jpg";
 import DeepGramIcon from "@/assets/img/brands/deepgram.jpg";
 
-const staticData = [
-  {
-    icon: LightIcon,
-    title: "Thought Leadership",
-    description:
-      "Build an audience by turning your thoughts and existing content into posts that drives engagement on every social platform.",
-    highlightText: "Up to 5 posts per week",
-  },
-  {
-    icon: ContentIcon,
-    title: "Content Repurposing",
-    description:
-      "Adapt your best content for distribution across all channels, from video to audio.",
-    highlightText: "Up to 5 posts per week",
-  },
+const staticData = [  
   {
     icon: LinkIcon,
     title: "Link Building",
@@ -44,6 +30,13 @@ const staticData = [
         width: 98,
       },
     ],
+  },
+  {
+    icon: LightIcon,
+    title: "Social Media",
+    description:
+      "Build an audience by turning your thoughts and existing content into posts that drives engagement on every social platform.",
+    highlightText: "Up to 5 posts per week",
   },
 ];
 

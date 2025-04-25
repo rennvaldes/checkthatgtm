@@ -15,26 +15,51 @@ import G2Image from "@/assets/img/brands/g2.jpg";
 import FanaticsImage from "@/assets/img/brands/fanatics.jpg";
 import VerbatimImage from "@/assets/img/brands/verbatim.jpg";
 import BIImage from "@/assets/img/brands/bi.jpg";
+import RefreshIcon from "@/assets/img/workstreamsSection/cardIcons/refresh.svg";
+import LightIcon from "@/assets/img/workstreamsSection/cardIcons/light.svg";
+import SemrushIcon from "@/assets/img/brands/semrush.jpg";
+import BardeenImage from "@/assets/img/brands/bardeen.svg";
+import DeepGramIcon from "@/assets/img/brands/deepgram.jpg";
 
 
 const staticData = [
+  {
+    icon: LightIcon,
+    title: "AISEO",
+    description:
+      "Track and increase citations and mentions in Google AI Overviews, Perplexity, ChatGPT, and Claude.",
+    highlightText: "Increase AI visibility by up to 3x",
+    smallCopy: "Powered by AI experts from",
+    images: [
+      {
+        src: SemrushIcon.src,
+        alt: "Semrush",
+        width: 98,
+      },
+      {
+        src: DeepGramIcon.src,
+        alt: "Deepgram",
+        width: 98,
+      },
+      {
+        src: BardeenImage.src,
+        alt: "Bardeen",
+        width: 40,
+      },
+    ],
+  },
   {
     icon: PenIcon,
     title: "Editorial Content",
     description:
       "High-quality, expert-written content that drives organic growth and brand authority.",
     highlightText: "Up to 50,000 words per month",
-    smallCopy: "Powered by editors from",
+    smallCopy: "Powered by senior editors from",
     images: [
       {
         src: AnimalzImage.src,
         alt: "Animalz",
         width: 98,
-      },
-      {
-        src: NerdWalletImage.src,
-        alt: "Nerd Wallet",
-        width: 40,
       },
       {
         src: TCImage.src,
@@ -87,6 +112,13 @@ const staticData = [
         width: 40,
       },
     ],
+  },
+  {
+    icon: RefreshIcon,
+    title: "Content Refresh",
+    description:
+      "Update and optimize stale content to boost rankings, drive more traffic, and stay competitive.",
+    highlightText: "Up to 50,000 words per month",
   },
 ];
 

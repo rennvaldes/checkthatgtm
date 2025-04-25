@@ -10,14 +10,13 @@ function HeroSection() {
 
   return (
     <section className="relative mt-24 w-full overflow-hidden lg:mt-[7.5rem]">
-      <div className="mx-auto text-center mb-4 max-w-[22rem] lg:max-w-[42.5rem]">
+      <div className="mx-auto text-center mb-4 max-w-[28rem] lg:max-w-[50rem]">
         <h1 className="text-ui-blue text-lg font-medium">Pricing Model</h1>
         <h2 className="font-clash-display mx-auto max-w-[90%] text-center text-[36px] font-medium leading-[40px] lg:text-[70px] lg:leading-[77px]">
-          Pay for&nbsp;
+          One subscription to fuel&nbsp;
           <span className="font-kepler-std text-ui-blue text-[42px] italic lg:text-[80px]">
-            outcomes
+            AI-Led Growth
           </span>
-          , not hours or tools
         </h2>
       </div>
 

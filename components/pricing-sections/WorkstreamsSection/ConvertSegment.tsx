@@ -19,18 +19,25 @@ import AffirmImage from "@/assets/img/brands/affirm.jpg";
 
 const staticData = [
   {
-    icon: RefreshIcon,
-    title: "Content Refresh",
+    icon: BorderChartIcon,
+    title: "Paid Media",
     description:
-      "Update and optimize stale content to boost rankings, drive more traffic, and stay competitive.",
-    highlightText: "Up to 50,000 words per month",
-  },
-  {
-    icon: ShieldIcon,
-    title: "Gated Content",
-    description:
-      "Offer high-value content behind forms to capture qualified leads.",
-    highlightText: "Up to 4 per month",
+      "Highly efficient campaigns adapted to your audience and optimizes with AI creatives.",
+    highlightText: "Up to $250k in monthly budget",
+    smallCopy: "Powered by growth marketers from",
+    images: [
+      {
+        src: HomebaseImage.src,
+        alt: "Homebase",
+        width: 98,
+      },
+      {
+        src: AffirmImage.src,
+        alt: "Affirm",
+        width: 98,
+      },
+    ],
+    className: "h-fit",
   },
   {
     icon: ChartIcon,
@@ -58,45 +65,11 @@ const staticData = [
     ],
   },
   {
-    icon: DBIcon,
-    title: "Data Analytics",
+    icon: ShieldIcon,
+    title: "Gated Content",
     description:
-      "Measure performance, identify opportunities, and drive smarter content and marketing decisions.",
-    highlightText: "Dashboards, Alerts, Continuous Monitoring",
-    smallCopy: "Powered by principle engineers from",
-    images: [
-      {
-        src: BasecampImage.src,
-        alt: "Basecamp",
-        width: 98,
-      },
-      {
-        src: IFTTTImage.src,
-        alt: "IFTTT",
-        width: 98,
-      },
-    ],
-  },
-  {
-    icon: BorderChartIcon,
-    title: "Paid Media",
-    description:
-      "Highly efficient campaigns adapted to your audience and optimizes with AI creatives.",
-    highlightText: "Up to $250k in monthly budget",
-    smallCopy: "Powered by growth marketers from",
-    images: [
-      {
-        src: HomebaseImage.src,
-        alt: "Homebase",
-        width: 98,
-      },
-      {
-        src: AffirmImage.src,
-        alt: "Affirm",
-        width: 98,
-      },
-    ],
-    className: "h-fit",
+      "Offer high-value content behind forms to capture qualified leads.",
+    highlightText: "Up to 4 per month",
   },
   {
     icon: BorderChartIcon,

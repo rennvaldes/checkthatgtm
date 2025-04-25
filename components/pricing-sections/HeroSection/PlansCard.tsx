@@ -8,7 +8,7 @@ const staticData = {
     { text: "Access to top 1% growth experts", scrollTo: "experts-section" },
     { text: "Dedicated growth strategist" },
     { text: "Turnaround times starting at 24 hours" },
-    { text: "Global team coverage" },
+    { text: "We work in Slack as an extension of your team" },
     { text: "Access to GrowthX platform" },
     { text: "Access to AI Led Growth community" },
   ],

@@ -7,6 +7,7 @@ import ComparisonSection from "@/components/pricing-sections/ComparisonSection";
 import ExpertsSection from "@/components/pricing-sections/ExpertsSection";
 import HeroSection from "@/components/pricing-sections/HeroSection";
 import WorkstreamsSection from "@/components/pricing-sections/WorkstreamsSection";
+import ServiceAsSoftware from "@/components/home-sections/ServiceAsSoftware";
 
 export default function Pricing() {
   return (
@@ -15,8 +16,8 @@ export default function Pricing() {
       <HelpedGrowSection />
       <WorkstreamsSection />
       <ExpertsSection />
+      <ServiceAsSoftware />
       <ResultsSection />
-      <ComparisonSection />
       <EarthSection />
     </main>
   );
