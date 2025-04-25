@@ -31,7 +31,7 @@ function PromoCard() {
         {staticData.disclaimer}
       </h4>
       <KitButton
-        scrollTo="book-section"
+        href="/book-demo"
         variant="tertiary"
         withAnimatedArrow="to-right"
         size="large"

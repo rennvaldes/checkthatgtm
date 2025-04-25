@@ -22,19 +22,19 @@ const reviewsData = [
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Stacey_Baer_Swoogo_VP_Marketing_b086dddd58.jpeg"
   },
   {
-    "review_body": "GrowthX doesn’t just hand over a playbook—they dive in and do the work for you. Marcel and his team are all about delivering real, impactful growth without adding more to your plate.",
+    "review_body": "GrowthX doesn't just hand over a playbook—they dive in and do the work for you. Marcel and his team are all about delivering real, impactful growth without adding more to your plate.",
     "name": "Bob Summers",
     "legend": "CEO, Goodcall",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Bob_Summers_Goodcall_CEO_1_fbb6692987.jpg"
   },
   {
-    "review_body": "I’ll be honest—I thought content automation sounded a bit 'too good to be true,' but GrowthX proved me wrong. It's already paying huge dividends.",
+    "review_body": "I'll be honest—I thought content automation sounded a bit 'too good to be true,' but GrowthX proved me wrong. It's already paying huge dividends.",
     "name": "Chaz Ross-Munro",
     "legend": "Head of Marketing, Datumate",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Chaz_Ross_Munro_0541aa7b70.jpeg"
   },
   {
-    "review_body": "GrowthX is the real deal for practical AI workflows. I've pulled so much value from their frameworks and applied it directly to my work. Highly recommend if you’re ready to 100X your growth workflows!",
+    "review_body": "GrowthX is the real deal for practical AI workflows. I've pulled so much value from their frameworks and applied it directly to my work. Highly recommend if you're ready to 100X your growth workflows!",
     "name": "Francesco Garofalo",
     "legend": "Growth Engineer, Teleport",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Francesco_Garofalo_f6ee387324.jpeg"
@@ -91,6 +91,12 @@ export default function BookDemoPage() {
     setHasError(true);
   };
 
+  const getIframeSrc = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = urlParams.toString();
+    return `https://forms.default.com/639407?${utmParams}`;
+  };
+
   return (
     <div className="w-full h-screen flex">
       <div className="w-full lg:w-1/2 h-full overflow-hidden">
@@ -109,7 +115,7 @@ export default function BookDemoPage() {
         ) : (
           <iframe 
             id="form-iframe"
-            src="https://forms.default.com/639407"
+            src={getIframeSrc()}
             className="w-full h-full border-0"
             title="Book a Demo"
             onLoad={handleIframeLoad}
