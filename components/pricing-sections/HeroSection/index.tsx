@@ -13,7 +13,7 @@ function HeroSection() {
       <div className="mx-auto text-center mb-4 max-w-[28rem] lg:max-w-[50rem]">
         <h1 className="text-ui-blue text-lg font-medium">Pricing Model</h1>
         <h2 className="font-clash-display mx-auto max-w-[90%] text-center text-[36px] font-medium leading-[40px] lg:text-[70px] lg:leading-[77px]">
-          One subscription to fuel&nbsp;
+          One subscription to deliver&nbsp;
           <span className="font-kepler-std text-ui-blue text-[42px] italic lg:text-[80px]">
             AI-Led Growth
           </span>

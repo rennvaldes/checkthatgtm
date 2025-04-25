@@ -46,21 +46,20 @@ function Footer() {
           </div>
           <div className="flex gap-[40px] pt-[64px] lg:pt-[28px]">
             <LinksColumn
-              title="GrowthX"
+              title="Company"
               links={[
-                { to: "/", scrollTo: "results-section", text: "Our results" },
-                {
-                  to: "/",
-                  scrollTo: "how-it-works-section",
-                  text: "How it works",
-                },
-                { to: "/", scrollTo: "reviews-section", text: "Reviews" },
                 { to: "/pricing", text: "Pricing", sameBrowserTab: true },
-                { to: "/tools", text: "Tools", sameBrowserTab: true },
-                { to: "/resources", text: "Resources", sameBrowserTab: true },
-                { to: "/blog", text: "Blog", sameBrowserTab: true },
+                { to: "/", scrollTo: "results-section", text: "Our results" },
+                { to: "/", scrollTo: "how-it-works-section", text: "How it works" },
                 { to: "/careers", text: "Careers", sameBrowserTab: true },
-                // { to: DOCS_URL, text: 'Docs', isExternal: true },
+              ]}
+            />
+            <LinksColumn
+              title="Resources"
+              links={[
+                { to: "/blog", text: "Blog", sameBrowserTab: true },
+                { to: "/tools", text: "Tools", sameBrowserTab: true },
+                { to: "/guides", text: "Guides", sameBrowserTab: true },
               ]}
             />
             <LinksColumn
@@ -71,7 +70,11 @@ function Footer() {
                   to: "https://www.linkedin.com/company/growthx-ai",
                   isExternal: true,
                 },
-                // { text: 'Twitter', to: 'https://twitter.com', isExternal: true },
+                {
+                  text: "Twitter",
+                  to: "https://x.com/GrowthXAI",
+                  isExternal: true,
+                },
               ]}
             />
           </div>

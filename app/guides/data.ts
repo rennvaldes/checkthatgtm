@@ -1,23 +1,13 @@
-import {
-  DocumentTextIcon,
-  VideoCameraIcon,
-} from '@heroicons/react/24/outline';
-
-export const heroIcons = {
-  'document': DocumentTextIcon,
-  'video': VideoCameraIcon,
-} as const;
-
-export interface Resource {
+interface Guide {
   id: string;
   title: string;
   description: string;
-  icon: keyof typeof heroIcons;
+  icon: string;
   slideUrl?: string;
   videoUrl?: string;
 }
 
-export const GUIDES: Resource[] = [
+export const GUIDES: Guide[] = [
   {
     id: 'ai-led-growth',
     title: "AI-Led Growth",
@@ -33,4 +23,4 @@ export const GUIDES: Resource[] = [
     icon: "document",
     slideUrl: "https://docs.google.com/presentation/d/19pbOLQ-E3VAanfEjm6rba4WK1lTy58pVYMrJ8y_pPhA/embed"
   }
-];
+]; 
