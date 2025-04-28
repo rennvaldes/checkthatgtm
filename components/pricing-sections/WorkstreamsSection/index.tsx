@@ -4,7 +4,7 @@ import X from "@/components/icons/X";
 
 function WorkstreamsSection() {
   return (
-    <section className="mt-10 lg:mt-0 relative 2xl:ml-[12vw]" id="workstreams-section">
+    <section className="mt-10 lg:mt-0 relative flex flex-col items-center" id="workstreams-section">
       <div className="px-5 pt-5 lg:px-20 lg:pt-20">
         <CornerDeco className="text-ui-peach size-[2.1rem] absolute right-[12rem] top-[16rem] hidden lg:block" />
         <X className="text-ui-blue absolute right-[3.75rem] top-[11rem] hidden lg:block" />
