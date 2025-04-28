@@ -31,6 +31,16 @@ const nextConfig = {
       },
     ],
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/resources/:slug*',
+        destination: '/guides/:slug*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
