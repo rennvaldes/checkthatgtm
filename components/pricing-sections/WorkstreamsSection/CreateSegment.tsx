@@ -73,7 +73,7 @@ const staticData = [
     title: "Programmatic SEO",
     description:
       "Data-driven content creation at scale to cover full topic clusters and capture long-tail search traffic.",
-    highlightText: "Up to 12,000 pages per year",
+    highlightText: "Up to 1,200 pages per year",
     smallCopy: "Powered by SEO leaders from",
     images: [
       {

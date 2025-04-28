@@ -39,7 +39,7 @@ function FaqSectionHomepage() {
             <p><strong>CONTENT: Create high-quality assets that build authority</strong></p>
             <ul className="list-disc pl-6">
               <li><strong>Editorial Content</strong>: Expert-written content up to 50,000 words monthly from senior editors formerly at TechCrunch and Animalz</li>
-              <li><strong>Programmatic SEO</strong>: Data-driven content at scale (up to 12,000 pages yearly) led by SEO experts from ClickUp, G2, and Fanatics</li>
+              <li><strong>Programmatic SEO</strong>: Data-driven content at scale (up to 1,200 pages yearly) led by SEO experts from ClickUp, G2, and Fanatics</li>
               <li><strong>AISEO</strong>: Specialized optimization to increase visibility in AI tools like Google AI Overviews, Perplexity, and ChatGPT by up to 3x</li>
               <li><strong>Case Studies</strong>: Turnkey content creation from sourcing to interviewing to writing (up to 4 per month)</li>
               <li><strong>Content Refresh</strong>: Update and optimize existing content to boost rankings and traffic</li>
