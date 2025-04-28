@@ -43,7 +43,7 @@ function TitleAndButtons() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="What's your work email?"
-            className="w-full h-[52px] lg:h-[64px] rounded-full border border-[#E5E7F0] bg-white pl-8 pr-8 lg:pr-[200px] font-elza text-[16px] text-ui-black outline-none placeholder:text-[#5F5D78] shadow-sm text-center lg:text-left"
+            className="w-full h-[52px] lg:h-[64px] rounded-full border border-[#E5E7F0] bg-white pl-8 pr-8 lg:pr-[240px] font-elza text-[16px] text-ui-black outline-none placeholder:text-[#5F5D78] shadow-sm text-center lg:text-left"
             required
           />
           <div className="mt-2 lg:mt-0 lg:absolute lg:right-3 lg:top-1/2 lg:-translate-y-1/2">

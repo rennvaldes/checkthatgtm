@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Quotes from '@/components/icons/Quotes';
-import DotPatternBackground from '@/components/ui/DotPatternBackground';
 import useResponsiveDevice from '@/hooks/useResponsiveDevice';
 import Image from 'next/image';
 
@@ -59,6 +58,7 @@ const allLogos = [
 export default function BookDemoPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [iframeSrc, setIframeSrc] = useState('https://forms.default.com/639407');
 
   const paginationRef = useRef(null);
   const { isDesktop } = useResponsiveDevice();
@@ -82,6 +82,12 @@ export default function BookDemoPage() {
     };
   }, []);
 
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = urlParams.toString();
+    setIframeSrc(`https://forms.default.com/639407?${utmParams}`);
+  }, []);
+
   const handleIframeLoad = () => {
     setIsLoading(false);
   };
@@ -89,12 +95,6 @@ export default function BookDemoPage() {
   const handleIframeError = () => {
     setIsLoading(false);
     setHasError(true);
-  };
-
-  const getIframeSrc = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmParams = urlParams.toString();
-    return `https://forms.default.com/639407?${utmParams}`;
   };
 
   return (
@@ -115,7 +115,7 @@ export default function BookDemoPage() {
         ) : (
           <iframe 
             id="form-iframe"
-            src={getIframeSrc()}
+            src={iframeSrc}
             className="w-full h-full border-0"
             title="Book a Demo"
             onLoad={handleIframeLoad}
