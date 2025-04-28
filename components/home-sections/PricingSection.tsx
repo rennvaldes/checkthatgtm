@@ -65,7 +65,7 @@ function PricingSection() {
   return (
     <section
       id='pricing-section'
-      className='bg-ui-black text-ui-whitest relative mx-auto mt-[80px] flex w-full flex-col items-center pb-[33px] pt-[30px] lg:mt-[148px] lg:pt-[90px]'>
+      className='bg-ui-black text-ui-whitest relative mx-auto mt-[80px] flex w-full flex-col items-center pb-[120px] pt-[30px] lg:mt-[148px] lg:pb-[180px] lg:pt-[90px]'>
       <>
         <DotPatternBackground
           dotsColorStyle='bg-ui-peach/50'
@@ -113,7 +113,7 @@ function PricingSection() {
 
               <div className='mt-[32px] flex lg:mt-[52px]'>
                 <KitButton
-                  scrollTo='book-section'
+                  href='/book-demo'
                   className='bg-ui-whitest text-ui-black hover:bg-ui-blue hover:text-ui-whitest focus:bg-ui-blue focus:text-ui-whitest w-full rounded-full font-medium transition-colors duration-300'
                   size='large'
                   variant='ghost'>

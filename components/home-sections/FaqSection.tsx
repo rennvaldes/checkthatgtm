@@ -23,11 +23,11 @@ function FaqItem({ children, title }: { children: React.ReactNode; title: string
   );
 }
 
-function FaqSection() {
+function FaqSectionHomepage() {
   return (
     <section
-      id='faq-section'
-      className='mx-auto w-[320px] lg:w-full lg:max-w-[1280px] lg:mb-[123px] mb-[34px]'>
+      id='faq-section-homepage'
+      className='mx-auto w-[320px] lg:w-full lg:max-w-[1280px] lg:mb-[123px] mb-[34px] mt-[40px] lg:mt-[80px]'>
       <h3 className='mb-[40px] text-center text-[28px] font-medium leading-[31px] lg:mb-[64px] lg:text-[52px] lg:leading-[57px]'>
         FAQs
       </h3>
@@ -35,55 +35,56 @@ function FaqSection() {
       <div className='lg:mt-[64px] justify-center lg:flex'>
         <div className='flex flex-col lg:w-[820px]'>
           <FaqItem title={'What services does GrowthX offer?'}>
-            <p>GrowthX offers a suite of AI-powered growth services, each designed to build sustainable and scalable growth engines:</p>
+            <p>GrowthX provides a comprehensive growth engine built around three core pillars that work together to drive sustainable results:</p>
+            <p><strong>CONTENT: Create high-quality assets that build authority</strong></p>
             <ul className="list-disc pl-6">
-              <li><strong>Editorial &amp; Content Refreshes</strong>: We provide a fully managed editorial program that delivers up to 50,000 words of high-quality content each month. This includes content strategy, expert editors, SEO optimization, and continuous performance monitoring to ensure maximum impact.</li>
-              <li><strong>Programmatic SEO (pSEO)</strong>: Our programmatic SEO solution scales your organic growth by generating up to 1,200 templated, SEO-optimized pages annually. This helps drive traffic and visibility with minimal manual effort, leveraging advanced AI workflows and consistent quality oversight.</li>
-              <li><strong>Interview-First Long-Form Content</strong>: We create high-quality, story-driven content based on interviews with key individuals in your ecosystem. This content is transformed into compelling long-form articles and repurposed for multiple platforms, helping you establish thought leadership and boost audience engagement.</li>
-              <li><strong>Cross-Format Content Repurposing</strong>: We transform anchor content like webinars, podcasts, and reports into a broad range of derivative assets—including blog posts, social snippets, and videos—ensuring your message reaches audiences across various channels, maximizing both engagement and reach.</li>
-              <li><strong>AI-Powered Link Building & Content Collaboration</strong>: GrowthX uses AI to acquire high-quality backlinks from authoritative sites, boosting your domain authority and improving organic search performance. We combine targeted outreach, link-building strategies, and ongoing analysis to enhance your content&apos;s SEO value continuously.</li>
+              <li><strong>Editorial Content</strong>: Expert-written content up to 50,000 words monthly from senior editors formerly at TechCrunch and Animalz</li>
+              <li><strong>Programmatic SEO</strong>: Data-driven content at scale (up to 12,000 pages yearly) led by SEO experts from ClickUp, G2, and Fanatics</li>
+              <li><strong>AISEO</strong>: Specialized optimization to increase visibility in AI tools like Google AI Overviews, Perplexity, and ChatGPT by up to 3x</li>
+              <li><strong>Case Studies</strong>: Turnkey content creation from sourcing to interviewing to writing (up to 4 per month)</li>
+              <li><strong>Content Refresh</strong>: Update and optimize existing content to boost rankings and traffic</li>
             </ul>
-            <p>Together, these services provide an end-to-end growth engine that combines AI efficiencies with expert insight to drive meaningful, lasting growth.</p>
+            <p><strong>DISTRIBUTE: Amplify reach and visibility</strong></p>
+            <ul className="list-disc pl-6">
+              <li><strong>Link Building</strong>: Full-service backlink campaigns delivering 20+ high-authority (DR 60-90) backlinks monthly</li>
+              <li><strong>Social Media</strong>: Transform your expertise into platform-optimized posts that drive engagement (up to 5 posts weekly)</li>
+            </ul>
+            <p><strong>CONVERT: Turn audience into revenue</strong></p>
+            <ul className="list-disc pl-6">
+              <li><strong>Conversion Rate Optimization</strong>: Run up to 5 ongoing experiments to improve lead generation and sales</li>
+              <li><strong>Paid Media</strong>: AI-optimized campaigns supporting up to $250k in monthly budget</li>
+              <li><strong>Gated Content</strong>: High-value assets that capture qualified leads (up to 4 monthly)</li>
+              <li><strong>Outbound Sales</strong>: Direct outreach campaigns to convert prospects into customers</li>
+            </ul>
+            <p>These workstreams are designed to synergize with each other, often delivering exponentially better results when combined. For example, high-quality content gains more visibility through link building, which drives more traffic that can be optimized for conversion, creating a complete growth flywheel.</p>
+            <p>All workstreams are powered by our unique combination of AI workflows with guidance from domain experts formerly at companies like Deepgram, Scale AI, TripAdvisor, and TechCrunch—giving you access to top-tier talent that would otherwise be unavailable to most organizations.</p>
           </FaqItem>
-
-          <FaqItem title={'What happens during the onboarding and discovery phase?'}>
-            <p>During onboarding, we dive deep into understanding your brand, audience, and unique growth challenges. We conduct a thorough analysis of your business history, market positioning, and existing content strategies to set a strong foundation. This phase is all about aligning on goals, ensuring our team knows your brand inside and out, and building the blueprint for success.</p>
+          <FaqItem title={'What does the onboarding and project startup process look like?'}>
+            <p>Our onboarding process is designed to quickly transform your growth initiatives without burdening your team:</p>
+            <p><strong>Week 1: Discovery & Strategy</strong></p>
+            <p>We begin with thorough research of your business, competitors, and audience before our kickoff meeting. We immerse ourselves in your brand positioning, messaging, and existing growth channels to develop a solid foundation of understanding. This preparation allows us to arrive at our first meeting with meaningful insights rather than basic questions.</p>
+            <p><strong>Week 2-3: Foundation & Calibration</strong></p>
+            <p>After aligning on objectives, we build your custom Content OS, setting up AI workflows tailored to your specific needs. We create initial content drafts for calibration, develop a comprehensive style guide, and establish production frameworks. During this phase, we'll collaborate closely to refine our approach, ensuring our outputs perfectly match your brand voice and strategic goals.</p>
+            <p><strong>Week 4: Production Launch</strong></p>
+            <p>Once calibrated, we immediately begin executing across your selected workstreams. Production starts within the first few weeks, as we prioritize quick wins to build momentum. Our rigorous quality assurance process combines AI-enhanced checks with expert human oversight from our managing editors and growth strategists.</p>
+            <p>Throughout the entire process, we work as an extension of your team in Slack, providing daily updates and transparent communication. This approach ensures you maintain visibility without the burden of extensive meetings or management overhead.</p>
+            <p>The onboarding phase sets the foundation for our ongoing partnership, where we continuously optimize and scale your growth engine based on performance data and evolving business priorities.</p>
           </FaqItem>
-
-          <FaqItem title={'How do you start the project after onboarding?'}>
-            <p>After onboarding, we kick things off with tailored strategy sessions to finalize your growth plan. We set up AI workflows, integrate our systems with yours, and create an operational framework for content production. The focus here is on getting all gears in motion&mdash;defining your content calendar, setting key milestones, and preparing for efficient execution.</p>
-          </FaqItem>
-
-          <FaqItem title="What is the process for workflow and content calibration?">
-            <p>Workflow and content calibration involve tailoring our processes to suit your brand&apos;s voice, objectives, and style. We collaborate closely with you to review initial drafts, gather feedback, and refine our approach. It&apos;s an iterative process where we use both expert insight and AI-powered analytics to align content with your brand, ensuring it&apos;s both impactful and authentic.</p>
-          </FaqItem>
-
-          <FaqItem title={'When does content production begin?'}>
-            <p>Content production begins immediately after the calibration phase. Once we&apos;ve aligned on the workflows and content strategy, we start executing, often within the first few weeks of onboarding. We prioritize quick wins, so expect to see content flowing early, as we believe in building momentum from the start.</p>
-          </FaqItem>
-
-          <FaqItem title={'How is content quality assured before publishing?'}>
-            <p>Content quality is assured through a rigorous review process that combines AI-enhanced checks and human expertise. Every piece undergoes several stages of review&mdash;from SEO and keyword optimization to stylistic edits by a managing editor. Our content specialists, along with a dedicated growth lead, ensure every piece aligns with your standards and is ready to make an impact before going live.</p>
-          </FaqItem>
-
           <FaqItem title={'Who would be the GrowthX team member dedicated for the day-to-day?'}>
-            <p>Your day-to-day contact will be a dedicated Growth Strategist, someone with a proven track record in driving growth and managing content programs. They&apos;ll be your point of contact, deeply involved in everything from strategy to execution, ensuring that your growth initiatives are on track. They&apos;re supported by a managing editor and a team of experts working in sync to deliver results.</p>
+            <p>Your day-to-day contact will be a dedicated Growth Strategist, someone with a proven track record in driving growth and managing content programs. They'll be your point of contact, deeply involved in everything from strategy to execution, ensuring that your growth initiatives are on track. They're supported by a managing editor and a team of experts working in sync to deliver results.</p>
           </FaqItem>
-
           <FaqItem title={'Which KPIs should we measure? What would you consider success?'}>
-            <p>Our ultimate goal is to drive real revenue for your business, but we recognize that it starts by building effective content, gaining distribution, and then converting that distribution into paying customers. We focus on optimizing controllable inputs because doing so consistently leads to the right outcomes over time. Here&apos;s how we approach each stage:</p>
-
+            <p>Our ultimate goal is to drive real revenue for your business, but we recognize that it starts by building effective content, gaining distribution, and then converting that distribution into paying customers. We focus on optimizing controllable inputs because doing so consistently leads to the right outcomes over time. Here's how we approach each stage:</p>
             <p><strong>Phase 1 - Content Production</strong></p>
-            <p>The first priority is getting a content strategy in place that scales. We focus on KPIs that ensure we&apos;re generating enough valuable content to get noticed:</p>
+            <p>The first priority is getting a content strategy in place that scales. We focus on KPIs that ensure we're generating enough valuable content to get noticed:</p>
             <ul className="list-disc pl-6">
               <li>Articles Published</li>
               <li>Total Words Published</li>
               <li>Pages Indexed by Search Engines</li>
-              <li>Keywords Ranked (early signals we&apos;re on the right track)</li>
+              <li>Keywords Ranked (early signals we're on the right track)</li>
             </ul>
-
             <p><strong>Phase 2 - Distribution & Reach</strong></p>
-            <p>Once content is flowing, it&apos;s about ensuring people find and engage with it. This means nurturing and amplifying existing content to grow your audience and expand reach:</p>
+            <p>Once content is flowing, it's about ensuring people find and engage with it. This means nurturing and amplifying existing content to grow your audience and expand reach:</p>
             <ul className="list-disc pl-6">
               <li>Organic Search Impressions</li>
               <li>Organic Search Traffic (clicks, visits)</li>
@@ -91,16 +92,14 @@ function FaqSection() {
               <li>Number of Keywords Rising in Rank (top 3, 4-10, etc.)</li>
               <li>Domain Authority and Referring Domains</li>
             </ul>
-
             <p><strong>Phase 3 - Conversion to Leads</strong></p>
-            <p>Here, we leverage the reach we&apos;ve established to create meaningful conversions. Our goal is to convert interest into real leads:</p>
+            <p>Here, we leverage the reach we've established to create meaningful conversions. Our goal is to convert interest into real leads:</p>
             <ul className="list-disc pl-6">
               <li>Visit → Subscriber / Lead Conversion</li>
               <li>Conversion Rates by Offer, Page, or Topic</li>
               <li>Lead Volume and Quality</li>
               <li>Lead Engagement (e.g., Open Rates, Interaction Levels)</li>
             </ul>
-
             <p><strong>Phase 4 - Conversion to Revenue</strong></p>
             <p>The final step is about converting engaged leads into paying customers, making sure our content has ultimately driven business growth:</p>
             <ul className="list-disc pl-6">
@@ -110,7 +109,6 @@ function FaqSection() {
               <li>Average Deal Size or Order Value</li>
               <li>Customer Lifetime Value (LTV)</li>
             </ul>
-
             <p>Success for us means creating a growth engine—starting with content that earns trust, building a distribution network that scales that trust, and then strategically converting that reach into tangible business outcomes. Every KPI ties back to this journey from content to conversion.</p>
           </FaqItem>
         </div>
@@ -119,4 +117,102 @@ function FaqSection() {
   );
 }
 
-export default FaqSection;
+function FaqSectionPricing() {
+  return (
+    <section
+      id='faq-section-pricing'
+      className='mx-auto w-[320px] lg:w-full lg:max-w-[1280px] lg:mb-[123px] mb-[34px] mt-[40px] lg:mt-[80px]'>
+      <h3 className='mb-[40px] text-center text-[28px] font-medium leading-[31px] lg:mb-[64px] lg:text-[52px] lg:leading-[57px]'>
+        FAQs
+      </h3>
+
+      <div className='lg:mt-[64px] justify-center lg:flex'>
+        <div className='flex flex-col lg:w-[820px]'>
+          <FaqItem title={'How much does GrowthX cost?'}>
+            <p>Subscriptions start at $9,000 per month and include:</p>
+            <ul className="list-disc pl-6">
+              <li>Access to our full suite of growth workstreams (Content, SEO, CRO, Paid Media, Outbound)</li>
+              <li>Flexibility to switch and add additional workstreams as your needs evolve</li>
+              <li>Dedicated growth strategist from the top 1% of industry experts</li>
+              <li>AI-powered workflows that deliver results in days, not months</li>
+              <li>Full team working in Slack as an extension of your organization</li>
+              <li>Turnaround times starting at 24 hours</li>
+              <li>Access to the GrowthX platform and AI-Led Growth community</li>
+            </ul>
+            <p>We focus on delivering outcomes, not just tools. Our approach builds scalable growth engines that generate demand across multiple channels simultaneously.</p>
+            <p>Typical engagements range from $9,000 to $20,000 USD/month based on your specific growth goals and the workstreams you prioritize. This predictable pricing model eliminates the surprise bills common with traditional agencies while providing the expert execution that self-service tools lack.</p>
+          </FaqItem>
+          <FaqItem title={'What is the minimum commitment?'}>
+            <p>GrowthX requires a 12-month minimum commitment because sustainable growth requires consistency and momentum. Unlike one-off campaigns or projects, our AI-powered growth engine is designed to build compounding results over time.</p>
+            <p>This commitment allows us to:</p>
+            <ul className="list-disc pl-6">
+              <li>Properly calibrate our AI workflows to your specific brand voice and audience</li>
+              <li>Move through our proven growth phases from content production to revenue conversion</li>
+              <li>Provide you access to our team of domain experts who become deeply familiar with your business</li>
+              <li>Implement, test, and optimize multiple growth initiatives for maximum impact</li>
+            </ul>
+            <p>Our most successful clients typically see the most significant results after 3-4 months as our strategies gain traction and begin compounding. The longer we collaborate, the more our team understands your unique market position, allowing us to continuously refine our approach for increasingly better outcomes.</p>
+          </FaqItem>
+          <FaqItem title={'Do you do custom plans?'}>
+            <p>Yes, we offer complete flexibility to customize your plan:</p>
+            <ul className="list-disc pl-6">
+              <li><strong>Mix and match workstreams</strong>: You can allocate your budget across different workstreams (Content, SEO, CRO, Paid Media, Outbound) based on your specific growth priorities.</li>
+              <li><strong>Custom workflow development</strong>: For unique needs, we develop new workstreams tailored to your business. This includes expanding technical documentation, creating custom AI workflows, or building specialized growth systems.</li>
+              <li><strong>Adaptable scaling</strong>: As your growth needs evolve, we can adjust your workstreams and strategy accordingly without lengthy contract renegotiations.</li>
+            </ul>
+            <p>Our Custom Workstream option is specifically designed for businesses with unique requirements that don't fit neatly into our standard offerings. We'll work with you to build a tailored solution that addresses your specific growth challenges.</p>
+          </FaqItem>
+          <FaqItem title={'What billing options do you offer?'}>
+            <p>We offer two simple billing options:</p>
+            <ol className="list-decimal pl-6">
+              <li><strong>Credit card billing</strong>: Convenient automatic monthly payments</li>
+              <li><strong>Invoicing</strong>: Traditional invoice-based billing</li>
+            </ol>
+            <p>We can discuss which option works best for your company during our initial consultation.</p>
+          </FaqItem>
+          <FaqItem title={'Is GrowthX for me?'}>
+            <p>GrowthX is ideal for companies seeking sustainable, long-term organic growth rather than quick fixes. We're a good fit if:</p>
+            <ol className="list-decimal pl-6">
+              <li><strong>You understand growth takes time</strong> - We don't promise viral traffic overnight. Our approach builds lasting, compounding results through consistent execution.</li>
+              <li><strong>You value sustainable growth</strong> - Our proven record includes building content engines for companies like IBM, HP, ServiceTitan, and HashiCorp that drive real business outcomes.</li>
+              <li><strong>You appreciate first-principles thinking</strong> - We start by deeply understanding your market, product, and audience before implementing automation.</li>
+              <li><strong>You're ready for a 12+ month journey</strong> - While our 12-week bootcamp establishes the foundation, real growth compounds over time as we build momentum.</li>
+              <li><strong>You're committed to the process</strong> - We're selective with our clients, looking for partners who are ready to invest in content and shift from renting audiences to earning them.</li>
+            </ol>
+            <p><strong>Bottom line:</strong> If you're tired of dumping money into ads with no lasting ROI and can commit to consistent content production while trusting our proven process, GrowthX is built for you.</p>
+          </FaqItem>
+          <FaqItem title={'How does the onboarding work?'}>
+            <p>Our onboarding follows a proven 12-week acceleration program designed to build your growth engine:</p>
+            <p><strong>Weeks 0-1: Discovery & Strategy</strong></p>
+            <ul className="list-disc pl-6">
+              <li>We deeply research your business, market, and audience before our first meeting</li>
+              <li>We establish collaborative workflows in Slack and conduct kickoff sessions</li>
+              <li>We align on priorities and growth objectives across all channels</li>
+            </ul>
+            <p><strong>Weeks 2-3: Foundation Building</strong></p>
+            <ul className="list-disc pl-6">
+              <li>We develop your comprehensive growth strategy across relevant workstreams</li>
+              <li>We create necessary style guides and calibration pieces</li>
+              <li>We implement quick wins to show immediate momentum</li>
+            </ul>
+            <p><strong>Weeks 4-7: Execution & Learning</strong></p>
+            <ul className="list-disc pl-6">
+              <li>We begin executing across selected workstreams (content, paid, CRO, etc.)</li>
+              <li>We establish consistent production cadences</li>
+              <li>We closely monitor performance signals and iterate rapidly</li>
+            </ul>
+            <p><strong>Weeks 8-12: Optimization & Scaling</strong></p>
+            <ul className="list-disc pl-6">
+              <li>We increase production velocity while maintaining quality</li>
+              <li>We focus on distribution and conversion optimization</li>
+              <li>We prepare a comprehensive review with next-phase recommendations</li>
+            </ul>
+            <p>Throughout the process, our team works as an extension of yours with daily updates in Slack and complete transparency. This initial 12-week program sets the foundation for long-term, sustainable growth across all your channels.</p>
+          </FaqItem>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export { FaqSectionHomepage, FaqSectionPricing };

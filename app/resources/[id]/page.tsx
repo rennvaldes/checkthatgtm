@@ -9,7 +9,7 @@ function isGoogleSlides(url: string): boolean {
   return url.includes('docs.google.com/presentation');
 }
 
-export default function PresentationPage() {
+export default function GuidePage() {
   const { id } = useParams();
   const resource = RESOURCES.find(p => p.id === id);
 

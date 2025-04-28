@@ -17,7 +17,7 @@ export interface Resource {
   videoUrl?: string;
 }
 
-export const RESOURCES: Resource[] = [
+export const GUIDES: Resource[] = [
   {
     id: 'ai-led-growth',
     title: "AI-Led Growth",

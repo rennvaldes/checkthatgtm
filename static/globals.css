@@ -10,6 +10,10 @@
   animation: swipe 10s linear infinite backwards;
 }
 
+.swipe-right {
+  animation: swipe-right 10s linear infinite backwards;
+}
+
 html::-webkit-scrollbar {
   display: none;
 }
@@ -33,8 +37,35 @@ html {
   }
 }
 
+@keyframes swipe-right {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(100%);
+  }
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;
   }
+}
+
+.hide-nav nav,
+.hide-nav footer {
+  display: none !important;
+}
+
+#custom-pagination-container {
+  .swiper-pagination-bullet {
+    transition: opacity 0.3s ease-in-out;
+    background-color: #fff;
+  }
+}
+
+.demo-dotted-pattern {
+  --d: 2.5px; 
+  background: radial-gradient(circle at var(--d) var(--d),#FFDACA calc(var(--d) - 1px), #FFDACA calc(var(--d) - 1px), transparent var(--d)) 0 0 / 50px 50px;
 }

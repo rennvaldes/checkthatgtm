@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { RESOURCES, heroIcons } from './data';
 import React from 'react';
 
-export default function Resources() {
+export default function GuidesPage() {
   return (
     <main className='relative min-h-screen flex flex-col items-center py-24'>
       <div className="w-full max-w-7xl px-4">

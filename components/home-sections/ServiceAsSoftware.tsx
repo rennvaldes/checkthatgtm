@@ -10,7 +10,20 @@ function ServiceAsSoftware() {
   const comparisonData = {
     categories: [
       {
-        title: 'Traditional SaaS',
+        title: 'GrowthX',
+        description: 'AI-powered outcomes delivered through expert-guided workflows.',
+        characteristics: [
+          'Fully managed outcomes',
+          'AI + Expert guidance',
+          'Custom-built workflows',
+          'Adapts to your needs',
+          'Strategy handled for you',
+          'Immediate value delivery',
+          'Infinitely scalable',
+        ],
+      },
+      {
+        title: 'Software and Tools',
         description: 'Tools and platforms that require your team to implement and manage.',
         characteristics: [
           'Self-service tools and dashboards',
@@ -34,19 +47,6 @@ function ServiceAsSoftware() {
           'High overhead costs',
           'Communication overhead',
           'Difficult to scale',
-        ],
-      },
-      {
-        title: 'GrowthX',
-        description: 'AI-powered outcomes delivered through expert-guided workflows.',
-        characteristics: [
-          'Fully managed outcomes',
-          'AI + Expert guidance',
-          'Custom-built workflows',
-          'Adapts to your needs',
-          'Strategy handled for you',
-          'Immediate value delivery',
-          'Infinitely scalable',
         ],
       },
     ],
@@ -80,7 +80,7 @@ function ServiceAsSoftware() {
             viewport={{ once: true }}
             className='bg-ui-black relative z-30 border-[1px] border-[#5F6382] px-[20px] py-[32px] lg:flex-1 lg:px-[32px] lg:py-[40px]'>
             <h4 className={`text-[20px] font-medium leading-[23px] lg:text-[24px] lg:leading-[28px] ${
-              index === 2 ? 'text-ui-green-light' : 'text-ui-peach'
+              index === 0 ? 'text-ui-green-light' : 'text-ui-peach'
             }`}>
               {category.title}
             </h4>
@@ -91,7 +91,7 @@ function ServiceAsSoftware() {
             <div className='font-elza mt-[32px] flex flex-col gap-[16px]'>
               {category.characteristics.map((characteristic, charIndex) => (
                 <div key={charIndex} className='flex gap-[12px]'>
-                  {index === 2 ? (
+                  {index === 0 ? (
                     <Check className='text-ui-green-light h-[24px] w-[16px] shrink-0' />
                   ) : (
                     <X className='text-ui-red h-[24px] w-[16px] shrink-0' />
