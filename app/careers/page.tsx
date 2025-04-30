@@ -16,22 +16,22 @@ export default function Career() {
           </p>
         </div>
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-2 text-ui-grey font-medium border border-ui-veige rounded-lg p-4">
+          <div className="flex items-center justify-center gap-2 text-ui-grey font-medium border border-ui-veige rounded-lg p-4 mb-8">
             <span>🌎</span>
             <p>We&apos;re a remote-first company — all we ask is 4 hours of overlap with San Francisco</p>
           </div>
           <div id="ashby_embed"></div>
           <Script
-            id="ashby-setup"
+            id="ashby-config"
             strategy="beforeInteractive"
             dangerouslySetInnerHTML={{
-              __html: `window.__ashbyBaseJobBoardUrl = "https://jobs.ashbyhq.com/GrowthX%20AI"`,
+              __html: `window.__ashbyBaseJobBoardUrl = "https://jobs.ashbyhq.com/GrowthX%20AI";`
             }}
           />
           <Script
-            id="ashby-embed"
+            id="ashby-embed-script"
             src="https://jobs.ashbyhq.com/GrowthX%20AI/embed"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
         </div>
       </div>
