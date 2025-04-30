@@ -1,30 +1,10 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Script from 'next/script';
 import './styles.scss';
 
 export default function Career() {
-  const initializeWorkable = () => {
-    // @ts-ignore
-    window.whr(document).ready(function(){
-      // @ts-ignore
-      window.whr_embed(662209, { detail: 'titles', base: 'jobs', zoom: 'country', grouping: 'none' });
-      // @ts-ignore
-      window.whr(document).on('click', 'li.whr-item a', function(this: any, e) {
-        e.preventDefault();
-        window.open(this.href, '_blank');
-      });
-    });
-  };
-
-  useEffect(() => {
-    // @ts-ignore
-    if (window.whr) {
-      initializeWorkable();
-    }
-  }, []);
-
   return (
     <main className='relative min-h-screen flex flex-col items-center py-24'>
       <div className="w-full max-w-7xl px-4">
@@ -40,11 +20,19 @@ export default function Career() {
             <span>🌎</span>
             <p>We&apos;re a remote-first company — all we ask is 4 hours of overlap with San Francisco</p>
           </div>
+          <div id="ashby_embed"></div>
           <Script
-            src='https://www.workable.com/assets/embed.js'
-            onLoad={initializeWorkable}
+            id="ashby-setup"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `window.__ashbyBaseJobBoardUrl = "https://jobs.ashbyhq.com/GrowthX%20AI"`,
+            }}
           />
-          <div id='whr_embed_hook'></div>
+          <Script
+            id="ashby-embed"
+            src="https://jobs.ashbyhq.com/GrowthX%20AI/embed"
+            strategy="afterInteractive"
+          />
         </div>
       </div>
     </main>
