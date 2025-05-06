@@ -25,7 +25,7 @@ function getFormattedDate(date: string) {
 }
 
 function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) {
-  const { category, image, title, publisher_name, publisher_avatar, publisher_legend, updatedAt } = data;
+  const { category, image, title, publisher_name, publisher_avatar, publisher_legend, updatedAt, createdAt } = data;
   const categoryName = category?.name || category;
 
   const { data: rawData, isLoading: isGeneralDataLoading } = useGetQueryWithRefetchOnChange({
@@ -46,14 +46,14 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
         <Skeleton className='bg-ui-black/50 mt-[32px] h-[28px] w-[112px] rounded-full lg:mt-[40px]' />
       ) : (
         <div className='flex-1 w-full flex justify-center mt-[32px] lg:mt-[40px] items-center gap-4 order-1'>
-          <span>{new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(new Date(updatedAt))}</span>
+          <span>{new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(new Date(createdAt))}</span>
           <div className='rounded-full border border-ui-black px-[12px] py-[8px] text-[12px] font-medium'>{categoryName}</div>
         </div>
       )}
       {isLoading ? (
         <Skeleton className='mt-[16px] h-[62px] w-full lg:h-[114px] lg:w-[850px]' />
       ) : (
-        <h1 className='mt-[16px] text-center text-[28px] font-medium leading-[31px] lg:w-[850px] lg:text-[52px] lg:leading-[57px] order-2 md:order-1'>
+        <h1 className='mt-[16px] w-full text-center text-[28px] font-medium leading-[31px] lg:w-[850px] lg:text-[52px] lg:leading-[57px] order-2 md:order-1'>
           {title}
         </h1>
       )}

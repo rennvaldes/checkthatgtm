@@ -32,15 +32,15 @@ function BlogPageContent({ content, isLoading, data }: { content: string; isLoad
   const { blog_x_link, blog_instagram_link, blog_linkedin_link } = React.useMemo(() => rawData?.data ?? {}, [rawData]);
 
   return (
-    <section className={`max-w-screen-sm border-x border-ui-black/25 mb-14 mt-5 lg:mt-10 px-8 w-full ${isLoading ? 'px-[20px]' : ''}`}>
+    <section className={`max-w-[680px] lg:border-x border-ui-black/25 mb-14 mt-10 px-4 lg:px-8 w-full ${isLoading ? 'px-[20px]' : ''}`}>
       {isLoading && <Skeleton className='mt-[30px] w-full h-[206px] md:px-[20px] lg:h-[427px]' />}
-      <div className='flex-shrink-0 mb-5 lg:mb-8 flex flex-col w-full md:flex-row md:items-center md:justify-between order-3 md:order-1'>
+      <div className='flex-shrink-0 mb-8 flex flex-col w-full md:flex-row md:items-center md:justify-between order-3 md:order-1'>
         <div className='flex items-center gap-[12px] lg:items-stretch'>
           {isLoading ? (
             <Skeleton className='h-[32px] w-[32px] rounded-full lg:h-[44px] lg:w-[44px]' />
           ) : (
             <img
-              className='h-[32px] w-[32px] rounded-full lg:h-[44px] lg:w-[44px] bg-ui-peach'
+              className='rounded-full h-[44px] w-[44px] bg-ui-peach'
               alt='placeholder-user'
               src={publisher_avatar}
             />
@@ -49,17 +49,17 @@ function BlogPageContent({ content, isLoading, data }: { content: string; isLoad
             <Skeleton className='h-[18px] w-[103px] lg:h-[42px]' />
           ) : (
             <div className='font-elza flex flex-col justify-center leading-[21px]'>
-              <h4 className='font-normal md:font-[600]'>
+              <h4 className='font-[600]'>
                 {publisher_name}
               </h4>
-              {publisher_legend && <p className='hidden md:block'>{publisher_legend}</p>}
+              {publisher_legend && <p>{publisher_legend}</p>}
             </div>
           )}
         </div>
         {isGeneralDataLoading ? (
           <Skeleton className='mb-2 mt-4 h-[44px] md:w-[300px]' />
         ) : (
-          <div className='flex-shrink-0 flex flex-col justify-start'>
+          <div className='hidden flex-shrink-0 md:flex flex-col justify-start'>
             <p className='pl-2 font-medium mb-1'>Share</p>
 
             <div className='flex items-center gap-2'>
@@ -84,7 +84,9 @@ function BlogPageContent({ content, isLoading, data }: { content: string; isLoad
           </div>
         )}
       </div>
-      <MarkdownContent isLoading={isLoading} content={content} />
+      <div className='prose prose-lg font-elza'>
+        <MarkdownContent isLoading={isLoading} content={content} />
+      </div>
       <NewsletterBanner className='lg:hidden' />
     </section>
   );
