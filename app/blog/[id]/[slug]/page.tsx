@@ -22,7 +22,7 @@ export default function ArticlePage() {
   return (
     <main className='relative flex min-h-screen flex-col items-center justify-between pt-20 lg:pt-28'>
       <BlogPageHeader isLoading={isLoading} data={articleData} />
-      <BlogPageContent isLoading={isLoading} content={articleData.content} />
+      <BlogPageContent isLoading={isLoading} content={articleData.content} data={articleData} />
       <KeepReading relatedArticles={articleData.related_articles} />
     </main>
   );

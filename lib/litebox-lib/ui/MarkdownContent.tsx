@@ -116,10 +116,10 @@ const MarkdownContent = ({ content, isLoading }: { content: string; isLoading: b
   };
 
   return isLoading ? (
-    <Skeleton className='mt-[32px] h-[2000px] w-full' />
+    <Skeleton className='h-[2000px] w-full' />
   ) : (
     <ReactMarkdown
-      className='mt-[32px] px-[20px] lg:px-0'
+      className='px-[20px] lg:px-0'
       components={components}
       remarkPlugins={[remarkGfm, rehypeUnwrapImages]}
       rehypePlugins={[rehypeRaw]}>
