@@ -72,7 +72,7 @@ function BlogHero() {
               <img
                 alt='placeholder'
                 src={main_article.image}
-                className='h-full w-full transition-transform duration-500 group-hover:scale-110'
+                className='h-full w-full transition-transform duration-300 group-hover:scale-110'
               />
             </div>
           )}
@@ -92,7 +92,7 @@ function BlogHero() {
                   <Skeleton className='mt-[8px] h-[28px] w-[66%] rounded-full lg:h-[42px]' />
                 </>
               ) : (
-                <h3 className='group-hover:text-ui-blue transition-color text-[24px] font-medium leading-[28px] duration-500 lg:mt-[20px] lg:text-[32px] lg:leading-[42px]'>
+                <h3 className='group-hover:text-ui-blue transition-color text-[24px] font-medium leading-[28px] duration-300 lg:mt-[20px] lg:text-[32px] lg:leading-[42px]'>
                   {main_article.title}
                 </h3>
               )}

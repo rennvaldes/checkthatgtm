@@ -33,7 +33,7 @@ function BlogCard({
             <img
               alt={image_alt}
               src={image}
-              className='h-full w-full transition-transform duration-500 group-hover:scale-110'
+              className='h-full w-full transition-transform duration-300 group-hover:scale-110'
             />
           </div>
         )}
