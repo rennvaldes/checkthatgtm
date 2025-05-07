@@ -63,14 +63,11 @@ function BlogPageContent({ content, isLoading, data }: { content: string; isLoad
             <p className='pl-2 font-medium mb-1'>Share</p>
 
             <div className='flex items-center gap-2'>
-              <ShareLink href={blog_linkedin_link}>
+              <ShareLink href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(location.href)}`}>
                 <Linkedin />
               </ShareLink>
-              <ShareLink href={blog_x_link}>
+              <ShareLink href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(location.href)}`}>
                 <Twitter />
-              </ShareLink>
-              <ShareLink href={blog_instagram_link}>
-                <Instagram />
               </ShareLink>
               <div className='relative flex items-center justify-center gap-1'>
                 <button
