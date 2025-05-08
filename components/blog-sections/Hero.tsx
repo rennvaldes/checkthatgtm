@@ -62,7 +62,7 @@ function BlogHero() {
         </h2>
       )}
 
-      <article className='cursor-pointe group relative z-20 mt-[52px] lg:mt-[64px]'>
+      {/* <article className='cursor-pointe group relative z-20 mt-[52px] lg:mt-[64px]'>
         <SemicircleDeco />
 
         <Link href={`/blog/${slug}`} className='flex flex-col lg:flex-row'>
@@ -128,9 +128,9 @@ function BlogHero() {
             </div>
           </div>
         </Link>
-      </article>
+      </article> */}
 
-      <div className='absolute left-0 top-0 mt-[140px] w-full border-b-[1px] border-[#CECEE3]'>
+      {/* <div className='absolute left-0 top-0 mt-[140px] w-full'>
         <div className='relative h-[340px] w-full'>
           <div className='from-ui-white to-ui-white/0 absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b' />
           <DotPatternBackground
@@ -141,7 +141,7 @@ function BlogHero() {
           />
         </div>
         <div className='h-[10px] lg:h-[50px]' />
-      </div>
+      </div> */}
     </section>
   );
 }

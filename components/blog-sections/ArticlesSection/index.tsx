@@ -101,7 +101,7 @@ function ArticlesSection() {
       </div>
 
       <DesktopArticles isLoading={isLoading || isRefetching} cardsData={showingArticles} />
-      <MobileArticles isLoading={isLoading || isRefetching} cardsData={showingArticles} />
+      {/* <MobileArticles isLoading={isLoading || isRefetching} cardsData={showingArticles} /> */}
     </section>
   );
 }

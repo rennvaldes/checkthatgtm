@@ -15,7 +15,7 @@ function ArticleImage({ imageUrl, isLoading }: { imageUrl: string; isLoading: bo
     return null;
   }
 
-  return <img className='pt-10 order-5 md:order-1' src={imageUrl} alt='article-image' />;
+  return <img className='pt-10 order-5 md:order-1 aspect-square lg:aspect-video object-cover' src={imageUrl} alt='Featured Image' />;
 }
 
 function getFormattedDate(date: string) {
@@ -53,7 +53,7 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
       {isLoading ? (
         <Skeleton className='mt-[16px] h-[62px] w-full lg:h-[114px] lg:w-[850px]' />
       ) : (
-        <h1 className='mt-[16px] w-full text-center text-[28px] font-medium leading-[31px] lg:w-[850px] lg:text-[52px] lg:leading-[57px] order-2 md:order-1'>
+        <h1 className='mt-[16px] w-full text-center text-4xl font-medium leading-[31px] lg:w-[850px] lg:text-[52px] lg:leading-[57px] order-2 md:order-1'>
           {title}
         </h1>
       )}

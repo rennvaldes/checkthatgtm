@@ -16,8 +16,6 @@ export default function ArticlePage() {
     key: 'blog-article-data',
     getFn: () => getArticle(slug),
   });
-  
-  console.log('Raw API response:', rawData); // Add this line
 
   const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data) : {}), [rawData]);
 

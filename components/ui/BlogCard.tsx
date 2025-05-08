@@ -9,7 +9,7 @@ import Link from 'next/link';
 type Props = {
   className?: string;
   isLoading?: boolean;
-  slug: string;
+  slug?: string;
 };
 
 function BlogCard({
@@ -22,52 +22,61 @@ function BlogCard({
   description,
   publisher_avatar,
   publisher_name,
+  publisher_legend,
   className,
 }: CardData & Props) {
   return (
-    <article className={cn('group relative z-20 mt-[52px] cursor-pointer', className)}>
+    <article className={cn('group relative z-20 aspect-square cursor-pointer', className)}>
       <Link href={`/blog/${slug}`} className='block'>
         {isLoading ? (
-          <Skeleton className='h-[184px] w-full rounded-none lg:h-[236px]' />
+          <Skeleton className='h-full w-full rounded-none aspect-square' />
         ) : (
-          <div className='h-[184px] w-full overflow-hidden lg:h-[236px]'>
+          <div className='h-auto w-full overflow-hidden'>
             <img
               alt={image_alt}
               src={image}
-              className='h-full w-full transition-transform duration-300 group-hover:scale-110'
+              className='h-full w-full transition-transform duration-300 aspect-square object-cover'
             />
           </div>
         )}
-        <div className='bg-ui-whitest relative flex flex-col justify-between p-[20px] text-left lg:h-[250px] lg:p-[32px]'>
-          {isLoading ? (
-            <Skeleton className='bg-ui-black/50 absolute right-[20px] top-0 h-[28px] w-[112px] translate-y-[-50%] rounded-full' />
-          ) : (
-            <div className='absolute right-[20px] top-0 translate-y-[-50%] rounded-full bg-[#DEDEF0] px-[12px] py-[8px] text-[12px] font-medium'>
-              {category}
-            </div>
-          )}
-
+        {isLoading ? (
+          <Skeleton className='bg-ui-black/50 absolute right-[20px] top-0 h-[28px] w-[112px] translate-y-[-50%] rounded-full' />
+        ) : (
+          <div className='absolute top-4 right-4 rounded-full border border-white px-3 py-1.5 text-xs font-medium text-white'>
+            {category}
+          </div>
+        )}
+        <div className='flex flex-col gap-2 lg:gap-4 justify-between p-5 text-left absolute bottom-0 left-0 right-0'>
           <div>
             {isLoading ? (
               <>
-                <Skeleton className='h-[24px] w-full rounded-full' />{' '}
-                <Skeleton className='mt-[8px] h-[24px] w-[66%] rounded-full' />
+                <Skeleton className='h-6 w-full rounded-full' />{' '}
+                <Skeleton className='mt-2 h-6 w-[66%] rounded-full' />
               </>
             ) : (
-              <h3 className='group-hover:text-ui-blue transition-color text-[20px] font-medium leading-[23px] duration-500 lg:text-[24px]'>
+              <h3 className='text-white text-xl font-medium leading-[23px] duration-500 lg:text-2xl'>
                 {title}
               </h3>
             )}
-            {!!description && <p className='font-elza mt-[12px] text-[14px] leading-[21px]'>{description}</p>}
+            {/* {!!description && <p className='font-elza mt-[12px] text-[14px] leading-[21px]'>{description}</p>} */}
           </div>
 
-          <div className='mt-[40px] flex items-center gap-[12px] lg:mt-0'>
+          <div className='flex items-center gap-[12px] lg:mt-0'>
             {isLoading ? (
               <Skeleton className='h-[32px] w-[32px] rounded-full' />
             ) : (
-              <img className='h-[32px] w-[32px] rounded-full' alt='publisher' src={publisher_avatar} />
+              <img className='h-10 w-10 rounded-full bg-white' alt='publisher' src={publisher_avatar} />
             )}
-            {isLoading ? <Skeleton className='h-[18px] w-[103px] rounded-full' /> : <h4>by {publisher_name}</h4>}
+            {isLoading ? (
+              <Skeleton className='h-6 w-[103px] rounded-full' />
+            ) : (
+              <div className='flex flex-col -space-y-1 text-white'>
+                <p className='text-white font-medium text-base'>
+                  {publisher_name}
+                </p>
+                {publisher_legend && <p className='text-sm'>{publisher_legend}</p>}
+              </div>
+            )}
           </div>
         </div>
       </Link>
