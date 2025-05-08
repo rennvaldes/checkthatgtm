@@ -87,6 +87,16 @@ function Desktop() {
       <ul className="flex items-center justify-center">
         <li>
           <KitButton
+            href='/about'
+            sameBrowserTab={true}
+            variant="secondary"
+            size="medium"
+          >
+            About
+          </KitButton>
+        </li>
+        <li>
+          <KitButton
             scrollTo="results-section"
             variant="secondary"
             size="medium"

@@ -105,6 +105,17 @@ function Mobile() {
 
         <div className="flex flex-1 flex-col justify-between px-[20px] pb-[140px] pt-[20px] transition-transform duration-1000 group-aria-hidden:translate-x-[15%]">
           <ul className="flex flex-col gap-[24px]">
+            <li onClick={() => setIsOpen(false)}>
+              <KitButton
+                className={OPTION_STYLES}
+                href="/about"
+                variant="ghost"
+                size="custom"
+                sameBrowserTab={true}
+              >
+                About
+              </KitButton>
+            </li>
             <li>
               <button
                 onClick={() => scrollTo("results-section")}
