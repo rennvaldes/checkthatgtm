@@ -10,12 +10,14 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 
 export default function ArticlePage() {
-  const articleId = usePathname().split('/')[2];
+  const slug = usePathname().split('/')[2];
 
   const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-article-data',
-    getFn: () => getArticle(articleId),
+    getFn: () => getArticle(slug),
   });
+  
+  console.log('Raw API response:', rawData); // Add this line
 
   const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data) : {}), [rawData]);
 

@@ -41,9 +41,21 @@ export async function getMainDataAndArticles({
   });
 }
 
-export async function getArticle(id: string) {
-  const data = await getWithQsParams(`/articles/${id}`, { populate: "*" });
-  return data;
+export async function getArticle(slug: string) {
+  const data = await getWithQsParams('/articles', {
+    filters: {
+      slug: {
+        $eq: slug
+      }
+    },
+    populate: "*"
+  });
+  
+  // Return the first article from the array
+  if (data.data && Array.isArray(data.data) && data.data.length > 0) {
+    return { data: data.data[0] };
+  }
+  return { data: null };
 }
 
 export async function getArticleCategories() {
