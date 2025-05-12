@@ -2,7 +2,7 @@ import ValuesDots from './ValuesDots';
 
 export default function TitleAndDescription() {
   return (
-    <div className='lg:w-full lg:max-w-[515px] lg:sticky lg:top-[120px] lg:max-h-[200px] max-w-[1440px] mx-auto'>
+    <div className='lg:w-full lg:max-w-[515px] sticky top-[40px] lg:top-[120px] lg:max-h-[200px] max-w-[1440px] mx-auto'>
       <h2 className='font-clash-display font-[500] text-[28px] lg:text-[52px] leading-[31px] lg:leading-[57px] text-ui-whitest'>
         Our{' '}
         <span className='font-kepler-std italic text-[32px] lg:text-[60px] leading-[31px] lg:leading-[57px] text-ui-green-light'>

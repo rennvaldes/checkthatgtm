@@ -77,7 +77,9 @@ export default function Cards() {
   return (
     <div className='flex flex-col gap-6 mt-10 lg:mt-0 max-w-[1440px] mx-auto'>
       {CARDS.map(({ icon, title, subTitle, items, itemsAccent, containerStyles }, index) => (
-        <Card key={`card-${index.toString()}`} className={cn([containerStyles, 'p-6 lg:sticky lg:top-[120px]'])}>
+        <Card
+          key={`card-${index.toString()}`}
+          className={cn([containerStyles, 'p-6 sticky top-[191px] lg:top-[120px]'])}>
           {icon}
           <h4 className='font-clash-display font-[500] text-[20px] leading-[114%] mt-4'>{title}</h4>
           <p className='font-elza font-[400] text-[16px] leading-[150%] mt-3'>{subTitle}</p>
