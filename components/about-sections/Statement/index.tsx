@@ -1,53 +1,58 @@
 import DanielImage from '@/assets/img/AboutSection/daniel-lopes.png';
 import MarcelImage from '@/assets/img/AboutSection/marcel-santilli.png';
 import InfiniteSlider from '@/components/ui/InfiniteSlider';
-import { cn } from '@/lib/shadcn/utils';
-import { ReactNode } from 'react';
 import DetailCard from './DetailCard';
 import ExpertsCarousel from './ExpertsCarousel';
-import ImageCard from './ImageCard';
 import Icons from './Icons';
+import ImageCard from './ImageCard';
+import { getInfiniteItems } from './utils';
 
-const LIST = [
+// TODO: Replace placeholder with real values
+const INFINITE_ITEMS_ROW_ONE = [
   {
-    classNameFirstRow: 'bg-ui-green-light',
-    classNameSecondRow: 'bg-ui-blue',
+    className: 'bg-ui-green-light',
     name: 'Guillaume Cabane',
     position: 'Co-Founder at HyperGrowth Partners',
   },
   {
-    classNameFirstRow: 'bg-ui-peach',
-    classNameSecondRow: 'bg-ui-green-light',
+    className: 'bg-ui-peach',
     name: 'Keran Mehandru',
     position: 'Managing Director at Madrona',
   },
   {
-    classNameFirstRow: 'bg-ui-blue',
-    classNameSecondRow: 'bg-ui-peach',
+    className: 'bg-ui-blue',
     name: 'Guillaume Cabane',
     position: 'Co-Founder at HyperGrowth Partners',
   },
   {
-    classNameFirstRow: 'bg-ui-green-light',
-    classNameSecondRow: 'bg-ui-blue',
+    className: 'bg-ui-green-light',
     name: 'Keran Mehandru',
     position: 'Managing Director at Madrona',
   },
 ];
 
-const getInfiniteItems = ({ isFirstRow }: { isFirstRow: boolean }) => {
-  const items: ReactNode[] = LIST.map(({ name, position, classNameFirstRow, classNameSecondRow }, index) => (
-    <div
-      className='flex flex-col items-center justify-center gap-1 w-[234px]'
-      key={`first-row-${name}-${index.toString()}`}>
-      <div className={cn([isFirstRow ? classNameFirstRow : classNameSecondRow, 'w-6 h-3 rounded-t-full'])} />
-      <h4 className='font-elza font-[600] text-[16px] lg:text-[20px] leading-[150%] tracking-normal'>{name}</h4>
-      <p className='font-elza font-[400] text-sm lg:text-[14px] leading-[150%] tracking-normal'>{position}</p>
-    </div>
-  ));
-
-  return items;
-};
+const INFINITE_ITEMS_ROW_TWO = [
+  {
+    className: 'bg-ui-blue',
+    name: 'Guillaume Cabane',
+    position: 'Co-Founder at HyperGrowth Partners',
+  },
+  {
+    className: 'bg-ui-green-light',
+    name: 'Keran Mehandru',
+    position: 'Managing Director at Madrona',
+  },
+  {
+    className: 'bg-ui-peach',
+    name: 'Guillaume Cabane',
+    position: 'Co-Founder at HyperGrowth Partners',
+  },
+  {
+    className: 'bg-ui-blue',
+    name: 'Keran Mehandru',
+    position: 'Managing Director at Madrona',
+  },
+];
 
 const MARCEL_DETAIL = [
   {
@@ -137,12 +142,12 @@ export default function Statement() {
       <InfiniteSlider
         className='mt-6 lg:mt-10 lg:h-[71px]'
         fullSwipeDurationMs={30000}
-        items={getInfiniteItems({ isFirstRow: true })}
+        items={getInfiniteItems({ data: INFINITE_ITEMS_ROW_ONE })}
       />
       <InfiniteSlider
         className='mt-10 lg:mt-10 lg:h-[71px]'
         fullSwipeDurationMs={30000}
-        items={getInfiniteItems({ isFirstRow: false })}
+        items={getInfiniteItems({ data: INFINITE_ITEMS_ROW_TWO })}
         sliderClassName='-translate-x-1/2'
         swipeClassName='swipe-right'
       />
