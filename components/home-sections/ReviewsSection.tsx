@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 import Quotes from '../icons/Quotes';
 import { cn } from '@/lib/litebox-lib/utils/cn';
 import KitButton from '../ui/KitButton';
-import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -115,10 +114,15 @@ function ReviewCard({ reviewData }: { reviewData: any }) {
   );
 }
 
-function ReviewsSection() {
-  const pathname = usePathname();
-  const isTestimonialsPage = pathname === '/testimonials';
+type Props = {
+  buttonProps?: Omit<Partial<ComponentProps<typeof KitButton>>, 'children'>
+  className?: string;
+  customTitle?: ReactNode;
+  gradientOverlay?: ReactNode;
+  isTestimonialsPage?: boolean;
+}
 
+function ReviewsSection({ buttonProps, className, customTitle, gradientOverlay, isTestimonialsPage = false, }: Props) {
   return (
     <section
       id="reviews-section"
@@ -126,13 +130,16 @@ function ReviewsSection() {
         'relative mx-auto mt-[60px] flex max-w-[320px] flex-col items-center overflow-hidden pt-[50px] lg:mt-[90px] lg:max-w-[1280px] lg:pt-[75px]',
         {
           'max-h-[1200px]': !isTestimonialsPage,
-        }
+        },
+        className,
       )}
     >
-      <h3 className="flex-shrink-0 text-center text-[28px] leading-[31px] lg:text-[52px] lg:leading-[57px]">
-        Real people, real{' '}
-        <span className="font-kepler-std text-ui-blue text-[32px] italic lg:text-[57px]">results</span>
-      </h3>
+      {customTitle || (
+        <h3 className='flex-shrink-0 text-center text-[28px] leading-[31px] lg:text-[52px] lg:leading-[57px]'>
+          Real people, real{' '}
+          <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[57px]'>results</span>
+        </h3>
+      )}
 
       {/* Mobile view */}
       <div className="relative z-10 mt-[40px] flex flex-col gap-[20px] lg:hidden">
@@ -170,9 +177,10 @@ function ReviewsSection() {
       </div>
 
       {/* Gradient overlay for non-testimonials pages */}
-      {!isTestimonialsPage && (
-        <div className="to-ui-white via-ui-white/80 from-ui-white/0 absolute bottom-0 left-0 z-20 h-[300px] w-full bg-gradient-to-b" />
-      )}
+      {!isTestimonialsPage &&
+        (gradientOverlay || (
+          <div className='to-ui-white via-ui-white/80 from-ui-white/0 absolute bottom-0 left-0 z-20 h-[300px] w-full bg-gradient-to-b' />
+        ))}
 
       {/* Conditional button rendering */}
       {isTestimonialsPage ? (
@@ -184,6 +192,7 @@ function ReviewsSection() {
           useLeftArrow
           href="/"
           sameBrowserTab={true}
+          {...buttonProps}
         >
           Back to Home
         </KitButton>
@@ -195,6 +204,7 @@ function ReviewsSection() {
           withAnimatedArrow="to-bottom-right"
           href="/testimonials"
           sameBrowserTab={true}
+          {...buttonProps}
         >
           More testimonials
         </KitButton>
