@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 import DetailCard from './DetailCard';
 import ExpertsCarousel from './ExpertsCarousel';
 import ImageCard from './ImageCard';
+import Icons from './Icons';
 
 const LIST = [
   {
@@ -125,6 +126,7 @@ export default function Statement() {
           <DetailCard className='hidden lg:block !pr-[30px]' data={DANIEL_DETAIL} />
           <ImageCard title='Daniel Lopes' subtitle='CTO & Co-Founder' imgSrc={DanielImage.src} imgAlt='daniel-lopes' />
         </div>
+        <Icons />
       </div>
 
       <ExpertsCarousel />
