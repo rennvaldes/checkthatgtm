@@ -135,17 +135,16 @@ export default function Statement() {
         Supported by a world-class team of growth leaders, operators, and technical experts
       </h3>
       <InfiniteSlider
-        className='mt-6 lg:mt-10 lg:flex lg:items-center lg:justify-center lg:h-[71px]'
+        className='mt-6 lg:mt-10 lg:h-[71px]'
         fullSwipeDurationMs={30000}
         items={getInfiniteItems({ isFirstRow: true })}
-        swipeClassName='swipe-left lg:animate-none lg:hidden lg:first:flex'
       />
       <InfiniteSlider
-        className='mt-10 lg:mt-10 lg:flex lg:items-center lg:justify-center lg:h-[71px]'
+        className='mt-10 lg:mt-10 lg:h-[71px]'
         fullSwipeDurationMs={30000}
         items={getInfiniteItems({ isFirstRow: false })}
-        sliderClassName='-translate-x-1/2 lg:translate-x-0 lg:hidden lg:first:flex'
-        swipeClassName='swipe-right lg:animate-none lg:hidden lg:first:flex'
+        sliderClassName='-translate-x-1/2'
+        swipeClassName='swipe-right'
       />
     </section>
   );
