@@ -18,10 +18,16 @@ function ExpertsCarousel() {
     if (!carouselApi) return;
 
     const onSnapChange = () => {
-      const currentIndex = carouselApi.selectedScrollSnap();
-      if (currentIndex === 0) setCarouselWall('left');
-      else if (currentIndex >= IMAGES.length - 1) setCarouselWall('right');
-      else setCarouselWall(undefined);
+      const canScrollLeft = carouselApi.canScrollPrev();
+      const canScrollRight = carouselApi.canScrollNext();
+
+      if (canScrollLeft && canScrollRight) {
+        setCarouselWall(undefined);
+      } else if (canScrollLeft) {
+        setCarouselWall('right');
+      } else if (canScrollRight) {
+        setCarouselWall('left');
+      }
     };
 
     onSnapChange();
