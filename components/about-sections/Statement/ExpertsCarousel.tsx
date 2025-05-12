@@ -36,12 +36,12 @@ function ExpertsCarousel() {
   useEffect(handleCarouselWall, [handleCarouselWall]);
 
   return (
-    <div className='w-[calc(100%_+_16px)] lg:w-full mt-10 flex flex-col gap-6 lg:gap-10 lg:mt-20 lg:relative'>
+    <div className='w-[calc(100%_+_16px)] lg:w-full mt-10 flex flex-col gap-6 lg:gap-10 lg:mt-20 lg:relative lg:max-w-[1920px] lg:pl-[clamp(62px,_calc((100vw_-_1440px)_/_2_+_62px),241px)]'>
       <h3 className='font-clash-display font-[500] text-2xl lg:text-4xl [&&]:leading-[114%] tracking-normal text-center'>
         Meet the team
       </h3>
 
-      <div className='hidden 2xl:block bg-ui-peach w-28 aspect-square rounded-full absolute -left-[56px] top-[320px]' />
+      <div className='hidden 2xl:block bg-ui-peach w-28 aspect-square rounded-full absolute -left-[56px] top-[320px] ml-[clamp(62px,_calc((100vw_-_1440px)_/_2_+_62px),241px)]' />
 
       <Carousel
         className='bg-ui-white'

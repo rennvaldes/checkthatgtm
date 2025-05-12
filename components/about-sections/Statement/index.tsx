@@ -109,7 +109,7 @@ const DANIEL_DETAIL = [
 
 export default function Statement() {
   return (
-    <section className='px-4 pt-10 pb-20 lg:pt-20 lg:pr-0 lg:max-w-7xl lg:mx-auto'>
+    <section className='px-4 pt-10 pb-20 lg:pt-20 lg:px-0'>
       <h2 className='font-clash-display font-[500] text-[28px] lg:text-[52px] leading-[31px] lg:leading-[57px] tracking-normal text-center'>
         The experts{' '}
         <span className='font-kepler-std font-[500] italic text-[32px] lg:text-[60px] leading-[31px] lg:leading-[57px] text-ui-blue'>
@@ -140,12 +140,12 @@ export default function Statement() {
         Supported by a world-class team of growth leaders, operators, and technical experts
       </h3>
       <InfiniteSlider
-        className='mt-6 lg:mt-10 lg:h-[71px]'
+        className='mt-6 lg:mt-10 lg:h-[71px] lg:max-w-7xl lg:mx-auto'
         fullSwipeDurationMs={30000}
         items={getInfiniteItems({ data: INFINITE_ITEMS_ROW_ONE })}
       />
       <InfiniteSlider
-        className='mt-10 lg:mt-10 lg:h-[71px]'
+        className='mt-10 lg:mt-10 lg:h-[71px] lg:max-w-7xl lg:mx-auto'
         fullSwipeDurationMs={30000}
         items={getInfiniteItems({ data: INFINITE_ITEMS_ROW_TWO })}
         sliderClassName='-translate-x-1/2'
