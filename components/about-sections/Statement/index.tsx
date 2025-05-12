@@ -118,7 +118,7 @@ export default function Statement() {
       </h2>
 
       <div className='group/cards flex justify-center gap-4 mt-8 lg:mt-10 lg:relative lg:max-w-min lg:mx-auto'>
-        <div className='lg:group-hover/cards:opacity-0 lg:group-hover/cards:z-0 transition-opacity flex gap-8 relative z-[4]'>
+        <div className='lg:group-hover/cards:opacity-0 lg:group-hover/cards:z-0 transition-opacity flex gap-8 relative z-[6]'>
           <ImageCard
             title='Marcel Santilli'
             subtitle='CEO & Co-Founder'
