@@ -1,6 +1,7 @@
 import Company from '@/components/about-sections/Company';
 import HeroSection from '@/components/about-sections/HeroSection';
 import Statement from '@/components/about-sections/Statement';
+import Testimonials from '@/components/about-sections/Testimonials';
 import Values from '@/components/about-sections/Values';
 import { Main } from '@/components/ui/Main';
 
@@ -11,6 +12,7 @@ export default function About() {
       <Company />
       <Values />
       <Statement />
+      <Testimonials />
     </Main>
   );
 }
