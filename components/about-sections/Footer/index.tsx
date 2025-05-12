@@ -24,7 +24,12 @@ export default function Footer() {
               "Whether you're a budding startup or an established enterprise, discover how our AI can streamline your content creation and fuel your growth."
             }
           </p>
-          <KitButton className='mt-8' size='large' variant='primary' withAnimatedArrow='to-right'>
+          <KitButton
+            className='mt-8 inline-flex'
+            href='/careers'
+            size='large'
+            variant='primary'
+            withAnimatedArrow='to-right'>
             See open positions
           </KitButton>
         </div>

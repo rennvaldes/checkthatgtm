@@ -17,7 +17,7 @@ export default function JoinOurMissionButton() {
       };
 
   return (
-    <KitButton {...styles} size='large' variant='primary' withAnimatedArrow='to-right'>
+    <KitButton {...styles} href='/careers' size='large' variant='primary' withAnimatedArrow='to-right'>
       Join our mission
     </KitButton>
   );
