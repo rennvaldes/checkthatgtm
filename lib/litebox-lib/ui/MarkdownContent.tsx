@@ -82,7 +82,12 @@ const MarkdownContent = ({ content, isLoading }: { content: string; isLoading: b
       const { src, alt } = image.node.properties;
       const { width, height } = getImageDimensionsFromUrl(src);
 
-      return <img src={src} alt={alt} width={width} height={height} />;
+      return (
+        <div className='xl:w-[1200px] xl:max-w-[100dvw] xl:-translate-x-[24.5%] xl:relative xl:py-12 xl:bg-ui-white xl:z-20 xl:-my-8'>
+          <div className='xl:absolute xl:inset-0 xl:bg-ui-white' />
+          <img src={src} alt={alt} width={width} height={height} className='w-full relative z-20 m-0' />
+        </div>
+      );
     },
     p: (paragraph: ChildrenType) => (
       <p>{paragraph.children}</p>
