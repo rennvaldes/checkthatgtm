@@ -9,6 +9,8 @@ export async function getMainDataAndArticles({
   ofCategory?: string;
   titleSearch?: string;
 } = {}) {
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === 'true';
+
   return await getWithQsParams('/blog', {
     populate: {
       articles: {
@@ -18,16 +20,22 @@ export async function getMainDataAndArticles({
           category: true,
         },
         filters: {
-          category: {
-            name: {
-              $in: ofCategory
-                ? [capitalize(ofCategory), ofCategory.toUpperCase(), ofCategory.toLowerCase()]
-                : undefined,
+          $and: [
+            {
+              category: {
+                name: {
+                  $in: ofCategory
+                    ? [capitalize(ofCategory), ofCategory.toUpperCase(), ofCategory.toLowerCase()]
+                    : undefined,
+                },
+              },
+              title: {
+                $containsi: titleSearch ?? undefined,
+              },
             },
-          },
-          title: {
-            $containsi: titleSearch ?? undefined,
-          },
+            // Only show staging posts in local environment
+            isLocalEnv ? {} : { staging: { $eq: false } },
+          ],
         },
       },
       main_article: {
@@ -36,17 +44,21 @@ export async function getMainDataAndArticles({
           publisher_avatar: true,
           category: true,
         },
+        filters: isLocalEnv ? {} : { staging: { $eq: false } },
       },
     },
   });
 }
 
 export async function getArticle(slug: string) {
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === 'true';
+  
   const data = await getWithQsParams('/articles', {
     filters: {
-      slug: {
-        $eq: slug
-      }
+      $and: [
+        { slug: { $eq: slug } },
+        isLocalEnv ? {} : { staging: { $eq: false } }
+      ]
     },
     populate: "*"
   });
