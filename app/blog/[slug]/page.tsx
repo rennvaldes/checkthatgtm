@@ -10,11 +10,11 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 
 export default function ArticlePage() {
-  const articleId = usePathname().split('/')[2];
+  const slug = usePathname().split('/')[2];
 
   const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-article-data',
-    getFn: () => getArticle(articleId),
+    getFn: () => getArticle(slug),
   });
 
   const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data) : {}), [rawData]);
@@ -22,7 +22,7 @@ export default function ArticlePage() {
   return (
     <main className='relative flex min-h-screen flex-col items-center justify-between pt-20 lg:pt-28'>
       <BlogPageHeader isLoading={isLoading} data={articleData} />
-      <BlogPageContent isLoading={isLoading} content={articleData.content} />
+      <BlogPageContent isLoading={isLoading} content={articleData.content} data={articleData} />
       <KeepReading relatedArticles={articleData.related_articles} />
     </main>
   );

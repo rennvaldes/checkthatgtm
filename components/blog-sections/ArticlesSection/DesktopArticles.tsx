@@ -24,12 +24,12 @@ function DesktopArticles({ cardsData, isLoading }: Props) {
   const restRows = chunk(restCards, 3);
 
   return (
-    <div className='hidden w-full flex-col items-center lg:flex'>
-      <div className='mt-[64px] flex w-full flex-col gap-[32px] lg:max-w-[1280px]'>
+    <div className='flex w-full flex-col items-center'>
+      <div className='mt-16 flex w-full flex-col gap-[32px] lg:max-w-[1280px] px-6 xl:px-0'>
         {firstRows.map((row, rowIndex) => (
-          <div key={rowIndex} className='flex justify-between'>
+          <div key={rowIndex} className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
             {row.map(card => (
-              <BlogCard isLoading={isLoading} key={card.documentId} className='!mt-0 w-[405px]' {...card} />
+              <BlogCard isLoading={isLoading} key={card.documentId} className='!mt-0 w-full' {...card} />
             ))}
           </div>
         ))}
@@ -39,9 +39,9 @@ function DesktopArticles({ cardsData, isLoading }: Props) {
 
       <div className='mt-[120px] flex w-full flex-col gap-[32px] lg:max-w-[1280px]'>
         {restRows.map((row, rowIndex) => (
-          <div key={rowIndex + firstRows.length} className='flex justify-between'>
+          <div key={rowIndex + firstRows.length} className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
             {row.map(card => (
-              <BlogCard isLoading={isLoading} key={card.documentId} className='!mt-0 w-[405px]' {...card} />
+              <BlogCard isLoading={isLoading} key={card.documentId} className='!mt-0 w-full' {...card} />
             ))}
           </div>
         ))}

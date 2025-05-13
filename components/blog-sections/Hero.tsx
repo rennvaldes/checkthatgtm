@@ -35,13 +35,14 @@ function BlogHero() {
 
   const { isDesktop } = useResponsiveDevice();
 
-  const { title, sub_title, main_article, documentId } = React.useMemo(() => {
+  const { title, sub_title, main_article, documentId, slug } = React.useMemo(() => {
     if (!rawData) return {};
     const { title, sub_title, main_article: rawMainArticleData } = rawData.data;
     const main_article = getCardFromStrapiRawData(rawMainArticleData);
     const documentId = rawMainArticleData.documentId;
+    const slug = rawMainArticleData.slug;
 
-    return { main_article, title, sub_title, documentId };
+    return { main_article, title, sub_title, documentId, slug };
   }, [rawData]);
 
   return (
@@ -61,10 +62,10 @@ function BlogHero() {
         </h2>
       )}
 
-      <article className='cursor-pointe group relative z-20 mt-[52px] lg:mt-[64px]'>
+      {/* <article className='cursor-pointe group relative z-20 mt-[52px] lg:mt-[64px]'>
         <SemicircleDeco />
 
-        <Link href={`/blog/${documentId}/${slug(main_article?.title ?? '')}`} className='flex flex-col lg:flex-row'>
+        <Link href={`/blog/${slug}`} className='flex flex-col lg:flex-row'>
           {isLoading ? (
             <Skeleton className='h-[184px] w-full rounded-none lg:h-[440px] lg:w-[765px] lg:flex-shrink-0' />
           ) : (
@@ -72,7 +73,7 @@ function BlogHero() {
               <img
                 alt='placeholder'
                 src={main_article.image}
-                className='h-full w-full transition-transform duration-500 group-hover:scale-110'
+                className='h-full w-full transition-transform duration-300 group-hover:scale-110'
               />
             </div>
           )}
@@ -92,7 +93,7 @@ function BlogHero() {
                   <Skeleton className='mt-[8px] h-[28px] w-[66%] rounded-full lg:h-[42px]' />
                 </>
               ) : (
-                <h3 className='group-hover:text-ui-blue transition-color text-[24px] font-medium leading-[28px] duration-500 lg:mt-[20px] lg:text-[32px] lg:leading-[42px]'>
+                <h3 className='group-hover:text-ui-blue transition-color text-[24px] font-medium leading-[28px] duration-300 lg:mt-[20px] lg:text-[32px] lg:leading-[42px]'>
                   {main_article.title}
                 </h3>
               )}
@@ -127,9 +128,9 @@ function BlogHero() {
             </div>
           </div>
         </Link>
-      </article>
+      </article> */}
 
-      <div className='absolute left-0 top-0 mt-[140px] w-full border-b-[1px] border-[#CECEE3]'>
+      {/* <div className='absolute left-0 top-0 mt-[140px] w-full'>
         <div className='relative h-[340px] w-full'>
           <div className='from-ui-white to-ui-white/0 absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b' />
           <DotPatternBackground
@@ -140,7 +141,7 @@ function BlogHero() {
           />
         </div>
         <div className='h-[10px] lg:h-[50px]' />
-      </div>
+      </div> */}
     </section>
   );
 }

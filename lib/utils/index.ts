@@ -27,7 +27,8 @@ export function getCardFromStrapiRawData(rawCardData: any) {
   if (!rawCardData) return {};
   const { id, ...attributes } = rawCardData;
 
-  const category = attributes.category.name;
+  // Safely access category name
+  const category = attributes.category?.name || attributes.category;
   const imageData = attributes.image;
   const publisher_avatar = attributes.publisher_avatar;
 

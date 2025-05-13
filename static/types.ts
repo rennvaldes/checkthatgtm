@@ -13,5 +13,6 @@ export type CardData = {
   description?: string;
   publisher_avatar: string;
   publisher_name: string;
+  publisher_legend?: string;
   className?: string;
 };
