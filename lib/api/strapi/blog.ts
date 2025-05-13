@@ -60,7 +60,18 @@ export async function getArticle(slug: string) {
         isLocalEnv ? {} : { staging: { $eq: false } }
       ]
     },
-    populate: "*"
+    populate: {
+      image: true,
+      publisher_avatar: true,
+      category: true,
+      related_articles: {
+        populate: {
+          image: true,
+          publisher_avatar: true,
+          category: true
+        }
+      }
+    }
   });
   
   // Return the first article from the array

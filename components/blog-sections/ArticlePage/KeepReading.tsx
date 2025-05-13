@@ -9,7 +9,7 @@ function KeepReading({ relatedArticles }: { relatedArticles: CardData[] }) {
 
   return (
     <>
-      <div className='border-ui-black w-full border-t-[1px]' />
+      <div className='border-ui-black/25 w-full border-t-[1px]' />
       <section className='flex w-[320px] flex-col md:px-[78px] pb-[40px] pt-[80px] lg:w-full lg:max-w-[1280px] lg:pb-[120px] lg:pt-[56px]'>
         <h3 className='text-[24px] font-medium leading-[28px] lg:text-[36px] lg:leading-[42px]'>Keep Reading</h3>
 
@@ -20,9 +20,9 @@ function KeepReading({ relatedArticles }: { relatedArticles: CardData[] }) {
 
         <div className='mt-[40px] hidden flex-col gap-[32px] lg:flex'>
           {chunk(relatedArticles, 3).map((row, index) => (
-            <div key={index} className='flex justify-between'>
+            <div key={index} className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
               {row.map(articleData => (
-                <BlogCard className='mt-0 w-[405px]' key={articleData.id} {...articleData} />
+                <BlogCard key={articleData.id} {...articleData} />
               ))}
             </div>
           ))}
