@@ -120,9 +120,17 @@ type Props = {
   customTitle?: ReactNode;
   gradientOverlay?: ReactNode;
   isTestimonialsPage?: boolean;
+  maxNumberOfReviews?: number;
 }
 
-function ReviewsSection({ buttonProps, className, customTitle, gradientOverlay, isTestimonialsPage = false, }: Props) {
+function ReviewsSection({
+  buttonProps,
+  className,
+  customTitle,
+  gradientOverlay,
+  isTestimonialsPage = false,
+  maxNumberOfReviews = reviewsData.length,
+}: Props) {
   return (
     <section
       id="reviews-section"
@@ -143,7 +151,7 @@ function ReviewsSection({ buttonProps, className, customTitle, gradientOverlay, 
 
       {/* Mobile view */}
       <div className="relative z-10 mt-[40px] flex flex-col gap-[20px] lg:hidden">
-        {reviewsData.map((reviewData, index) => (
+        {reviewsData.slice(0, maxNumberOfReviews).map((reviewData, index) => (
           <motion.div
             key={`review-${index}`}
             initial={{ opacity: 0, y: 20 }}
