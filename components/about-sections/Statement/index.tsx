@@ -7,7 +7,6 @@ import Icons from './Icons';
 import ImageCard from './ImageCard';
 import { getInfiniteItems } from './utils';
 
-// TODO: Replace placeholder with real values
 const INFINITE_ITEMS_ROW_ONE = [
   {
     className: 'bg-ui-green-light',
@@ -117,20 +116,29 @@ export default function Statement() {
         </span>
       </h2>
 
-      <div className='group/cards flex justify-center gap-4 mt-8 lg:mt-10 lg:relative lg:max-w-min lg:mx-auto'>
-        <div className='lg:group-hover/cards:opacity-0 lg:group-hover/cards:z-0 transition-opacity flex gap-8 relative z-[6]'>
-          <ImageCard
-            title='Marcel Santilli'
-            subtitle='CEO & Co-Founder'
-            imgSrc={MarcelImage.src}
-            imgAlt='marcel-santilli'
-          />
-          <DetailCard className='hidden lg:block' data={MARCEL_DETAIL} />
-        </div>
-        <div className='flex gap-8 lg:absolute lg:top-0'>
-          <DetailCard className='hidden lg:block !pr-[30px]' data={DANIEL_DETAIL} />
-          <ImageCard title='Daniel Lopes' subtitle='CTO & Co-Founder' imgSrc={DanielImage.src} imgAlt='daniel-lopes' />
-        </div>
+      <div className='flex justify-center gap-4 lg:gap-8 2xl:gap-[54px] mt-8 lg:mt-10 lg:max-w-min lg:mx-auto lg:relative'>
+        <ImageCard
+          className='z-[2] peer/marcel'
+          title='Marcel Santilli'
+          subtitle='CEO & Co-Founder'
+          imgSrc={MarcelImage.src}
+          imgAlt='marcel-santilli'
+        />
+        <DetailCard
+          className='hidden lg:block transition-opacity absolute top-0 right-0 z-[1] opacity-0 peer-hover/marcel:opacity-100 peer-hover/marcel:z-[3]'
+          data={MARCEL_DETAIL}
+        />
+        <ImageCard
+          className='z-[2] peer/daniel'
+          title='Daniel Lopes'
+          subtitle='CTO & Co-Founder'
+          imgSrc={DanielImage.src}
+          imgAlt='daniel-lopes'
+        />
+        <DetailCard
+          className='hidden lg:block transition-opacity absolute top-0 left-0 z-[1] opacity-0 peer-hover/daniel:opacity-100 peer-hover/daniel:z-[3]'
+          data={DANIEL_DETAIL}
+        />
         <Icons />
       </div>
 
