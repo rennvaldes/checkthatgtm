@@ -58,6 +58,7 @@ export default function Footer() {
           dotPatternTopPaddingPx={15}
         />
         <div className='from-ui-white to-ui-white/0 absolute top-0 left-0 h-full w-full bg-gradient-to-b z-[3]' />
+        <div className='bg-ui-black bottom-0 left-0 w-[calc(100vw_-_150px)] lg:w-[calc((100vw_/_2)_-_400px)] h-[1px] absolute lg:top-[90%] lg:left-1/2 z-[2]' />
         <Image
           className='absolute w-[238px] aspect-square -left-[120px] top-1/2 z-[3] lg:w-[428px] lg:top-[10%] lg:left-1/2 lg:-translate-x-1/2'
           src={planetEarthImage}
