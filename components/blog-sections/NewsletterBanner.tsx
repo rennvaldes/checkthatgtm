@@ -89,7 +89,24 @@ function Decoration() {
 }
 
 function NewsletterBanner({ className }: { className?: string }) {
-  return (<></>);
+  // return (
+  //   <>
+  //     <iframe 
+  //       src="https://embeds.beehiiv.com/a74b51d8-211d-4085-ab61-be69549cf375" 
+  //       data-test-id="beehiiv-embed" 
+  //       width="100%" 
+  //       height="320" 
+  //       frameBorder="0" 
+  //       scrolling="no" 
+  //       style={{
+  //         borderRadius: "0", 
+  //         border: "1px solid #C1C0CD", 
+  //         margin: 0, 
+  //         backgroundColor: "transparent"
+  //       }}
+  //     />
+  //   </>
+  // );
 
   const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-data-newsletter',
@@ -102,23 +119,66 @@ function NewsletterBanner({ className }: { className?: string }) {
 
   const { isDesktop } = useResponsiveDevice();
   const [value, setValue] = React.useState('');
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = React.useState('');
 
-  const newsletter_banner_title = React.useMemo(() => {
-    if (!rawData) return {};
-    return rawData.data.attributes.newsletter_banner_title;
-  }, [rawData]);
+  // const newsletter_banner_title = React.useMemo(() => {
+  //   if (!rawData) return {};
+  //   return rawData.data.attributes.newsletter_banner_title;
+  // }, [rawData]);
 
   const generalData = React.useMemo(() => generalDataRaw?.data.attributes || {}, [generalDataRaw]);
 
+  const handleSubscribe = async () => {
+    if (!value) {
+      setSubmitStatus('error');
+      setSubmitMessage('Please enter your email address.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: value }),
+      });
+      const result = await response.json();
+
+      if (response.ok && result.data) {
+        setSubmitStatus('success');
+        setSubmitMessage('Successfully subscribed! Please check your email.');
+        setValue(''); // Clear input on success
+      } else {
+        setSubmitStatus('error');
+        setSubmitMessage(result.message || result.error?.message || 'Subscription failed. Please try again.');
+        console.error('Beehiiv API Error:', result);
+      }
+    } catch (error) {
+      console.error('Subscription error:', error);
+      setSubmitStatus('error');
+      setSubmitMessage('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className={cn('bg-ui-green-light relative mt-[80px] w-full overflow-hidden lg:mt-[120px]', className)}>
+    <div className={cn('bg-ui-green-light relative mt-[80px] w-full overflow-hidden lg:mt-[120px] max-w-[1280px] mx-auto px-4 lg:px-12', className)}>
       <div className='relative z-30 mx-auto w-[320px] pb-[120px] pt-[20px] lg:w-full lg:max-w-[1280px] lg:pb-[86px] lg:pt-[86px]'>
         {isLoading ? (
           <Skeleton className='h-[84px] w-[320px] lg:h-[84px] lg:w-[710px]' />
         ) : (
-          <h3 className='bg-ui-green-light pr-1 text-[24px] font-medium leading-[28px] lg:w-[710px] lg:text-[36px] lg:leading-[42px]'>
-            {newsletter_banner_title}
-          </h3>
+          <div className='max-w-screen-md flex flex-col gap-4'>
+            <h3 className='bg-ui-green-light pr-1 text-3xl font-medium lg:text-[36px] leading-tighter'>
+              Unlock AI-Powered Growth Strategies
+            </h3>
+            <p className='font-elza leading-tight text-ui-black/75 text-base max-w-[460px]'>Join experts from Y Combinator, HashiCorp & Affirm. <br className='hidden lg:block' /> Get bi-weekly, no-fluff insights on scaling and revenue growth.</p>
+          </div>
         )}
 
         <div className='relative z-40 mt-[16px] flex flex-col items-start lg:mt-[32px] lg:flex-row lg:gap-[12px]'>
@@ -130,13 +190,19 @@ function NewsletterBanner({ className }: { className?: string }) {
             placeholder='Email address'
           />
           <KitButton
-            href={`mailto:${generalData.suscribe_receiver_mail}?subject=${generalData.suscribe_mail_subject}&body=${generalData.suscribe_mail_body ?? ''}. Mail suscribing: ${value}`}
+            onClick={handleSubscribe}
+            isDisabled={isSubmitting}
             variant='primary'
             size='large'
             className='mt-[16px] lg:mt-0'>
-            Suscribe
+            {isSubmitting ? 'Subscribing...' : 'Subscribe'}
           </KitButton>
         </div>
+        {submitStatus !== 'idle' && (
+          <p className={`mt-2 text-sm ${submitStatus === 'success' ? 'text-ui-black' : 'text-red-600'}`}>
+            {submitMessage}
+          </p>
+        )}
 
         <Decoration />
         <Image

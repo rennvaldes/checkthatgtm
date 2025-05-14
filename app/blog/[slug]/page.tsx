@@ -3,6 +3,7 @@
 import BlogPageContent from '@/components/blog-sections/ArticlePage/Content';
 import BlogPageHeader from '@/components/blog-sections/ArticlePage/Header';
 import KeepReading from '@/components/blog-sections/ArticlePage/KeepReading';
+import NewsletterBanner from '@/components/blog-sections/NewsletterBanner';
 import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
 import { getArticle } from '@/lib/api/strapi/blog';
 import { getCardFromStrapiRawData } from '@/lib/utils';
@@ -23,6 +24,9 @@ export default function ArticlePage() {
     <main className='relative flex min-h-screen flex-col items-center justify-between pt-20 lg:pt-28'>
       <BlogPageHeader isLoading={isLoading} data={articleData} />
       <BlogPageContent isLoading={isLoading} content={articleData.content} data={articleData} />
+      <div className='w-full mb-12'>
+        <NewsletterBanner />
+      </div>
       <KeepReading relatedArticles={articleData.related_articles} />
     </main>
   );

@@ -31,7 +31,7 @@ function DesktopArticles({ cardsData, isLoading }: Props) {
         ))}
       </div>
 
-      {/* <NewsletterBanner /> */}
+      <NewsletterBanner />
     </div>
   );
 }
