@@ -10,7 +10,8 @@ function isGoogleSlides(url: string): boolean {
 }
 
 export default function GuidePage() {
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id as string;
   const guide = GUIDES.find(p => p.id === id);
 
   if (!guide) {
