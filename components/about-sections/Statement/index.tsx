@@ -140,16 +140,17 @@ export default function Statement() {
         Supported by a world-class team of growth leaders, operators, and technical experts
       </h3>
       <InfiniteSlider
-        className='mt-6 lg:mt-10 lg:h-[71px] lg:max-w-7xl lg:mx-auto'
+        className='mt-6 lg:mt-10 lg:flex lg:items-center lg:justify-center lg:h-[71px] lg:max-w-7xl lg:mx-auto'
         fullSwipeDurationMs={30000}
         items={getInfiniteItems({ data: INFINITE_ITEMS_ROW_ONE })}
+        swipeClassName='swipe-left lg:animate-none lg:hidden lg:first:flex'
       />
       <InfiniteSlider
-        className='mt-10 lg:mt-10 lg:h-[71px] lg:max-w-7xl lg:mx-auto'
+        className='mt-10 lg:mt-10 lg:flex lg:items-center lg:justify-center lg:h-[71px] lg:max-w-7xl lg:mx-auto'
         fullSwipeDurationMs={30000}
         items={getInfiniteItems({ data: INFINITE_ITEMS_ROW_TWO })}
-        sliderClassName='-translate-x-1/2'
-        swipeClassName='swipe-right'
+        sliderClassName='-translate-x-1/2 lg:translate-x-0 lg:hidden lg:first:flex'
+        swipeClassName='swipe-right lg:animate-none lg:hidden lg:first:flex'
       />
     </section>
   );
