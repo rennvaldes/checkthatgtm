@@ -38,6 +38,7 @@ export default function Testimonials() {
         className='[&&]:m-0 [&&]:p-0 [&&]:max-w-full [&&]:lg:max-w-[1440px] [&&]:lg:mx-auto'
         customTitle={<Title />}
         gradientOverlay={<Gradient />}
+        maxNumberOfReviews={3}
       />
     </section>
   );
