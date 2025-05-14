@@ -5,7 +5,8 @@ import { DATA } from '../data';
 import Link from 'next/link';
 
 export default function ToolPage() {
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id as string;
   const tool = DATA.find(t => t.id === id);
 
   if (!tool) {
@@ -13,7 +14,7 @@ export default function ToolPage() {
       <main className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Tool not found</h1>
-          <Link href="/free-tools" className="text-blue-500 hover:underline">
+          <Link href="/tools" className="text-blue-500 hover:underline">
             Back to tools
           </Link>
         </div>
@@ -24,7 +25,7 @@ export default function ToolPage() {
   return (
     <main className="relative min-h-screen flex flex-col items-center py-20">
       <div className="w-full max-w-4xl px-4">
-        <Link href="/free-tools" className="text-blue-500 hover:underline mb-8 block">
+        <Link href="/tools" className="text-blue-500 hover:underline mb-8 block">
           ← Back to tools
         </Link>
 
