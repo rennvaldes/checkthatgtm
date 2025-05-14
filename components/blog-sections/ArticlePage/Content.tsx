@@ -84,7 +84,6 @@ function BlogPageContent({ content, isLoading, data }: { content: string; isLoad
       <div className='prose prose-lg font-elza'>
         <MarkdownContent isLoading={isLoading} content={content} />
       </div>
-      <NewsletterBanner className='lg:hidden' />
     </section>
   );
 }
