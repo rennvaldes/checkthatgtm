@@ -11,11 +11,11 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 
 export default function ArticlePage() {
-  const slug = usePathname().split('/')[2];
+  const slug = usePathname()?.split('/')[2];
 
   const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-article-data',
-    getFn: () => getArticle(slug),
+    getFn: () => getArticle(slug || ''),
   });
 
   const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data) : {}), [rawData]);
