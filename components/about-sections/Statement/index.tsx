@@ -53,7 +53,7 @@ const INFINITE_ITEMS_ROW_TWO = [
   },
 ];
 
-const MARCEL_DETAIL = [
+const DANIEL_DETAIL = [
   {
     title: 'CTO & Co-Founder',
     subTitle: <DetailCard.SubTitle>of Canopy (Basecamp spin-off)</DetailCard.SubTitle>,
@@ -78,7 +78,7 @@ const MARCEL_DETAIL = [
   },
 ];
 
-const DANIEL_DETAIL = [
+const MARCEL_DETAIL = [
   {
     title: 'Led growth/marketing at fast-scaling tech leaders:',
     subTitle: (
@@ -118,25 +118,25 @@ export default function Statement() {
 
       <div className='flex justify-center gap-4 lg:gap-8 2xl:gap-[54px] mt-8 lg:mt-10 lg:max-w-min lg:mx-auto lg:relative'>
         <ImageCard
-          className='z-[2] peer/marcel'
+          className='z-[2]'
           title='Marcel Santilli'
           subtitle='CEO & Co-Founder'
           imgSrc={MarcelImage.src}
           imgAlt='marcel-santilli'
         />
         <DetailCard
-          className='hidden lg:block transition-opacity absolute top-0 right-0 z-[1] opacity-0 peer-hover/marcel:opacity-100 peer-hover/marcel:z-[3]'
+          className='hidden lg:block transition-opacity absolute top-0 left-0 z-[3] opacity-0 hover:opacity-100'
           data={MARCEL_DETAIL}
         />
         <ImageCard
-          className='z-[2] peer/daniel'
+          className='z-[2]'
           title='Daniel Lopes'
           subtitle='CTO & Co-Founder'
           imgSrc={DanielImage.src}
           imgAlt='daniel-lopes'
         />
         <DetailCard
-          className='hidden lg:block transition-opacity absolute top-0 left-0 z-[1] opacity-0 peer-hover/daniel:opacity-100 peer-hover/daniel:z-[3]'
+          className='hidden lg:block transition-opacity absolute top-0 right-0 z-[3] opacity-0 hover:opacity-100'
           data={DANIEL_DETAIL}
         />
         <Icons />
