@@ -69,3 +69,23 @@ html {
   --d: 2.5px; 
   background: radial-gradient(circle at var(--d) var(--d),#FFDACA calc(var(--d) - 1px), #FFDACA calc(var(--d) - 1px), transparent var(--d)) 0 0 / 50px 50px;
 }
+
+.prose ol > li > span:first-child {
+  display: none;
+}
+
+.prose ol {
+  counter-reset: custom-ol-counter;
+}
+.prose ol > li {
+  counter-increment: custom-ol-counter;
+  position: relative;
+}
+.prose ol > li > span:last-child {
+  display: block;
+}
+.prose ol > li:before {
+  content: counter(custom-ol-counter) ".";
+  position: absolute;
+  left: -0.75rem;
+}

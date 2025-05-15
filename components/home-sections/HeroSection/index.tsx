@@ -5,6 +5,7 @@ import TitleAndButtons from './TitleAndButtons';
 import DecorationsAndContainer from './DecorationsAndContainer';
 import IncreasePercentageCard from './IncreasePercentageCard';
 import StatsCard from './StatsCard';
+import HeroAnnouncement from '@/components/ui/HeroAnnouncement';
 
 function HeroSection() {
   const { isDesktop } = useResponsiveDevice();
@@ -17,6 +18,7 @@ function HeroSection() {
         dotsSeparationPx={!isDesktop ? { vertical: 40, horizontal: 42 } : undefined}
         dotPatternTopPaddingPx={!isDesktop ? 140 : undefined}
       />
+      <HeroAnnouncement text="GrowthX Raises Series A" link="/blog/growthx-raises-series-a" />
       <TitleAndButtons />
       <DecorationsAndContainer>
         <IncreasePercentageCard />
