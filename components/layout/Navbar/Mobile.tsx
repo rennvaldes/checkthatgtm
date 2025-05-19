@@ -107,14 +107,6 @@ function Mobile() {
           <ul className="flex flex-col gap-[24px]">
             <li>
               <button
-                onClick={() => scrollTo("results-section")}
-                className={OPTION_STYLES}
-              >
-                Our results
-              </button>
-            </li>
-            <li>
-              <button
                 onClick={() => scrollTo("how-it-works-section")}
                 className={OPTION_STYLES}
               >
@@ -123,10 +115,10 @@ function Mobile() {
             </li>
             <li>
               <button
-                onClick={() => scrollTo("reviews-section")}
+                onClick={() => scrollTo("results-section")}
                 className={OPTION_STYLES}
               >
-                Reviews
+                Customers
               </button>
             </li>
             <li onClick={() => setIsOpen(false)}>
@@ -143,16 +135,15 @@ function Mobile() {
             <li onClick={() => setIsOpen(false)}>
               <KitButton
                 className={OPTION_STYLES}
-                href="/careers"
+                href="/about"
                 variant="ghost"
                 size="custom"
                 sameBrowserTab={true}
               >
-                Careers
+                Company
               </KitButton>
             </li>
-
-            <li className="hidden">
+            <li onClick={() => setIsOpen(false)}>
               <KitButton
                 href="/blog"
                 sameBrowserTab

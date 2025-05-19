@@ -9,7 +9,7 @@ function HelpedGrowSection() {
     // { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/metadata_4323b9c4fd.svg', alt: 'Metadata', height: 20 },
     // { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/swoogo_logo_449d7f6b4c.svg', alt: 'Swoogo', height: 18 },
     // { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/steadily_logo_2_a9fb3f3b54.svg', alt: 'Steadily', height: 16 },
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_gc_ai_3258a7e45d.svg', alt: 'GC AI', height: 18 },
+    // { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_gc_ai_3258a7e45d.svg', alt: 'GC AI', height: 18 },
     { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_airbyte_40413c6ff7.svg', alt: 'Airbyte', height: 26 },
     { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_shaped_2b0e8914ef.svg', alt: 'Shaped', height: 24 },
     { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg', alt: 'Ramp', height: 20 },

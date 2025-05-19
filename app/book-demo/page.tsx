@@ -45,7 +45,7 @@ const allLogos = [
   { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_reddit_white_ebfbb73438.svg', alt: 'Reddit', height: 27 },
   { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg', alt: 'Ramp', height: 20 },
   { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_white_0bac569aa4.svg', alt: 'Strapi', height: 20 },
-  { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_gc_ai_3258a7e45d.svg', alt: 'GC AI', height: 16 },
+  // { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_gc_ai_3258a7e45d.svg', alt: 'GC AI', height: 16 },
   { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_airbyte_40413c6ff7.svg', alt: 'Airbyte', height: 26 },
   // { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_shaped_2b0e8914ef.svg', alt: 'Shaped', height: 24 },
   { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/webstacks_5f9bb33e5c.svg', alt: 'Webstacks', height: 17 },

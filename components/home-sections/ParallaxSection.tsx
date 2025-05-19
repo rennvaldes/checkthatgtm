@@ -15,21 +15,7 @@ import X from '@/components/icons/X';
 import lottieAnimation1 from '@/assets/lottie/lottie1.json';
 import lottieAnimation2 from '@/assets/lottie/lottie2.json';
 import lottieAnimation3 from '@/assets/lottie/lottie3.json';
-
-// Decorations
-function Triangle() {
-  return (
-    <svg
-      width='33'
-      height='33'
-      viewBox='0 0 33 33'
-      fill='none'
-      className='text-ui-green absolute left-[153px] top-[928px] hidden lg:block'
-      xmlns='http://www.w3.org/2000/svg'>
-      <path d='M33 0L-1.44248e-06 33L33 33L33 0Z' fill='currentColor' />
-    </svg>
-  );
-}
+import Triangle from '../icons/Triangle';
 
 function ParallaxSection() {
   const sectionRef = React.useRef(null);
@@ -125,7 +111,7 @@ function ParallaxSection() {
       </div> */}
 
       {/* Triangle and X Decorations */}
-      <Triangle />
+      <Triangle className='text-ui-green absolute left-[153px] top-[928px] hidden lg:block' />
       <X className='text-ui-blue absolute right-[121px] top-[707px] hidden lg:block' />
       <X className='text-ui-blue absolute left-[527px] top-[1377px] hidden lg:block' />
     </section>
