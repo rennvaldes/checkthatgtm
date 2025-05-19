@@ -1,6 +1,6 @@
-import { capitalize } from 'lodash';
+import { capitalize } from "lodash";
 
-import { getWithQsParams } from './config';
+import { getWithQsParams } from "./config";
 
 export async function getMainDataAndArticles({
   ofCategory,
@@ -9,9 +9,11 @@ export async function getMainDataAndArticles({
   ofCategory?: string;
   titleSearch?: string;
 } = {}) {
-  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === 'true';
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
+  const showDrafts = isLocalEnv || isPullRequest;
 
-  return await getWithQsParams('/blog', {
+  return await getWithQsParams("/blog", {
     populate: {
       articles: {
         populate: {
@@ -25,7 +27,11 @@ export async function getMainDataAndArticles({
               category: {
                 name: {
                   $in: ofCategory
-                    ? [capitalize(ofCategory), ofCategory.toUpperCase(), ofCategory.toLowerCase()]
+                    ? [
+                        capitalize(ofCategory),
+                        ofCategory.toUpperCase(),
+                        ofCategory.toLowerCase(),
+                      ]
                     : undefined,
                 },
               },
@@ -33,8 +39,8 @@ export async function getMainDataAndArticles({
                 $containsi: titleSearch ?? undefined,
               },
             },
-            // Only show staging posts in local environment
-            isLocalEnv ? {} : { staging: { $eq: false } },
+            // Show staging posts in local environment or pull requests
+            showDrafts ? {} : { staging: { $eq: false } },
           ],
         },
       },
@@ -44,21 +50,23 @@ export async function getMainDataAndArticles({
           publisher_avatar: true,
           category: true,
         },
-        filters: isLocalEnv ? {} : { staging: { $eq: false } },
+        filters: showDrafts ? {} : { staging: { $eq: false } },
       },
     },
   });
 }
 
 export async function getArticle(slug: string) {
-  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === 'true';
-  
-  const data = await getWithQsParams('/articles', {
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
+  const showDrafts = isLocalEnv || isPullRequest;
+
+  const data = await getWithQsParams("/articles", {
     filters: {
       $and: [
         { slug: { $eq: slug } },
-        isLocalEnv ? {} : { staging: { $eq: false } }
-      ]
+        showDrafts ? {} : { staging: { $eq: false } },
+      ],
     },
     populate: {
       image: true,
@@ -68,12 +76,12 @@ export async function getArticle(slug: string) {
         populate: {
           image: true,
           publisher_avatar: true,
-          category: true
-        }
-      }
-    }
+          category: true,
+        },
+      },
+    },
   });
-  
+
   // Return the first article from the array
   if (data.data && Array.isArray(data.data) && data.data.length > 0) {
     return { data: data.data[0] };
@@ -82,5 +90,5 @@ export async function getArticle(slug: string) {
 }
 
 export async function getArticleCategories() {
-  return await getWithQsParams('/categories');
+  return await getWithQsParams("/categories");
 }
