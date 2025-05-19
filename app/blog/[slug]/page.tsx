@@ -1,45 +1,49 @@
-'use client';
-
-import BlogPageContent from '@/components/blog-sections/ArticlePage/Content';
-import BlogPageHeader from '@/components/blog-sections/ArticlePage/Header';
-import KeepReading from '@/components/blog-sections/ArticlePage/KeepReading';
-import NewsletterBanner from '@/components/blog-sections/NewsletterBanner';
-import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
-import { getArticle } from '@/lib/api/strapi/blog';
-import { getCardFromStrapiRawData } from '@/lib/utils';
 import React from 'react';
+import { Metadata } from 'next';
+import ArticlePageClient from '@/components/blog-sections/ArticlePage/ArticlePageClient';
 
-export default function ArticlePage(
-  {
-    params,
-  }: {
-    params: {
-      slug: string;
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  if (params.slug === 'series-a') {
+    return {
+      title: 'GrowthX Raises $12m Series A',
+      description: 'GrowthX AI raises $12M to scale platform that captures how experts actually work',
+      openGraph: {
+        title: 'GrowthX Raises $12m Series A',
+        description: 'GrowthX AI raises $12M to scale platform that captures how experts actually work',
+        images: [{
+          url: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/Growth_X_Series_A_AI_growth_platform_v2_fcb67dbba5.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Your image alt text',
+        }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'GrowthX Raises $12m Series A',
+        description: 'GrowthX AI raises $12M to scale platform that captures how experts actually work',
+        images: ['https://glowing-rainbow-627a62133d.media.strapiapp.com/Growth_X_Series_A_AI_growth_platform_v2_fcb67dbba5.jpg'],
+      },
     };
   }
-) {
+
+  return {
+    title: 'GrowthX Blog',
+    description: 'GrowthX Blog Articles',
+  };
+}
+
+export default function ArticlePage({ params }: { params: { slug: string } }) {
   const slug = params.slug;
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
   const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
 
-
-
-  const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
-    key: 'blog-article-data',
-    getFn: () => getArticle(slug || '', showDrafts),
-  });
-
-  const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data) : {}), [rawData]);
-
   return (
-    <main className='relative flex min-h-screen flex-col items-center justify-between pt-20 lg:pt-28' data-show-drafts={showDrafts} data-is-pull-request={isPullRequest} data-is-local-env={isLocalEnv}>
-      <BlogPageHeader isLoading={isLoading} data={articleData} />
-      <BlogPageContent isLoading={isLoading} content={articleData.content} data={articleData} />
-      <div className='w-full mb-12'>
-        <NewsletterBanner />
-      </div>
-      <KeepReading relatedArticles={articleData.related_articles} />
-    </main>
+    <ArticlePageClient
+      slug={slug}
+      showDrafts={showDrafts}
+      isLocalEnv={isLocalEnv}
+      isPullRequest={isPullRequest}
+    />
   );
 }

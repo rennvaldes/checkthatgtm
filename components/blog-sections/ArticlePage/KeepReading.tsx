@@ -1,3 +1,5 @@
+'use client';
+
 import BlogCard from '@/components/ui/BlogCard';
 import KitButton from '@/components/ui/KitButton';
 import { CardData } from '@/static/types';
