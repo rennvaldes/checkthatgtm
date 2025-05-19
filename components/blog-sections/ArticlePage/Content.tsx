@@ -31,6 +31,12 @@ function BlogPageContent({ content, isLoading, data }: { content: string; isLoad
 
   const { blog_x_link, blog_instagram_link, blog_linkedin_link } = React.useMemo(() => rawData?.data ?? {}, [rawData]);
 
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
+  const showDrafts = isLocalEnv || isPullRequest;
+
+  console.log({ showDrafts, isLocalEnv, isPullRequest });
+
   return (
     <section className={`max-w-[680px] lg:border-x border-ui-black/25 mb-14 mt-10 px-4 lg:px-8 w-full ${isLoading ? 'px-[20px]' : ''}`}>
       {isLoading && <Skeleton className='mt-[30px] w-full h-[206px] md:px-[20px] lg:h-[427px]' />}
