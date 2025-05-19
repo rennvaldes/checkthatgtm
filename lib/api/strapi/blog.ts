@@ -10,9 +10,6 @@ export async function getMainDataAndArticles({
   titleSearch?: string;
 } = {}) {
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.NEXT_PUBLIC_IS_PULL_REQUEST === "true";
-  // const showDrafts = isLocalEnv || isPullRequest;
-  const showDrafts = true;
 
   return await getWithQsParams("/blog", {
     populate: {
@@ -40,8 +37,8 @@ export async function getMainDataAndArticles({
                 $containsi: titleSearch ?? undefined,
               },
             },
-            // Show staging posts in local environment or pull requests
-            showDrafts ? {} : { staging: { $eq: false } },
+            // Only show staging posts in local environment
+            isLocalEnv ? {} : { staging: { $eq: false } },
           ],
         },
       },
@@ -51,7 +48,7 @@ export async function getMainDataAndArticles({
           publisher_avatar: true,
           category: true,
         },
-        filters: showDrafts ? {} : { staging: { $eq: false } },
+        filters: isLocalEnv ? {} : { staging: { $eq: false } },
       },
     },
   });
@@ -59,14 +56,12 @@ export async function getMainDataAndArticles({
 
 export async function getArticle(slug: string) {
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.NEXT_PUBLIC_IS_PULL_REQUEST === "true";
-  const showDrafts = isLocalEnv || isPullRequest;
 
   const data = await getWithQsParams("/articles", {
     filters: {
       $and: [
         { slug: { $eq: slug } },
-        showDrafts ? {} : { staging: { $eq: false } },
+        isLocalEnv ? {} : { staging: { $eq: false } },
       ],
     },
     populate: {
