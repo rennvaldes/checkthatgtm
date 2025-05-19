@@ -63,10 +63,7 @@ export async function getArticle(slug: string) {
 
   const data = await getWithQsParams("/articles", {
     filters: {
-      $and: [
-        { slug: { $eq: slug } },
-        showDrafts ? {} : { staging: { $eq: false } },
-      ],
+      $and: [{ slug: { $eq: slug } }],
     },
     populate: {
       image: true,
