@@ -211,7 +211,7 @@ export default function Statement() {
 
       <div className='flex justify-center items-center mt-16 mb-10'>
         <div className='bg-white p-4 shadow-lg'>
-          <Image src={LogoMadrona} alt='Madrona' width={200} height={17} className='h-[20px]' />
+          <Image src={LogoMadrona} alt='Madrona' width={140} height={80} className='h-[80px]' />
         </div>
       </div>
 
