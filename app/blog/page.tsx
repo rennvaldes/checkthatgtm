@@ -19,7 +19,6 @@ export default function Blog() {
   const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
 
-  console.debug({ showDrafts, isLocalEnv, isPullRequest });
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
