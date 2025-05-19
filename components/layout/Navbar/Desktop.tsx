@@ -87,25 +87,6 @@ function Desktop() {
       <ul className="flex items-center justify-center">
         <li>
           <KitButton
-            href='/about'
-            sameBrowserTab={true}
-            variant="secondary"
-            size="medium"
-          >
-            About
-          </KitButton>
-        </li>
-        <li>
-          <KitButton
-            scrollTo="results-section"
-            variant="secondary"
-            size="medium"
-          >
-            Our results
-          </KitButton>
-        </li>
-        <li>
-          <KitButton
             scrollTo="how-it-works-section"
             variant="secondary"
             size="medium"
@@ -115,11 +96,11 @@ function Desktop() {
         </li>
         <li>
           <KitButton
-            scrollTo="reviews-section"
+            scrollTo="results-section"
             variant="secondary"
             size="medium"
           >
-            Reviews
+            Customers
           </KitButton>
         </li>
         <li>
@@ -134,15 +115,15 @@ function Desktop() {
         </li>
         <li>
           <KitButton
-            href="/careers"
+            href='/about'
+            sameBrowserTab={true}
             variant="secondary"
             size="medium"
-            sameBrowserTab={true}
           >
-            Careers
+            Company
           </KitButton>
         </li>
-        <li className="hidden">
+        <li>
           <KitButton
             sameBrowserTab
             href="/blog"
