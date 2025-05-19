@@ -102,6 +102,7 @@ const MarkdownContent = ({ content, isLoading }: { content: string; isLoading: b
       </a>
     ),
     ul: (list: ChildrenType) => <ul className='list-none pl-0'>{list.children}</ul>,
+    ol: (list: ChildrenType) => <ol>{list.children}</ol>,
     li: (listItem: ChildrenType) => (
       <li className='flex items-start gap-2'>
         <span className='translate-y-[5px]'>{listIcon}</span>
