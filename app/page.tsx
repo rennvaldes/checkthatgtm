@@ -15,10 +15,10 @@ import WhoWeAreForSection from "@/components/home-sections/WhoWeAreForSection";
 import HowItWorksSection from "@/components/home-sections/HowItWorksSection";
 import ReviewsSection from "@/components/home-sections/ReviewsSection";
 // import PricingSection from "@/components/home-sections/PricingSection";
-import BookSection from "@/components/home-sections/BookSection";
 import { FaqSectionHomepage } from '@/components/home-sections/FaqSection';
 import EarthSection from "@/components/home-sections/EarthSection";
 import ServiceAsSoftware from "@/components/home-sections/ServiceAsSoftware";
+import CustomPlans from "@/components/home-sections/CustomPlans"
 
 import dynamic from "next/dynamic";
 
@@ -35,7 +35,7 @@ export default function Home() {
       <HowItWorksSection />
       <ReviewsSection />
       {/*     <PricingSection /> */}
-      <BookSection />
+      <CustomPlans />
       <FaqSectionHomepage />
       <EarthSection />
     </main>
