@@ -23,10 +23,15 @@ export default function Blog() {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
+
       <main className='relative flex min-h-screen flex-col items-center justify-between pt-16 pb-8'>
+        <h1>{showDrafts ? 'Drafts' : 'Live'}</h1>
+        <p>{isPullRequest ? 'Pull Request' : 'Not Pull Request'}</p>
+        <p>{isLocalEnv ? 'Local Env' : 'Not Local Env'}</p>
         <BlogHero />
         <ArticlesSection />
       </main>
+
     </ErrorBoundary>
   );
 }
