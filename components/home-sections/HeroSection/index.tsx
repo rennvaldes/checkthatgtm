@@ -18,7 +18,7 @@ function HeroSection() {
         dotsSeparationPx={!isDesktop ? { vertical: 40, horizontal: 42 } : undefined}
         dotPatternTopPaddingPx={!isDesktop ? 140 : undefined}
       />
-      <HeroAnnouncement text="GrowthX Raises Series A" link="/blog/series-a" />
+      <HeroAnnouncement text="👋 We raised $12M to combine AI with human-expertise" link="/blog/series-a" />
       <TitleAndButtons />
       <DecorationsAndContainer>
         <IncreasePercentageCard />
