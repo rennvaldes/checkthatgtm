@@ -15,25 +15,12 @@ function ErrorFallback({error}: {error: Error}) {
 }
 
 export default function Blog() {
-  console.debug({
-    isLocalEnv: process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV,
-    isPullRequest: process.env.NEXT_PUBLIC_IS_PULL_REQUEST,
-  });
   return (
-    <>
-    <h1>Blog</h1>
-    <p>
-      {process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV}
-    </p>
-    <p></p>
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-
       <main className='relative flex min-h-screen flex-col items-center justify-between pt-16 pb-8'>
         <BlogHero />
         <ArticlesSection />
       </main>
-
     </ErrorBoundary>
-    </>
   );
 }
