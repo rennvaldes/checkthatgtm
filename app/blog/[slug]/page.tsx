@@ -7,21 +7,33 @@ import NewsletterBanner from '@/components/blog-sections/NewsletterBanner';
 import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
 import { getArticle } from '@/lib/api/strapi/blog';
 import { getCardFromStrapiRawData } from '@/lib/utils';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 
-export default function ArticlePage() {
-  const slug = usePathname()?.split('/')[2];
+export default function ArticlePage(
+  {
+    params,
+  }: {
+    params: {
+      slug: string;
+    };
+  }
+) {
+  const slug = params.slug;
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
+  const showDrafts = isLocalEnv || isPullRequest;
+
+
 
   const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-article-data',
-    getFn: () => getArticle(slug || ''),
+    getFn: () => getArticle(slug || '', showDrafts),
   });
 
   const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data) : {}), [rawData]);
 
   return (
-    <main className='relative flex min-h-screen flex-col items-center justify-between pt-20 lg:pt-28'>
+    <main className='relative flex min-h-screen flex-col items-center justify-between pt-20 lg:pt-28' data-show-drafts={showDrafts} data-is-pull-request={isPullRequest} data-is-local-env={isLocalEnv}>
       <BlogPageHeader isLoading={isLoading} data={articleData} />
       <BlogPageContent isLoading={isLoading} content={articleData.content} data={articleData} />
       <div className='w-full mb-12'>

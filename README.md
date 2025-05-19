@@ -69,3 +69,5 @@ Always start components names with a capital letter.
   - The main component must be named `index.tsx` to shorten the importing route. Example: `/HeroSection/index.tsx`.
 
   - All other sub-components or utilities must go inside that folder too. Example: `/HeroSection`, which contains a `Video.tsx` component and maybe a `utils.ts` with types or component-specific functions.
+
+.
