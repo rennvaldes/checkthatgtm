@@ -10,6 +10,11 @@ import DeepgramLogo from '@/assets/img/logos/logo-deepgram.svg';
 import HashiCorpLogo from '@/assets/img/logos/logo-hashicorp.svg';
 import ScaleLogo from '@/assets/img/logos/logo-scaleai.svg';
 import ServiceTitanLogo from '@/assets/img/logos/logo-servicetitan.svg';
+import BasecampLogo from '@/assets/img/logos/logo-basecamp.svg';
+import CanopyLogo from '@/assets/img/logos/logo-canopy.svg';
+import IFFTTTLogo from '@/assets/img/logos/logo-ifttt.svg';
+import TechstarsLogo from '@/assets/img/logos/logo-techstars.svg';
+import LogoMadrona from '@/assets/img/logos/logo-madrona.svg';
 import { getInfiniteItems } from './utils';
 
 const SUPPORTED_BY_ITEMS = [
@@ -152,24 +157,24 @@ export default function Statement() {
             imgSrc={MarcelImage.src}
             imgAlt='marcel-santilli'
           />
-          <div className='absolute top-0 left-0 w-full h-full bg-ui-black/50 group-hover:opacity-100 opacity-0 transition-all backdrop-blur-sm z-30'>
-            <div className='grid grid-cols-2 gap-4'>
+          <div className='hidden lg:flex absolute top-0 left-0 w-full h-full bg-ui-black/50 group-hover:opacity-100 opacity-0 transition-all backdrop-blur-sm z-30 justify-center items-center'>
+            <div className='flex flex-wrap gap-8 justify-center items-center [&>div]:w-[140px] [&>div]:flex-shrink-0'>
               <div>
-                <Image src={ScaleLogo} alt='Scale AI' width={100} height={22} />
+                <Image src={HashiCorpLogo} alt='HashiCorp' width={200} height={17} className='h-[30px]' />
               </div>
               <div>
-                <Image src={DeepgramLogo} alt='Deepgram' width={100} height={22} />
+                <Image src={ServiceTitanLogo} alt='ServiceTitan' width={200} height={17} className='h-[24px]' />
               </div>
               <div>
-                <Image src={ServiceTitanLogo} alt='ServiceTitan' width={100} height={22} />
+                <Image src={DeepgramLogo} alt='Deepgram' width={200} height={17} className='h-[24px]' />
               </div>
               <div>
-                <Image src={HashiCorpLogo} alt='HashiCorp' width={100} height={22} />
+                <Image src={ScaleLogo} alt='Scale AI' width={200} height={17} className='h-[20px] -translate-y-1' />
               </div>
             </div>
           </div>
         </div>
-        <div className='relative'>
+        <div className='relative group'>
           <ImageCard
             className='z-[2]'
             title='Daniel Lopes'
@@ -177,6 +182,22 @@ export default function Statement() {
             imgSrc={DanielImage.src}
             imgAlt='daniel-lopes'
           />
+          <div className='hidden lg:flex absolute top-0 left-0 w-full h-full bg-ui-black/50 group-hover:opacity-100 opacity-0 transition-all backdrop-blur-sm z-30 justify-center items-center'>
+            <div className='flex flex-wrap gap-8 justify-center items-center [&>div]:w-[140px] [&>div]:flex-shrink-0'>
+              <div>
+                <Image src={BasecampLogo} alt='Basecamp' width={200} height={17} className='h-[32px]' />
+              </div>
+              <div>
+                <Image src={CanopyLogo} alt='Canopy' width={200} height={17} className='h-[30px]' />
+              </div>
+              <div>
+                <Image src={IFFTTTLogo} alt='IFFTTT' width={200} height={17} className='h-[21px]' />
+              </div>
+              <div>
+                <Image src={TechstarsLogo} alt='Techstars' width={200} height={17} className='h-[20px]' />
+              </div>
+            </div>
+          </div>
         </div>
         <Icons />
       </div>
@@ -187,6 +208,12 @@ export default function Statement() {
         Supported by a world-class team of growth leaders, operators, and technical experts
       </h3>
       <div>
+
+      <div className='flex justify-center items-center mt-16 mb-10'>
+        <div className='bg-white p-4 shadow-lg'>
+          <Image src={LogoMadrona} alt='Madrona' width={200} height={17} className='h-[20px]' />
+        </div>
+      </div>
 
       <div className="mt-8 flex flex-wrap justify-center gap-4 max-w-screen-xl mx-auto">
         {SUPPORTED_BY_ITEMS.map((item, index) => (
