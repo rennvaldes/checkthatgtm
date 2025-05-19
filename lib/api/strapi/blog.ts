@@ -11,7 +11,7 @@ export async function getMainDataAndArticles({
 } = {}) {
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
   const isPullRequest = process.env.IS_PULL_REQUEST === "true";
-  const showDrafts = isLocalEnv || isPullRequest;
+  const showDrafts = true;
 
   return await getWithQsParams("/blog", {
     populate: {
