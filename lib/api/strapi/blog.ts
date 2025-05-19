@@ -13,6 +13,10 @@ export async function getMainDataAndArticles({
   const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
 
+  console.log("showDrafts", showDrafts);
+  console.log("isLocalEnv", isLocalEnv);
+  console.log("isPullRequest", isPullRequest);
+
   return await getWithQsParams("/blog", {
     populate: {
       articles: {
