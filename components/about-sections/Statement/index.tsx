@@ -156,7 +156,15 @@ export default function Statement() {
             <div className='grid grid-cols-2 gap-4'>
               <div>
                 <Image src={ScaleLogo} alt='Scale AI' width={100} height={22} />
+              </div>
+              <div>
                 <Image src={DeepgramLogo} alt='Deepgram' width={100} height={22} />
+              </div>
+              <div>
+                <Image src={ServiceTitanLogo} alt='ServiceTitan' width={100} height={22} />
+              </div>
+              <div>
+                <Image src={HashiCorpLogo} alt='HashiCorp' width={100} height={22} />
               </div>
             </div>
           </div>
