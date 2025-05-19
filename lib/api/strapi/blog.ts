@@ -56,11 +56,7 @@ export async function getMainDataAndArticles({
   });
 }
 
-export async function getArticle(slug: string) {
-  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.NEXT_PUBLIC_IS_PULL_REQUEST === "true";
-  const showDrafts = isLocalEnv || isPullRequest;
-
+export async function getArticle(slug: string, showDrafts: boolean = false) {
   const data = await getWithQsParams("/articles", {
     filters: {
       $and: [
