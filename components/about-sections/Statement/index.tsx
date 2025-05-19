@@ -4,10 +4,20 @@ import InfiniteSlider from '@/components/ui/InfiniteSlider';
 import DetailCard from './DetailCard';
 import ExpertsCarousel from './ExpertsCarousel';
 import Icons from './Icons';
+import Image from 'next/image';
 import ImageCard from './ImageCard';
+import DeepgramLogo from '@/assets/img/logos/logo-deepgram.svg';
+import HashiCorpLogo from '@/assets/img/logos/logo-hashicorp.svg';
+import ScaleLogo from '@/assets/img/logos/logo-scaleai.svg';
+import ServiceTitanLogo from '@/assets/img/logos/logo-servicetitan.svg';
+import BasecampLogo from '@/assets/img/logos/logo-basecamp.svg';
+import CanopyLogo from '@/assets/img/logos/logo-canopy.svg';
+import IFFTTTLogo from '@/assets/img/logos/logo-ifttt.svg';
+import TechstarsLogo from '@/assets/img/logos/logo-techstars.svg';
+import LogoMadrona from '@/assets/img/logos/logo-madrona.svg';
 import { getInfiniteItems } from './utils';
 
-const INFINITE_ITEMS_ROW_ONE = [
+const SUPPORTED_BY_ITEMS = [
   {
     className: 'bg-ui-green-light',
     name: 'Guillaume Cabane',
@@ -15,41 +25,63 @@ const INFINITE_ITEMS_ROW_ONE = [
   },
   {
     className: 'bg-ui-peach',
-    name: 'Keran Mehandru',
+    name: 'Karan Mehandru',
     position: 'Managing Director at Madrona',
   },
   {
     className: 'bg-ui-blue',
-    name: 'Guillaume Cabane',
-    position: 'Co-Founder at HyperGrowth Partners',
+    name: 'Karim Atiyeh',
+    position: 'CTO at Ramp',
   },
   {
     className: 'bg-ui-green-light',
-    name: 'Keran Mehandru',
-    position: 'Managing Director at Madrona',
+    name: 'Jean-Denis',
+    position: 'Prev CTO at Plaid',
   },
-];
-
-const INFINITE_ITEMS_ROW_TWO = [
   {
     className: 'bg-ui-blue',
-    name: 'Guillaume Cabane',
-    position: 'Co-Founder at HyperGrowth Partners',
-  },
-  {
-    className: 'bg-ui-green-light',
-    name: 'Keran Mehandru',
-    position: 'Managing Director at Madrona',
+    name: 'Rachel Wolan',
+    position: 'CPO at Webflow',
   },
   {
     className: 'bg-ui-peach',
-    name: 'Guillaume Cabane',
-    position: 'Co-Founder at HyperGrowth Partners',
+    name: 'Carilu Dietrich',
+    position: 'CMO at Sprout Social',
+  },
+  {
+    className: 'bg-ui-green-light',
+    name: 'Noah Gale',
+    position: 'Co-founder Tribe AI',
   },
   {
     className: 'bg-ui-blue',
-    name: 'Keran Mehandru',
-    position: 'Managing Director at Madrona',
+    name: 'Netto Farah',
+    position: 'CTO at Koala',
+  },
+  {
+    className: 'bg-ui-green-light',
+    name: 'Aaron Lee',
+    position: 'CEO at Smith.ai',
+  },
+  {
+    className: 'bg-ui-peach',
+    name: 'Rajan Sheth',
+    position: 'CMO at Together AI',
+  },
+  {
+    className: 'bg-ui-blue',
+    name: 'Jean Lafleur',
+    position: 'COO at Airbyte',
+  },
+  {
+    className: 'bg-ui-green-light',
+    name: 'Osman Javed',
+    position: 'Head of Marketing at Norm AI',
+  },
+  {
+    className: 'bg-ui-peach',
+    name: 'Henry Taylor',
+    position: 'Co-Founder at Carnyx Interactive',
   },
 ];
 
@@ -63,7 +95,7 @@ const DANIEL_DETAIL = [
     subTitle: <DetailCard.SubTitle>at IFFTTT, serving millons of user</DetailCard.SubTitle>,
   },
   {
-    title: 'EIR for Techstars’',
+    title: 'EIR for Techstars\'',
     subTitle: <DetailCard.SubTitle>first San Francisco class (2024)</DetailCard.SubTitle>,
   },
   {
@@ -117,28 +149,56 @@ export default function Statement() {
       </h2>
 
       <div className='flex justify-center gap-4 lg:gap-8 2xl:gap-[54px] mt-8 lg:mt-10 lg:max-w-min lg:mx-auto lg:relative'>
-        <ImageCard
-          className='z-[2]'
-          title='Marcel Santilli'
-          subtitle='CEO & Co-Founder'
-          imgSrc={MarcelImage.src}
-          imgAlt='marcel-santilli'
-        />
-        <DetailCard
-          className='hidden lg:block transition-opacity absolute top-0 left-0 z-[3] opacity-0 hover:opacity-100'
-          data={MARCEL_DETAIL}
-        />
-        <ImageCard
-          className='z-[2]'
-          title='Daniel Lopes'
-          subtitle='CTO & Co-Founder'
-          imgSrc={DanielImage.src}
-          imgAlt='daniel-lopes'
-        />
-        <DetailCard
-          className='hidden lg:block transition-opacity absolute top-0 right-0 z-[3] opacity-0 hover:opacity-100'
-          data={DANIEL_DETAIL}
-        />
+        <div className='relative group'>
+          <ImageCard
+            className='z-[2]'
+            title='Marcel Santilli'
+            subtitle='CEO & Co-Founder'
+            imgSrc={MarcelImage.src}
+            imgAlt='marcel-santilli'
+          />
+          <div className='hidden lg:flex absolute top-0 left-0 w-full h-full bg-ui-black/50 group-hover:opacity-100 opacity-0 transition-all backdrop-blur-sm z-30 justify-center items-center'>
+            <div className='flex flex-wrap gap-8 justify-center items-center [&>div]:w-[140px] [&>div]:flex-shrink-0'>
+              <div>
+                <Image src={HashiCorpLogo} alt='HashiCorp' width={200} height={17} className='h-[30px]' />
+              </div>
+              <div>
+                <Image src={ServiceTitanLogo} alt='ServiceTitan' width={200} height={17} className='h-[24px]' />
+              </div>
+              <div>
+                <Image src={DeepgramLogo} alt='Deepgram' width={200} height={17} className='h-[24px]' />
+              </div>
+              <div>
+                <Image src={ScaleLogo} alt='Scale AI' width={200} height={17} className='h-[20px] -translate-y-1' />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='relative group'>
+          <ImageCard
+            className='z-[2]'
+            title='Daniel Lopes'
+            subtitle='CTO & Co-Founder'
+            imgSrc={DanielImage.src}
+            imgAlt='daniel-lopes'
+          />
+          <div className='hidden lg:flex absolute top-0 left-0 w-full h-full bg-ui-black/50 group-hover:opacity-100 opacity-0 transition-all backdrop-blur-sm z-30 justify-center items-center'>
+            <div className='flex flex-wrap gap-8 justify-center items-center [&>div]:w-[140px] [&>div]:flex-shrink-0'>
+              <div>
+                <Image src={BasecampLogo} alt='Basecamp' width={200} height={17} className='h-[32px]' />
+              </div>
+              <div>
+                <Image src={CanopyLogo} alt='Canopy' width={200} height={17} className='h-[30px]' />
+              </div>
+              <div>
+                <Image src={IFFTTTLogo} alt='IFFTTT' width={200} height={17} className='h-[21px]' />
+              </div>
+              <div>
+                <Image src={TechstarsLogo} alt='Techstars' width={200} height={17} className='h-[20px]' />
+              </div>
+            </div>
+          </div>
+        </div>
         <Icons />
       </div>
 
@@ -147,19 +207,25 @@ export default function Statement() {
       <h3 className='font-clash-display font-[500] text-[20px] lg:text-[24px] leading-[114%] tracking-normal text-center mt-16 lg:mt-[64px] max-w-[321px] lg:max-w-[739px] mx-auto'>
         Supported by a world-class team of growth leaders, operators, and technical experts
       </h3>
-      <InfiniteSlider
-        className='mt-6 lg:mt-10 lg:flex lg:items-center lg:justify-center lg:h-[71px] lg:max-w-7xl lg:mx-auto'
-        fullSwipeDurationMs={30000}
-        items={getInfiniteItems({ data: INFINITE_ITEMS_ROW_ONE })}
-        swipeClassName='swipe-left lg:animate-none lg:hidden lg:first:flex'
-      />
-      <InfiniteSlider
-        className='mt-10 lg:mt-10 lg:flex lg:items-center lg:justify-center lg:h-[71px] lg:max-w-7xl lg:mx-auto'
-        fullSwipeDurationMs={30000}
-        items={getInfiniteItems({ data: INFINITE_ITEMS_ROW_TWO })}
-        sliderClassName='-translate-x-1/2 lg:translate-x-0 lg:hidden lg:first:flex'
-        swipeClassName='swipe-right lg:animate-none lg:hidden lg:first:flex'
-      />
+      <div>
+
+      <div className='flex justify-center items-center mt-16 mb-10'>
+        <div className='bg-white p-4 shadow-lg'>
+          <Image src={LogoMadrona} alt='Madrona' width={200} height={17} className='h-[20px]' />
+        </div>
+      </div>
+
+      <div className="mt-8 flex flex-wrap justify-center gap-4 max-w-screen-xl mx-auto">
+        {SUPPORTED_BY_ITEMS.map((item, index) => (
+          <div key={`supported-by-${index}`} className={`w-[166px] px-4 py-2 rounded-full flex flex-col justify-start items-center text-center flex-grow-0`}>
+            <div className={`w-12 h-6 rounded-t-full ${item.className}`}></div>
+            <p className="font-elza font-medium text-base mt-2">{item.name}</p>
+            <p className="font-elza font-normal text-xs flex-grow-0">{item.position}</p>
+          </div>
+        ))}
+      </div>
+      </div>
+      
     </section>
   );
 }
