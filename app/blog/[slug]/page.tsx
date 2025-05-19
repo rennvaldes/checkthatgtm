@@ -7,14 +7,23 @@ import NewsletterBanner from '@/components/blog-sections/NewsletterBanner';
 import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
 import { getArticle } from '@/lib/api/strapi/blog';
 import { getCardFromStrapiRawData } from '@/lib/utils';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 
-export default function ArticlePage() {
-  const slug = usePathname()?.split('/')[2];
+export default function ArticlePage(
+  {
+    params,
+  }: {
+    params: {
+      slug: string;
+    };
+  }
+) {
+  const slug = params.slug;
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.NEXT_PUBLIC_IS_PULL_REQUEST === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
+
+
 
   const { data: rawData, isLoading } = useGetQueryWithRefetchOnChange({
     key: 'blog-article-data',
