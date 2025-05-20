@@ -123,7 +123,7 @@ function Mobile() {
             </li>
             <li onClick={() => setIsOpen(false)}>
               <KitButton
-                className={OPTION_STYLES}
+                className={`${OPTION_STYLES} !text-left`}
                 href="/pricing"
                 variant="ghost"
                 size="custom"
@@ -134,7 +134,7 @@ function Mobile() {
             </li>
             <li onClick={() => setIsOpen(false)}>
               <KitButton
-                className={OPTION_STYLES}
+                className={`${OPTION_STYLES} !text-left`}
                 href="/about"
                 variant="ghost"
                 size="custom"
@@ -149,7 +149,7 @@ function Mobile() {
                 sameBrowserTab
                 variant="ghost"
                 size="custom"
-                className={OPTION_STYLES}
+                className={`${OPTION_STYLES} !text-left`}
               >
                 Blog
               </KitButton>

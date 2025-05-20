@@ -1,34 +1,45 @@
 import React from 'react';
 import { Metadata } from 'next';
 import ArticlePageClient from '@/components/blog-sections/ArticlePage/ArticlePageClient';
+import { getArticle } from '@/lib/api/strapi/blog';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  if (params.slug === 'series-a') {
+  const { data } = await getArticle(params.slug);
+  
+  if (!data) {
     return {
-      title: 'GrowthX Raises $12m Series A',
-      description: 'GrowthX AI raises $12M to scale platform that captures how experts actually work',
-      openGraph: {
-        title: 'GrowthX Raises $12m Series A',
-        description: 'GrowthX AI raises $12M to scale platform that captures how experts actually work',
-        images: [{
-          url: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/Growth_X_Series_A_AI_growth_platform_v2_fcb67dbba5.jpg',
-          width: 1200,
-          height: 630,
-          alt: 'Your image alt text',
-        }],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: 'GrowthX Raises $12m Series A',
-        description: 'GrowthX AI raises $12M to scale platform that captures how experts actually work',
-        images: ['https://glowing-rainbow-627a62133d.media.strapiapp.com/Growth_X_Series_A_AI_growth_platform_v2_fcb67dbba5.jpg'],
-      },
+      title: 'GrowthX Blog',
+      description: 'GrowthX Blog Articles',
     };
   }
 
+  const fields = data.attributes || data;
+  const { meta_title, meta_description, meta_image, image_16x9, image, title, description } = fields;
+
+  const imageUrl = (meta_image && meta_image.url) || (image_16x9 && image_16x9.url) || (image && image.url);
+  const ogImage = imageUrl
+    ? [{
+        url: imageUrl,
+        width: (meta_image && meta_image.width) || 1200,
+        height: (meta_image && meta_image.height) || 630,
+        alt: meta_title || title,
+      }]
+    : undefined;
+
   return {
-    title: 'GrowthX Blog',
-    description: 'GrowthX Blog Articles',
+    title: meta_title || title,
+    description: meta_description || description,
+    openGraph: {
+      title: meta_title || title,
+      description: meta_description || description,
+      images: ogImage,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta_title || title,
+      description: meta_description || description,
+      images: imageUrl ? [imageUrl] : undefined,
+    },
   };
 }
 
