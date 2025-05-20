@@ -66,6 +66,8 @@ export async function getArticle(slug: string, showDrafts: boolean = false) {
     },
     populate: {
       image: true,
+      image_16x9: true,
+      meta_image: true,
       publisher_avatar: true,
       category: true,
       related_articles: {

@@ -6,7 +6,7 @@ import { Skeleton } from '@/lib/shadcn/ui/skeleton';
 import Link from 'next/link';
 import React from 'react';
 
-function ArticleImage({ imageUrl, isLoading }: { imageUrl: string; isLoading: boolean }) {
+function ArticleImage({ imageUrl, image16x9Url, isLoading }: { imageUrl: string; image16x9Url?: string; isLoading: boolean }) {
   if (isLoading) {
     return <Skeleton className='w-full h-[186px] lg:h-[461px] mt-10 order-5 md:order-1' />;
   }
@@ -15,7 +15,22 @@ function ArticleImage({ imageUrl, isLoading }: { imageUrl: string; isLoading: bo
     return null;
   }
 
-  return <img className='pt-10 order-5 md:order-1 aspect-square lg:aspect-video object-cover' src={imageUrl} alt='Featured Image' />;
+  return (
+    <div className='pt-10 order-5 md:order-1 relative'>
+      {/* Mobile image */}
+      <img 
+        className='block lg:hidden aspect-square object-cover w-full' 
+        src={imageUrl} 
+        alt='Featured Image'
+      />
+      {/* Desktop image */}
+      <img 
+        className='hidden lg:block aspect-video object-cover w-full' 
+        src={image16x9Url || imageUrl} 
+        alt='Featured Image'
+      />
+    </div>
+  );
 }
 
 function getFormattedDate(date: string) {
@@ -25,7 +40,7 @@ function getFormattedDate(date: string) {
 }
 
 function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) {
-  const { category, image, title, publisher_name, publisher_avatar, publisher_legend, updatedAt, createdAt } = data;
+  const { category, image, image_16x9, title, publisher_name, publisher_avatar, publisher_legend, updatedAt, createdAt } = data;
   const categoryName = category?.name || category;
 
   const { data: rawData, isLoading: isGeneralDataLoading } = useGetQueryWithRefetchOnChange({
@@ -58,7 +73,7 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
         </h1>
       )}
 
-      <ArticleImage imageUrl={image} isLoading={isLoading} />
+      <ArticleImage imageUrl={image} image16x9Url={image_16x9} isLoading={isLoading} />
 
     </section>
   );

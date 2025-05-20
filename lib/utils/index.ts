@@ -30,6 +30,8 @@ export function getCardFromStrapiRawData(rawCardData: any) {
   // Safely access category name
   const category = attributes.category?.name || attributes.category;
   const imageData = attributes.image;
+  const image16x9Data = attributes.image_16x9;
+  const metaImageData = attributes.meta_image;
   const publisher_avatar = attributes.publisher_avatar;
 
   let related_articles;
@@ -54,6 +56,8 @@ export function getCardFromStrapiRawData(rawCardData: any) {
     id,
     category,
     image: getImageUrl(imageData),
+    image_16x9: getImageUrl(image16x9Data),
+    meta_image: getImageUrl(metaImageData),
     publisher_avatar: getImageUrl(publisher_avatar),
     related_articles,
   };
