@@ -46,7 +46,7 @@ const SUPPORTED_BY_ITEMS = [
   {
     className: 'bg-ui-peach',
     name: 'Carilu Dietrich',
-    position: 'CMO at Sprout Social',
+    position: 'Ex-CMO of Atlassian',
   },
   {
     className: 'bg-ui-green-light',
@@ -81,7 +81,7 @@ const SUPPORTED_BY_ITEMS = [
   {
     className: 'bg-ui-peach',
     name: 'Henry Taylor',
-    position: 'Co-Founder at Carnyx Interactive',
+    position: 'Head of Marketing at Laravel',
   },
 ];
 
