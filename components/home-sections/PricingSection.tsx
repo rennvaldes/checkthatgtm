@@ -13,9 +13,9 @@ function PricingSection() {
       {
         title: 'Content Workstream',
         description: 'Boost strategy with Content Workstream. Automated workflows and analytics for better engagement.',
-        monthly_price: 9000,
+        monthly_price: 12000,
         benefits: [
-          'Up to 50,000 words/month published',
+          'Daily content refreshes and publishing',
           'Hands-on strategist with track record',
           'Dedicated managing editor',
           'Content and keyword strategy',
@@ -33,7 +33,7 @@ function PricingSection() {
         description: 'Boost strategy with Content Workstream. Automated workflows and analytics for better engagement.',
         monthly_price: 12000,
         benefits: [
-          'Up to 1,200 pages per year',
+          'Up to 3 page templates',
           'Hands-on strategist with track record',
           'Dedicated managing editor',
           'Content and keyword strategy',

@@ -25,10 +25,10 @@ import DeepGramIcon from "@/assets/img/brands/deepgram.jpg";
 const staticData = [
   {
     icon: LightIcon,
-    title: "AISEO",
+    title: "AEO",
     description:
       "Track and increase citations and mentions in Google AI Overviews, Perplexity, ChatGPT, and Claude.",
-    highlightText: "Increase AI visibility by up to 3x",
+    highlightText: "Increase referrals and mentions",
     smallCopy: "Powered by AI experts from",
     images: [
       {
@@ -53,7 +53,7 @@ const staticData = [
     title: "Editorial Content",
     description:
       "High-quality, expert-written content that drives organic growth and brand authority.",
-    highlightText: "Up to 50,000 words per month",
+    highlightText: "Daily content refreshes and publishing",
     smallCopy: "Powered by senior editors from",
     images: [
       {
@@ -73,7 +73,7 @@ const staticData = [
     title: "Programmatic SEO",
     description:
       "Data-driven content creation at scale to cover full topic clusters and capture long-tail search traffic.",
-    highlightText: "Up to 1,200 pages per year",
+    highlightText: "Up to 3 page templates",
     smallCopy: "Powered by SEO leaders from",
     images: [
       {
