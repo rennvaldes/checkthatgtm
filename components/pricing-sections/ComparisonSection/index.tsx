@@ -6,7 +6,7 @@ import { cn } from '@/lib/litebox-lib/utils/cn';
 const comparisonData = [
   {
     feature: 'Cost',
-    growthx: 'Predictable pricing starting at $9,000/mo',
+    growthx: 'Predictable pricing starting at $12,000/mo',
     traditional: 'High overhead and hourly rates',
     saas: 'Subscription plus inhouse staff costs',
   },
@@ -30,7 +30,7 @@ const comparisonData = [
   },
   {
     feature: 'Scale',
-    growthx: 'Publish up to 1,200 pages annually',
+    growthx: 'Up to 3 page templates',
     traditional: 'Bottlenecked by manual processes',
     saas: "Limited by your team's bandwidth",
   },
