@@ -63,9 +63,52 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Script id="default-form" strategy="afterInteractive">
           {`(function(w,d){w.__default__={team_id:432,form_id:828228};var s=d.createElement('script');s.async=!0;s.src='https://import-cdn.default.com/v2/index.js';d.head.appendChild(s)})(window,document);`}
         </Script>
+        {/* Google Tag Manager */}
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KH6VJSL7');
+          `}
+        </Script>
+        {/* End Google Tag Manager */}
+        {/* LinkedIn Insight Tag */}
+        <Script id="linkedin-insight-init" strategy="afterInteractive">
+          {`
+            _linkedin_partner_id = "7407172";
+            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+            window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+          `}
+        </Script>
+        <Script id="linkedin-insight-loader" strategy="afterInteractive">
+          {`
+            (function(l) {
+              if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
+              var s = document.getElementsByTagName("script")[0];
+              var b = document.createElement("script");
+              b.type = "text/javascript";b.async = true;
+              b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+              s.parentNode.insertBefore(b, s);
+            })(window.lintrk);
+          `}
+        </Script>
+        {/* End LinkedIn Insight Tag */}
       </head>
       <body
         className={`${clashDisplay.variable} font-clash-display bg-ui-white text-ui-black text-[14px] font-normal leading-none`}>
+        {/* LinkedIn Insight Tag (noscript) */}
+        <noscript>
+          <img height="1" width="1" style={{ display: 'none' }} alt="" src="https://px.ads.linkedin.com/collect/?pid=7407172&fmt=gif" />
+        </noscript>
+        {/* End LinkedIn Insight Tag (noscript) */}
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH6VJSL7"
+                  height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe>
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         <Providers>
           <Navbar />
           {children}
