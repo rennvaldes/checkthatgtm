@@ -95,6 +95,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           `}
         </Script>
         {/* End LinkedIn Insight Tag */}
+        {/* HubSpot Embed Code */}
+        <Script
+          id="hs-script-loader"
+          src="//js-na3.hs-scripts.com/341940338.js"
+          strategy="afterInteractive"
+          async
+          defer
+        />
+        {/* End HubSpot Embed Code */}
       </head>
       <body
         className={`${clashDisplay.variable} font-clash-display bg-ui-white text-ui-black text-[14px] font-normal leading-none`}>
