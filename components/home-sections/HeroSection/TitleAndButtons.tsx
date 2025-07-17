@@ -4,12 +4,15 @@ import KitButton from '@/components/ui/KitButton';
 import { cn } from '@/lib/litebox-lib/utils/cn';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { trackEmailSignup } from '@/lib/utils/twitter-tracking';
 
 function TitleAndButtons() {
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Track Twitter conversion for email signup
+    trackEmailSignup(email);
     // The Default form handler will take care of the submission
   };
 

@@ -1,5 +1,5 @@
 import { ElementType, HTMLAttributes, ReactNode } from 'react';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import rehypeRaw from 'rehype-raw';
@@ -71,7 +71,7 @@ const createCustomHeading = (Tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {
  *
  */
 const MarkdownContent = ({ content, isLoading }: { content: string; isLoading: boolean }) => {
-  const components: Record<string, ElementType> = {
+  const components: any = {
     h1: createCustomHeading('h1'),
     h2: createCustomHeading('h2'),
     h3: createCustomHeading('h3'),

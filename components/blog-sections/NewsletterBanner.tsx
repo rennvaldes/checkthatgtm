@@ -13,6 +13,7 @@ import { getMainDataAndArticles } from '@/lib/api/strapi/blog';
 import { Skeleton } from '@/lib/shadcn/ui/skeleton';
 import { cn } from '@/lib/litebox-lib/utils/cn';
 import { getData } from '@/lib/api/strapi/general';
+import { trackNewsletterSubscription } from '@/lib/utils/twitter-tracking';
 
 function Decoration() {
   return (
@@ -155,6 +156,8 @@ function NewsletterBanner({ className }: { className?: string }) {
         setSubmitStatus('success');
         setSubmitMessage('Successfully subscribed! Please check your email.');
         setValue(''); // Clear input on success
+        // Track Twitter conversion for newsletter subscription
+        trackNewsletterSubscription();
       } else {
         setSubmitStatus('error');
         setSubmitMessage(result.message || result.error?.message || 'Subscription failed. Please try again.');

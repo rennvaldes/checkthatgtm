@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Quotes from '@/components/icons/Quotes';
 import useResponsiveDevice from '@/hooks/useResponsiveDevice';
 import Image from 'next/image';
+import { trackDemoBooking } from '@/lib/utils/twitter-tracking';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -75,6 +76,9 @@ export default function BookDemoPage() {
 
     setIframeHeight();
     window.addEventListener('resize', setIframeHeight);
+
+    // Track Twitter conversion for demo booking page visit
+    trackDemoBooking();
 
     return () => {
       document.body.classList.remove('hide-nav');

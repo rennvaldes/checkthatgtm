@@ -104,6 +104,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           defer
         />
         {/* End HubSpot Embed Code */}
+        {/* Twitter conversion tracking base code */}
+        <Script id="twitter-pixel" strategy="afterInteractive">
+          {`
+            !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+            },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+            a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+            twq('config','q6cct');
+          `}
+        </Script>
+        {/* End Twitter conversion tracking base code */}
       </head>
       <body
         className={`${clashDisplay.variable} font-clash-display bg-ui-white text-ui-black text-[14px] font-normal leading-none`}>
