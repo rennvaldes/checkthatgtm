@@ -43,6 +43,11 @@ const nextConfig = {
         source: '/blog/:id/:slug',
         destination: '/blog/:slug',
         permanent: true,
+      },
+      {
+        source: '/geo-workshop-2025',
+        destination: 'https://lu.ma/ai-answers-workshop',
+        permanent: true,
       }
     ];
   },
