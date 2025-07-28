@@ -45,8 +45,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/geo-workshop-2025',
-        destination: 'https://lu.ma/ai-answers-workshop',
+        source: '/workshop',
+        destination: 'https://lu.ma/ai-answers-workshop?utm_source=tldr-0728',
         permanent: true,
       }
     ];
