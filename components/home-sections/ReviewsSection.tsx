@@ -7,6 +7,36 @@ import Image from 'next/image';
 
 const reviewsData = [
   {
+    "review_body": "With GrowthX's systematic, AI-driven SEO approach, we're seeing consistent, repeatable results. Clicks are up week after week, and the bar for content quality keeps getting higher. Their strategy has turned AI powered SEO into a dependable growth engine.",
+    "name": "Victor Coisne",
+    "legend": "VP of Marketing, Strapi",
+    "avatar": "https://glowing-rainbow-627a62133d.media.strapiapp.com/victor_coisne_6674ffd3c7.jpeg"
+  },
+  {
+    "review_body": "AI chat is the most important marketing channel of the last 20 years. GrowthX helped us become the leader in our niche.",
+    "name": "Sean Linehan",
+    "legend": "CEO, Exec",
+    "avatar": "https://glowing-rainbow-627a62133d.media.strapiapp.com/sean_linehan_c4a212c74e.jpeg"
+  },
+  {
+    "review_body": "GrowthX is truly defining AI-led growth, setting a new benchmark for what's possible. Their expert-in-the-loop model combines a powerful blend of strategy, execution, and AI, delivering a hands-on, scalable approach that drives real impact.",
+    "name": "Rajan Sheth",
+    "legend": "CMO, Together AI",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Rajan_Sheth_6e1bd4180a.jpeg"
+  },
+  {
+    "review_body": "Marcel is the mastermind behind the scaled LLM SEO strategy that's driving results for us. He's hands-on, incredibly technical, and his work speaks for itself. We're seeing real, measurable impact thanks to his approach.",
+    "name": "Guillaume Cabane",
+    "legend": "General Partner, Hypergrowth",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Guillaume_Cabane_c9ba290b63.jpg"
+  },
+  {
+    "review_body": "We've tried other partners, but GrowthX blew us away. Insanely responsive and fast, they deliver top-notch quality every time. Finally found a team that actually gets it.",
+    "name": "Luke Tubinis",
+    "legend": "Director of Growth, Ramp",
+    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Luke_Tubinis_66f81f5f00.jpeg"
+  },
+  {
     "review_body": "Your guidance and execution on this SEO journey has been invaluable and we love working with you!",
     "name": "Stacey Baer",
     "legend": "VP of Marketing, Swoogo",
@@ -30,35 +60,19 @@ const reviewsData = [
     "legend": "Growth Marketing, Constrafor",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Kenneth_Tsai_51ba3cc1c6.jpeg"
   },
-  {
-    "review_body": "GrowthX is truly defining AI-led growth, setting a new benchmark for what's possible. Their expert-in-the-loop model combines a powerful blend of strategy, execution, and AI, delivering a hands-on, scalable approach that drives real impact.",
-    "name": "Rajan Sheth",
-    "legend": "CMO, Together AI",
-    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Rajan_Sheth_6e1bd4180a.jpeg"
-  },
+  
   {
     "review_body": "Highly recommended, folks. Marcel knows his thing!",
     "name": "Paulo Martins",
     "legend": "CEO & Founder, Arena",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Paulo_Martins_Arena_CEO_profile_aeefc81b0d.jpg"
   },
-  {
-    "review_body": "Marcel is the mastermind behind the scaled LLM SEO strategy that's driving results for us. He's hands-on, incredibly technical, and his work speaks for itself. We're seeing real, measurable impact thanks to his approach.",
-    "name": "Guillaume Cabane",
-    "legend": "General Partner, Hypergrowth",
-    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Guillaume_Cabane_c9ba290b63.jpg"
-  },
+  
   {
     "review_body": "With GrowthX, AI-led growth is no longer a guessing game. Their systematic, AI-driven approach drives reliable results again and again. It's impressive to see the impact they deliver.",
     "name": "Carilu Dietrich",
     "legend": "CMO & Hypergrowth Advisor",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Carilu_Dietrich_68f83955e6.jpeg"
-  },
-  {
-    "review_body": "We've tried other partners, but GrowthX blew us away. Insanely responsive and fast, they deliver top-notch quality every time. Finally found a team that actually gets it.",
-    "name": "Luke Tubinis",
-    "legend": "Director of Growth, Ramp",
-    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Luke_Tubinis_66f81f5f00.jpeg"
   },
   {
     "review_body": "It was a huge light bulb moment for me, rethinking what was possible and how we could approach things at Homebase.",
