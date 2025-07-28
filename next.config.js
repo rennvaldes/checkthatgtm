@@ -43,6 +43,11 @@ const nextConfig = {
         source: '/blog/:id/:slug',
         destination: '/blog/:slug',
         permanent: true,
+      },
+      {
+        source: '/workshop',
+        destination: 'https://lu.ma/ai-answers-workshop?utm_source=tldr-0728',
+        permanent: true,
       }
     ];
   },
