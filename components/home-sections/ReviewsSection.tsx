@@ -13,19 +13,13 @@ const reviewsData = [
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Stacey_Baer_Swoogo_VP_Marketing_b086dddd58.jpeg"
   },
   {
-    "review_body": "GrowthX doesn’t just hand over a playbook—they dive in and do the work for you. Marcel and his team are all about delivering real, impactful growth without adding more to your plate.",
-    "name": "Bob Summers",
-    "legend": "CEO, Goodcall",
-    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Bob_Summers_Goodcall_CEO_1_fbb6692987.jpg"
-  },
-  {
-    "review_body": "I’ll be honest—I thought content automation sounded a bit 'too good to be true,' but GrowthX proved me wrong. It's already paying huge dividends.",
+    "review_body": "I'll be honest—I thought content automation sounded a bit 'too good to be true,' but GrowthX proved me wrong. It's already paying huge dividends.",
     "name": "Chaz Ross-Munro",
     "legend": "Head of Marketing, Datumate",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Chaz_Ross_Munro_0541aa7b70.jpeg"
   },
   {
-    "review_body": "GrowthX is the real deal for practical AI workflows. I've pulled so much value from their frameworks and applied it directly to my work. Highly recommend if you’re ready to 100X your growth workflows!",
+    "review_body": "GrowthX is the real deal for practical AI workflows. I've pulled so much value from their frameworks and applied it directly to my work. Highly recommend if you're ready to 100X your growth workflows!",
     "name": "Francesco Garofalo",
     "legend": "Growth Engineer, Teleport",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Francesco_Garofalo_f6ee387324.jpeg"
@@ -37,7 +31,7 @@ const reviewsData = [
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Kenneth_Tsai_51ba3cc1c6.jpeg"
   },
   {
-    "review_body": "GrowthX is truly defining AI-led growth, setting a new benchmark for what’s possible. Their expert-in-the-loop model combines a powerful blend of strategy, execution, and AI, delivering a hands-on, scalable approach that drives real impact.",
+    "review_body": "GrowthX is truly defining AI-led growth, setting a new benchmark for what's possible. Their expert-in-the-loop model combines a powerful blend of strategy, execution, and AI, delivering a hands-on, scalable approach that drives real impact.",
     "name": "Rajan Sheth",
     "legend": "CMO, Together AI",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Rajan_Sheth_6e1bd4180a.jpeg"
@@ -49,13 +43,13 @@ const reviewsData = [
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Paulo_Martins_Arena_CEO_profile_aeefc81b0d.jpg"
   },
   {
-    "review_body": "Marcel is the mastermind behind the scaled LLM SEO strategy that’s driving results for us. He’s hands-on, incredibly technical, and his work speaks for itself. We’re seeing real, measurable impact thanks to his approach.",
+    "review_body": "Marcel is the mastermind behind the scaled LLM SEO strategy that's driving results for us. He's hands-on, incredibly technical, and his work speaks for itself. We're seeing real, measurable impact thanks to his approach.",
     "name": "Guillaume Cabane",
     "legend": "General Partner, Hypergrowth",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Guillaume_Cabane_c9ba290b63.jpg"
   },
   {
-    "review_body": "With GrowthX, AI-led growth is no longer a guessing game. Their systematic, AI-driven approach drives reliable results again and again. It’s impressive to see the impact they deliver.",
+    "review_body": "With GrowthX, AI-led growth is no longer a guessing game. Their systematic, AI-driven approach drives reliable results again and again. It's impressive to see the impact they deliver.",
     "name": "Carilu Dietrich",
     "legend": "CMO & Hypergrowth Advisor",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Carilu_Dietrich_68f83955e6.jpeg"
@@ -71,12 +65,6 @@ const reviewsData = [
     "name": "John Waldmann",
     "legend": "CEO, Homebase",
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/John_Waldmann_1caa942e27.jpeg"
-  },
-  {
-    "review_body": "We’re scaling fast at HeyGen, and GrowthX is the only partner that can keep up without sacrificing quality. Their programmatic SEO expertise has been a game-changer for our content growth.",
-    "name": "Nav Singh",
-    "legend": "Head of Growth, HeyGen",
-    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Nav_Singh_968be95bb4.jpeg"
   }
 ];
 

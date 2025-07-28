@@ -22,12 +22,6 @@ const reviewsData = [
     "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Stacey_Baer_Swoogo_VP_Marketing_b086dddd58.jpeg"
   },
   {
-    "review_body": "GrowthX doesn't just hand over a playbook—they dive in and do the work for you. Marcel and his team are all about delivering real, impactful growth without adding more to your plate.",
-    "name": "Bob Summers",
-    "legend": "CEO, Goodcall",
-    "avatar": "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Bob_Summers_Goodcall_CEO_1_fbb6692987.jpg"
-  },
-  {
     "review_body": "I'll be honest—I thought content automation sounded a bit 'too good to be true,' but GrowthX proved me wrong. It's already paying huge dividends.",
     "name": "Chaz Ross-Munro",
     "legend": "Head of Marketing, Datumate",
