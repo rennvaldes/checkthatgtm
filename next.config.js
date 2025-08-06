@@ -12,9 +12,11 @@ const nextConfig = {
 
   // Add assetPrefix for production
   assetPrefix:
-    process.env.NODE_ENV === "production"
+    process.env.NODE_ENV === "production" && 
+    process.env.APP_PROTOCOL && 
+    process.env.APP_HOST
       ? `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}`
-      : "",
+      : undefined,
 
   images: {
     remotePatterns: [
