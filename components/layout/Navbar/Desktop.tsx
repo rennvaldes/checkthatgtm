@@ -1,60 +1,66 @@
 "use client";
 
-import React, { useState } from "react";
+
 import Link from "next/link";
 
 import ChevronThin from "@/components/icons/ChevronThin";
 import KitButton from "@/components/ui/KitButton";
 import useHideOnScroll from "@/lib/litebox-lib/hooks/useHideOnScroll";
 import Logo from "@/components/icons/Logo";
-import useGetQueryWithRefetchOnChange from "@/hooks/useGetQueryWithRefetchOnChange";
-import { getData } from "@/lib/api/strapi/general";
 
-function Dropdown({ docs_url }: { docs_url: string }) {
-  const [isExpanded, setIsExpanded] = useState(false);
 
+function LearnDropdown() {
   return (
-    <div
-      tabIndex={0}
-      role="button"
-      aria-expanded={isExpanded}
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() =>
-        setTimeout(() => setIsExpanded((prev) => (prev ? false : prev)), 200)
-      }
-      className="relative overflow-hidden aria-expanded:overflow-visible"
-    >
+    <div className="group relative overflow-hidden hover:overflow-visible">
       <KitButton
         variant="secondary"
         size="medium"
         className="peer flex items-center justify-center gap-[12px]"
       >
-        Resources
-        <ChevronThin
-          extraProps={{ "data-spin": isExpanded }}
-          className="flex-shrink-0 text-[10.7px] transition-transform duration-200 data-[spin=true]:rotate-180"
-        />
+        Learn
+        <ChevronThin className="flex-shrink-0 text-[10.7px] transition-transform duration-200 group-hover:rotate-180" />
       </KitButton>
-      <div className="absolute left-0 w-full pt-[8px] transition-opacity duration-200 hover:opacity-100 peer-hover:opacity-100">
-        <div className="bg-ui-whitest absolute flex w-full flex-col rounded-[20px] p-[8px]">
+      <div className="absolute left-0 w-full pt-[8px] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        <div className="bg-ui-whitest absolute flex w-full flex-col rounded-[20px] p-[8px] min-w-[240px]">
           <KitButton
-            sameBrowserTab
-            href="/blog"
-            variant="secondary"
-            size="medium"
-            className="!text-left font-normal"
-          >
-            Blog
-          </KitButton>
-          <KitButton
-            href={docs_url}
+            href="https://docs.growthx.ai/GrowthX-Origin-Story-2072ba60bc7480e1a21ed0d8d0120d15?pvs=74"
             arrowSize="medium"
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal"
+            className="justify-between font-normal !text-left"
           >
-            Docs
+            Origin Story
+          </KitButton>
+          <KitButton
+            href="https://docs.growthx.ai/The-Problem-We-re-Solving-2072ba60bc748063adecfa961c508143?source=copy_link"
+            arrowSize="medium"
+            variant="secondary"
+            size="medium"
+            withAnimatedArrow="to-top-right"
+            className="justify-between font-normal !text-left"
+          >
+            The Problem We're Solving
+          </KitButton>
+          <KitButton
+            href="https://docs.growthx.ai/How-We-Work-2092ba60bc7480d2be9fe77bb107418f?source=copy_link"
+            arrowSize="medium"
+            variant="secondary"
+            size="medium"
+            withAnimatedArrow="to-top-right"
+            className="justify-between font-normal !text-left"
+          >
+            How we work
+          </KitButton>
+          <KitButton
+            href="https://www.notion.so/growthxlabs/Creating-a-Winning-Content-Strategy-2092ba60bc7480f6b249eb9781c98d7f?source=copy_link"
+            arrowSize="medium"
+            variant="secondary"
+            size="medium"
+            withAnimatedArrow="to-top-right"
+            className="justify-between font-normal !text-left"
+          >
+            Creating a winning content strategy
           </KitButton>
         </div>
       </div>
@@ -63,17 +69,7 @@ function Dropdown({ docs_url }: { docs_url: string }) {
 }
 
 function Desktop() {
-  const { data: rawData } = useGetQueryWithRefetchOnChange({
-    key: "general",
-    getFn: getData,
-  });
-
   const { isVisible } = useHideOnScroll();
-
-  const docs_url = React.useMemo(
-    () => rawData?.data.attributes.docs_url,
-    [rawData]
-  );
 
   return (
     <nav
@@ -133,9 +129,10 @@ function Desktop() {
             Blog
           </KitButton>
         </li>
-        {/* <li>
-          <Dropdown docs_url={docs_url} />
-        </li> */}
+        <li>
+          <LearnDropdown />
+        </li>
+
       </ul>
       <KitButton 
         href='/book-demo' 
