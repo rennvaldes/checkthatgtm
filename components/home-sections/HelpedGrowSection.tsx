@@ -11,7 +11,7 @@ function HelpedGrowSection() {
     // { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/steadily_logo_2_a9fb3f3b54.svg', alt: 'Steadily', height: 16 },
     // { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_gc_ai_3258a7e45d.svg', alt: 'GC AI', height: 18 },
     { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_airbyte_40413c6ff7.svg', alt: 'Airbyte', height: 26 },
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_shaped_2b0e8914ef.svg', alt: 'Shaped', height: 24 },
+
     { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg', alt: 'Ramp', height: 20 },
     { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg', alt: 'Strapi', height: 19 },
     { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_webflow_b7ad975616.svg', alt: 'Webflow', height: 19 },
@@ -19,9 +19,8 @@ function HelpedGrowSection() {
     { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/webstacks_5f9bb33e5c.svg', alt: 'Webstacks', height: 17 },
     { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Deepgram_logo_ca172c4fe3.svg', alt: 'Deepgram', height: 22 },
     { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/service_titan_fbd8ccb6f1.svg', alt: 'Service Titan', height: 25 },
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_abnormal_be02983bea.svg', alt: 'Abnormal', height: 16 },
     { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_gitpod_2e24380a04.svg', alt: 'Gitpod', height: 26 },
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_vapi_2e669925d1.svg', alt: 'Vapi', height: 19 },
+
     { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_superhuman_type_40816d8a7a.svg', alt: 'Superhuman', height: 12.5 }
   ];
 
