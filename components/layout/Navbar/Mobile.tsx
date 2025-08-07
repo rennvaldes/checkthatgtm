@@ -33,7 +33,7 @@ function LearnDropdown() {
         onKeyDown={handleKeyDown}
         className="focus:text-ui-blue group flex items-center justify-center gap-[20px] text-[28px] leading-[31px]"
       >
-        Learn
+        How it works
         <ChevronThin 
           className={`h-[16px] w-[16px] flex-shrink-0 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} 
         />
@@ -139,14 +139,7 @@ function Mobile() {
         <div className="flex flex-1 flex-col justify-between px-[20px] pb-[140px] pt-[20px] transition-transform duration-1000 group-aria-hidden:translate-x-[15%]">
           <ul className="flex flex-col gap-[24px]">
             <li>
-              <button
-                type="button"
-                onClick={() => scrollTo("how-it-works-section")}
-                onKeyDown={(e) => e.key === 'Enter' && scrollTo("how-it-works-section")}
-                className={OPTION_STYLES}
-              >
-                How it works
-              </button>
+              <LearnDropdown />
             </li>
             <li>
               <button
@@ -199,9 +192,6 @@ function Mobile() {
               >
                 Blog
               </KitButton>
-            </li>
-            <li>
-              <LearnDropdown />
             </li>
             
           </ul>

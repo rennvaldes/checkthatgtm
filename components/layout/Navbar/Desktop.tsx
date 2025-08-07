@@ -17,7 +17,7 @@ function LearnDropdown() {
         size="medium"
         className="peer flex items-center justify-center gap-[12px]"
       >
-        Learn
+        How it works
         <ChevronThin className="flex-shrink-0 text-[10.7px] transition-transform duration-200 group-hover:rotate-180" />
       </KitButton>
       <div className="absolute left-0 w-full pt-[8px] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
@@ -82,13 +82,7 @@ function Desktop() {
 
       <ul className="flex items-center justify-center">
         <li>
-          <KitButton
-            scrollTo="how-it-works-section"
-            variant="secondary"
-            size="medium"
-          >
-            How it works
-          </KitButton>
+          <LearnDropdown />
         </li>
         <li>
           <KitButton
@@ -128,9 +122,6 @@ function Desktop() {
           >
             Blog
           </KitButton>
-        </li>
-        <li>
-          <LearnDropdown />
         </li>
 
       </ul>
