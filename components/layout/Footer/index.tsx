@@ -5,6 +5,7 @@ import KitButton from "@/components/ui/KitButton";
 import LinksColumn from "./LinksColumn";
 import React from "react";
 import { motion } from "framer-motion";
+import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 
 const RIGHTS_TEXT = `©${new Date().getFullYear()} GrowthX. All rights reserved.`;
 
@@ -39,7 +40,8 @@ function Footer() {
                 variant='primary'
                 withAnimatedArrow='to-right'
                 size='large'
-                className='mt-[24px] lg:mt-[32px]'>
+                className='mt-[24px] lg:mt-[32px]'
+                onClick={() => trackDemoBookingClick('footer', 'footer_section')}>
                 Book a call
               </KitButton>
             </div>

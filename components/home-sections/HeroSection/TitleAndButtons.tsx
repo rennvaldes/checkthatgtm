@@ -5,6 +5,7 @@ import { cn } from '@/lib/litebox-lib/utils/cn';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { trackEmailSignup } from '@/lib/utils/twitter-tracking';
+import { trackEmailSignup as trackPostHogEmailSignup, trackPostHogEvent, POSTHOG_EVENTS } from '@/lib/utils/posthog-tracking';
 
 function TitleAndButtons() {
   const [email, setEmail] = useState('');
@@ -13,6 +14,10 @@ function TitleAndButtons() {
     e.preventDefault();
     // Track Twitter conversion for email signup
     trackEmailSignup(email);
+    
+    // Track PostHog email signup
+    trackPostHogEmailSignup('hero_section', email);
+    
     // The Default form handler will take care of the submission
   };
 

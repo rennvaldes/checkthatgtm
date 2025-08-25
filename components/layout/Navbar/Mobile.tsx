@@ -9,6 +9,7 @@ import ChevronThin from "@/components/icons/ChevronThin";
 import KitButton from "@/components/ui/KitButton";
 import DotPatternBackground from "@/components/ui/DotPatternBackground";
 import useHideOnScroll from "@/lib/litebox-lib/hooks/useHideOnScroll";
+import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 
 import { usePathname, useRouter } from "next/navigation";
 
@@ -200,7 +201,8 @@ function Mobile() {
             href='/book-demo'
             variant='primary'
             size='large'
-            className='rounded-full bg-ui-black text-ui-whitest hover:bg-ui-blue w-full'>
+            className='rounded-full bg-ui-black text-ui-whitest hover:bg-ui-blue w-full'
+            onClick={() => trackDemoBookingClick('navbar', 'mobile')}>
             Book a call
           </KitButton>
         </div>

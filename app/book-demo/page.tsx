@@ -7,6 +7,7 @@ import Quotes from '@/components/icons/Quotes';
 import useResponsiveDevice from '@/hooks/useResponsiveDevice';
 import Image from 'next/image';
 import { trackDemoBooking } from '@/lib/utils/twitter-tracking';
+import { trackDemoPageVisit, POSTHOG_EVENTS, trackPostHogEvent } from '@/lib/utils/posthog-tracking';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -73,6 +74,11 @@ export default function BookDemoPage() {
 
     // Track Twitter conversion for demo booking page visit
     trackDemoBooking();
+    
+    // Track PostHog demo page visit
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = Object.fromEntries(urlParams.entries());
+    trackDemoPageVisit(document.referrer, utmParams);
 
     return () => {
       document.body.classList.remove('hide-nav');
@@ -88,6 +94,11 @@ export default function BookDemoPage() {
 
   const handleIframeLoad = () => {
     setIsLoading(false);
+    // Track when the demo form actually loads
+    trackPostHogEvent(POSTHOG_EVENTS.DEMO_FORM_LOADED, {
+      category: 'conversion',
+      page: '/book-demo'
+    });
   };
 
   const handleIframeError = () => {
