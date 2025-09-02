@@ -7,6 +7,7 @@ import ChevronThin from "@/components/icons/ChevronThin";
 import KitButton from "@/components/ui/KitButton";
 import useHideOnScroll from "@/lib/litebox-lib/hooks/useHideOnScroll";
 import Logo from "@/components/icons/Logo";
+import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 
 
 function LearnDropdown() {
@@ -129,7 +130,8 @@ function Desktop() {
         href='/book-demo' 
         variant='primary' 
         size='medium'
-        className='rounded-full hover:bg-ui-blue'>
+        className='rounded-full hover:bg-ui-blue'
+        onClick={() => trackDemoBookingClick('navbar', 'desktop')}>
         Book a call
       </KitButton>
     </nav>

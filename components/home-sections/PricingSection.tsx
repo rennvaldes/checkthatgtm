@@ -5,6 +5,7 @@ import React from 'react';
 import Check from '../icons/Check';
 import DotPatternBackground from '../ui/DotPatternBackground';
 import KitButton from '../ui/KitButton';
+import { trackDemoBookingClick } from '@/lib/utils/posthog-tracking';
 
 function PricingSection() {
   // Static data
@@ -116,7 +117,8 @@ function PricingSection() {
                   href='/book-demo'
                   className='bg-ui-whitest text-ui-black hover:bg-ui-blue hover:text-ui-whitest focus:bg-ui-blue focus:text-ui-whitest w-full rounded-full font-medium transition-colors duration-300'
                   size='large'
-                  variant='ghost'>
+                  variant='ghost'
+                  onClick={() => trackDemoBookingClick('pricing_section', 'home_page')}>
                   Talk to a Strategist
                 </KitButton>
               </div>
