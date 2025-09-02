@@ -1,7 +1,14 @@
 "use client";
 
-import HeroSection from "@/components/home-sections/HeroSection";
-import HelpedGrowSection from "@/components/home-sections/HelpedGrowSection";
+import HeroSectionv2 from "@/components/home-sections/v2/HeroSection";
+import HelpedGrowSection2 from "@/components/home-sections/v2/HelpedGrowSection";
+import CaseStudySection from "@/components/home-sections/v2/CaseStudySection";
+import ServiceAsSoftware2 from "@/components/home-sections/v2/ServiceAsSoftware";
+import HowItWorksSection2 from "@/components/home-sections/v2/HowItWorksSection";
+import ResultsSection2 from "@/components/home-sections/v2/ResultsSection";
+import PricingSection2 from "@/components/home-sections/v2/PricingSection";
+import BannerSection from "@/components/home-sections/v2/BannerSection";
+import TestimonialsSection from "@/components/home-sections/v2/TestimonialsSection";
 const HeroVideoSection = dynamic(
   () => import("@/components/home-sections/HeroVideoSection"),
   { ssr: true }
@@ -24,20 +31,16 @@ import dynamic from "next/dynamic";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-between">
-      <HeroSection />
-      <HelpedGrowSection />
-      {/* <HeroVideoSection /> */}
-      <ParallaxSection />
-      <ResultsSection />
-      {/* <WhoWeAreForSection /> */}
-      <ServiceAsSoftware />
-      <HowItWorksSection />
-      <ReviewsSection />
-      {/*     <PricingSection /> */}
-      <CustomPlans />
-      <FaqSectionHomepage />
-      <EarthSection />
+    <main className="relative flex min-h-screen flex-col">
+      <HeroSectionv2 />
+      <HelpedGrowSection2 />
+      <CaseStudySection />
+      <ServiceAsSoftware2 />
+      <HowItWorksSection2 />
+      <ResultsSection2 />
+      <PricingSection2 />
+      <BannerSection />
+      <TestimonialsSection />
     </main>
   );
 }

@@ -20,3 +20,39 @@ export const clashDisplay = localFont({
   ],
   variable: '--font-clash-display',
 });
+
+export const messinaSans = localFont({
+  src: [
+    {
+      path: './MessinaSans/MessinaSans-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './MessinaSans/MessinaSans-RegularItalic.woff2',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: './MessinaSans/MessinaSans-SemiBold.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: './MessinaSans/MessinaSans-SemiBoldItalic.woff2',
+      weight: '600',
+      style: 'italic',
+    },
+    {
+      path: './MessinaSans/MessinaSans-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './MessinaSans/MessinaSans-BoldItalic.woff2',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-messina-sans',
+});

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { cn } from '@/lib/litebox-lib/utils/cn';
 
 interface ImageProps {
@@ -8,7 +8,7 @@ interface ImageProps {
 }
 
 interface FeatureCardProps {
-  icon: string;
+  icon: string | StaticImageData;
   title: string;
   description: string;
   highlightText?: string;

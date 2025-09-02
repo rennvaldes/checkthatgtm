@@ -36,7 +36,7 @@
     "remark-gfm": "^4.0.0",
     "remark-unwrap-images": "^5.0.0",
     "sass": "^1.83.0",
-    "swiper": "^11.2.6",
+    "swiper": "^11.2.10",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
