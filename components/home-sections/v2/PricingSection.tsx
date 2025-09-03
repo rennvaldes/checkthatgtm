@@ -66,7 +66,7 @@ function BulletList({ items }: { items: string[] }) {
     <ul className="space-y-3">
       {items.map((item, i) => (
         <li key={i} className="text-black text-[24px] tracking-tight">
-          <span className="mr-2">→</span>
+          <span className="mr-1">→</span>
           {item}
         </li>
       ))}
@@ -82,40 +82,35 @@ export default function PricingSection() {
           leftContent={<div className="text-lg font-medium mb-4 md:mb-0">Pricing</div>}
           rightContent={
             <div className="flex flex-col gap-3">
-              <h2 className="text-4xl md:text-5xl font-semibold leading-[1.05] tracking-tight text-[#151515]">
+              <h2 className="text-4xl md:text-5xl">
                 Custom plans that fit your scale <br />
-                Extend your team and get outcomes, not tools
+                <span className="text-primary-gray">
+                  Extend your team and get outcomes, not tools
+                </span>
               </h2>
             </div>
           }
         />
         <Spacer size="large" />
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {cards.map((card, idx) => (
             <div
               key={card.number}
-              className="bg-[#E6E3DE] border border-[#DCD9D5] p-6 md:p-8 h-full"
+              className="bg-[#E6E3DE] border border-[#DCD9D5] p-6 md:p-8 h-full text-2xl tracking-tighter"
             >
-              {/* Top number */}
               <div className="text-black text-[32px] tracking-tight mb-6">{card.number}</div>
-
-              {/* Title + subtitle */}
-              <h3 className="text-[36px] font-semibold tracking-tight text-black mb-2">
+              <h3 className="text-[36px] font-semibold text-black mb-2">
                 {card.title}
               </h3>
-              <p className="text-[#959595] text-[24px] tracking-tight mb-8">{card.subtitle}</p>
-
-              {/* You get */}
+              <p className="text-primary-gray mb-8">{card.subtitle}</p>
               <div className="mb-6">
-                <div className="text-[#959595] text-[24px] tracking-tight mb-3">You get:</div>
+                <div className="text-primary-gray mb-3">You get:</div>
                 <BulletList items={card.youGet} />
               </div>
 
-              {/* Workstreams */}
-              <div>
-                <div className="text-[#959595] text-[24px] tracking-tight mb-3">Workstreams:</div>
+              <div className="mt-12 lg:mt-18">
+                <div className="text-primary-gray mb-3">Workstreams:</div>
                 <BulletList items={card.workstreams} />
               </div>
             </div>
@@ -124,10 +119,9 @@ export default function PricingSection() {
 
         <Spacer size="large" />
 
-        {/* CTA */}
         <div className="flex justify-center">
           <div className="w-full md:w-[560px]">
-            <Button href="/contact" size="lg" fullWidth ariaLabel="Reserve your spot">
+            <Button href="/contact" fullWidth size="lg">
               Reserve your spot
             </Button>
           </div>

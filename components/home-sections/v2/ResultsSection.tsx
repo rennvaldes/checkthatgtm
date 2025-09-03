@@ -109,9 +109,11 @@ function ResultsSection() {
           }
           rightContent={
             <div className="flex flex-col gap-8">
-              <h2 className="text-3xl md:text-5xl font-semibold leading-[1.1]">
-                High performance strategy & production <br /> Our results speak
-                for themselves
+              <h2 className="text-3xl md:text-5xl">
+                High performance strategy & production <br />
+                <span className="text-primary-gray">
+                  Our results speak for themselves
+                </span>
               </h2>
             </div>
           }
@@ -138,7 +140,7 @@ function ResultsSection() {
             1536: { slidesPerView: 3.0, spaceBetween: 16 }, // 1536 / 520 ≈ 2.95
             1728: { slidesPerView: 3.4, spaceBetween: 16 }, // 1728 / 520 ≈ 3.32
             1920: { slidesPerView: 3.6, spaceBetween: 18 }, // 1920 / 520 ≈ 3.69
-            2020: { slidesPerView: 3.8, spaceBetween: 18 }, // good up to ~2020px
+            2020: { slidesPerView: 3.8, spaceBetween: 18 },
             2490: { slidesPerView: 4.6, spaceBetween: 18 },
           }}
           autoplay={{

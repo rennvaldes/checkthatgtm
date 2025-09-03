@@ -14,8 +14,11 @@ export default function ExpertsV2() {
           className="items-start mb-8 md:mb-12"
           leftContent={<div className="text-sm text-[#303030]">Team</div>}
           rightContent={
-            <h2 className="text-black text-[1.75rem] font-semibold leading-[1.15] md:text-[2.5rem] lg:text-[3.25rem] lg:leading-[1.1]">
-              Exclusive access to a <br /> network of experts
+            <h2 className="text-black text-3xl md:text-5xl">
+              Exclusive access to a <br />
+              <span className="text-primary-gray">
+                network of experts
+              </span>
             </h2>
           }
           leftClassName="md:text-base"

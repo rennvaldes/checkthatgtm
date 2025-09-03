@@ -34,7 +34,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
         </div>
         
         <div>
-          <h3 className="text-3xl sm:text-5xl font-medium tracking-tight leading-[0.96]">
+          <h3 className="text-3xl lg:text-5xl font-medium tracking-tighter leading-[0.96] cursor-pointer">
             {title}
           </h3>
         </div>

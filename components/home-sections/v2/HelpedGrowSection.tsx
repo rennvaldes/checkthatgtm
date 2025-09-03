@@ -36,9 +36,11 @@ const HelpedGrowSection = () => {
             }
             rightContent={
               <div className="w-full">
-                <h2 className="text-3xl md:text-5xl font-semibold leading-[0.96] mb-8">
+                <h2 className="text-3xl md:text-5xl mb-8">
                   Trusted by brilliant teams of all sizes <br /> 
-                  Join the world’s best operators
+                  <span className="text-primary-gray">
+                    Join the world’s best operators
+                  </span>
                 </h2>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border border-gray-200 overflow-hidden">

@@ -49,8 +49,11 @@ function ProcessSection() {
           }
           rightContent={
             <div className="flex flex-col gap-8">
-              <h2 className="max-w-2xl text-3xl md:text-5xl font-semibold leading-[1.1]">
-                How we work <br /> From strategy to output
+              <h2 className="max-w-2xl text-3xl md:text-5xl">
+                How we work <br />
+                <span className="text-primary-gray">
+                  From strategy to output
+                </span>
               </h2>
 
               <div className="flex flex-col gap-4">
@@ -59,15 +62,15 @@ function ProcessSection() {
                     key={index}
                     className="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-12 p-6 md:p-8 border border-[#DCD9D5]"
                   >
-                    <div className="min-w-[60px] text-[#959595] font-semibold tracking-tight text-3xl flex flex-col md:col-span-4">
+                    <div className="min-w-[60px] text-[#959595] font-light tracking-tight text-3xl flex flex-col md:col-span-4">
                       {step.number}
 
-                      <h4 className="text-primary-black text-3xl font-semibold mb-3">
+                      <h4 className="text-primary-black text-3xl font-semibold mb-3 leading-[1]">
                         {step.title}
                       </h4>
                     </div>
                     <div className="md:col-span-8">
-                      <p className="text-2xl leading-[1.36] text-[#303030]">
+                      <p className="text-2xl leading-[1.36] font-light text-[#303030]">
                         {step.description}
                       </p>
                     </div>

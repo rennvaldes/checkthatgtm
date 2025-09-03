@@ -10,7 +10,6 @@ import Server from "@/components/icons/Server";
 import Fire from "@/components/icons/Fire";
 import GridIcon from "@/components/icons/Grid";
 
-// Horizontal separator that starts at the rail axis and extends to the right edge
 function Separator({ lineRef }: { lineRef: React.RefObject<HTMLDivElement> }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [offset, setOffset] = useState(0);
@@ -23,13 +22,11 @@ function Separator({ lineRef }: { lineRef: React.RefObject<HTMLDivElement> }) {
 
       const hrBox = hr.getBoundingClientRect();
       const lineBox = line?.getBoundingClientRect();
-      // If rail isn't visible (e.g., mobile), start from container's left (offset 0)
       if (!lineBox || lineBox.width === 0 || lineBox.height === 0) {
         setOffset(0);
         return;
       }
       const railCenterX = lineBox.left + lineBox.width / 2;
-      // Add a small spacing (6px) between the rail and the horizontal separator
       const GAP = 6;
       const start = Math.max(0, Math.min(railCenterX - hrBox.left + GAP, hrBox.width));
       setOffset(start);
@@ -60,7 +57,6 @@ export default function SolutionsSection() {
   const ballRef = useRef<HTMLDivElement | null>(null);
   const [progress, setProgress] = useState(0);
 
-  // Items defined per section with icon components
   const contentItems = [
     { title: "Dedicated AI Growth Strategist", Icon: Blackhole },
     { title: "Fine tuned expert + AI content machine", Icon: BlackholeV2 },
@@ -78,11 +74,49 @@ export default function SolutionsSection() {
     { title: "Lead magnets targeted to your ICP", Icon: Fire },
   ];
 
+  const sections: {
+    key: string;
+    label: string;
+    heading: React.ReactNode;
+    items: { title: string; Icon: (props: { className?: string }) => JSX.Element }[];
+  }[] = [
+    {
+      key: "content",
+      label: "Content",
+      heading: (
+        <h3 className="text-primary-black tracking-tighter font-semibold text-2xl md:text-4xl">
+          Build a content foundation to <br />win GEO and SEO.
+        </h3>
+      ),
+      items: contentItems,
+    },
+    {
+      key: "distribution",
+      label: "Distribution",
+      heading: (
+        <h3 className="text-primary-black tracking-tighter font-semibold text-2xl md:text-4xl">
+          Show up where your customers are searching <br />from search to AI engines.
+        </h3>
+      ),
+      items: distributionItems,
+    },
+    {
+      key: "conversion",
+      label: "Conversion",
+      heading: (
+        <h3 className="text-primary-black tracking-tighter font-semibold text-2xl md:text-4xl">
+          Convert your audience with <br />high quality offers.
+        </h3>
+      ),
+      items: conversionItems,
+    },
+  ];
+
   const gridColsClass = (len: number) => {
-    if (len === 2) return "md:grid-cols-2"; // 50/50
-    if (len === 3) return "md:grid-cols-3"; // 33%
-    if (len === 4) return "md:grid-cols-4"; // 25%
-    return "md:grid-cols-3"; // default fallback
+    if (len === 2) return "md:grid-cols-2";
+    if (len === 3) return "md:grid-cols-3";
+    if (len === 4) return "md:grid-cols-4";
+    return "md:grid-cols-3";
   };
 
   useEffect(() => {
@@ -113,8 +147,11 @@ export default function SolutionsSection() {
           className="items-start mb-8 md:mb-12"
           leftContent={<div className="text-sm text-[#303030]">Solutions</div>}
           rightContent={
-            <h2 className="text-black text-[1.75rem] font-semibold leading-[1.15] md:text-[2.5rem] lg:text-[3.25rem] lg:leading-[1.1]">
-            AI-native marketing <br />For companies in hypergrowth 
+            <h2 className="text-black text-3xl md:text-5xl">
+            AI-native marketing <br />
+            <span className="text-primary-gray">
+              For companies in hypergrowth 
+            </span>
           </h2>
         }
         leftClassName="md:text-base"
@@ -123,13 +160,10 @@ export default function SolutionsSection() {
       />
       </div>
 
-      {/* Rail + Segments wrapper aligned to ContentLayout grid */}
       <div className="container mx-auto px-4 relative">
-        {/* Overlay rail positioned between left (2 cols) and right (10 cols) */}
         <div className="pointer-events-none absolute inset-0 hidden md:block">
           <div className="grid grid-cols-1 md:grid-cols-12 h-full">
             <div className="hidden md:block md:col-start-2 md:col-span-1 relative">
-              {/* Vertical line centered in the column with dynamic gradient for progress */}
               <div
                 ref={lineRef}
                 className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px"
@@ -141,9 +175,7 @@ export default function SolutionsSection() {
                   backgroundPosition: "top, top",
                 }}
               />
-              {/* Sticky ball centered on the same axis */}
               <div className="sticky top-[16%]">
-                {/* Gradient border + gradient fill rounded button */}
                 <div
                   ref={ballRef}
                   className="relative left-1/2 -translate-x-1/2 w-5 h-5 lg:w-6 lg:h-6 rounded-full p-[2px] will-change-transform shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
@@ -163,73 +195,29 @@ export default function SolutionsSection() {
           </div>
         </div>
 
-        {/* Segments using ContentLayout; content in right column */}
-        <ContentLayout
-          className="items-start mb-10 md:mb-14"
-          leftContent={<div className="text-sm text-[#303030]">Content</div>}
-          rightContent={
-            <div>
-              <h3 className="text-primary-black tracking-tighter font-semibold text-2xl md:text-4xl">
-                Build a content foundation to <br />win GEO and SEO.
-              </h3>
-              <div className={`mt-6 grid gap-3 sm:gap-4 ${gridColsClass(contentItems.length)}`}>
-                {contentItems.map(({ title, Icon }) => (
-                  <div key={title} className="bg-[#E6E3DE] border border-[#959595] p-4 md:p-5 min-h-[88px]">
-                    <Icon className="w-5 h-5" />
-                    <div className="mt-3 text-primary-black font-semibold leading-tight text-[26px]">{title}</div>
+        {sections.map((section, idx) => (
+          <div key={section.key}>
+            <ContentLayout
+              className="items-start mb-10 md:mb-14"
+              leftContent={<div className="text-sm text-[#303030]">{section.label}</div>}
+              rightContent={
+                <div>
+                  {section.heading}
+                  <div className={`mt-6 grid gap-3 sm:gap-4 ${gridColsClass(section.items.length)}`}>
+                    {section.items.map(({ title, Icon }) => (
+                      <div key={title} className="bg-[#E6E3DE] border border-[#959595] p-4 md:p-5 min-h-[88px]">
+                        <Icon className="w-5 h-5" />
+                        <div className="mt-3 text-primary-black font-semibold tracking-tighter leading-tight text-[26px]">{title}</div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-          }
-          leftClassName="md:text-base"
-        />
-        
-        <Separator lineRef={lineRef} />
-
-        <ContentLayout
-          className="items-start mb-10 md:mb-14"
-          leftContent={<div className="text-sm text-[#303030]">Distribution</div>}
-          rightContent={
-            <div>
-              <h3 className="text-primary-black tracking-tighter font-semibold text-2xl md:text-4xl">
-                Show up where your customers are searching <br />from search to AI engines.
-              </h3>
-              <div className={`mt-6 grid gap-3 sm:gap-4 ${gridColsClass(distributionItems.length)}`}>
-                {distributionItems.map(({ title, Icon }) => (
-                  <div key={title} className="bg-[#E6E3DE] border border-[#959595] p-4 md:p-5 min-h-[88px]">
-                    <Icon className="w-5 h-5" />
-                    <div className="mt-3 text-primary-black font-semibold leading-tight text-[26px]">{title}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          }
-          leftClassName="md:text-base"
-        />
-
-        <Separator lineRef={lineRef} />
-
-        <ContentLayout
-          className="items-start mb-10 md:mb-14"
-          leftContent={<div className="text-sm text-[#303030]">Conversion</div>}
-          rightContent={
-            <div>
-              <h3 className="text-primary-black tracking-tighter font-semibold text-2xl md:text-4xl">
-                Convert your audience with <br />high quality offers.
-              </h3>
-              <div className={`mt-6 grid gap-3 sm:gap-4 ${gridColsClass(conversionItems.length)}`}>
-                {conversionItems.map(({ title, Icon }) => (
-                  <div key={title} className="bg-[#E6E3DE] border border-[#959595] p-4 md:p-5 min-h-[88px]">
-                    <Icon className="w-5 h-5" />
-                    <div className="mt-3 text-primary-black font-semibold leading-tight text-[26px]">{title}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          }
-          leftClassName="md:text-base"
-        />
+                </div>
+              }
+              leftClassName="md:text-base"
+            />
+            {idx < sections.length - 1 && <Separator lineRef={lineRef} />}
+          </div>
+        ))}
       </div>
       <Spacer size="xl" />
     </section>

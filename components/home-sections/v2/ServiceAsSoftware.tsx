@@ -3,6 +3,8 @@
 import Spacer from "@/components/common/Spacer";
 import ContentLayout from "@/components/layout/ContentLayout";
 import React from "react";
+import Image from "next/image";
+import GrowthxLogo from "@/assets/img/v2/growthx_logo.png";
 
 function ServiceAsSoftware() {
   const comparisonData = [
@@ -10,14 +12,15 @@ function ServiceAsSoftware() {
       title: "GrowthX",
       description: "AI-powered outcomes delivered through expert-guided workflows.",
       type: "highlight",
+      logo: GrowthxLogo,
       characteristics: [
-        "Fully managed outcomes",
-        "AI + Expert guidance",
-        "Custom-built workflows",
-        "Adapts to your needs",
-        "Strategy handled for you",
-        "Immediate value delivery",
-        "Infinitely scalable",
+        "→ Fully managed outcomes",
+        "→ AI + Expert guidance",
+        "→ Custom-built workflows",
+        "→ Adapts to your needs",
+        "→ Strategy handled for you",
+        "→ Immediate value delivery",
+        "→ Infinitely scalable",
       ],
     },
     {
@@ -25,14 +28,14 @@ function ServiceAsSoftware() {
       description: "Tools and platforms that require your team to implement and manage.",
       type: "regular",
       characteristics: [
-        "Self-service tools and dashboards",
-        "Requires internal expertise",
-        "Your team handles implementation",
-        "Fixed features and workflows",
-        "You manage the strategy",
-        "Learning curve for your team",
-        "Scalable but requires effort",
-        "Quickly outdated by AI advances",
+        "✕ Self-service tools and dashboards",
+        "✕ Requires internal expertise",
+        "✕ Your team handles implementation",
+        "✕ Fixed features and workflows",
+        "✕ You manage the strategy",
+        "✕ Learning curve for your team",
+        "✕ Scalable but requires effort",
+        "✕ Quickly outdated by AI advances",
       ],
     },
     {
@@ -40,13 +43,13 @@ function ServiceAsSoftware() {
       description: "Manual services delivered by teams of specialists with varying results.",
       type: "regular",
       characteristics: [
-        "Human-delivered services",
-        "Inconsistent quality",
-        "Manual workflows",
-        "Limited by human capacity",
-        "High overhead costs",
-        "Communication overhead",
-        "Difficult to scale",
+        "✕ Human-delivered services",
+        "✕ Inconsistent quality",
+        "✕ Manual workflows",
+        "✕ Limited by human capacity",
+        "✕ High overhead costs",
+        "✕ Communication overhead",
+        "✕ Difficult to scale",
       ],
     },
   ];
@@ -62,8 +65,11 @@ function ServiceAsSoftware() {
           }
           rightContent={
             <div className="flex flex-col gap-8">
-              <h2 className="max-w-2xl text-3xl md:text-5xl font-semibold leading-[0.96]">
-                AI Service-as-Software Beyond SaaS or agencies
+              <h2 className="max-w-2xl text-3xl md:text-5xl">
+                AI Service-as-Software <br />
+                <span className="text-primary-gray">
+                  Beyond SaaS or agencies
+                </span>
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 {comparisonData.map((category, index) => (
@@ -75,18 +81,26 @@ function ServiceAsSoftware() {
                       ${category.type === "highlight" ? "border-none" : ""}
                     `}
                   >
-                    <h4 className="text-4xl font-semibold mb-6 text-primary-black">
-                      {category.title}
-                    </h4>
-                    <p className="text-2xl text-[#303030] mb-8">
+                    {category.logo ? (
+                      <div className="mb-6">
+                        <Image
+                          src={category.logo}
+                          alt={category.title}
+                          className="h-6 md:h-8 w-auto"
+                          sizes="(max-width: 768px) 160px, 200px"
+                        />
+                      </div>
+                    ) : (
+                      <h4 className="text-4xl font-semibold mb-6 text-primary-black">
+                        {category.title}
+                      </h4>
+                    )}
+                    <p className="text-2xl font-light text-[#303030] mb-8">
                       {category.description}
                     </p>
                     <ul className="space-y-4">
                       {category.characteristics.map((char, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <span className="shrink-0 mt-1">
-                            {category.type === "highlight" ? "→" : "✕"}
-                          </span>
+                        <li key={idx} className="flex items-start font-light gap-3">
                           <span className="text-xl leading-[1.44] text-[#303030]">
                             {char}
                           </span>

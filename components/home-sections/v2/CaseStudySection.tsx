@@ -9,13 +9,13 @@ const CaseStudySection = () => {
     {
       id: 1,
       badge: 'Case Study',
-      title: 'Surge AI is shaping AGI with the richness of human intelligence',
+      title: 'Surge AI is shaping AGI with the richness of human intelligence →',
       imageUrl: CaseStudyImage1,
     },
     {
       id: 2,
       badge: 'Case Study',
-      title: 'Augment Code is never launching an IDE but building what comes after it',
+      title: 'Augment Code is never launching an IDE but building what comes after it →',
       imageUrl: CaseStudyImage2,
     },
   ];
