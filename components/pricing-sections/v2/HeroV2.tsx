@@ -68,7 +68,7 @@ export default function HeroV2() {
                 </div>
               </div>
 
-              <div className="bg-transparent p-6 min-h-[300px] lg:min-h-[570px] text-[#303030] border border-[#DCD9D5]">
+              <div className="bg-transparent p-6 min-h-[300px] lg:min-h-[570px] text-[#303030] border border-primary-gray">
                 <h3 className="text-[24px] md:text-[32px] lg:text-[36px] font-semibold tracking-tight mb-6">
                   Included in all plans
                 </h3>
@@ -85,7 +85,7 @@ export default function HeroV2() {
                     <li
                       key={item}
                       className={`flex items-center justify-between pt-4 pb-1 text-base md:text-lg ${
-                        idx !== 0 ? "border-t border-[#DCD9D5]" : ""
+                        idx !== 0 ? "border-t border-primary-gray" : ""
                       }`}
                     >
                       <span>{item}</span>

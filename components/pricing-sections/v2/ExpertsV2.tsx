@@ -3,6 +3,7 @@
 import Image from "next/image";
 import ContentLayout from "@/components/layout/ContentLayout";
 import expertsData from "@/components/pricing-sections/ExpertsSection/expertsData";
+import TeamMemberCard from "@/components/common/TeamMemberCard";
 
 export default function ExpertsV2() {
   const list = expertsData; // reuse existing data
@@ -36,41 +37,24 @@ export default function ExpertsV2() {
                   style={{ animationDuration: `${30000}ms` }}
                 >
                   {list.map((expert) => (
-                    <div
+                    <TeamMemberCard
                       key={`experts-v2-${expert.name}`}
-                      className="w-[300px] lg:w-[360px] bg-[#E6E3DE] border border-[#959595]"
-                    >
-                      <div className="p-2 md:p-4">
-                        <div className="aspect-[3/3] relative overflow-hidden mb-4">
-                          <Image
-                            src={expert.picture}
-                            alt={expert.name}
-                            fill
-                            sizes="(max-width: 1024px) 33vw, 360px"
-                            className="object-cover grayscale"
-                          />
-                        </div>
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
-                            <div className="text-[26px] font-semibold text-[#141414] tracking-tight">
-                              {expert.name}
-                            </div>
-                            <div className="text-lg text-[#303030] mt-2.5 tracking-tight leading-[1.25] max-w-[175px]">
-                              {expert.description}
-                            </div>
-                          </div>
-                          <div className="flex flex-col items-center gap-2 shrink-0">
-                            {expert.desktopImages.slice(0, 1).map((img) => (
-                              <Image key={`${img.src}-top`} src={img.src} alt={img.alt} width={img.width} height={img.height} />
-                            ))}
-                            <div className="text-[#B9B9B9] text-[18px] font-light leading-none">x</div>
-                            {expert.desktopImages.slice(1, 2).map((img) => (
-                              <Image key={`${img.src}-bottom`} src={img.src} alt={img.alt} width={img.width} height={img.height} />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      name={expert.name}
+                      title={expert.description}
+                      image={expert.picture}
+                      grayscale
+                      rightSlot={
+                        <>
+                          {expert.desktopImages.slice(0, 1).map((img) => (
+                            <Image key={`${img.src}-top`} src={img.src} alt={img.alt} width={img.width} height={img.height} />
+                          ))}
+                          <div className="text-[#B9B9B9] text-[18px] font-light leading-none">x</div>
+                          {expert.desktopImages.slice(1, 2).map((img) => (
+                            <Image key={`${img.src}-bottom`} src={img.src} alt={img.alt} width={img.width} height={img.height} />
+                          ))}
+                        </>
+                      }
+                    />
                   ))}
                 </div>
               ))}
@@ -86,41 +70,28 @@ export default function ExpertsV2() {
                   style={{ animationDuration: `${21000}ms` }}
                 >
                   {list.slice(0, 4).map((expert) => (
-                    <div
+                    <TeamMemberCard
                       key={`experts-v2-mt-${expert.name}`}
-                      className="w-[260px] bg-[#E6E3DE] border border-[#959595]"
-                    >
-                      <div className="p-2 md:p-4">
-                        <div className="aspect-[4/3] relative overflow-hidden mb-3">
-                          <Image
-                            src={expert.picture}
-                            alt={expert.name}
-                            fill
-                            sizes="260px"
-                            className="object-cover grayscale"
-                          />
-                        </div>
-                        <div className="p-0 flex items-start justify-between gap-3">
-                          <div>
-                            <div className="text-[26px] font-semibold text-[#141414] tracking-tight">
-                              {expert.name}
-                            </div>
-                            <div className="text-lg text-[#303030] mt-1 tracking-tight">
-                              {expert.description}
-                            </div>
-                          </div>
-                          <div className="flex flex-col items-center gap-1 shrink-0">
-                            {expert.mobileImages.slice(0, 1).map((img) => (
-                              <Image key={`${img.src}-top`} src={img.src} alt={img.alt} width={img.width} height={img.height} />
-                            ))}
-                            <div className="text-[#B9B9B9] text-sm font-light leading-none">x</div>
-                            {expert.mobileImages.slice(1, 2).map((img) => (
-                              <Image key={`${img.src}-bottom`} src={img.src} alt={img.alt} width={img.width} height={img.height} />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      name={expert.name}
+                      title={expert.description}
+                      image={expert.picture}
+                      grayscale
+                      wrapperClassName="w-[260px]"
+                      imageAspectClass="aspect-[4/3]"
+                      imageSizes="260px"
+                      titleClassName="text-lg text-[#303030] mt-1 tracking-tight"
+                      rightSlot={
+                        <>
+                          {expert.mobileImages.slice(0, 1).map((img) => (
+                            <Image key={`${img.src}-top`} src={img.src} alt={img.alt} width={img.width} height={img.height} />
+                          ))}
+                          <div className="text-[#B9B9B9] text-sm font-light leading-none">x</div>
+                          {expert.mobileImages.slice(1, 2).map((img) => (
+                            <Image key={`${img.src}-bottom`} src={img.src} alt={img.alt} width={img.width} height={img.height} />
+                          ))}
+                        </>
+                      }
+                    />
                   ))}
                 </div>
               ))}

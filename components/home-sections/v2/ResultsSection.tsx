@@ -1,13 +1,10 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import ContentLayout from "@/components/layout/ContentLayout";
 import Spacer from "@/components/common/Spacer";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import TestimonialsCarousel from "@/components/common/TestimonialsCarousel";
 
 function ResultsSection() {
   const results = [
@@ -93,13 +90,6 @@ function ResultsSection() {
     }
   ];
 
-  const swiperRef = useRef<any>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Pause autoplay on hover
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
-
   return (
     <section className="overflow-hidden">
       <div className="container mx-auto px-4">
@@ -121,67 +111,35 @@ function ResultsSection() {
         <Spacer size="large" />
       </div>
 
-      <div 
-        className="relative w-full py-8"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <Swiper
-          ref={swiperRef}
-          modules={[Autoplay, Navigation]}
-          spaceBetween={24}
-          slidesPerView={1.2}
-          breakpoints={{
-            640: { slidesPerView: 1.5, spaceBetween: 12 },
-            768: { slidesPerView: 2.0, spaceBetween: 14 },
-            1024: { slidesPerView: 2.0, spaceBetween: 16 }, // 1024 / 520 ≈ 1.97
-            1280: { slidesPerView: 2.4, spaceBetween: 16 }, // 1280 / 520 ≈ 2.46
-            1440: { slidesPerView: 2.8, spaceBetween: 16 }, // 1440 / 520 ≈ 2.77
-            1536: { slidesPerView: 3.0, spaceBetween: 16 }, // 1536 / 520 ≈ 2.95
-            1728: { slidesPerView: 3.4, spaceBetween: 16 }, // 1728 / 520 ≈ 3.32
-            1920: { slidesPerView: 3.6, spaceBetween: 18 }, // 1920 / 520 ≈ 3.69
-            2020: { slidesPerView: 3.8, spaceBetween: 18 },
-            2490: { slidesPerView: 4.6, spaceBetween: 18 },
-          }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          loop={true}
-          speed={1000}
-          className="w-full"
-        >
-          {results.map((result, index) => (
-            <SwiperSlide key={index}>
-              <div 
-                className="p-8 border border-[#DCD9D5] h-[540px] flex flex-col gap-40 lg:min-w-[520px] lg:max-w-[521px]"
-              >
-                <div className="mb-6">
-                  <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">
-                    <Image
-                      src={result.logo.src}
-                      alt={result.logo.alt}
-                      fill
-                      sizes="160px"
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="flex-1 flex flex-col items-center">
-                  <h3 className="w-full text-8xl font-semibold tracking-tight leading-[0.95] text-[#151515]">
-                    {result.title}
-                  </h3>
-                  <p className="w-full text-[20px] tracking-tight text-[#303030] mt-8 text-left">
-                    {result.description}
-                  </p>
-                </div>
-              
+      <TestimonialsCarousel
+        className="py-8"
+        items={results}
+        renderSlide={(result) => (
+          <div 
+            className="p-8 border border-[#DCD9D5] h-[540px] flex flex-col gap-40 lg:min-w-[520px] lg:max-w-[521px]"
+          >
+            <div className="mb-6">
+              <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">
+                <Image
+                  src={result.logo.src}
+                  alt={result.logo.alt}
+                  fill
+                  sizes="160px"
+                  className="object-contain"
+                />
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+            </div>
+            <div className="flex-1 flex flex-col items-center">
+              <h3 className="w-full text-8xl font-semibold tracking-tight leading-[0.95] text-[#151515]">
+                {result.title}
+              </h3>
+              <p className="w-full text-[20px] tracking-tight text-[#303030] mt-8 text-left">
+                {result.description}
+              </p>
+            </div>
+          </div>
+        )}
+      />
       <Spacer size="xl" />
     </section>
   );

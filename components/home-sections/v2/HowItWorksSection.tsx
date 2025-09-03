@@ -62,7 +62,7 @@ function ProcessSection() {
                     key={index}
                     className="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-12 p-6 md:p-8 border border-[#DCD9D5]"
                   >
-                    <div className="min-w-[60px] text-[#959595] font-light tracking-tight text-3xl flex flex-col md:col-span-4">
+                    <div className="min-w-[60px] text-primary-gray font-light tracking-tight text-3xl flex flex-col md:col-span-4">
                       {step.number}
 
                       <h4 className="text-primary-black text-3xl font-semibold mb-3 leading-[1]">

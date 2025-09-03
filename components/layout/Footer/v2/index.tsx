@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/common/Button";
+import LogoSvg from "@/assets/img/v2/icons/logo.svg";
+import ArrowRight16 from "@/components/icons/ArrowRight16";
+import { usePathname } from "next/navigation";
 
 function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -46,9 +49,10 @@ function NewsletterForm() {
           type="submit"
           disabled={loading}
           size="sm"
-          className="m-1"
+          className="m-2"
+          ariaLabel="Subscribe"
         >
-          →
+          <ArrowRight16 className="w-4 h-4" />
         </Button>
       </div>
       {status && (
@@ -61,6 +65,8 @@ function NewsletterForm() {
 }
 
 export default function FooterV2() {
+  const pathname = usePathname();
+  const isAbout = pathname === "/about";
   const columns: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
     {
       title: "Company",
@@ -89,13 +95,20 @@ export default function FooterV2() {
   ];
 
   return (
-    <footer className="bg-black text-white flex flex-col lg:min-h-[600px]">
+    <footer
+      className={[
+        "bg-black text-white flex flex-col lg:min-h-[600px]",
+        isAbout ? "pt-24 md:pt-32" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div className="container mx-auto px-4 py-14 flex-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-6">
             <div className="mb-6">
               <div className="h-6 w-6 relative">
-                <Image src="/_icon.svg" alt="GrowthX" fill sizes="24px" className="object-contain invert" />
+                <Image src={LogoSvg} alt="GrowthX" sizes="24px" className="object-contain" />
               </div>
             </div>
             <h3 className="text-2xl md:text-[32px] leading-tight tracking-tight font-medium">

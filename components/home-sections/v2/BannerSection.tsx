@@ -5,6 +5,7 @@ import { livretText } from "@/assets/fonts";
 import FullWidthBanner from "@/components/common/FullWidthBanner";
 import Button from "@/components/common/Button";
 import FromTheFounder from "@/assets/img/v2/from-the-founder.png";
+import ArrowRight16 from "@/components/icons/ArrowRight16";
 
 export default function BannerSection() {
   return (
@@ -35,8 +36,18 @@ export default function BannerSection() {
             <div className="font-medium">Marcel Santilli</div>
             <div className="text-primary-gray">CEO, GrowthX</div>
           </div>
-          <Button href="/contact" size="md" fillFrom="#FF6493" fillTo="#D41651">
-            View my schedule →
+          <Button
+            href="/contact"
+            size="md"
+            fillFrom="#FF6493"
+            fillTo="#D41651"
+            borderFrom="#FF6493"
+            borderTo="#D41651"
+          >
+            <span className="inline-flex items-center gap-2">
+              <span>View my schedule</span>
+              <ArrowRight16 className="w-4 h-4" />
+            </span>
           </Button>
         </div>
       </div>

@@ -8,12 +8,14 @@ type ButtonProps = {
   href?: string;
   onClick?: () => void;
   className?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
   ariaLabel?: string;
   fillFrom?: string;
   fillTo?: string;
+  borderFrom?: string;
+  borderTo?: string;
   textColorClass?: string;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
@@ -31,6 +33,7 @@ const baseClasses =
 const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary: "",
   secondary: "",
+  outline: "border border-[#303030] bg-transparent text-[#303030] border-[1.5px]",
 };
 
 export default function Button({
@@ -44,21 +47,30 @@ export default function Button({
   ariaLabel,
   fillFrom,
   fillTo,
+  borderFrom,
+  borderTo,
   textColorClass,
   disabled,
   type = "button",
 }: ButtonProps) {
   const isPrimary = variant === "primary";
   const isSecondary = variant === "secondary";
+  const isOutline = variant === "outline";
 
   const outerCls = [
     baseClasses,
     variants[variant],
     fullWidth ? "w-full" : "",
     isPrimary
-      ? "p-[1.5px] bg-[linear-gradient(to_bottom,#EDBE00,#4F3F00)] shadow-[0_0_0.5px_1px_rgba(0,0,0,0.10),0_2px_2px_2px_rgba(0,0,0,0.05),0_1px_5px_0_rgba(0,0,0,0.10),0_2px_4px_0_rgba(0,0,0,0.20)]"
+      ? (borderFrom && borderTo
+          ? "p-[1.5px] bg-[linear-gradient(to_bottom,var(--btn-border-from),var(--btn-border-to))] shadow-[0_0_0.5px_1px_rgba(0,0,0,0.10),0_2px_2px_2px_rgba(0,0,0,0.05),0_1px_5px_0_rgba(0,0,0,0.10),0_2px_4px_0_rgba(0,0,0,0.20)]"
+          : "p-[1.5px] bg-[linear-gradient(to_bottom,#EDBE00,#4F3F00)] shadow-[0_0_0.5px_1px_rgba(0,0,0,0.10),0_2px_2px_2px_rgba(0,0,0,0.05),0_1px_5px_0_rgba(0,0,0,0.10),0_2px_4px_0_rgba(0,0,0,0.20)]")
       : isSecondary
-      ? "p-[1.5px] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),#000000)] shadow-[0_0_0.5px_1px_rgba(0,0,0,0.10),0_2px_2px_2px_rgba(0,0,0,0.05),0_1px_5px_0_rgba(0,0,0,0.10),0_2px_4px_0_rgba(0,0,0,0.20)]"
+      ? (borderFrom && borderTo
+          ? "p-[1.5px] bg-[linear-gradient(to_bottom,var(--btn-border-from),var(--btn-border-to))] shadow-[0_0_0.5px_1px_rgba(0,0,0,0.10),0_2px_2px_2px_rgba(0,0,0,0.05),0_1px_5px_0_rgba(0,0,0,0.10),0_2px_4px_0_rgba(0,0,0,0.20)]"
+          : "p-[1.5px] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),#000000)] shadow-[0_0_0.5px_1px_rgba(0,0,0,0.10),0_2px_2px_2px_rgba(0,0,0,0.05),0_1px_5px_0_rgba(0,0,0,0.10),0_2px_4px_0_rgba(0,0,0,0.20)]")
+      : isOutline
+      ? "hover:bg-ui-black/5 active:bg-ui-black/10"
       : sizeClasses[size],
     className,
   ]
@@ -80,7 +92,9 @@ export default function Button({
           : isPrimary
           ? "bg-[linear-gradient(to_bottom,#FFCC00,#E7B900)] text-black shadow-[inset_0_3px_1px_0_rgba(255,255,255,0.30),inset_0_-8px_4px_0_rgba(255,255,255,0.07),inset_0_11px_7.7px_4px_rgba(255,255,255,0.35)]"
           : isSecondary
-          ? "bg-[linear-gradient(to_bottom,#242424,#252525)] text-white shadow-[inset_0_3px_1px_0_rgba(255,255,255,0.30),inset_0_-8px_4px_0_rgba(255,255,255,0.07),inset_0_4px_4.7px_4px_rgba(255,255,255,0.35)]"
+          ? "bg-[linear-gradient(to_bottom,#242424,#252525)] text-white shadow-[inset_0_3px_1px_0_rgba(255,255,255,0.30),inset_0_4px_4.7px_4px_rgba(255,255,255,0.35)]"
+          : isOutline
+          ? "bg-transparent text-ui-black"
           : "",
       ]
         .filter(Boolean)
@@ -100,15 +114,27 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href} aria-label={ariaLabel} className={outerCls}>
-        {isPrimary || isSecondary ? innerSpan : children}
+      <Link
+        href={href}
+        aria-label={ariaLabel}
+        className={outerCls}
+        style={borderFrom && borderTo ? ({ ["--btn-border-from" as any]: borderFrom, ["--btn-border-to" as any]: borderTo } as React.CSSProperties) : undefined}
+      >
+        {isPrimary || isSecondary || isOutline ? innerSpan : children}
       </Link>
     );
   }
 
   return (
-    <button aria-label={ariaLabel} onClick={onClick} className={outerCls} disabled={disabled} type={type}>
-      {isPrimary || isSecondary ? innerSpan : children}
+    <button
+      aria-label={ariaLabel}
+      onClick={onClick}
+      className={outerCls}
+      disabled={disabled}
+      type={type}
+      style={borderFrom && borderTo ? ({ ["--btn-border-from" as any]: borderFrom, ["--btn-border-to" as any]: borderTo } as React.CSSProperties) : undefined}
+    >
+      {isPrimary || isSecondary || isOutline ? innerSpan : children}
     </button>
   );
 }

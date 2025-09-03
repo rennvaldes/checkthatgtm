@@ -205,7 +205,7 @@ export default function SolutionsSection() {
                   {section.heading}
                   <div className={`mt-6 grid gap-3 sm:gap-4 ${gridColsClass(section.items.length)}`}>
                     {section.items.map(({ title, Icon }) => (
-                      <div key={title} className="bg-[#E6E3DE] border border-[#959595] p-4 md:p-5 min-h-[88px]">
+                      <div key={title} className="bg-[#E6E3DE] border border-primary-gray p-4 md:p-5 min-h-[88px]">
                         <Icon className="w-5 h-5" />
                         <div className="mt-3 text-primary-black font-semibold tracking-tighter leading-tight text-[26px]">{title}</div>
                       </div>

@@ -1,20 +1,25 @@
-import Company from '@/components/about-sections/Company';
-import Footer from '@/components/about-sections/Footer';
-import HeroSection from '@/components/about-sections/HeroSection';
-import Statement from '@/components/about-sections/Statement';
-import Testimonials from '@/components/about-sections/Testimonials';
-import Values from '@/components/about-sections/Values';
-import { Main } from '@/components/ui/Main';
+import HeroSectionv2 from '@/components/about-sections/v2/HeroSection';
+import CompanySection from '@/components/about-sections/v2/CompanySection';
+import Spacer from '@/components/common/Spacer';
+import ValuesSection from '@/components/about-sections/v2/ValuesSection';
+import TeamSection from '@/components/about-sections/v2/TeamSection';
+import TestimonialsSection from '@/components/about-sections/v2/TestimonialsSection';
+import CTABannerSection from '@/components/about-sections/v2/CTABannerSection';
 
 export default function About() {
   return (
-    <Main>
-      <HeroSection />
-      <Company />
-      <Values />
-      <Statement />
-      <Testimonials />
-      <Footer />
-    </Main>
+    <main className="relative flex min-h-screen flex-col">
+      <HeroSectionv2 />
+      <Spacer size="xl" />
+      <CompanySection />
+      <Spacer size="xl" />
+      <ValuesSection />
+      <Spacer size="xl" />
+      <TeamSection />
+      <Spacer size="xl" />
+      <TestimonialsSection />
+      <Spacer size="xl" />
+      <CTABannerSection />
+    </main>
   );
 }
