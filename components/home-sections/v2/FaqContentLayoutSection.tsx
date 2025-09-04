@@ -64,10 +64,10 @@ export default function FaqContentLayoutSection() {
 
             <FaqItem title={"What does the onboarding and project startup process look like?"}>
               <p>Our onboarding process is designed to quickly transform your growth initiatives without burdening your team:</p>
-              <p><strong>Week 1: Discovery & Strategy</strong></p>
+              <p><strong>Week 1: Discovery &amp; Strategy</strong></p>
               <p>We begin with thorough research of your business, competitors, and audience before our kickoff meeting. We immerse ourselves in your brand positioning, messaging, and existing growth channels to develop a solid foundation of understanding. This preparation allows us to arrive at our first meeting with meaningful insights rather than basic questions.</p>
-              <p><strong>Week 2-3: Foundation & Calibration</strong></p>
-              <p>After aligning on objectives, we build your custom Content OS, setting up AI workflows tailored to your specific needs. We create initial content drafts for calibration, develop a comprehensive style guide, and establish production frameworks. During this phase, we'll collaborate closely to refine our approach, ensuring our outputs perfectly match your brand voice and strategic goals.</p>
+              <p><strong>Week 2-3: Foundation &amp; Calibration</strong></p>
+              <p>After aligning on objectives, we build your custom Content OS, setting up AI workflows tailored to your specific needs. We create initial content drafts for calibration, develop a comprehensive style guide, and establish production frameworks. During this phase, we&apos;ll collaborate closely to refine our approach, ensuring our outputs perfectly match your brand voice and strategic goals.</p>
               <p><strong>Week 4: Production Launch</strong></p>
               <p>Once calibrated, we immediately begin executing across your selected workstreams. Production starts within the first few weeks, as we prioritize quick wins to build momentum. Our rigorous quality assurance process combines AI-enhanced checks with expert human oversight from our managing editors and growth strategists.</p>
               <p>Throughout the entire process, we work as an extension of your team in Slack, providing daily updates and transparent communication. This approach ensures you maintain visibility without the burden of extensive meetings or management overhead.</p>
@@ -75,21 +75,21 @@ export default function FaqContentLayoutSection() {
             </FaqItem>
 
             <FaqItem title={"Who would be the GrowthX team member dedicated for the day-to-day?"}>
-              <p>Your day-to-day contact will be a dedicated Growth Strategist, someone with a proven track record in driving growth and managing content programs. They'll be your point of contact, deeply involved in everything from strategy to execution, ensuring that your growth initiatives are on track. They're supported by a managing editor and a team of experts working in sync to deliver results.</p>
+              <p>Your day-to-day contact will be a dedicated Growth Strategist, someone with a proven track record in driving growth and managing content programs. They&apos;ll be your point of contact, deeply involved in everything from strategy to execution, ensuring that your growth initiatives are on track. They&apos;re supported by a managing editor and a team of experts working in sync to deliver results.</p>
             </FaqItem>
 
             <FaqItem title={"Which KPIs should we measure? What would you consider success?"}>
-              <p>Our ultimate goal is to drive real revenue for your business, but we recognize that it starts by building effective content, gaining distribution, and then converting that distribution into paying customers. We focus on optimizing controllable inputs because doing so consistently leads to the right outcomes over time. Here's how we approach each stage:</p>
+              <p>Our ultimate goal is to drive real revenue for your business, but we recognize that it starts by building effective content, gaining distribution, and then converting that distribution into paying customers. We focus on optimizing controllable inputs because doing so consistently leads to the right outcomes over time. Here&apos;s how we approach each stage:</p>
               <p><strong>Phase 1 - Content Production</strong></p>
-              <p>The first priority is getting a content strategy in place that scales. We focus on KPIs that ensure we're generating enough valuable content to get noticed:</p>
+              <p>The first priority is getting a content strategy in place that scales. We focus on KPIs that ensure we&apos;re generating enough valuable content to get noticed:</p>
               <ul className="list-disc pl-6">
                 <li>Articles Published</li>
                 <li>Total Words Published</li>
                 <li>Pages Indexed by Search Engines</li>
-                <li>Keywords Ranked (early signals we're on the right track)</li>
+                <li>Keywords Ranked (early signals we&apos;re on the right track)</li>
               </ul>
-              <p><strong>Phase 2 - Distribution & Reach</strong></p>
-              <p>Once content is flowing, it's about ensuring people find and engage with it. This means nurturing and amplifying existing content to grow your audience and expand reach:</p>
+              <p><strong>Phase 2 - Distribution &amp; Reach</strong></p>
+              <p>Once content is flowing, it&apos;s about ensuring people find and engage with it. This means nurturing and amplifying existing content to grow your audience and expand reach:</p>
               <ul className="list-disc pl-6">
                 <li>Organic Search Impressions</li>
                 <li>Organic Search Traffic (clicks, visits)</li>
@@ -98,7 +98,7 @@ export default function FaqContentLayoutSection() {
                 <li>Domain Authority and Referring Domains</li>
               </ul>
               <p><strong>Phase 3 - Conversion to Leads</strong></p>
-              <p>Here, we leverage the reach we've established to create meaningful conversions. Our goal is to convert interest into real leads:</p>
+              <p>Here, we leverage the reach we&apos;ve established to create meaningful conversions. Our goal is to convert interest into real leads:</p>
               <ul className="list-disc pl-6">
                 <li>Visit → Subscriber / Lead Conversion</li>
                 <li>Conversion Rates by Offer, Page, or Topic</li>
