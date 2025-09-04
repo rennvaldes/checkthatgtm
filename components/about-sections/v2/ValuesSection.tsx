@@ -164,7 +164,7 @@ export default function ValuesSection() {
           leftContent={<div className="text-sm text-[#303030]">Values</div>}
           rightContent={
             <div className="flex flex-col gap-8 xl:gap-14">
-              <h2 className="text-black text-3xl md:text-5xl tracking-tighter">
+              <h2 className="text-black text-3xl lg:text-5xl tracking-tighter">
                 How we work
                 <br />
                 <span className="text-primary-gray">From strategy to output</span>
@@ -178,12 +178,12 @@ export default function ValuesSection() {
                   >
                     <div className="min-w-[60px] text-primary-gray font-light tracking-tight text-3xl flex flex-col md:col-span-4">
                       {v.number}
-                      <h4 className="text-primary-black text-3xl font-semibold mb-3 leading-[1] tracking-tighter">
+                      <h4 className="text-primary-black text-2xl lg:text-3xl font-semibold mb-3 leading-[1] tracking-tighter">
                         {v.title}
                       </h4>
                     </div>
                     <div className="md:col-span-8">
-                      <p className="text-2xl leading-[1.36] font-light text-[#303030]">{v.description}</p>
+                      <p className="text-lg lg:text-2xl leading-[1.36] font-light text-[#303030]">{v.description}</p>
                     </div>
                   </div>
                 ))}

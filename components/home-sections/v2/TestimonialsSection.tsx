@@ -119,7 +119,7 @@ export default function TestimonialsSection() {
           }
           rightContent={
             <div className="flex flex-col gap-8">
-              <h2 className="text-3xl md:text-5xl tracking-tighter">
+              <h2 className="text-3xl lg:text-5xl tracking-tighter">
                 Praise <br />
                 <span className="text-primary-gray">
                   Why our customers love us
@@ -135,7 +135,7 @@ export default function TestimonialsSection() {
           disableInnerPadding
           items={testimonials}
           renderSlide={(t) => (
-            <div className="p-8 border border-[#DCD9D5] h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
+            <div className="p-6 md:p-8 border border-[#DCD9D5] h-[320px] md:h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
               <div className="mb-6">
                 <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">
                   <Image

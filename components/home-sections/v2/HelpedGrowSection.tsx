@@ -30,13 +30,13 @@ const HelpedGrowSection = () => {
         <div className="container mx-auto px-4">
           <ContentLayout
             leftContent={
-              <div className="text-lg font-medium mb-4 md:mb-0">
+              <div className="text-lg font-medium">
                 Customers
               </div>
             }
             rightContent={
               <div className="w-full">
-                <h2 className="text-3xl tracking-tighter md:text-5xl mb-8 xl:mb-14">
+                <h2 className="text-3xl tracking-tighter lg:text-5xl mb-8 xl:mb-14">
                   Trusted by brilliant teams of all sizes <br /> 
                   <span className="text-primary-gray">
                     Join the world’s best operators
@@ -47,7 +47,7 @@ const HelpedGrowSection = () => {
                   {repeatedLogos.map((logo, index) => (
                     <div 
                       key={index} 
-                      className="flex items-center justify-center p-6 h-18 border border-gray-200 transition-colors duration-300"
+                      className="flex items-center justify-center p-4 md:p-6 border border-gray-200 transition-colors duration-300"
                     >
                       <div style={{ height: `${logo.height}px`, display: 'flex', alignItems: 'center' }}>
                         <Image

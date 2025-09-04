@@ -55,7 +55,7 @@ function ArticlesSectionV2() {
   const showingArticles = React.useMemo(() => articles?.slice(0, showUpTo) || [], [articles, showUpTo]);
 
   return (
-    <section className='mx-auto w-full pb-10 pt-10 lg:pb-[120px] lg:pt-[56px] px-6 xl:px-0'>
+    <section className='mx-auto w-full pb-10 pt-10 lg:pb-[120px] lg:pt-[56px] max-md:px-4'>
       <div className='mx-auto w-full container'>
         <div className='flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
           <div className='w-[320px] lg:flex-shrink-0'>

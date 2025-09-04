@@ -21,7 +21,7 @@ export default function HeroV2() {
               leftContent={<div>Pricing Model</div>}
               rightContent={
                 <div>
-                  <h1 className="text-[32px] md:text-[44px] xl:text-[96px] tracking-tighter">
+                  <h1 className="text-3xl lg:text-5xl xl:text-[96px] tracking-tighter">
                     <span className="text-primary-black">One subscription</span>
                     <br />
                     <span className="text-primary-gray font-light">
@@ -43,10 +43,10 @@ export default function HeroV2() {
                   <div className="text-sm md:text-base bg-black/10 w-fit text-center p-2.5 mb-6">
                     Starting at $12,000 per month
                   </div>
-                  <h2 className="text-[32px] md:text-[44px] lg:text-[48px] leading-[1] font-semibold tracking-tighter mb-5 text-primary-black">
+                  <h2 className="text-3xl lg:text-5xl leading-[1] font-semibold tracking-tighter mb-5 text-primary-black">
                     Let’s build an engine for AI‑led growth
                   </h2>
-                  <p className="text-[16px] md:text-xl lg:text-2xl leading-relaxed max-w-3xl text-[#303030]">
+                  <p className="text-lg lg:text-2xl leading-relaxed max-w-3xl text-[#303030]">
                     We build content systems that compound—designed for how
                     people find and consume today: SEO, AEO, GEO, AI assistants,
                     and beyond. A GrowthX subscription gives you access to our
@@ -69,7 +69,7 @@ export default function HeroV2() {
               </div>
 
               <div className="bg-transparent p-6 lg:p-9 min-h-[300px] lg:min-h-[570px] text-[#303030] border border-primary-gray">
-                <h3 className="text-[24px] md:text-[32px] lg:text-[36px] font-semibold tracking-tighter mb-6">
+                <h3 className="text-2xl lg:text-4xl font-semibold tracking-tighter mb-6">
                   Included in all plans
                 </h3>
                 <ul>
@@ -84,7 +84,7 @@ export default function HeroV2() {
                   ].map((item, idx) => (
                     <li
                       key={item}
-                      className={`flex items-center justify-between pt-4 pb-1 text-base md:text-lg ${
+                      className={`flex items-center justify-between pt-4 pb-1 text-base lg:text-lg ${
                         idx !== 0 ? "border-t border-primary-gray" : ""
                       }`}
                     >

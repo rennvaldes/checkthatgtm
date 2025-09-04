@@ -79,7 +79,7 @@ export default function TeamSection() {
           rightContent={
             <div className="flex flex-col">
               <div className="mb-6 xl:mb-10">
-                <h2 className="text-black text-3xl md:text-5xl tracking-tighter">
+                <h2 className="text-black text-3xl lg:text-5xl tracking-tighter">
                   We’re a team of world-class operators
                   <br />
                   <span className="text-primary-gray">Fully remote</span>
@@ -130,8 +130,8 @@ export default function TeamSection() {
               </div>
               <Spacer size="d164" />
               <div className="flex flex-col gap-6">
-                <h3 className="text-primary-black text-3xl md:text-5xl tracking-tighter font-medium">Leadership</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 xl:gap-y-10">
+                <h3 className="text-primary-black text-3xl lg:text-5xl tracking-tighter font-medium">Leadership</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 xl:gap-y-10">
                   {leadership.map((m) => (
                     <TeamMemberCard
                       key={`leader-${m.name}`}
@@ -147,7 +147,7 @@ export default function TeamSection() {
               </div>
               <Spacer size="d164" />
               <div className="flex flex-col gap-6 xl:gap-10">
-                <h3 className="text-primary-black text-3xl md:text-5xl tracking-tighter font-medium">Investors</h3>
+                <h3 className="text-primary-black text-3xl lg:text-5xl tracking-tighter font-medium">Investors</h3>
                 <div className="flex flex-col gap-8">
                   {investorGroups.map((group) => (
                     <div key={`inv-group-${group.firm}`} className="w-full">
@@ -155,7 +155,7 @@ export default function TeamSection() {
                         {group.firm === "Madrona" ? (
                           <img src={(MadronaLogo as any).src} alt="Madrona" className="h-8 md:h-10" />
                         ) : (
-                          <h4 className="text-primary-black text-3xl md:text-5xl tracking-tighter font-semibold">
+                          <h4 className="text-primary-black text-3xl lg:text-5xl tracking-tighter font-semibold">
                             {group.firm}
                           </h4>
                         )}
@@ -166,8 +166,8 @@ export default function TeamSection() {
                             key={`inv-${group.firm}-${idx}`}
                             className="pt-3 pb-1 grid grid-cols-1 md:grid-cols-2 items-center gap-x-12 md:gap-x-16"
                           >
-                            <div className="text-primary-black text-xl">{inv.name}</div>
-                            <div className="text-primary-black text-xl font-light">{inv.role}</div>
+                            <div className="text-primary-black text-lg lg:text-xl">{inv.name}</div>
+                            <div className="text-primary-black text-lg lg:text-xl font-light">{inv.role}</div>
                           </div>
                         ))}
                       </div>

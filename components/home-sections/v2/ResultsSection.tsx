@@ -100,7 +100,7 @@ function ResultsSection() {
           }
           rightContent={
             <div className="flex flex-col gap-8">
-              <h2 className="text-3xl md:text-5xl tracking-tighter">
+              <h2 className="text-3xl lg:text-5xl tracking-tighter">
                 High performance strategy & production <br />
                 <span className="text-primary-gray">
                   Our results speak for themselves
@@ -113,7 +113,7 @@ function ResultsSection() {
       </div>
 
       <AlignedLeft
-        className="px-4 md:px-0"
+        className="px-4"
         options={{ containerMax: 1440, gutter: 16, cols: 12, leftCols: 2, offset: -290, minApplyWidth: 768 }}
       >
         <TestimonialsCarousel
@@ -121,7 +121,7 @@ function ResultsSection() {
           items={results}
           renderSlide={(result) => (
             <div 
-              className="p-8 border border-[#DCD9D5] h-[540px] flex flex-col gap-40 lg:min-w-[520px] lg:max-w-[521px]"
+              className="p-6 md:p-8 border border-[#DCD9D5] h-[340px] md:h-[540px] flex flex-col gap-8 md:gap-40 lg:min-w-[520px] lg:max-w-[521px]"
             >
               <div className="mb-6">
                 <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">

@@ -145,9 +145,9 @@ export default function SolutionsSection() {
       <div className="container mx-auto px-4">
         <ContentLayout
           className="items-start"
-          leftContent={<div className="text-sm text-[#303030]">Solutions</div>}
+          leftContent={<div className="text-lg font-medium text-[#303030]">Solutions</div>}
           rightContent={
-            <h2 className="text-black text-3xl md:text-5xl tracking-tighter">
+            <h2 className="text-black text-3xl lg:text-5xl tracking-tighter">
             AI-native marketing <br />
             <span className="text-primary-gray">
               For companies in hypergrowth 
@@ -156,7 +156,7 @@ export default function SolutionsSection() {
         }
         leftClassName="md:text-base"
         description="With human expertise and AI working in sync, we deliver insights and content that fuel momentum, amplify your voice, and accelerate growth."
-        descriptionClassName="text-primary-black text-2xl mt-6 md:mt-8 xl:mt-9"
+        descriptionClassName="text-primary-black text-lg lg:text-2xl mt-6 md:mt-8 xl:mt-9"
       />
       </div>
       <Spacer size="xl" />
@@ -207,7 +207,7 @@ export default function SolutionsSection() {
                     {section.items.map(({ title, Icon }) => (
                       <div key={title} className="bg-[#E6E3DE] border border-primary-gray p-4 md:p-5 min-h-[88px]">
                         <Icon className="w-5 h-5" />
-                        <div className="mt-3 text-primary-black font-semibold tracking-tighter leading-tight text-[26px]">{title}</div>
+                        <div className="mt-3 text-primary-black font-semibold tracking-tighter leading-tight text-xl lg:text-2xl">{title}</div>
                       </div>
                     ))}
                   </div>

@@ -11,7 +11,7 @@ export default function HeroSectionv2() {
           leftContent={<div>Company</div>}
           rightContent={
             <div>
-              <h1 className="text-[32px] md:text-[44px] xl:text-[96px] tracking-tighter">
+              <h1 className="text-4xl lg:text-5xl xl:text-[96px] tracking-tighter">
                 <span className="text-primary-black">Reimagining</span>
                 <br />
                 <span className="text-primary-gray font-light">Service as Software</span>
@@ -19,7 +19,7 @@ export default function HeroSectionv2() {
             </div>
           }
           description="High-quality content production in 6 weeks. Publishing 12 articles per week across multiple topic categories."
-          descriptionClassName="mt-12 text-xl max-w-[520px]"
+          descriptionClassName="mt-12 text-lg lg:text-2xl max-w-[520px]"
           ctaButton={{
             text: "Join our Mission",
             href: "/book-demo",

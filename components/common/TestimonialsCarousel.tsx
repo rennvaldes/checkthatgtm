@@ -17,6 +17,7 @@ export type TestimonialsCarouselProps<T = any> = {
   loop?: boolean;
   pauseOnHover?: boolean;
   disableInnerPadding?: boolean;
+  itemClassName?: string;
 };
 
 export default function TestimonialsCarousel<T = any>({
@@ -42,6 +43,7 @@ export default function TestimonialsCarousel<T = any>({
   loop = true,
   pauseOnHover = true,
   disableInnerPadding = false,
+  itemClassName,
 }: TestimonialsCarouselProps<T>) {
   // Note: Swiper-specific props are kept for API compatibility but not used.
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
@@ -83,7 +85,7 @@ export default function TestimonialsCarousel<T = any>({
         ].join(" ")}
       >
         <Carousel
-          className="bg-transparent"
+          className="bg-transparent max-md:px-4"
           setApi={setCarouselApi}
           opts={{ align: "start", slidesToScroll: 1, startIndex: 0 }}
         >
@@ -91,7 +93,7 @@ export default function TestimonialsCarousel<T = any>({
             {items.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="basis-auto first-of-type:pl-4 last-of-type:pr-4"
+                className={`${itemClassName ?? "basis-auto"} first-of-type:pl-4 last-of-type:pr-4`}
               >
                 {renderSlide(item, index)}
               </CarouselItem>

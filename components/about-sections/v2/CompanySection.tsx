@@ -92,8 +92,7 @@ export default function CompanySection({
         >
 
           <div
-            className="whitespace-pre-wrap tracking-tighter leading-snug max-w-[950px] mx-auto"
-            style={{ fontSize: "42px" }}
+            className="whitespace-pre-wrap tracking-tighter leading-snug text-2xl lg:text-[42px] max-w-[950px] mx-auto"
           >
             <div className="relative w-[137px] h-[30px] mb-8">
               <Image src={GrowthxLogo} alt="GrowthX" fill className="object-contain" sizes="137px" />

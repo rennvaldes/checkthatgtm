@@ -65,18 +65,18 @@ function ServiceAsSoftware() {
           }
           rightContent={
             <div className="flex flex-col gap-8 xl:gap-14">
-              <h2 className="max-w-2xl tracking-tighter text-3xl md:text-5xl">
+              <h2 className="max-w-2xl tracking-tighter text-3xl lg:text-5xl">
                 AI Service-as-Software <br />
                 <span className="text-primary-gray">
                   Beyond SaaS or agencies
                 </span>
               </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
                 {comparisonData.map((category, index) => (
                   <div
                     key={index}
                     className={`
-                      p-8 min-h-[600px] border border-[#DCD9D5]
+                      p-6 md:p-8 md:min-h-[600px] border border-[#DCD9D5]
                       ${category.type === "highlight" ? "bg-[#FFCC00]" : "bg-transparent"}
                       ${category.type === "highlight" ? "border-none" : ""}
                     `}
@@ -91,17 +91,17 @@ function ServiceAsSoftware() {
                         />
                       </div>
                     ) : (
-                      <h4 className="text-4xl tracking-tighter font-semibold mb-6 text-primary-black">
+                      <h4 className="text-2xl lg:text-4xl tracking-tighter font-semibold mb-6 text-primary-black">
                         {category.title}
                       </h4>
                     )}
-                    <p className="text-2xl font-light text-[#303030] mb-8">
+                    <p className="text-lg lg:text-2xl max-lg:leading-6 font-light text-[#303030] mb-8">
                       {category.description}
                     </p>
                     <ul className="space-y-4">
                       {category.characteristics.map((char, idx) => (
                         <li key={idx} className="flex items-start font-light gap-3">
-                          <span className="text-xl leading-[1.44] text-[#303030]">
+                          <span className="text-lg lg:text-xl leading-[1.44] text-[#303030]">
                             {char}
                           </span>
                         </li>

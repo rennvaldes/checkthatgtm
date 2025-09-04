@@ -63,9 +63,9 @@ const cards: Card[] = [
 
 function BulletList({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-3">
+    <ul className="space-y-2 lg:space-y-3">
       {items.map((item, i) => (
-        <li key={i} className="text-black text-[24px] tracking-tight">
+        <li key={i} className="text-black text-lg lg:text-[24px] tracking-tight">
           <span className="mr-1">→</span>
           {item}
         </li>
@@ -82,7 +82,7 @@ export default function PricingSection() {
           leftContent={<div className="text-lg font-medium mb-4 md:mb-0">Pricing</div>}
           rightContent={
             <div className="flex flex-col gap-3">
-              <h2 className="text-4xl md:text-5xl tracking-tighter">
+              <h2 className="text-4xl lg:text-5xl tracking-tighter">
                 Custom plans that fit your scale <br />
                 <span className="text-primary-gray">
                   Extend your team and get outcomes, not tools
@@ -93,24 +93,24 @@ export default function PricingSection() {
         />
         <Spacer size="medium" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {cards.map((card, idx) => (
             <div
               key={card.number}
               className="bg-[#E6E3DE] border border-[#DCD9D5] p-6 md:p-8 h-full text-2xl tracking-tighter"
             >
-              <div className="text-black text-[32px] tracking-tight mb-6">{card.number}</div>
-              <h3 className="text-[36px] font-semibold text-black mb-2 tracking-tighter">
+              <div className="text-black text-2xl lg:text-[32px] tracking-tight mb-6">{card.number}</div>
+              <h3 className="text-2xl lg:text-[36px] font-semibold text-black mb-2 tracking-tighter">
                 {card.title}
               </h3>
-              <p className="text-primary-gray tracking-tighter mb-8">{card.subtitle}</p>
+              <p className="text-primary-gray text-lg lg:text-[24px] tracking-tighter mb-8">{card.subtitle}</p>
               <div className="mb-6">
-                <div className="text-primary-gray mb-3">You get:</div>
+                <div className="text-primary-gray text-lg lg:text-[24px] mb-3">You get:</div>
                 <BulletList items={card.youGet} />
               </div>
 
               <div className="mt-12 lg:mt-18">
-                <div className="text-primary-gray mb-3">Workstreams:</div>
+                <div className="text-primary-gray text-lg lg:text-[24px] mb-3">Workstreams:</div>
                 <BulletList items={card.workstreams} />
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function PricingSection() {
         <Spacer size="medium" />
 
         <div className="flex justify-center">
-          <div className="w-full md:w-[560px]">
+          <div className="w-full md:w-1/2 lg:w-[560px]">
             <Button href="/contact" fullWidth size="lg">
               Reserve your spot
             </Button>

@@ -14,7 +14,7 @@ export default function ExpertsV2() {
       <div className="container mx-auto px-4">
         <ContentLayout
           className="items-start mb-8 md:mb-12"
-          leftContent={<div className="text-sm text-[#303030]">Team</div>}
+          leftContent={<div className="text-lg text-[#303030]">Team</div>}
           rightContent={
             <h2 className="text-black text-3xl md:text-5xl tracking-tighter">
               Exclusive access to a <br />

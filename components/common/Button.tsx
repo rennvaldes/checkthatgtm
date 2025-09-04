@@ -17,6 +17,7 @@ type ButtonProps = {
   borderFrom?: string;
   borderTo?: string;
   textColorClass?: string;
+  innerClassName?: string;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
 };
@@ -50,6 +51,7 @@ export default function Button({
   borderFrom,
   borderTo,
   textColorClass,
+  innerClassName,
   disabled,
   type = "button",
 }: ButtonProps) {
@@ -96,6 +98,7 @@ export default function Button({
           : isOutline
           ? "bg-transparent text-ui-black"
           : "",
+        innerClassName ?? "",
       ]
         .filter(Boolean)
         .join(" ")}

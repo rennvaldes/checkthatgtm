@@ -19,7 +19,7 @@ function DesktopArticlesV2({ cardsData, isLoading }: Props) {
       <div className="mt-10 flex w-full flex-col gap-20 lg:mt-16">
         {rows.map((row, rowIndex) => (
           <React.Fragment key={rowIndex}>
-            <div className="grid grid-cols-1 gap-4 px-6 xl:px-0 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               {row.map(card => (
                 <BlogCard isLoading={isLoading} key={card.documentId} className="!mt-0 w-full" {...card} />
               ))}

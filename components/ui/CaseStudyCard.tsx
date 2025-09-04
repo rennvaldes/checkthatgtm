@@ -28,13 +28,13 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
         <div className="absolute inset-0 group-hover:bg-black/20 transition-colors duration-300" />
       </div>
       
-      <div className="relative z-10 h-full flex flex-col justify-between p-6 text-white">
-        <div className="inline-flex items-center px-3 py-1.5 text-lg text-white">
+      <div className="relative z-10 h-full flex flex-col justify-between p-4 lg:p-6 text-white">
+        <div className="inline-flex items-center px-3 py-1.5 text-base lg:text-lg text-white">
           {badge}
         </div>
         
         <div>
-          <h3 className="text-3xl lg:text-5xl font-medium tracking-tighter leading-[0.96] cursor-pointer">
+          <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium tracking-tighter leading-[0.96] cursor-pointer">
             {title}
           </h3>
         </div>

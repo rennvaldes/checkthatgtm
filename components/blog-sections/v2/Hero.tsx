@@ -8,12 +8,12 @@ function BlogHeroV2() {
   const description = 'Updates, interviews, stories, and everything from the business, team, and industry.';
 
   return (
-    <section className="w-full px-6 xl:px-0">
+    <section className="w-full max-md:px-4 max-md:pt-10">
       <div className="container mx-auto w-full">
         <ContentLayout
           leftContent={<span>Blog</span>}
           rightContent={
-            <h1 className="text-primary-black tracking-tighter text-[56px] leading-[0.95] font-semibold lg:text-[120px]">
+            <h1 className="text-primary-black tracking-tighter text-4xl lg:text-[96px] leading-[0.95] font-semibold ">
               {title}
             </h1>
           }

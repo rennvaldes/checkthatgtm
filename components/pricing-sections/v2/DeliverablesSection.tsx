@@ -19,7 +19,7 @@ export default function DeliverablesSection() {
       <div className="mx-auto w-full max-w-[calc(100vw-32px)] lg:max-w-[1280px]">
         <div className="text-left max-w-[35rem] lg:max-w-[60.5rem]">
           <h3 className="text-ui-blue text-lg font-medium mb-1">Included workstreams</h3>
-          <h4 className="font-clash-display text-black text-[1.75rem] font-medium leading-[1.9375rem] w-[90%] lg:text-[3.25rem] lg:leading-[3.5rem]">
+          <h4 className="text-black text-3xl lg:text-5xl leading-tight tracking-tighter w-[90%]">
             A complete growth system
           </h4>
         </div>

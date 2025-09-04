@@ -15,7 +15,7 @@ function HeroSection() {
             leftContent={<div>Experts + AI</div>}
             rightContent={
               <div>
-                <h1 className="text-[32px] md:text-[44px] xl:text-[96px] tracking-tighter">
+                <h1 className="text-[40px] md:text-[60px] xl:text-[96px] tracking-tighter">
                   <span className="text-primary-black">
                     Expert-led
                   </span>
@@ -34,21 +34,21 @@ function HeroSection() {
       <section>
         <Spacer size="d88" />
         <div className="container mx-auto px-4">
-          <div className="gap-10 grid grid-cols-2">
-            <div className="bg-primary-black p-10 min-h-[790px] flex flex-col justify-between">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+            <div className="bg-primary-black p-6 md:p-10 md:min-h-[790px] flex flex-col justify-between">
               <div className="text-[#F1EEE9] text-lg tracking-tight">
                 Solutions
               </div>
               <div>
-                <h2 className="text-white text-[32px] md:text-[36px] xl:text-[64px] leading-[0.96] font-semibold tracking-tighter mb-5">
+                <h2 className="text-white text-[25px] md:text-[30px] xl:text-[64px] leading-[0.96] font-semibold tracking-tighter mb-5">
                   We build growth engines that blend AI workflows with experts
                 </h2>
-                <p className="text-[#EEEEEE] text-2xl tracking-tight font-light mb-5 max-w-3xl">
+                <p className="text-[#EEEEEE] text-lg lg:text-2xl tracking-tight font-light mb-5 max-w-3xl">
                   From content to distribution to conversion
                 </p>
                 <a
                   href="#"
-                  className="text-[#818EFF] text-2xl font-medium tracking-tight hover:underline"
+                  className="text-[#818EFF] text-lg lg:text-2xl font-medium tracking-tight hover:underline"
                 >
                   <span className="inline-flex items-center gap-2">
                     Reserve your spot
@@ -57,7 +57,7 @@ function HeroSection() {
                 </a>
               </div>
             </div>
-            <div className="bg-primary-black p-10 min-h-[790px] flex flex-col justify-between relative overflow-hidden">
+            <div className="bg-primary-black p-6 md:p-10 max-sm:min-h-[560px] min-h-[790px] flex flex-col justify-between relative overflow-hidden">
               <div className="text-[#F1EEE9] text-lg tracking-tight">
                 Platform
               </div>
@@ -67,12 +67,12 @@ function HeroSection() {
                 className="absolute right-0 top-1/2 -translate-y-1/2 w-[95%] object-contain object-right-bottom"
               />
               <div>
-                <h2 className="text-white text-[32px] md:text-[36px] xl:text-[40px] font-semibold tracking-tight mb-5">
+                <h2 className="text-white text-2xl lg:text-[36px] xl:text-[40px] font-semibold tracking-tight mb-5">
                   Unlock revenue growth
                 </h2>
                 <a
                   href="#"
-                  className="text-[#818EFF] text-2xl font-medium tracking-tight hover:underline"
+                  className="text-[#818EFF] text-lg lg:text-2xl font-medium tracking-tight hover:underline"
                 >
                   <span className="inline-flex items-center gap-2">
                     Get a demo

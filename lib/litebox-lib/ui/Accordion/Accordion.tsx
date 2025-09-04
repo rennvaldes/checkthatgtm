@@ -63,7 +63,7 @@ const Accordion = ({ id, title, variant = 'outlined', isOpen = false, content, c
       <label
         htmlFor={id}
         className={cn(
-          'flex justify-between py-[34px] cursor-pointer transition-colors duration-200',
+          'flex justify-between py-4 lg:py-[24px] cursor-pointer transition-colors duration-200',
           'peer-checked:text-ui-blue',
           'font-clash-display'
         )}

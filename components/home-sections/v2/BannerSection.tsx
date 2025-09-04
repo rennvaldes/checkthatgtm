@@ -21,7 +21,7 @@ export default function BannerSection() {
       </div>
 
       <div className="max-w-2xl">
-        <blockquote className={`${livretText.className} text-white tracking-tight text-2xl font-light leading-[1.4]`}>
+        <blockquote className={`${livretText.className} text-white tracking-tight text-lg lg:text-2xl font-light leading-[1.4]`}>
           “GrowthX exists to help great companies grow by turning content into a
           real, repeatable engine. We’ve helped teams at Superhuman, Webflow,
           Ramp, Deepgram, Reddit, and Abnormal—companies that don’t settle for
@@ -32,13 +32,14 @@ export default function BannerSection() {
         </blockquote>
 
         <div className="mt-12 flex items-center gap-8">
-          <div className="text-white/80 leading-tight tracking-tight text-lg">
+          <div className="text-white/80 leading-tight tracking-tight text-md lg:text-lg">
             <div className="font-medium">Marcel Santilli</div>
             <div className="text-primary-gray">CEO, GrowthX</div>
           </div>
           <Button
             href="/contact"
-            size="md"
+            size="sm"
+            innerClassName="lg:px-6 lg:py-3 lg:text-base"
             fillFrom="#FF6493"
             fillTo="#D41651"
             borderFrom="#FF6493"
@@ -46,7 +47,7 @@ export default function BannerSection() {
           >
             <span className="inline-flex items-center gap-2">
               <span>View my schedule</span>
-              <ArrowRight16 className="w-4 h-4" />
+              <ArrowRight16 className="w-3 h-3 lg:w-4 lg:h-4" />
             </span>
           </Button>
         </div>

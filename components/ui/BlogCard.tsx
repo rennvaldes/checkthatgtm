@@ -42,7 +42,7 @@ function BlogCard({
         {isLoading ? (
           <Skeleton className='absolute left-4 top-4 h-[32px] w-[160px] rounded-none' />
         ) : (
-          <div className='absolute left-4 top-4 lg:left-9 lg:top-9 border border-[#F1EEE9] p-3 text-[20px] font-light text-[#F1EEE9] rounded-none bg-transparent'>
+          <div className='absolute left-4 top-4 lg:left-9 lg:top-9 border border-[#F1EEE9] p-2 lg:p-3 text-base lg:text-2xl font-light text-[#F1EEE9] rounded-none bg-transparent'>
             {category}
           </div>
         )}

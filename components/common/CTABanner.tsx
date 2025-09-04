@@ -36,9 +36,9 @@ export default function CTABanner({
 
   bgClassName = "bg-[#FFD83E]",
   containerClassName = "w-full",
-  titleClassName = "text-[48px] md:text-[72px] lg:text-[96px] font-semibold tracking-tighter leading-[0.96] text-primary-black text-center",
+  titleClassName = "text-4xl md:text-[72px] lg:text-[96px] font-semibold tracking-tighter leading-[0.96] text-primary-black text-center",
   descriptionClassName = "text-primary-black/80 text-sm md:text-base lg:text-lg text-center max-w-3xl mx-auto",
-  buttonsWrapperClassName = "flex items-center justify-center gap-3 md:gap-4",
+  buttonsWrapperClassName = "flex items-center justify-center gap-3 md:gap-4 max-sm:flex-col",
 
   primaryButton,
   secondaryButton,
