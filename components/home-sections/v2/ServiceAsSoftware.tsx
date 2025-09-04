@@ -64,8 +64,8 @@ function ServiceAsSoftware() {
             </div>
           }
           rightContent={
-            <div className="flex flex-col gap-8">
-              <h2 className="max-w-2xl text-3xl md:text-5xl">
+            <div className="flex flex-col gap-8 xl:gap-14">
+              <h2 className="max-w-2xl tracking-tighter text-3xl md:text-5xl">
                 AI Service-as-Software <br />
                 <span className="text-primary-gray">
                   Beyond SaaS or agencies
@@ -91,7 +91,7 @@ function ServiceAsSoftware() {
                         />
                       </div>
                     ) : (
-                      <h4 className="text-4xl font-semibold mb-6 text-primary-black">
+                      <h4 className="text-4xl tracking-tighter font-semibold mb-6 text-primary-black">
                         {category.title}
                       </h4>
                     )}
@@ -113,7 +113,6 @@ function ServiceAsSoftware() {
             </div>
           }
         />
-        <Spacer size="xl" />
       </div>
     </section>
   );

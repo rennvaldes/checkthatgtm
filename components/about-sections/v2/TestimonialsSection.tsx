@@ -6,6 +6,7 @@ import ContentLayout from "@/components/layout/ContentLayout";
 import Spacer from "@/components/common/Spacer";
 import Image from "next/image";
 import TestimonialsCarousel from "@/components/common/TestimonialsCarousel";
+import AlignedLeft from "@/components/common/AlignedLeft";
 
 type Testimonial = {
   logo: { src: string; alt: string };
@@ -100,7 +101,6 @@ export default function TestimonialsSection() {
 
   return (
     <section className="overflow-hidden">
-      <Spacer size="xxl" />
       <div className="container mx-auto px-4">
         <ContentLayout
           leftContent={
@@ -108,7 +108,7 @@ export default function TestimonialsSection() {
           }
           rightContent={
             <div className="flex flex-col gap-8">
-              <h2 className="text-3xl md:text-5xl">
+              <h2 className="text-3xl md:text-5xl tracking-tighter">
                 Praise <br />
                 <span className="text-primary-gray">
                   Why our customers love us
@@ -119,38 +119,42 @@ export default function TestimonialsSection() {
         />
       </div>
 
-      <TestimonialsCarousel
-        className="py-8"
-        items={testimonials}
-        renderSlide={(t) => (
-          <div className="p-8 border border-[#DCD9D5] h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
-            <div className="mb-6">
-              <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">
-                <Image
-                  src={t.logo.src}
-                  alt={t.logo.alt}
-                  fill
-                  sizes="160px"
-                  className="object-contain"
-                />
+      <AlignedLeft
+        className="px-4 md:px-0"
+        options={{ containerMax: 1440, gutter: 16, cols: 12, leftCols: 2, offset: -290, minApplyWidth: 768 }}
+      >
+        <TestimonialsCarousel
+          className="py-8"
+          disableInnerPadding
+          items={testimonials}
+          renderSlide={(t) => (
+            <div className="p-8 border border-[#DCD9D5] h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
+              <div className="mb-6">
+                <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">
+                  <Image
+                    src={t.logo.src}
+                    alt={t.logo.alt}
+                    fill
+                    sizes="160px"
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              <p className={`${livretText.className} text-[24px] font-light leading-[1.3] tracking-tight text-[#151515]`}>
+                “{t.quote}”
+              </p>
+
+              <div className="flex items-center gap-3">
+                <div className="tracking-tight text-base leading-[1.2]">
+                  <div className="font-semibold text-[#151515]">{t.authorName}</div>
+                  <div className="text-primary-gray">{t.authorTitle}</div>
+                </div>
               </div>
             </div>
-
-            <p className={`${livretText.className} text-[24px] font-light leading-[1.3] tracking-tight text-[#151515]`}>
-              “{t.quote}”
-            </p>
-
-            <div className="flex items-center gap-3">
-              <div className="tracking-tight text-base leading-[1.2]">
-                <div className="font-semibold text-[#151515]">{t.authorName}</div>
-                <div className="text-primary-gray">{t.authorTitle}</div>
-              </div>
-            </div>
-          </div>
-        )}
-      />
-
-      <Spacer size="xl" />
+          )}
+        />
+      </AlignedLeft>
     </section>
   );
 }

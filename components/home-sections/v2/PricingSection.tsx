@@ -82,7 +82,7 @@ export default function PricingSection() {
           leftContent={<div className="text-lg font-medium mb-4 md:mb-0">Pricing</div>}
           rightContent={
             <div className="flex flex-col gap-3">
-              <h2 className="text-4xl md:text-5xl">
+              <h2 className="text-4xl md:text-5xl tracking-tighter">
                 Custom plans that fit your scale <br />
                 <span className="text-primary-gray">
                   Extend your team and get outcomes, not tools
@@ -91,7 +91,7 @@ export default function PricingSection() {
             </div>
           }
         />
-        <Spacer size="large" />
+        <Spacer size="medium" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {cards.map((card, idx) => (
@@ -100,10 +100,10 @@ export default function PricingSection() {
               className="bg-[#E6E3DE] border border-[#DCD9D5] p-6 md:p-8 h-full text-2xl tracking-tighter"
             >
               <div className="text-black text-[32px] tracking-tight mb-6">{card.number}</div>
-              <h3 className="text-[36px] font-semibold text-black mb-2">
+              <h3 className="text-[36px] font-semibold text-black mb-2 tracking-tighter">
                 {card.title}
               </h3>
-              <p className="text-primary-gray mb-8">{card.subtitle}</p>
+              <p className="text-primary-gray tracking-tighter mb-8">{card.subtitle}</p>
               <div className="mb-6">
                 <div className="text-primary-gray mb-3">You get:</div>
                 <BulletList items={card.youGet} />
@@ -117,7 +117,7 @@ export default function PricingSection() {
           ))}
         </div>
 
-        <Spacer size="large" />
+        <Spacer size="medium" />
 
         <div className="flex justify-center">
           <div className="w-full md:w-[560px]">
@@ -126,8 +126,6 @@ export default function PricingSection() {
             </Button>
           </div>
         </div>
-
-        <Spacer size="xl" />
       </div>
     </section>
   );

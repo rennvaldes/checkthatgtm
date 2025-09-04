@@ -48,8 +48,8 @@ function ProcessSection() {
             </div>
           }
           rightContent={
-            <div className="flex flex-col gap-8">
-              <h2 className="max-w-2xl text-3xl md:text-5xl">
+            <div className="flex flex-col gap-8 xl:gap-14">
+              <h2 className="max-w-2xl text-3xl md:text-5xl tracking-tighter">
                 How we work <br />
                 <span className="text-primary-gray">
                   From strategy to output
@@ -80,7 +80,6 @@ function ProcessSection() {
             </div>
           }
         />
-        <Spacer size="xl" />
       </div>
     </section>
   );

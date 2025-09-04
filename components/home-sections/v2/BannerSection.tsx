@@ -11,9 +11,9 @@ export default function BannerSection() {
   return (
     <FullWidthBanner
       backgroundImageSrc={FromTheFounder}
-      overlayClassName="bg-black/35"
-      className="py-12 md:py-16 lg:py-20"
-      contentClassName="min-h-[320px] md:min-h-[380px] lg:min-h-[460px] xl:min-h-[560px] 2xl:min-h-[800px] flex flex-col justify-between"
+      overlayClassName=""
+      className="py-12"
+      contentClassName="min-h-[320px] md:min-h-[380px] lg:min-h-[460px] xl:min-h-[560px] 2xl:min-h-[600px] flex flex-col justify-between"
       priorityImage
     >
       <div className="text-white/80 text-lg tracking-tight mb-4">
@@ -32,7 +32,7 @@ export default function BannerSection() {
         </blockquote>
 
         <div className="mt-12 flex items-center gap-8">
-          <div className="text-white/80 tracking-tight text-lg">
+          <div className="text-white/80 leading-tight tracking-tight text-lg">
             <div className="font-medium">Marcel Santilli</div>
             <div className="text-primary-gray">CEO, GrowthX</div>
           </div>

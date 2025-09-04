@@ -11,6 +11,7 @@ import Experts3Image from "@/assets/img/AboutSection/experts-3.png";
 import expertsData from "@/components/pricing-sections/ExpertsSection/expertsData";
 import MadronaLogo from "@/assets/img/v2/madrona-logo.png";
 import TeamMemberCard from "@/components/common/TeamMemberCard";
+import Spacer from "@/components/common/Spacer";
 
 export default function TeamSection() {
   const CAROUSEL_IMAGES = [Experts1Image.src, Experts2Image.src, Experts3Image.src];
@@ -76,9 +77,9 @@ export default function TeamSection() {
           className="items-start"
           leftClassName="md:text-base"
           rightContent={
-            <div className="flex flex-col gap-10">
-              <div>
-                <h2 className="text-black text-3xl md:text-5xl">
+            <div className="flex flex-col">
+              <div className="mb-6 xl:mb-10">
+                <h2 className="text-black text-3xl md:text-5xl tracking-tighter">
                   We’re a team of world-class operators
                   <br />
                   <span className="text-primary-gray">Fully remote</span>
@@ -127,10 +128,10 @@ export default function TeamSection() {
                   </KitButton>
                 </div>
               </div>
-
+              <Spacer size="d164" />
               <div className="flex flex-col gap-6">
                 <h3 className="text-primary-black text-3xl md:text-5xl tracking-tighter font-medium">Leadership</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 xl:gap-y-10">
                   {leadership.map((m) => (
                     <TeamMemberCard
                       key={`leader-${m.name}`}
@@ -144,8 +145,8 @@ export default function TeamSection() {
                   ))}
                 </div>
               </div>
-
-              <div className="flex flex-col gap-6">
+              <Spacer size="d164" />
+              <div className="flex flex-col gap-6 xl:gap-10">
                 <h3 className="text-primary-black text-3xl md:text-5xl tracking-tighter font-medium">Investors</h3>
                 <div className="flex flex-col gap-8">
                   {investorGroups.map((group) => (
@@ -159,11 +160,11 @@ export default function TeamSection() {
                           </h4>
                         )}
                       </div>
-                      <div className="divide-y divide-primary-gray">
+                      <div className="divide-y divide-primary-gray border-b border-primary-gray">
                         {group.people.map((inv, idx) => (
                           <div
                             key={`inv-${group.firm}-${idx}`}
-                            className="py-3 grid grid-cols-1 md:grid-cols-2 items-center gap-x-12 md:gap-x-16"
+                            className="pt-3 pb-1 grid grid-cols-1 md:grid-cols-2 items-center gap-x-12 md:gap-x-16"
                           >
                             <div className="text-primary-black text-xl">{inv.name}</div>
                             <div className="text-primary-black text-xl font-light">{inv.role}</div>

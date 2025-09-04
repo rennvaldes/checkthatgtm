@@ -16,6 +16,7 @@ export type TestimonialsCarouselProps<T = any> = {
   speed?: number;
   loop?: boolean;
   pauseOnHover?: boolean;
+  disableInnerPadding?: boolean;
 };
 
 export default function TestimonialsCarousel<T = any>({
@@ -40,6 +41,7 @@ export default function TestimonialsCarousel<T = any>({
   speed = 1000,
   loop = true,
   pauseOnHover = true,
+  disableInnerPadding = false,
 }: TestimonialsCarouselProps<T>) {
   // Note: Swiper-specific props are kept for API compatibility but not used.
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
@@ -74,24 +76,29 @@ export default function TestimonialsCarousel<T = any>({
 
   return (
     <div className={`relative w-full ${className ?? ""}`}>
-      <div className="flex flex-col gap-6 lg:gap-10 lg:max-w-[1920px] lg:pl-[clamp(62px,_calc((100vw_-_1440px)_/_2_+_62px),201px)]">
+      <div
+        className={[
+          "flex flex-col gap-6",
+          disableInnerPadding ? "max-w-none px-0" : "max-w-[2320px] mx-auto px-4",
+        ].join(" ")}
+      >
         <Carousel
           className="bg-transparent"
           setApi={setCarouselApi}
           opts={{ align: "start", slidesToScroll: 1, startIndex: 0 }}
         >
-          <CarouselContent>
+          <CarouselContent className="-mr-4">
             {items.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="basis-auto first-of-type:pl-4 lg:pl-8"
+                className="basis-auto first-of-type:pl-4 last-of-type:pr-4"
               >
                 {renderSlide(item, index)}
               </CarouselItem>
             ))}
           </CarouselContent>
         </Carousel>
-        <div className="flex w-min gap-11 lg:gap-7">
+        <div className="flex w-min gap-11">
           <KitButton
             variant="secondary"
             size="custom"

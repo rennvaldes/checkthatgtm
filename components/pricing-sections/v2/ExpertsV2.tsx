@@ -4,18 +4,19 @@ import Image from "next/image";
 import ContentLayout from "@/components/layout/ContentLayout";
 import expertsData from "@/components/pricing-sections/ExpertsSection/expertsData";
 import TeamMemberCard from "@/components/common/TeamMemberCard";
+import Spacer from "@/components/common/Spacer";
 
 export default function ExpertsV2() {
   const list = expertsData; // reuse existing data
 
   return (
-    <section className="py-16 lg:py-24" id="experts-section-v2">
+    <section id="experts-section-v2">
       <div className="container mx-auto px-4">
         <ContentLayout
           className="items-start mb-8 md:mb-12"
           leftContent={<div className="text-sm text-[#303030]">Team</div>}
           rightContent={
-            <h2 className="text-black text-3xl md:text-5xl">
+            <h2 className="text-black text-3xl md:text-5xl tracking-tighter">
               Exclusive access to a <br />
               <span className="text-primary-gray">
                 network of experts
@@ -98,7 +99,7 @@ export default function ExpertsV2() {
             </div>
           </div>
         </div>
-
+      <Spacer size="xl" />
     </section>
   );
 }

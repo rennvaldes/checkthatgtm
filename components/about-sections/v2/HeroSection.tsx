@@ -5,7 +5,6 @@ import ArrowRight16 from "@/components/icons/ArrowRight16";
 export default function HeroSectionv2() {
   return (
     <section className="relative w-full">
-      <Spacer size="xxl" />
       <div className="container mx-auto px-4">
         <ContentLayout
           leftClassName="mt-4"

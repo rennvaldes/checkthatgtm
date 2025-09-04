@@ -12,7 +12,7 @@ export default function HeroV2() {
   const { isDesktop } = useResponsiveDevice();
 
   return (
-    <section className="relative mt-24 w-full overflow-hidden lg:mt-[7.5rem]">
+    <section className="relative w-full overflow-hidden">
       <>
         <section className="relative w-full">
           <div className="container mx-auto px-4">
@@ -35,15 +35,15 @@ export default function HeroV2() {
         </section>
 
         <section>
-          <Spacer size="xl" />
+          <Spacer size="large" />
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
-              <div className="bg-[#FFCC00] p-6 min-h-[300px] lg:min-h-[570px] space-y-6 lg:space-y-12 flex flex-col justify-between">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-[#FFCC00] p-6 lg:p-9 min-h-[300px] lg:min-h-[570px] space-y-6 lg:space-y-12 flex flex-col justify-between">
                 <div>
                   <div className="text-sm md:text-base bg-black/10 w-fit text-center p-2.5 mb-6">
                     Starting at $12,000 per month
                   </div>
-                  <h2 className="text-[32px] md:text-[44px] lg:text-[48px] leading-[1] font-semibold tracking-tight mb-5 text-primary-black">
+                  <h2 className="text-[32px] md:text-[44px] lg:text-[48px] leading-[1] font-semibold tracking-tighter mb-5 text-primary-black">
                     Let’s build an engine for AI‑led growth
                   </h2>
                   <p className="text-[16px] md:text-xl lg:text-2xl leading-relaxed max-w-3xl text-[#303030]">
@@ -68,8 +68,8 @@ export default function HeroV2() {
                 </div>
               </div>
 
-              <div className="bg-transparent p-6 min-h-[300px] lg:min-h-[570px] text-[#303030] border border-primary-gray">
-                <h3 className="text-[24px] md:text-[32px] lg:text-[36px] font-semibold tracking-tight mb-6">
+              <div className="bg-transparent p-6 lg:p-9 min-h-[300px] lg:min-h-[570px] text-[#303030] border border-primary-gray">
+                <h3 className="text-[24px] md:text-[32px] lg:text-[36px] font-semibold tracking-tighter mb-6">
                   Included in all plans
                 </h3>
                 <ul>
@@ -96,7 +96,6 @@ export default function HeroV2() {
               </div>
             </div>
           </div>
-          <Spacer size="xl" />
         </section>
       </>
     </section>

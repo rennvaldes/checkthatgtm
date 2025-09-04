@@ -28,18 +28,28 @@ import ServiceAsSoftware from "@/components/home-sections/ServiceAsSoftware";
 import CustomPlans from "@/components/home-sections/CustomPlans"
 
 import dynamic from "next/dynamic";
+import Spacer from "@/components/common/Spacer";
 
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col">
+      <Spacer size="d122"/>
       <HeroSectionv2 />
+      <Spacer size="d122"/>
       <HelpedGrowSection2 />
+      <Spacer size="d122"/>
       <CaseStudySection />
+      <Spacer size="d122"/>
       <ServiceAsSoftware2 />
+      <Spacer size="d122"/>
       <HowItWorksSection2 />
+      <Spacer size="d122"/>
       <ResultsSection2 />
+      <Spacer size="d122"/>
       <PricingSection2 />
+      <Spacer size="d122"/>
       <BannerSection />
+      <Spacer size="d122"/>
       <TestimonialsSection />
     </main>
   );

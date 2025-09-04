@@ -36,7 +36,7 @@ const HelpedGrowSection = () => {
             }
             rightContent={
               <div className="w-full">
-                <h2 className="text-3xl md:text-5xl mb-8">
+                <h2 className="text-3xl tracking-tighter md:text-5xl mb-8 xl:mb-14">
                   Trusted by brilliant teams of all sizes <br /> 
                   <span className="text-primary-gray">
                     Join the world’s best operators
@@ -66,7 +66,6 @@ const HelpedGrowSection = () => {
           />
         </div>
       </section>
-      <Spacer size="xl" />
     </>
   );
 };

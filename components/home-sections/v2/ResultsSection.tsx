@@ -5,6 +5,7 @@ import ContentLayout from "@/components/layout/ContentLayout";
 import Spacer from "@/components/common/Spacer";
 import Image from "next/image";
 import TestimonialsCarousel from "@/components/common/TestimonialsCarousel";
+import AlignedLeft from "@/components/common/AlignedLeft";
 
 function ResultsSection() {
   const results = [
@@ -99,7 +100,7 @@ function ResultsSection() {
           }
           rightContent={
             <div className="flex flex-col gap-8">
-              <h2 className="text-3xl md:text-5xl">
+              <h2 className="text-3xl md:text-5xl tracking-tighter">
                 High performance strategy & production <br />
                 <span className="text-primary-gray">
                   Our results speak for themselves
@@ -111,36 +112,40 @@ function ResultsSection() {
         <Spacer size="large" />
       </div>
 
-      <TestimonialsCarousel
-        className="py-8"
-        items={results}
-        renderSlide={(result) => (
-          <div 
-            className="p-8 border border-[#DCD9D5] h-[540px] flex flex-col gap-40 lg:min-w-[520px] lg:max-w-[521px]"
-          >
-            <div className="mb-6">
-              <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">
-                <Image
-                  src={result.logo.src}
-                  alt={result.logo.alt}
-                  fill
-                  sizes="160px"
-                  className="object-contain"
-                />
+      <AlignedLeft
+        className="px-4 md:px-0"
+        options={{ containerMax: 1440, gutter: 16, cols: 12, leftCols: 2, offset: -290, minApplyWidth: 768 }}
+      >
+        <TestimonialsCarousel
+          disableInnerPadding
+          items={results}
+          renderSlide={(result) => (
+            <div 
+              className="p-8 border border-[#DCD9D5] h-[540px] flex flex-col gap-40 lg:min-w-[520px] lg:max-w-[521px]"
+            >
+              <div className="mb-6">
+                <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">
+                  <Image
+                    src={result.logo.src}
+                    alt={result.logo.alt}
+                    fill
+                    sizes="160px"
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              <div className="flex-1 flex flex-col items-center tracking-tighter">
+                <h3 className="w-full text-8xl font-semibold tracking-tighter leading-[0.95] text-[#151515]">
+                  {result.title}
+                </h3>
+                <p className="w-full text-[20px] tracking-tight text-[#303030] mt-8 text-left">
+                  {result.description}
+                </p>
               </div>
             </div>
-            <div className="flex-1 flex flex-col items-center">
-              <h3 className="w-full text-8xl font-semibold tracking-tight leading-[0.95] text-[#151515]">
-                {result.title}
-              </h3>
-              <p className="w-full text-[20px] tracking-tight text-[#303030] mt-8 text-left">
-                {result.description}
-              </p>
-            </div>
-          </div>
-        )}
-      />
-      <Spacer size="xl" />
+          )}
+        />
+      </AlignedLeft>
     </section>
   );
 }

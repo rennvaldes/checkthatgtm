@@ -9,7 +9,6 @@ function HeroSection() {
     <>
       {/* First Section */}
       <section className="relative w-full">
-        <Spacer size="xxl" />
         <div className="container mx-auto px-4">
           <ContentLayout
             leftClassName="mt-4"
@@ -33,7 +32,7 @@ function HeroSection() {
 
       {/* New Solutions Section */}
       <section>
-        <Spacer size="xl" />
+        <Spacer size="d88" />
         <div className="container mx-auto px-4">
           <div className="gap-10 grid grid-cols-2">
             <div className="bg-primary-black p-10 min-h-[790px] flex flex-col justify-between">
@@ -84,7 +83,6 @@ function HeroSection() {
             </div>
           </div>
         </div>
-        <Spacer size="xl" />
       </section>
     </>
   );

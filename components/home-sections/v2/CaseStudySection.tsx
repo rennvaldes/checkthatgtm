@@ -35,7 +35,6 @@ const CaseStudySection = () => {
           ))}
         </div>
       </div>
-      <Spacer size="xl" />
     </section>
   );
 };

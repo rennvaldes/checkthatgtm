@@ -17,7 +17,8 @@ export default function CompanySection({
   className = "",
 }: CompanySectionProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [progress, setProgress] = useState(0); 
+  const [progress, setProgress] = useState(0);
+  const [displayProgress, setDisplayProgress] = useState(0);
 
 
   const chars = useMemo(() => {
@@ -45,8 +46,8 @@ export default function CompanySection({
         const rect = el.getBoundingClientRect();
         const vh = window.innerHeight || document.documentElement.clientHeight;
 
-        const start = vh * 0.15;
-        const end = vh * 0.85;
+        const start = vh * 0.10;
+        const end = vh * 0.65;
         const visible = Math.min(Math.max(end - (rect.top - start), 0), end - start);
         const p = Math.max(0, Math.min(visible / (end - start), 1));
         setProgress(p);
@@ -63,7 +64,23 @@ export default function CompanySection({
     };
   }, []);
 
-  const readCount = Math.floor(progress * chars.length);
+  useEffect(() => {
+    let rafId: number;
+    const animate = () => {
+      setDisplayProgress((prev) => {
+        const target = Math.max(0, Math.min(progress, 1));
+        const delta = target - prev;
+        const step = delta * 0.1;
+        if (Math.abs(delta) < 0.001) return target;
+        return prev + step;
+      });
+      rafId = requestAnimationFrame(animate);
+    };
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, [progress]);
+
+  const readCount = Math.floor(displayProgress * chars.length);
 
   return (
     <section className="relative w-full">
@@ -75,7 +92,7 @@ export default function CompanySection({
         >
 
           <div
-            className="whitespace-pre-wrap tracking-tighter leading-tight max-w-[950px] mx-auto"
+            className="whitespace-pre-wrap tracking-tighter leading-snug max-w-[950px] mx-auto"
             style={{ fontSize: "42px" }}
           >
             <div className="relative w-[137px] h-[30px] mb-8">

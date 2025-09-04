@@ -144,10 +144,10 @@ export default function SolutionsSection() {
     <section>
       <div className="container mx-auto px-4">
         <ContentLayout
-          className="items-start mb-8 md:mb-12"
+          className="items-start"
           leftContent={<div className="text-sm text-[#303030]">Solutions</div>}
           rightContent={
-            <h2 className="text-black text-3xl md:text-5xl">
+            <h2 className="text-black text-3xl md:text-5xl tracking-tighter">
             AI-native marketing <br />
             <span className="text-primary-gray">
               For companies in hypergrowth 
@@ -156,10 +156,10 @@ export default function SolutionsSection() {
         }
         leftClassName="md:text-base"
         description="With human expertise and AI working in sync, we deliver insights and content that fuel momentum, amplify your voice, and accelerate growth."
-        descriptionClassName="text-primary-black text-2xl mt-8"
+        descriptionClassName="text-primary-black text-2xl mt-6 md:mt-8 xl:mt-9"
       />
       </div>
-
+      <Spacer size="xl" />
       <div className="container mx-auto px-4 relative">
         <div className="pointer-events-none absolute inset-0 hidden md:block">
           <div className="grid grid-cols-1 md:grid-cols-12 h-full">
@@ -201,7 +201,7 @@ export default function SolutionsSection() {
               className="items-start mb-10 md:mb-14"
               leftContent={<div className="text-sm text-[#303030]">{section.label}</div>}
               rightContent={
-                <div>
+                <div className="tracking-tighter">
                   {section.heading}
                   <div className={`mt-6 grid gap-3 sm:gap-4 ${gridColsClass(section.items.length)}`}>
                     {section.items.map(({ title, Icon }) => (
@@ -219,7 +219,6 @@ export default function SolutionsSection() {
           </div>
         ))}
       </div>
-      <Spacer size="xl" />
     </section>
   );
 }

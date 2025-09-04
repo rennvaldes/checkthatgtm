@@ -39,7 +39,7 @@ const ContentLayout: React.FC<ContentLayoutProps> = ({
         {leftContent}
       </div>
       <div className={`md:col-span-10 ${rightClassName}`}>
-        <div className="tracking-[-0.05em] font-semibold leading-[0.96]">
+        <div className="font-semibold leading-[0.96]">
           {rightContent}
         </div>
         <div className={`${descriptionClassName} tracking-tight max-w-5xl`}>
