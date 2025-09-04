@@ -17,7 +17,7 @@ function Desktop() {
   return (
     <nav
       aria-hidden={!isVisible}
-      className="bg-transparent fixed z-[100] flex w-screen items-center justify-between bg-opacity-[80%] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]"
+      className="fixed z-[100] flex w-screen items-center justify-between bg-[#F1EEE9] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]"
     >
       <Link href="/">
         <Logo />

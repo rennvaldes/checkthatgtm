@@ -89,11 +89,11 @@ export default function TestimonialsCarousel<T = any>({
           setApi={setCarouselApi}
           opts={{ align: "start", slidesToScroll: 1, startIndex: 0 }}
         >
-          <CarouselContent className="-mr-4">
+          <CarouselContent className="md:ml-0 md:-mr-4">
             {items.map((item, index) => (
               <CarouselItem
                 key={index}
-                className={`${itemClassName ?? "basis-auto"} first-of-type:pl-4 last-of-type:pr-4`}
+                className={`${itemClassName ?? "basis-[100%] w-[100%] md:basis-auto md:w-auto"} first-of-type:pl-4 last-of-type:pr-4`}
               >
                 {renderSlide(item, index)}
               </CarouselItem>

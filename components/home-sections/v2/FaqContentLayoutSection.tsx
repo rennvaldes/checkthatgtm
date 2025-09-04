@@ -26,11 +26,9 @@ function FaqItem({ children, title }: { children: React.ReactNode; title: string
 
 export default function FaqContentLayoutSection() {
   return (
-    <section className="mx-auto w-full max-w-[1280px] px-4 md:px-6 lg:px-8">
+    <section className="mx-auto w-full container px-4 md:px-6 lg:px-8">
       <ContentLayout
         className="gap-10 lg:gap-14"
-        leftClassName="md:col-span-3"
-        rightClassName="md:col-span-9"
         leftContent={
           <h3 className="text-[28px] md:text-[36px] lg:text-[52px] font-medium leading-[1.1] tracking-tight">
             FAQs

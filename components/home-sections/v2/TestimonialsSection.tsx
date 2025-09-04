@@ -148,7 +148,7 @@ export default function TestimonialsSection() {
                 </div>
               </div>
 
-              <p className={`${livretText.className} text-[24px] font-light leading-[1.3] tracking-tight text-[#151515]`}>
+              <p className={`${livretText.className} text-[24px] font-light leading-[1.1] lg:leading-[1.3] tracking-tight text-[#151515]`}>
                 “{t.quote}”
               </p>
 

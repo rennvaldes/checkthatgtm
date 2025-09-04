@@ -40,31 +40,31 @@ function Mobile() {
     <>
       <nav
         aria-hidden={!isVisible}
-        className="bg-ui-white fixed z-[100] flex w-screen items-center justify-between bg-opacity-[80%] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]"
+        className="bg-[#F1EEE9] fixed z-[100] flex w-screen items-center justify-between bg-opacity-[80%] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]"
       >
-        <Logo />
+        <Logo className="text-primary-black" />
 
         <button
           type="button"
           onClick={() => setIsOpen(true)}
           className="flex h-[32px] w-[32px] items-center justify-center"
         >
-          <Menu />
+          <Menu className="text-primary-black" />
         </button>
       </nav>
 
       <div
         aria-hidden={!isOpen}
-        className="bg-ui-white aria-hidden: group fixed left-0 top-0 z-[100] flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-x-[100%] aria-hidden:opacity-50"
+        className="bg-[#F1EEE9] aria-hidden: group fixed left-0 top-0 z-[100] flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-x-[100%] aria-hidden:opacity-50"
       >
         <div className="flex items-center justify-between py-[16px] pl-[20px] pr-[16px] transition-transform duration-1000 group-aria-hidden:translate-x-[15%]">
-          <Logo />
+          <Logo className="text-primary-black" />
           <button
             type="button"
             onClick={() => setIsOpen(false)}
             className="flex h-[32px] w-[32px] items-center justify-center"
           >
-            <Close className="text-ui-blue" />
+            <Close className="text-primary-black" />
           </button>
         </div>
 
@@ -142,13 +142,14 @@ function Mobile() {
           <Button
             href='/book-demo'
             variant='primary'
-            size='sm'
+            fullWidth
+            size='md'
             className='w-full rounded-full text-ui-black bg-gradient-to-b from-[#FFD75A] to-[#E6A930] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_16px_rgba(0,0,0,0.25)] hover:brightness-105'>
             Reserve your spot
           </Button>
         </div>
 
-        <div className="from-ui-white to-ui-white/0 absolute bottom-0 left-0 -z-10 h-[50%] w-full bg-gradient-to-b via-white/60" />
+        <div className="from-[#F1EEE9] to-[#F1EEE9]/0 absolute bottom-0 left-0 -z-10 h-[50%] w-full bg-gradient-to-b via-[#F1EEE9]/60" />
         <DotPatternBackground
           className="top-[40%]"
           dotsSeparationPx={{ vertical: 35, horizontal: 35 }}
