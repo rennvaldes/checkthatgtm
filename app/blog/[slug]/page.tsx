@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import ArticlePageClient from '@/components/blog-sections/ArticlePage/ArticlePageClient';
+import ArticlePageClient from '@/components/blog-sections/v2/ArticlePage/ArticlePageClient';
 import { getArticle } from '@/lib/api/strapi/blog';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {

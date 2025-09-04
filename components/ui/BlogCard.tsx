@@ -40,13 +40,13 @@ function BlogCard({
           </div>
         )}
         {isLoading ? (
-          <Skeleton className='bg-ui-black/50 absolute right-[20px] top-0 h-[28px] w-[112px] translate-y-[-50%] rounded-full' />
+          <Skeleton className='absolute left-4 top-4 h-[32px] w-[160px] rounded-none' />
         ) : (
-          <div className='absolute top-4 right-4 rounded-full border border-white px-3 py-1.5 text-xs font-medium text-white'>
+          <div className='absolute left-4 top-4 lg:left-9 lg:top-9 border border-[#F1EEE9] p-3 text-[20px] font-light text-[#F1EEE9] rounded-none bg-transparent'>
             {category}
           </div>
         )}
-        <div className='flex flex-col gap-2 lg:gap-4 justify-between p-5 text-left absolute bottom-0 left-0 right-0'>
+        <div className='flex flex-col gap-2 lg:gap-4 justify-between p-6 lg:p-9 text-left absolute bottom-0 left-0 right-0'>
           <div>
             {isLoading ? (
               <>
@@ -54,7 +54,7 @@ function BlogCard({
                 <Skeleton className='mt-2 h-6 w-[66%] rounded-full' />
               </>
             ) : (
-              <h3 className='text-white text-xl font-medium leading-[23px] duration-500 lg:text-2xl'>
+              <h3 className='text-white text-xl font-medium leading-[23px] duration-500 lg:text-[48px] lg:leading-[1.1] lg:tracking-tight'>
                 {title}
               </h3>
             )}
@@ -63,18 +63,18 @@ function BlogCard({
 
           <div className='flex items-center gap-[12px] lg:mt-0'>
             {isLoading ? (
-              <Skeleton className='h-[32px] w-[32px] rounded-full' />
+              <Skeleton className='h-[32px] w-[32px] rounded-none lg:h-[100px] lg:w-[100px]' />
             ) : (
-              <img className='h-10 w-10 rounded-full bg-white' alt='publisher' src={publisher_avatar} />
+              <img className='h-10 w-10 bg-white rounded-none lg:h-[100px] lg:w-[100px] object-cover' alt='publisher' src={publisher_avatar} />
             )}
             {isLoading ? (
               <Skeleton className='h-6 w-[103px] rounded-full' />
             ) : (
               <div className='flex flex-col -space-y-1 text-white'>
-                <p className='text-white font-medium text-base'>
+                <p className='text-white font-semibold text-[26px] leading-tight'>
                   {publisher_name}
                 </p>
-                {publisher_legend && <p className='text-sm'>{publisher_legend}</p>}
+                {publisher_legend && <p className='text-[18px] font-light leading-snug'>{publisher_legend}</p>}
               </div>
             )}
           </div>

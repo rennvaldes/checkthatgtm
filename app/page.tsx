@@ -22,7 +22,8 @@ import WhoWeAreForSection from "@/components/home-sections/WhoWeAreForSection";
 import HowItWorksSection from "@/components/home-sections/HowItWorksSection";
 import ReviewsSection from "@/components/home-sections/ReviewsSection";
 // import PricingSection from "@/components/home-sections/PricingSection";
-import { FaqSectionHomepage } from '@/components/home-sections/FaqSection';
+// import { FaqSectionHomepage } from '@/components/home-sections/FaqSection';
+import FaqContentLayoutSection from "@/components/home-sections/v2/FaqContentLayoutSection";
 import EarthSection from "@/components/home-sections/EarthSection";
 import ServiceAsSoftware from "@/components/home-sections/ServiceAsSoftware";
 import CustomPlans from "@/components/home-sections/CustomPlans"
@@ -50,7 +51,10 @@ export default function Home() {
       <Spacer size="d122"/>
       <BannerSection />
       <Spacer size="d122"/>
+      <FaqContentLayoutSection />
+      <Spacer size="d122"/>
       <TestimonialsSection />
+      <Spacer size="large"/>
     </main>
   );
 }
