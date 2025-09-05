@@ -19,7 +19,7 @@ export default function Footer() {
           <h3 className='font-clash-display font-[500] text-[28px] lg:text-[52px] leading-[31px] lg:leading-[57px] tracking-normal'>
             Join Us
           </h3>
-          <p className='font-elza font-[400] text-[16px] lg:text-[20px] leading-[150%] tracking-normal mt-3 max-w-[300px] lg:max-w-[700px]'>
+          <p className='font-elza font-[400] text-[16px] lg:text-[20px] leading-[150%] tracking-tight mt-3 max-w-[300px] lg:max-w-[700px]'>
             {
               "Whether you're a budding startup or an established enterprise, discover how our AI can streamline your content creation and fuel your growth."
             }

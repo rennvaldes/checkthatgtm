@@ -68,6 +68,7 @@ export default function FooterV2() {
   const pathname = usePathname();
   const isAbout = pathname === "/about";
   const isBlog = pathname?.includes("/blog");
+  const isPricing = pathname?.includes("/pricing");
   const isCaseStudy = pathname?.includes("/case-study");
   const columns: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
     {
@@ -100,7 +101,7 @@ export default function FooterV2() {
     <footer
       className={[
         "bg-black text-white flex flex-col lg:min-h-[600px]",
-        isAbout || isBlog || isCaseStudy ? "pt-24 md:pt-32" : "",
+        isAbout || isBlog || isCaseStudy || isPricing ? "pt-24 md:pt-32" : "",
       ]
         .filter(Boolean)
         .join(" ")}

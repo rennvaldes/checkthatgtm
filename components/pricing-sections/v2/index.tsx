@@ -6,6 +6,7 @@ import ResultsSection from "@/components/home-sections/v2/ResultsSection";
 import SolutionsSection from "./SolutionsSection";
 import Spacer from "@/components/common/Spacer";
 import FormSection from "./FormSection";
+import CTABannerSection from "@/components/about-sections/v2/CTABannerSection";
 
 export default function PricingV2() {
   return (
@@ -21,8 +22,9 @@ export default function PricingV2() {
       <Spacer size="d164"/>
       <ExpertsV2 />
       <Spacer size="large"/>
-      <FormSection />
-      <Spacer size="large"/>
+      {/* <FormSection /> */}
+      <CTABannerSection />
+      {/* <Spacer size="large"/> */}
     </div>
   );
 }
