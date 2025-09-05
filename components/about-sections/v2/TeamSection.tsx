@@ -5,18 +5,75 @@ import ContentLayout from "@/components/layout/ContentLayout";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/lib/shadcn/ui/carousel";
 import KitButton from "@/components/ui/KitButton";
 import ArrowRight from "@/components/icons/ArrowRight";
-import Experts1Image from "@/assets/img/AboutSection/experts-1.png";
-import Experts2Image from "@/assets/img/AboutSection/experts-2.png";
-import Experts3Image from "@/assets/img/AboutSection/experts-3.png";
+import Experts1Image from "@/assets/img/AboutSection/company_01.jpg";
+import Experts2Image from "@/assets/img/AboutSection/company_02.jpg";
+import Experts3Image from "@/assets/img/AboutSection/company_03.jpg";
+import Experts4Image from "@/assets/img/AboutSection/company_04.jpg";
 import expertsData from "@/components/pricing-sections/ExpertsSection/expertsData";
 import MadronaLogo from "@/assets/img/v2/madrona-logo.png";
 import TeamMemberCard from "@/components/common/TeamMemberCard";
 import Spacer from "@/components/common/Spacer";
+import MarcelImage from "@/assets/img/AboutSection/marcel.png";
+import DanielImage from "@/assets/img/AboutSection/daniellopes.png";
+import AndiImage from "@/assets/img/AboutSection/andibailey.png";
+import KyleImage from "@/assets/img/AboutSection/kyle.png";
+import JasonImage from "@/assets/img/AboutSection/jason.png";
+import GeorgeImage from "@/assets/img/AboutSection/georgehaikal.png";
+import BridgetImage from "@/assets/img/AboutSection/bridgetmcgillivray.png";
+import MatthewImage from "@/assets/img/AboutSection/matthewpanzarino.png";
+import RenatoImage from "@/assets/img/AboutSection/renatovaldesolmos.png";
+
 
 export default function TeamSection() {
-  const CAROUSEL_IMAGES = [Experts1Image.src, Experts2Image.src, Experts3Image.src];
+  const CAROUSEL_IMAGES = [Experts1Image.src, Experts2Image.src, Experts3Image.src, Experts4Image.src];
 
-  const leadership = expertsData;
+  const leadership = [
+    {
+      name: "Marcel Santilli",
+      description: "Ex CMO of Deepgram, Scale AI",
+      picture: MarcelImage.src,
+    },
+    {
+      name: "Daniel Lopes",
+      description: "Co-Founder & CTO",
+      picture: DanielImage.src,
+    },
+    {
+      name: "Andi Bailey",
+      description: "Head of Customer Operations",
+      picture: AndiImage.src,
+    },
+    {
+      name: "Kyle Gaudreau",
+      description: "Senior Director at Homebase",
+      picture: KyleImage.src,
+    },
+    {
+      name: "Jason Gong",
+      description: "VP, Growth",
+      picture: JasonImage.src,
+    },
+    {
+      name: "George Haikal",
+      description: "Chief of Staff",
+      picture: GeorgeImage.src,
+    },
+    {
+      name: "Bridget McGillivray",
+      description: "VP, Operations",
+      picture: BridgetImage.src,
+    },
+    {
+      name: "Matthew Panzarino",
+      description: "Chief Content Officer",
+      picture: MatthewImage.src,
+    },
+    {
+      name: "Renato Valdés-Olmos",
+      description: "Head of Design",
+      picture: RenatoImage.src,
+    },
+  ];
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [carouselWall, setCarouselWall] = useState<"left" | "right" | undefined>();
 

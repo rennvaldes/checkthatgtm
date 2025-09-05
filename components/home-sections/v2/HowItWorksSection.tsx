@@ -65,12 +65,12 @@ function ProcessSection() {
                     <div className="min-w-[60px] text-primary-gray font-light tracking-tight text-2xl lg:text-3xl flex flex-col md:col-span-4">
                       {step.number}
 
-                      <h4 className="text-primary-black text-2xl lg:text-3xl font-semibold mb-3 leading-[1]">
+                      <h4 className="text-primary-black text-2xl lg:text-3xl font-semibold mb-3 leading-[1] tracking-tighter">
                         {step.title}
                       </h4>
                     </div>
                     <div className="md:col-span-8">
-                      <p className="text-lg lg:text-2xl leading-[1.36] font-light text-[#303030]">
+                      <p className="text-lg lg:text-2xl leading-[1.36] tracking-tighter font-light text-[#303030]">
                         {step.description}
                       </p>
                     </div>

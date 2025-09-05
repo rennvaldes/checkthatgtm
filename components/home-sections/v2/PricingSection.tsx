@@ -65,7 +65,7 @@ function BulletList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-2 lg:space-y-3">
       {items.map((item, i) => (
-        <li key={i} className="text-black text-lg lg:text-[24px] tracking-tight">
+        <li key={i} className="text-black text-lg lg:text-[24px] tracking-tighter">
           <span className="mr-1">→</span>
           {item}
         </li>
@@ -76,7 +76,7 @@ function BulletList({ items }: { items: string[] }) {
 
 export default function PricingSection() {
   return (
-    <section className="overflow-hidden">
+    <section className="overflow-hidden pb-4">
       <div className="container mx-auto px-4">
         <ContentLayout
           leftContent={<div className="text-lg font-medium mb-4 md:mb-0">Pricing</div>}

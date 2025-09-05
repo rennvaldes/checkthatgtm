@@ -20,7 +20,7 @@ function HeroSection() {
                     Expert-led
                   </span>
                   <br />
-                  <span className="text-primary-gray font-light">
+                  <span className="text-primary-gray">
                     AI-powered growth
                   </span>
                 </h1>

@@ -10,12 +10,12 @@ function FaqItem({ children, title }: { children: React.ReactNode; title: string
     <Accordion
       id={`accordion-${title}`}
       title={
-        <span className="font-messina-sans text-[20px] lg:text-[24px] lg:max-w-[724px] max-w-[272px] lg:leading-[27.6px] leading-[26px]">
+        <span className="font-messina-sans text-xl lg:text-2xl tracking-tight lg:max-w-[724px] max-w-[272px] lg:leading-[27.6px] leading-tight select-none">
           {title}
         </span>
       }
       content={
-        <div className="font-messina-sans [&>p]:mb-6 [&>p:last-child]:mb-0 [&>p]:leading-[24px] [&>p]:text-[16px] [&>ul]:mb-6 [&>ul:last-child]:mb-0 [&>ul>li]:mb-2 [&>ul>li:last-child]:mb-0 [&>ul>li]:leading-[26px]">
+        <div className="font-messina-sans max-w-3xl font-normal [&>p]:mb-6 [&>p:last-child]:mb-0 [&>p]:leading-[24px] [&>p]:text-base sm:[&>p]:text-lg [&>ul]:mb-6 [&>ul:last-child]:mb-0 [&>ul>li]:mb-2 [&>ul>li:last-child]:mb-0 [&>ul>li]:leading-tight tracking-tighter">
           {children}
         </div>
       }
@@ -35,7 +35,7 @@ export default function FaqContentLayoutSection() {
           </h3>
         }
         rightContent={
-          <div className="flex flex-col w-full gap-4">
+          <div className="flex flex-col w-full [&_ul]:text-base sm:[&_ul]:text-lg">
             <FaqItem title={"What services does GrowthX offer?"}>
               <p>GrowthX provides a comprehensive growth engine built around three core pillars that work together to drive sustainable results:</p>
               <p><strong>CONTENT: Create high-quality assets that build authority</strong></p>

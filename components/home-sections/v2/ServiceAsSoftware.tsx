@@ -95,12 +95,12 @@ function ServiceAsSoftware() {
                         {category.title}
                       </h4>
                     )}
-                    <p className="text-lg lg:text-2xl max-lg:leading-6 font-light text-[#303030] mb-8">
+                    <p className="text-lg lg:text-2xl max-lg:leading-6 tracking-tighter font-light text-[#303030] mb-8">
                       {category.description}
                     </p>
                     <ul className="space-y-4">
                       {category.characteristics.map((char, idx) => (
-                        <li key={idx} className="flex items-start font-light gap-3">
+                        <li key={idx} className="flex items-start font-light gap-3 tracking-tighter">
                           <span className="text-lg lg:text-xl leading-[1.44] text-[#303030]">
                             {char}
                           </span>

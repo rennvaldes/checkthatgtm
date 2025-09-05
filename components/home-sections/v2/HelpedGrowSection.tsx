@@ -6,16 +6,36 @@ import Spacer from '@/components/common/Spacer';
 const HelpedGrowSection = () => {
   // Logos data from the original component
   const allLogos = [
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_airbyte_40413c6ff7.svg', alt: 'Airbyte', height: 26 },
-    { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg', alt: 'Ramp', height: 20 },
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg', alt: 'Strapi', height: 19 },
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_webflow_b7ad975616.svg', alt: 'Webflow', height: 19 },
-    { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/reddit_logo_b80d54a7ab.svg', alt: 'Reddit', height: 27 },
-    { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/webstacks_5f9bb33e5c.svg', alt: 'Webstacks', height: 17 },
-    { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Deepgram_logo_ca172c4fe3.svg', alt: 'Deepgram', height: 22 },
-    { src: 'https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/service_titan_fbd8ccb6f1.svg', alt: 'Service Titan', height: 25 },
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_gitpod_2e24380a04.svg', alt: 'Gitpod', height: 26 },
-    { src: 'https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_superhuman_type_40816d8a7a.svg', alt: 'Superhuman', height: 12.5 }
+    { src: '/customers/customer-surge.png', alt: 'Surge' },
+    { src: '/customers/customer-webflow.png', alt: 'Webflow' },
+    { src: '/customers/customer-reddit.png', alt: 'Reddit' },
+    { src: '/customers/customer-ramp.png', alt: 'Ramp' },
+    { src: '/customers/customer-augmentcode.png', alt: 'Augment Code' },
+    { src: '/customers/customer-metronome.png', alt: 'Metronome' },
+    { src: '/customers/customer-abnormal.png', alt: 'Abnormal' },
+    { src: '/customers/customer-superhuman.png', alt: 'Superhuman' },
+    { src: '/customers/customer-bolt.png', alt: 'Bolt' },
+    { src: '/customers/customer-sentinelone.png', alt: 'SentinelOne' },
+    { src: '/customers/customer-okta.png', alt: 'Okta' },
+    { src: '/customers/customer-diligent.png', alt: 'Diligent' },
+    { src: '/customers/customer-auth0.png', alt: 'Auth0' },
+    { src: '/customers/customer-ambient.png', alt: 'Ambient' },
+    { src: '/customers/customer-innerwell.png', alt: 'Innerwell' },
+    { src: '/customers/customer-monograph.png', alt: 'Monograph' },
+    { src: '/customers/customer-vapi.png', alt: 'Vapi' },
+    { src: '/customers/customer-webstacks.png', alt: 'Webstacks' },
+    { src: '/customers/customer-prophecy.png', alt: 'Prophecy' },
+    { src: '/customers/customer-strapi.png', alt: 'Strapi' },
+    { src: '/customers/customer-airbyte.png', alt: 'Airbyte' },
+    { src: '/customers/customer-schoolai.png', alt: 'SchoolAI' },
+    { src: '/customers/customer-rapyd.png', alt: 'Rapyd' },
+    { src: '/customers/customer-smith.png', alt: 'Smith AI' },
+    { src: '/customers/customer-homebase.png', alt: 'Homebase' },
+    { src: '/customers/customer-datagrid.png', alt: 'Datagrid' },
+    { src: '/customers/customer-galileo.png', alt: 'Galileo' },
+    { src: '/customers/customer-sunbit.png', alt: 'Sunbit' },
+    { src: '/customers/customer-exec.png', alt: 'Exec' },
+    { src: '/customers/customer-firework.png', alt: 'Firework' },
   ];
 
   // Repeat logos to create 30 items (6 columns x 5 rows)
@@ -43,19 +63,21 @@ const HelpedGrowSection = () => {
                   </span>
                 </h2>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border border-gray-200 overflow-hidden">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                   {repeatedLogos.map((logo, index) => (
                     <div 
                       key={index} 
-                      className="flex items-center justify-center p-4 md:p-6 border border-gray-200 transition-colors duration-300"
+                      className="flex items-center justify-center p-0 -mt-[1px] -ml-[1px] border border-[#D9D6D2] transition-colors duration-300"
                     >
-                      <div style={{ height: `${logo.height}px`, display: 'flex', alignItems: 'center' }}>
+                      <div className="h-full flex items-center">
                         <Image
                           src={logo.src}
                           alt={logo.alt}
-                          width={120}
-                          height={logo.height}
-                          className="w-auto h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                          width={200}
+                          height={200}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="w-auto h-full object-contain min-h-20"
+                          loading="lazy"
                         />
                       </div>
                     </div>
