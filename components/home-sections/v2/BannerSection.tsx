@@ -40,7 +40,7 @@ export default function BannerSection() {
             <div className="text-primary-gray">CEO, GrowthX</div>
           </div>
           <Button
-            href="/contact"
+            href="/book-demo"
             size="sm"
             innerClassName="lg:px-6 lg:py-3 lg:text-base"
             fillFrom="#FF6493"
@@ -49,7 +49,7 @@ export default function BannerSection() {
             borderTo="#D41651"
           >
             <span className="inline-flex items-center gap-2">
-              <span>View my schedule</span>
+              <span>Book a call</span>
               <ArrowRight16 className="w-3 h-3 lg:w-4 lg:h-4" />
             </span>
           </Button>
