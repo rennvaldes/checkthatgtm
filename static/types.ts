@@ -15,4 +15,7 @@ export type CardData = {
   publisher_name: string;
   publisher_legend?: string;
   className?: string;
+  visits?: number | string;
+  pages?: number | string;
+  timeframe?: string;
 };

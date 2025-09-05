@@ -121,7 +121,7 @@ export default function PricingSection() {
 
         <div className="flex justify-center">
           <div className="w-full md:w-1/2 lg:w-[560px]">
-            <Button href="/contact" fullWidth size="lg">
+            <Button href="/book-demo" fullWidth size="lg">
               Reserve your spot
             </Button>
           </div>

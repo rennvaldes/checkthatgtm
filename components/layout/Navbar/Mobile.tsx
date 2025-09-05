@@ -22,16 +22,20 @@ function Mobile() {
 
   const scrollTo = React.useCallback(
     (sectionId: string) => {
-      if (pathname !== "/") router.push("/");
-      setTimeout(
-        () => {
-          document.getElementById(sectionId)?.scrollIntoView({
-            behavior: "smooth",
-          });
-          setIsOpen(false);
-        },
-        pathname !== "/" ? 500 : 0
-      );
+      // If target exists on current page, just scroll smoothly
+      const el = typeof document !== 'undefined' ? document.getElementById(sectionId) : null;
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false);
+        return;
+      }
+      // Prefer navigating to pricing page where this section also exists; otherwise go home
+      if (pathname === '/pricing') {
+        router.push(`/#${sectionId}`);
+      } else {
+        router.push(`/pricing#${sectionId}`);
+      }
+      setIsOpen(false);
     },
     [pathname, router]
   );
@@ -87,8 +91,8 @@ function Mobile() {
             <li>
               <button
                 type="button"
-                onClick={() => scrollTo("results-section")}
-                onKeyDown={(e) => e.key === 'Enter' && scrollTo("results-section")}
+                onClick={() => scrollTo("customers")}
+                onKeyDown={(e) => e.key === 'Enter' && scrollTo("customers")}
                 className={OPTION_STYLES}
               >
                 Customers

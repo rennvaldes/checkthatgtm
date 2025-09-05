@@ -13,7 +13,7 @@ export default function BookDemoLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className={`${clashDisplay.variable} font-clash-display bg-ui-white text-ui-black text-[14px] font-normal leading-none`}>
+    <div className={`${clashDisplay.variable} font-messina-sans bg-[#F1EEE9] text-ui-black text-[14px] font-normal leading-none`}>
       {children}
     </div>
   );

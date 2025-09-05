@@ -15,7 +15,7 @@ export function divide<T>(array: Array<T>, divisions: number) {
   for (let g = 0; g < divisions; g++)
     subArrays.push(
       _array.slice(
-        Math.floor((g / divisions) * _array.length), //This math magic here.
+        Math.floor((g / divisions) * _array.length),
         Math.floor(((g + 1) / divisions) * _array.length)
       )
     );
@@ -29,10 +29,12 @@ export function getCardFromStrapiRawData(rawCardData: any) {
 
   // Safely access category name
   const category = attributes.category?.name || attributes.category;
-  const imageData = attributes.image;
+  const imageData = attributes.image || attributes.featured_image;
   const image16x9Data = attributes.image_16x9;
   const metaImageData = attributes.meta_image;
   const publisher_avatar = attributes.publisher_avatar;
+  const authorAvatarData = (attributes as any).author_avatar;
+  const companyLogoData = (attributes as any).company_logo;
 
   let related_articles;
   if (attributes.related_articles) {
@@ -59,7 +61,19 @@ export function getCardFromStrapiRawData(rawCardData: any) {
     image_16x9: getImageUrl(image16x9Data),
     meta_image: getImageUrl(metaImageData),
     publisher_avatar: getImageUrl(publisher_avatar),
+    author_avatar: getImageUrl(authorAvatarData),
+    company_logo: getImageUrl(companyLogoData),
+    quote: attributes.quote
+      ? {
+          ...attributes.quote,
+          author_image_url: getImageUrl(attributes.quote.author_image),
+          company_logo_url: getImageUrl(attributes.quote.company_logo),
+        }
+      : attributes.quote,
     related_articles,
+    visits: attributes.visits,
+    pages: attributes.pages,
+    description: attributes.description,
   };
 }
 

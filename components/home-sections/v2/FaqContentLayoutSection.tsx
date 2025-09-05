@@ -35,7 +35,7 @@ export default function FaqContentLayoutSection() {
           </h3>
         }
         rightContent={
-          <div className="flex flex-col lg:w-[820px] gap-4">
+          <div className="flex flex-col w-full gap-4">
             <FaqItem title={"What services does GrowthX offer?"}>
               <p>GrowthX provides a comprehensive growth engine built around three core pillars that work together to drive sustainable results:</p>
               <p><strong>CONTENT: Create high-quality assets that build authority</strong></p>

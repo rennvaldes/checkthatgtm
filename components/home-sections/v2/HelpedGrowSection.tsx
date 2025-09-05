@@ -26,7 +26,7 @@ const HelpedGrowSection = () => {
   }
   return (
     <>
-      <section>
+      <section id="customers" className="scroll-mt-24 md:scroll-mt-28">
         <div className="container mx-auto px-4">
           <ContentLayout
             leftContent={

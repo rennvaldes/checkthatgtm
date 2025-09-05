@@ -99,13 +99,13 @@ export default function BookDemoPage() {
     <div className="w-full h-screen flex">
       <div className="w-full lg:w-1/2 h-full overflow-hidden">
         {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-ui-white z-50">
+          <div className="absolute inset-0 flex items-center justify-center bg-[#F1EEE9] z-50">
             <div className="animate-pulse text-ui-black">Loading...</div>
           </div>
         )}
         
         {hasError ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-ui-white">
+          <div className="absolute inset-0 flex items-center justify-center bg-[#F1EEE9]">
             <div className="text-red-500">
               Failed to load the booking form. Please try again later or contact support.
             </div>

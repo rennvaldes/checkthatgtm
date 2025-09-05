@@ -5,6 +5,7 @@ import HelpedGrowSection from "@/components/home-sections/v2/HelpedGrowSection";
 import ResultsSection from "@/components/home-sections/v2/ResultsSection";
 import SolutionsSection from "./SolutionsSection";
 import Spacer from "@/components/common/Spacer";
+import FormSection from "./FormSection";
 
 export default function PricingV2() {
   return (
@@ -19,6 +20,9 @@ export default function PricingV2() {
       <ResultsSection />
       <Spacer size="d164"/>
       <ExpertsV2 />
+      <Spacer size="large"/>
+      <FormSection />
+      <Spacer size="large"/>
     </div>
   );
 }

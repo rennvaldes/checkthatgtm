@@ -27,7 +27,7 @@ function Desktop() {
       <ul className="flex items-center justify-center">
         <li>
           <KitButton
-            href="/"
+            href="/pricing#solutions"
             variant="secondary"
             size="medium"
             sameBrowserTab
@@ -37,7 +37,7 @@ function Desktop() {
         </li>
         <li>
           <KitButton
-            scrollTo="results-section"
+            scrollTo="customers"
             variant="secondary"
             size="medium"
           >

@@ -20,23 +20,24 @@ const CaseStudySection = () => {
     },
   ];
 
-  return (
-    <section>
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {caseStudies.map((study) => (
-            <CaseStudyCard
-              key={study.id}
-              badge={study.badge}
-              title={study.title}
-              imageUrl={study.imageUrl}
-              className="h-[400px]"
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return;
+  // return (
+  //   <section>
+  //     <div className="container mx-auto px-4">
+  //       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  //         {caseStudies.map((study) => (
+  //           <CaseStudyCard
+  //             key={study.id}
+  //             badge={study.badge}
+  //             title={study.title}
+  //             imageUrl={study.imageUrl}
+  //             className="h-[400px]"
+  //           />
+  //         ))}
+  //       </div>
+  //     </div>
+  //   </section>
+  // );
 };
 
 export default CaseStudySection;

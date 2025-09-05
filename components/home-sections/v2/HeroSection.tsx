@@ -47,7 +47,7 @@ function HeroSection() {
                   From content to distribution to conversion
                 </p>
                 <a
-                  href="#"
+                  href="/book-demo"
                   className="text-[#818EFF] text-lg lg:text-2xl font-medium tracking-tight hover:underline"
                 >
                   <span className="inline-flex items-center gap-2">
@@ -71,7 +71,7 @@ function HeroSection() {
                   Unlock revenue growth
                 </h2>
                 <a
-                  href="#"
+                  href="/book-demo"
                   className="text-[#818EFF] text-lg lg:text-2xl font-medium tracking-tight hover:underline"
                 >
                   <span className="inline-flex items-center gap-2">

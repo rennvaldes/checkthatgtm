@@ -39,8 +39,8 @@ export default function Home() {
       <Spacer size="d122"/>
       <HelpedGrowSection2 />
       <Spacer size="d122"/>
-      <CaseStudySection />
-      <Spacer size="d122"/>
+      {/* <CaseStudySection /> */}
+      {/* <Spacer size="d122"/> */}
       <ServiceAsSoftware2 />
       <Spacer size="d122"/>
       <HowItWorksSection2 />

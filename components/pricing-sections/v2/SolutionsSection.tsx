@@ -141,7 +141,7 @@ export default function SolutionsSection() {
   }, []);
 
   return (
-    <section>
+    <section id="solutions" className="scroll-mt-24 md:scroll-mt-28">
       <div className="container mx-auto px-4">
         <ContentLayout
           className="items-start"

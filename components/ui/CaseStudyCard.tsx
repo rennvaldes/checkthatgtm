@@ -6,6 +6,9 @@ interface CaseStudyCardProps {
   title: string;
   imageUrl: string;
   className?: string;
+  visits?: number | string;
+  pages?: number | string;
+  timeframe?: string;
 }
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
@@ -13,7 +16,33 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   title,
   imageUrl,
   className = '',
+  visits,
+  pages,
+  timeframe,
 }) => {
+  const formatCompact = (value: number) =>
+    new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(value);
+
+  const formatVisits = (v?: number | string) => {
+    if (v === undefined || v === null || v === '') return null;
+    const n = typeof v === 'string' ? Number(v) : v;
+    if (!isNaN(n as number)) {
+      return `+${formatCompact(n as number)} Visits`;
+    }
+    return `+${v} Visits`;
+  };
+
+  const formatPages = (p?: number | string) => {
+    if (p === undefined || p === null || p === '') return null;
+    const n = typeof p === 'string' ? Number(p) : p;
+    if (!isNaN(n as number)) {
+      return `${(n as number).toLocaleString()} Pages`;
+    }
+    return `${p} Pages`;
+  };
+
+  const statParts = [formatVisits(visits), formatPages(pages), timeframe?.trim()].filter(Boolean) as string[];
+
   return (
     <div className={`relative overflow-hidden group ${className}`}>
       <div className="absolute inset-0 z-0">
@@ -37,6 +66,11 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
           <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium tracking-tighter leading-[0.96] cursor-pointer">
             {title}
           </h3>
+          {statParts.length > 0 && (
+            <p className="mt-2 text-sm lg:text-base text-white/90">
+              {statParts.join(' | ')}
+            </p>
+          )}
         </div>
       </div>
     </div>
