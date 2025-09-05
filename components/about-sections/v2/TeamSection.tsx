@@ -223,8 +223,8 @@ export default function TeamSection() {
                             key={`inv-${group.firm}-${idx}`}
                             className="pt-3 pb-1 grid grid-cols-1 md:grid-cols-2 items-center gap-x-12 md:gap-x-16"
                           >
-                            <div className="text-primary-black text-lg lg:text-xl">{inv.name}</div>
-                            <div className="text-primary-black text-lg lg:text-xl font-light">{inv.role}</div>
+                            <div className="text-primary-black text-lg lg:text-xl tracking-tight">{inv.name}</div>
+                            <div className="text-primary-black text-lg lg:text-xl font-light tracking-tight">{inv.role}</div>
                           </div>
                         ))}
                       </div>

@@ -94,7 +94,7 @@ export default function CTABanner({
         )}
 
         {description ? (
-          <p className={`${descriptionClassName} max-w-[498px] mx-auto`}>
+          <p className={`${descriptionClassName} max-w-[498px] mx-auto tracking-tight`}>
             {description}
           </p>
         ) : null}

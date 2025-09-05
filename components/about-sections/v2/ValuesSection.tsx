@@ -183,7 +183,7 @@ export default function ValuesSection() {
                       </h4>
                     </div>
                     <div className="md:col-span-8">
-                      <p className="text-lg lg:text-2xl leading-[1.36] font-light text-[#303030]">{v.description}</p>
+                      <p className="text-lg lg:text-2xl leading-[1.36] font-light tracking-tighter">{v.description}</p>
                     </div>
                   </div>
                 ))}
