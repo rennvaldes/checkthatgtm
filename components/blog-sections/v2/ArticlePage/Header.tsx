@@ -69,7 +69,7 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
       {isLoading ? (
         <Skeleton className='mt-[16px] h-[62px] w-full lg:h-[114px] lg:w-[1246px]' />
       ) : (
-        <h1 className='mt-6 w-full text-center text-4xl xl:text-[96px] tracking-tighter leading-[0.95] font-medium order-2 md:order-1'>
+        <h1 className='mt-6 w-full text-center text-4xl xl:text-5xl tracking-tighter leading-[0.95] font-medium order-2 md:order-1'>
           {title}
         </h1>
       )}

@@ -13,7 +13,7 @@ export default function BannerSection() {
       backgroundImageSrc={FromTheFounder}
       overlayClassName=""
       className="py-12"
-      contentClassName="min-h-[320px] md:min-h-[380px] lg:min-h-[460px] xl:min-h-[560px] 2xl:min-h-[600px] flex flex-col justify-between"
+      contentClassName="min-h-[520px] md:min-h-[380px] lg:min-h-[460px] xl:min-h-[560px] 2xl:min-h-[600px] flex flex-col justify-between"
       priorityImage
     >
       <div className="text-white/80 text-lg tracking-tight mb-4">
@@ -21,14 +21,17 @@ export default function BannerSection() {
       </div>
 
       <div className="max-w-2xl">
-        <blockquote className={`${livretText.className} text-white tracking-tight text-lg lg:text-2xl font-light leading-[1.4]`}>
-          “GrowthX exists to help great companies grow by turning content into a
-          real, repeatable engine. We’ve helped teams at Superhuman, Webflow,
-          Ramp, Deepgram, Reddit, and Abnormal—companies that don’t settle for
-          average, and neither do we. We’re an AI-native team of founders,
-          editors, and engineers who’ve spent thousands of hours pushing the
-          edge of content, marketing, and workflows—and doing the work
-          ourselves.”
+        <blockquote className={`${livretText.className} relative text-white tracking-tight text-lg lg:text-2xl font-light leading-[1.4]`}>
+          <div aria-hidden className="pointer-events-none absolute top-0 left-0 w-full h-full bg-black/50 blur-[100px] z-0"></div>
+          <span className="relative z-10">
+            “GrowthX exists to help great companies grow by turning content into a
+            real, repeatable engine. We’ve helped teams at Superhuman, Webflow,
+            Ramp, Deepgram, Reddit, and Abnormal—companies that don’t settle for
+            average, and neither do we. We’re an AI-native team of founders,
+            editors, and engineers who’ve spent thousands of hours pushing the
+            edge of content, marketing, and workflows—and doing the work
+            ourselves.”
+          </span>
         </blockquote>
 
         <div className="mt-12 flex items-center gap-8">
