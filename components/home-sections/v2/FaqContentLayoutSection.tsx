@@ -30,11 +30,18 @@ export default function FaqContentLayoutSection() {
       <ContentLayout
         className="gap-10 lg:gap-14"
         leftContent={
-          <h3 className="text-[28px] md:text-[36px] lg:text-[52px] font-medium leading-[1.1] tracking-tight">
-            FAQs
-          </h3>
+          <div className="text-lg font-medium mb-4 md:mb-0">FAQs</div>
         }
         rightContent={
+          <>
+          <div className="flex flex-col gap-8 mb-8">
+              <h2 className="text-3xl lg:text-5xl tracking-tighter">
+                Frequently <br />
+                <span className="text-primary-gray">
+                  Asked Questions
+                </span>
+              </h2>
+            </div>
           <div className="flex flex-col w-full [&_ul]:text-base sm:[&_ul]:text-lg">
             <FaqItem title={"What services does GrowthX offer?"}>
               <p>GrowthX provides a comprehensive growth engine built around three core pillars that work together to drive sustainable results:</p>
@@ -117,6 +124,7 @@ export default function FaqContentLayoutSection() {
               <p>Success for us means creating a growth engine—starting with content that earns trust, building a distribution network that scales that trust, and then strategically converting that reach into tangible business outcomes. Every KPI ties back to this journey from content to conversion.</p>
             </FaqItem>
           </div>
+          </>
         }
       />
     </section>

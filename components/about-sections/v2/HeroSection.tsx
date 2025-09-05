@@ -14,7 +14,7 @@ export default function HeroSectionv2() {
               <h1 className="text-4xl lg:text-5xl xl:text-[96px] tracking-tighter">
                 <span className="text-primary-black">Reimagining</span>
                 <br />
-                <span className="text-primary-gray font-light">Service as Software</span>
+                <span className="text-primary-gray">Service as Software</span>
               </h1>
             </div>
           }

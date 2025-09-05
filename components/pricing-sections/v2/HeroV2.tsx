@@ -24,7 +24,7 @@ export default function HeroV2() {
                   <h1 className="text-3xl lg:text-5xl xl:text-[96px] tracking-tighter">
                     <span className="text-primary-black">One subscription</span>
                     <br />
-                    <span className="text-primary-gray font-light">
+                    <span className="text-primary-gray">
                       Deliver AI-led growth
                     </span>
                   </h1>
