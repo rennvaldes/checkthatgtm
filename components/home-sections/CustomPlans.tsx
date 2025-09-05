@@ -7,6 +7,7 @@ import Check from '../icons/Check';
 import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import KitButton from '../ui/KitButton';
+import { trackDemoBookingClick } from '@/lib/utils/posthog-tracking';
 
 const customPlans = {
   categories: [
@@ -174,7 +175,8 @@ function CustomPlans() {
               withAnimatedArrow='to-left'
               size='large'
               variant='primary'
-              href='/book-demo'>
+              href='/book-demo'
+              onClick={() => trackDemoBookingClick('custom_plans_section', 'home_page')}>
               Book a Demo
             </KitButton>
           </div>

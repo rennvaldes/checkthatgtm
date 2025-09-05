@@ -8,6 +8,7 @@ import Close from "@/components/icons/Close";
 import KitButton from "@/components/ui/KitButton";
 import DotPatternBackground from "@/components/ui/DotPatternBackground";
 import useHideOnScroll from "@/lib/litebox-lib/hooks/useHideOnScroll";
+import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 
 import { usePathname, useRouter } from "next/navigation";
 import Button from "@/components/common/Button";
@@ -148,6 +149,7 @@ function Mobile() {
             variant='primary'
             fullWidth
             size='md'
+            onClick={() => trackDemoBookingClick('navbar', 'mobile')}>
             className='w-full rounded-full text-ui-black bg-gradient-to-b from-[#FFD75A] to-[#E6A930] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_16px_rgba(0,0,0,0.25)] hover:brightness-105'>
             Reserve your spot
           </Button>

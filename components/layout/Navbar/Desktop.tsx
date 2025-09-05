@@ -7,6 +7,7 @@ import KitButton from "@/components/ui/KitButton";
 import useHideOnScroll from "@/lib/litebox-lib/hooks/useHideOnScroll";
 import Logo from "@/components/icons/Logo";
 import Button from "@/components/common/Button";
+import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 
 
 // Desktop navbar
@@ -80,6 +81,7 @@ function Desktop() {
         href='/book-demo' 
         variant='primary'
         size="sm"
+        onClick={() => trackDemoBookingClick('navbar', 'desktop')}>
       >
         Reserve your spot
       </Button>

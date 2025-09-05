@@ -1,4 +1,5 @@
 import KitButton from "@/components/ui/KitButton";
+import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 
 const staticData = {
   lead: "Starting at $12,000 per month",
@@ -36,6 +37,7 @@ function PromoCard() {
         withAnimatedArrow="to-right"
         size="large"
         className="mt-[24px] mb-[38px] text-sm lg:mt-[32px]"
+        onClick={() => trackDemoBookingClick('pricing_promo_card', 'pricing_page')}
       >
         {staticData.buttonText}
       </KitButton>
