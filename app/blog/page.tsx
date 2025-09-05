@@ -1,8 +1,10 @@
 'use client';
 
-import ArticlesSection from '@/components/blog-sections/ArticlesSection';
-import BlogHero from '@/components/blog-sections/Hero';
+import ArticlesSection from '@/components/blog-sections/v2/ArticlesSection';
+import BlogHero from '@/components/blog-sections/v2/Hero';
+import Spacer from '@/components/common/Spacer';
 import { ErrorBoundary } from 'react-error-boundary';
+;
 
 function ErrorFallback({error}: {error: Error}) {
   return (
@@ -17,7 +19,8 @@ function ErrorFallback({error}: {error: Error}) {
 export default function Blog() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <main className='relative flex min-h-screen flex-col items-center justify-between pt-16 pb-8'>
+      <main className='relative flex flex-col items-center'>
+        <Spacer size="d122" />
         <BlogHero />
         <ArticlesSection />
       </main>

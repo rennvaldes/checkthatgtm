@@ -4,9 +4,10 @@ import Script from 'next/script';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Providers from '@/components/Providers';
+import { clashDisplay, messinaSans } from '@/assets/fonts';
 import PostHogPageView from '@/components/analytics/PostHogPageView';
-import { clashDisplay } from '@/assets/fonts';
 import '@/static/globals.css';
+import FooterV2 from '@/components/layout/Footer/v2';
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -129,7 +130,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* End PostHog Analytics */}
       </head>
       <body
-        className={`${clashDisplay.variable} font-clash-display bg-ui-white text-ui-black text-[14px] font-normal leading-none`}>
+        className={`${clashDisplay.variable} ${messinaSans.variable} font-messina-sans bg-[#F1EEE9] text-ui-black text-[14px] font-normal leading-none`}>
         {/* LinkedIn Insight Tag (noscript) */}
         <noscript>
           <img height="1" width="1" style={{ display: 'none' }} alt="" src="https://px.ads.linkedin.com/collect/?pid=7407172&fmt=gif" />
@@ -145,7 +146,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <PostHogPageView />
           <Navbar />
           {children}
-          <Footer />
+          <FooterV2 />
         </Providers>
       </body>
     </html>

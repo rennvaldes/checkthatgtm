@@ -83,8 +83,8 @@ const MarkdownContent = ({ content, isLoading }: { content: string; isLoading: b
       const { width, height } = getImageDimensionsFromUrl(src);
 
       return (
-        <div className='xl:w-[1200px] xl:max-w-[100dvw] xl:-translate-x-[24.5%] xl:relative xl:py-12 xl:bg-ui-white xl:z-20 xl:-my-8'>
-          <div className='xl:absolute xl:inset-0 xl:bg-ui-white' />
+        <div className='xl:w-[1200px] xl:max-w-[100dvw] xl:-translate-x-[16.35%] xl:relative xl:py-12 xl:z-20 xl:-my-8'>
+          <div className='xl:absolute xl:inset-0 bg-transparent' />
           <img src={src} alt={alt} width={width} height={height} className='w-full relative z-20 m-0' />
         </div>
       );

@@ -15,6 +15,8 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
+        'primary-black': '#080A0D',
+        'primary-gray': '#959595',
         'ui-black': 'rgb(32, 35, 58)',
         'ui-white': 'rgb(247, 244, 255)',
         'ui-veige': '#DEDEF0',
@@ -28,6 +30,7 @@ const config: Config = {
       fontFamily: {
         'clash-display': ['var(--font-clash-display)', 'ui-sans-serif', 'system-ui'],
         'kepler-std': ['kepler-std-semicondensed'],
+        'messina-sans': ['var(--font-messina-sans)', 'sans-serif'],
         elza: ['elza'],
       },
       borderRadius: {

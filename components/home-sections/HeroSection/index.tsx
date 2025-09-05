@@ -12,7 +12,7 @@ function HeroSection() {
 
   return (
     <section className='relative mt-20 w-full overflow-hidden lg:mt-[6.5rem]'>
-      <DotPatternBackground
+      {/* <DotPatternBackground
         dotStartingWidthPx={!isDesktop ? 1 : undefined}
         dotWidthPxIncreasePerRow={!isDesktop ? 0.3 : undefined}
         dotsSeparationPx={!isDesktop ? { vertical: 40, horizontal: 42 } : undefined}
@@ -24,7 +24,7 @@ function HeroSection() {
         <IncreasePercentageCard />
         <StatsCard />
       </DecorationsAndContainer>
-      <div className='hero-separator-color mx-auto h-[1px] w-[98%] lg:w-[90%]' />
+      <div className='hero-separator-color mx-auto h-[1px] w-[98%] lg:w-[90%]' /> */}
     </section>
   );
 }

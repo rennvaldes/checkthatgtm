@@ -156,19 +156,22 @@ function KitButton({
   );
 
   const onScrollClick = React.useCallback(() => {
-    if (scrollTo) {
-      if (pathname !== "/") router.push("/");
-      setTimeout(
-        () => {
-          if (typeof document !== "undefined") {
-            document.getElementById(scrollTo)?.scrollIntoView({
-              behavior: "smooth",
-            });
-          }
-        },
-        pathname !== "/" ? 500 : 0
-      );
+    if (!scrollTo) return;
+    // If target exists on current page, just scroll to it
+    if (typeof document !== 'undefined') {
+      const el = document.getElementById(scrollTo);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
     }
+    // Otherwise, navigate to home and then scroll when ready
+    if (pathname !== "/") router.push("/");
+    setTimeout(() => {
+      if (typeof document !== 'undefined') {
+        document.getElementById(scrollTo)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, pathname !== "/" ? 500 : 0);
   }, [scrollTo, pathname, router]);
 
   let buttonElement = (
