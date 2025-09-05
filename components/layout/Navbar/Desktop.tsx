@@ -77,11 +77,11 @@ function Desktop() {
         </li>
 
       </ul>
-      <Button 
-        href='/book-demo' 
+      <Button
+        href='/book-demo'
         variant='primary'
         size="sm"
-        onClick={() => trackDemoBookingClick('navbar', 'desktop')}>
+        onClick={() => trackDemoBookingClick('navbar', 'desktop')}
       >
         Reserve your spot
       </Button>

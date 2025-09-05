@@ -149,8 +149,9 @@ function Mobile() {
             variant='primary'
             fullWidth
             size='md'
-            onClick={() => trackDemoBookingClick('navbar', 'mobile')}>
-            className='w-full rounded-full text-ui-black bg-gradient-to-b from-[#FFD75A] to-[#E6A930] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_16px_rgba(0,0,0,0.25)] hover:brightness-105'>
+            onClick={() => trackDemoBookingClick('navbar', 'mobile')}
+            className="w-full rounded-full text-ui-black bg-gradient-to-b from-[#FFD75A] to-[#E6A930] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_16px_rgba(0,0,0,0.25)] hover:brightness-105"
+          >
             Reserve your spot
           </Button>
         </div>
