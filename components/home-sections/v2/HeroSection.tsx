@@ -57,29 +57,8 @@ function HeroSection() {
                 </a>
               </div>
             </div>
-            <div className="bg-primary-black p-6 md:p-10 max-sm:min-h-[560px] min-h-[790px] flex flex-col justify-between relative overflow-hidden">
-              <div className="text-[#F1EEE9] text-lg tracking-tight">
-                Platform
-              </div>
-              <Image
-                src={revenueGrowth}
-                alt="Revenue Growth"
-                className="absolute right-0 top-1/2 -translate-y-1/2 w-[95%] object-contain object-right-bottom"
-              />
-              <div>
-                <h2 className="text-white text-2xl lg:text-[36px] xl:text-[40px] font-semibold tracking-tight mb-5">
-                  Unlock revenue growth
-                </h2>
-                <a
-                  href="/book-demo"
-                  className="text-[#818EFF] text-lg lg:text-2xl font-medium tracking-tight hover:underline"
-                >
-                  <span className="inline-flex items-center gap-2">
-                    Get a demo
-                    <ArrowRight className="w-5 h-5" />
-                  </span>
-                </a>
-              </div>
+            <div className="bg-primary-black p-0 max-sm:min-h-[560px] min-h-[790px] flex flex-col justify-between relative overflow-hidden">
+              <video src="/growthx-vid-compressed.mp4" className="w-full h-full object-cover" autoPlay muted loop playsInline></video>
             </div>
           </div>
         </div>
