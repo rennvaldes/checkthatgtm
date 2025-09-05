@@ -21,12 +21,13 @@ export default function ArticlePageClient({ slug, showDrafts, isLocalEnv, isPull
   });
 
   const articleData = React.useMemo(() => (rawData ? getCardFromStrapiRawData(rawData.data) : {}), [rawData]);
+  const hasKeepReading = Array.isArray((articleData as any).related_articles) && (articleData as any).related_articles.length > 0;
 
   return (
     <main className='relative flex min-h-screen flex-col items-center justify-start pt-20 lg:pt-28' data-show-drafts={showDrafts} data-is-pull-request={isPullRequest} data-is-local-env={isLocalEnv}>
       <BlogPageHeader isLoading={isLoading} data={articleData} />
       <BlogPageContent isLoading={isLoading} content={articleData.content} data={articleData} />
-      <div className='w-full max-w-[1350px] mt-16 lg:mt-24 lg:-mb-24'>
+      <div className={`w-full max-w-[1350px] mt-16 lg:mt-24 ${hasKeepReading ? 'mb-4 lg:mb-12' : 'lg:-mb-24'}`}>
         <CTABanner
           logoSrc={GrowthXLogo}
           
