@@ -91,7 +91,7 @@ export default function FooterV2() {
     {
       title: "Social",
       links: [
-        { label: "LinkedIn →", href: "https://www.linkedin.com/company/growthxai", external: true },
+        { label: "LinkedIn →", href: "https://www.linkedin.com/company/growthx-ai", external: true },
         { label: "Twitter →", href: "https://twitter.com/growthxai", external: true },
       ],
     },
