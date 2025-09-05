@@ -29,16 +29,6 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/teleport_2a6d7a59e9.svg",
-        alt: "Teleport",
-      },
-      quote:
-        "We scaled production without sacrificing editorial depth. Their workflow blended our experts with AI in a way that just worked.",
-      authorName: "Jane Doe",
-      authorTitle: "VP Marketing, Teleport",
-    },
-    {
-      logo: {
         src: "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg",
         alt: "Ramp",
       },
@@ -66,16 +56,6 @@ export default function TestimonialsSection() {
         "GrowthX elevated our content engine with a repeatable system that actually moved pipeline. The quality bar went up while cadence increased.",
       authorName: "Marcel Santilli",
       authorTitle: "CEO, GrowthX",
-    },
-    {
-      logo: {
-        src: "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/teleport_2a6d7a59e9.svg",
-        alt: "Teleport",
-      },
-      quote:
-        "We scaled production without sacrificing editorial depth. Their workflow blended our experts with AI in a way that just worked.",
-      authorName: "Jane Doe",
-      authorTitle: "VP Marketing, Teleport",
     },
     {
       logo: {
