@@ -11,6 +11,28 @@ import { Icon } from "@iconify/react";
 export default function HeroV2() {
   const { isDesktop } = useResponsiveDevice();
 
+  // Dynamic booking text logic
+  const getBookingText = () => {
+    const now = new Date();
+    const currentDay = now.getDate();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
+    
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    
+    // If it's the first week (days 1-7), show "late {current month}"
+    if (currentDay <= 7) {
+      return `late ${monthNames[currentMonth]}`;
+    }
+    
+    // If it's later in the month, show "{next month}"
+    const nextMonth = currentMonth === 11 ? 0 : currentMonth + 1;
+    return monthNames[nextMonth];
+  };
+
   return (
     <section className="relative w-full overflow-hidden">
       <>
@@ -59,7 +81,7 @@ export default function HeroV2() {
                 <div>
                   <div className="text-sm md:text-base flex items-center gap-2 mb-4 text-primary-black">
                     <Icon icon="solar:calendar-bold" className="w-5 h-5" aria-hidden />
-                    Booking in August
+                    Booking in {getBookingText()}
                   </div>
                   <Button href="/book-demo" size="md" variant="secondary">
                     <span className="mr-2">Reserve your spot</span>
