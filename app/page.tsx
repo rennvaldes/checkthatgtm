@@ -8,6 +8,7 @@ import HowItWorksSection2 from "@/components/home-sections/v2/HowItWorksSection"
 import ResultsSection2 from "@/components/home-sections/v2/ResultsSection";
 import PricingSection2 from "@/components/home-sections/v2/PricingSection";
 import BannerSection from "@/components/home-sections/v2/BannerSection";
+import CTABannerSection from '@/components/about-sections/v2/CTABannerSection';
 import TestimonialsSection from "@/components/home-sections/v2/TestimonialsSection";
 const HeroVideoSection = dynamic(
   () => import("@/components/home-sections/HeroVideoSection"),
@@ -52,8 +53,10 @@ export default function Home() {
       <BannerSection />
       <Spacer size="d122"/>
       <FaqContentLayoutSection />
+      {/* <Spacer size="d122"/> */}
+      {/* <TestimonialsSection /> */}
       <Spacer size="d122"/>
-      <TestimonialsSection />
+      <CTABannerSection />
       <Spacer size="large"/>
     </main>
   );
