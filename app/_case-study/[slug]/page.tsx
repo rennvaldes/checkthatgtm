@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import CaseStudyPageClient from "@/components/case-studies-sections/v2/CaseStudyPage/CaseStudyPageClient";
@@ -15,7 +13,8 @@ function ErrorFallback({ error }: { error: Error }) {
   );
 }
 
-export default function CaseStudyArticlePage({ params }: { params: { slug: string } }) {
+export default async function CaseStudyArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
   const isPullRequest = process.env.NEXT_PUBLIC_IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
@@ -24,7 +23,7 @@ export default function CaseStudyArticlePage({ params }: { params: { slug: strin
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Spacer size="d122" />
       <CaseStudyPageClient
-        slug={params.slug}
+        slug={resolvedParams.slug}
         showDrafts={showDrafts}
         isLocalEnv={isLocalEnv}
         isPullRequest={isPullRequest}
