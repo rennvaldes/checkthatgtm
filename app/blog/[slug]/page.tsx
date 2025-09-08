@@ -3,8 +3,9 @@ import { Metadata } from 'next';
 import ArticlePageClient from '@/components/blog-sections/v2/ArticlePage/ArticlePageClient';
 import { getArticle } from '@/lib/api/strapi/blog';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { data } = await getArticle(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const { data } = await getArticle(resolvedParams.slug);
   
   if (!data) {
     return {
@@ -43,8 +44,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const slug = params.slug;
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
   const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
