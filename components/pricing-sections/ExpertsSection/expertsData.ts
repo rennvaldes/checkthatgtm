@@ -90,7 +90,7 @@ const expertsData: ExpertsData[] = [
   },
   {
     name: "Kyle Gaudreau",
-    description: "Senior Director at Homebase",
+    description: "VP Customer Growth",
     picture: KyleImage.src,
     desktopImages: [
       {

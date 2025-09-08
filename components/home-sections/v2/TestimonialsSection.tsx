@@ -4,12 +4,23 @@ import React from "react";
 import { livretText } from "@/assets/fonts";
 import ContentLayout from "@/components/layout/ContentLayout";
 import Spacer from "@/components/common/Spacer";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import TestimonialsCarousel from "@/components/common/TestimonialsCarousel";
 import { useAlignedContentLeft } from "@/hooks/useAlignedContentLeft";
+import StrapiLogo from "@/assets/img/logos/v2/logo-strapi.png";
+import ExecLogo from "@/assets/img/logos/v2/logo-exec.png";
+import TogetherAILogo from "@/assets/img/logos/v2/logo-togetherai.png";
+import HypergrowthLogo from "@/assets/img/logos/v2/logo-hypergrowth.png";
+import RampLogo from "@/assets/img/logos/v2/logo-ramp.png";
+import SwoogoLogo from "@/assets/img/logos/v2/logo-swoogo.png";
+import DatumateLogo from "@/assets/img/logos/v2/logo-datumate.png";
+import TeleportLogo from "@/assets/img/logos/v2/logo-teleport.png";
+import ConstraforLogo from "@/assets/img/logos/v2/logo-constrafor.png";
+import ArenaLogo from "@/assets/img/logos/v2/logo-arena.png";
+import HomebaseLogo from "@/assets/img/logos/v2/logo-homebase.png";
 
 type Testimonial = {
-  logo: { src: string; alt: string };
+  logo: { src: StaticImageData; alt: string; height?: number };
   quote: string;
   authorName: string;
   authorTitle: string;
@@ -19,8 +30,9 @@ export default function TestimonialsSection() {
   const testimonials: Testimonial[] = [
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: StrapiLogo,
         alt: "Strapi",
+        height: 24,
       },
       quote:
         "With GrowthX's systematic, AI-driven SEO approach, we're seeing consistent, repeatable results. Clicks are up week after week, and the bar for content quality keeps getting higher. Their strategy has turned AI powered SEO into a dependable growth engine.",
@@ -29,8 +41,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: ExecLogo,
         alt: "Exec",
+        height: 20,
       },
       quote:
         "AI chat is the most important marketing channel of the last 20 years. GrowthX helped us become the leader in our niche.",
@@ -39,8 +52,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: TogetherAILogo,
         alt: "Together AI",
+        height: 20,
       },
       quote:
         "GrowthX is truly defining AI-led growth, setting a new benchmark for what's possible. Their expert-in-the-loop model combines a powerful blend of strategy, execution, and AI, delivering a hands-on, scalable approach that drives real impact.",
@@ -49,8 +63,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: HypergrowthLogo,
         alt: "Hypergrowth",
+        height: 28,
       },
       quote:
         "Marcel is the mastermind behind the scaled LLM SEO strategy that's driving results for us. He's hands-on, incredibly technical, and his work speaks for itself. We're seeing real, measurable impact thanks to his approach.",
@@ -59,8 +74,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: RampLogo,
         alt: "Ramp",
+        height: 26,
       },
       quote:
         "We've tried other partners, but GrowthX blew us away. Insanely responsive and fast, they deliver top-notch quality every time. Finally found a team that actually gets it.",
@@ -69,8 +85,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: SwoogoLogo,
         alt: "Swoogo",
+        height: 24,
       },
       quote:
         "Your guidance and execution on this SEO journey has been invaluable and we love working with you!",
@@ -79,8 +96,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: DatumateLogo,
         alt: "Datumate",
+        height: 28,
       },
       quote:
         "I'll be honest—I thought content automation sounded a bit 'too good to be true,' but GrowthX proved me wrong. It's already paying huge dividends.",
@@ -89,8 +107,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: TeleportLogo,
         alt: "Teleport",
+        height: 25,
       },
       quote:
         "GrowthX is the real deal for practical AI workflows. I've pulled so much value from their frameworks and applied it directly to my work. Highly recommend if you're ready to 100X your growth workflows!",
@@ -99,8 +118,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: ConstraforLogo,
         alt: "Constrafor",
+        height: 28,
       },
       quote:
         "If you're looking to dive into the next-gen of marketing, I'd definitely recommend.",
@@ -109,8 +129,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: ArenaLogo,
         alt: "Arena",
+        height: 18,
       },
       quote:
         "Highly recommended, folks. Marcel knows his thing!",
@@ -119,8 +140,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: HypergrowthLogo,
         alt: "Hypergrowth Advisor",
+        height: 32,
       },
       quote:
         "With GrowthX, AI-led growth is no longer a guessing game. Their systematic, AI-driven approach drives reliable results again and again. It's impressive to see the impact they deliver.",
@@ -129,8 +151,9 @@ export default function TestimonialsSection() {
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        src: HomebaseLogo,
         alt: "Homebase",
+        height: 20,
       },
       quote:
         "It was a huge light bulb moment for me, rethinking what was possible and how we could approach things at Homebase.",
@@ -177,13 +200,13 @@ export default function TestimonialsSection() {
           renderSlide={(t) => (
             <div className="p-6 md:p-8 border border-[#DCD9D5] h-[320px] md:h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
               <div className="mb-6">
-                <div className="flex items-center">
+                <div className="flex justify-start items-start">
                   <Image
                     src={t.logo.src}
                     alt={t.logo.alt}
-                    width={110}
-                    height={110}
-                    className="object-contain"
+                    width={140}
+                    height={140}
+                    style={{ height: `${t.logo.height || 40}px`, width: "auto" }}
                   />
                 </div>
               </div>

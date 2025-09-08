@@ -18,7 +18,7 @@ export default function HeroSectionv2() {
               </h1>
             </div>
           }
-          description="High-quality content production in 6 weeks. Publishing 12 articles per week across multiple topic categories."
+          description="High-quality content production in 8 weeks. Publishing 5 articles per week across multiple topic categories."
           descriptionClassName="mt-12 text-lg lg:text-2xl max-w-[520px]"
           ctaButton={{
             text: "Join our Mission",

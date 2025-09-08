@@ -54,8 +54,8 @@ export default function Home() {
       <Spacer size="d122"/>
       <FaqContentLayoutSection />
       <Spacer size="d122"/>
-      {/* <TestimonialsSection />
-      <Spacer size="d122"/> */}
+      <TestimonialsSection />
+      <Spacer size="d122"/>
       <CTABannerSection />
       <Spacer size="large"/>
     </main>
