@@ -28,14 +28,14 @@ const HelpedGrowSection = () => {
     { src: '/customers/customer-strapi.png', alt: 'Strapi' },
     { src: '/customers/customer-airbyte.png', alt: 'Airbyte' },
     { src: '/customers/customer-schoolai.png', alt: 'SchoolAI' },
-    { src: '/customers/customer-rapyd.png', alt: 'Rapyd' },
+    { src: '/customers/customer-udemy.png', alt: 'Udemy' },
     { src: '/customers/customer-smith.png', alt: 'Smith AI' },
     { src: '/customers/customer-homebase.png', alt: 'Homebase' },
     { src: '/customers/customer-datagrid.png', alt: 'Datagrid' },
     { src: '/customers/customer-galileo.png', alt: 'Galileo' },
     { src: '/customers/customer-sunbit.png', alt: 'Sunbit' },
     { src: '/customers/customer-exec.png', alt: 'Exec' },
-    { src: '/customers/customer-firework.png', alt: 'Firework' },
+    { src: '/customers/customer-coderabbit.png', alt: 'CodeRabbit' },
   ];
 
   // Repeat logos to create 30 items (6 columns x 5 rows)

@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
       logo: {
         src: StrapiLogo,
         alt: "Strapi",
-        height: 24,
+        height: 20,
       },
       quote:
         "With GrowthX's systematic, AI-driven SEO approach, we're seeing consistent, repeatable results. Clicks are up week after week, and the bar for content quality keeps getting higher. Their strategy has turned AI powered SEO into a dependable growth engine.",
@@ -44,7 +44,7 @@ export default function TestimonialsSection() {
       logo: {
         src: ExecLogo,
         alt: "Exec",
-        height: 18,
+        height: 17,
       },
       quote:
         "AI chat is the most important marketing channel of the last 20 years. GrowthX helped us become the leader in our niche.",
@@ -99,7 +99,7 @@ export default function TestimonialsSection() {
       logo: {
         src: SwoogoLogo,
         alt: "Swoogo",
-        height: 22,
+        height: 19,
       },
       quote:
         "Your guidance and execution on this SEO journey has been invaluable and we love working with you!",
