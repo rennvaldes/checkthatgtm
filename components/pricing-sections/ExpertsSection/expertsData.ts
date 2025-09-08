@@ -162,39 +162,6 @@ const expertsData: ExpertsData[] = [
     ],
   },
   {
-    name: "David Capone",
-    description: "Ex Director of SEO TripAdvisor, Fanatics",
-    picture: DavidImage.src,
-    desktopImages: [
-      {
-        src: TripAdvisorImage.src,
-        alt: "TripAdvisor",
-        width: 56,
-        height: 56,
-      },
-      {
-        src: FanaticsImage.src,
-        alt: "Fanatics",
-        width: 56,
-        height: 56,
-      },
-    ],
-    mobileImages: [
-      {
-        src: TripAdvisorMobileImage.src,
-        alt: "TripAdvisor",
-        width: 18,
-        height: 18,
-      },
-      {
-        src: FanaticsMobileImage.src,
-        alt: "Fanatics",
-        width: 69,
-        height: 18,
-      },
-    ],
-  },
-  {
     name: "Jakub Rudnik",
     description: "Ex Content & SEO Softr, G2",
     picture: JakubImage.src,
