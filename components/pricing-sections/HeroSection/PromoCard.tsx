@@ -2,12 +2,12 @@ import KitButton from "@/components/ui/KitButton";
 import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 
 const staticData = {
-  lead: "Starting at $12,000 per month",
+  lead: "Starting at $15,000 per month",
   highlightedWord: "Outcomes",
   title: "not tools",
   description:
     "We build scalable growth engines that generate demand.  From content creation and SEO to link building and analytics, a GrowthX subscription gives you access to our full suite of workstreams. You choose how to budget each month based on your business needs.",
-  disclaimer: "Typical engagements range from $12,000 to $20,000 USD/month.",
+  disclaimer: "Typical engagements range from $15,000 to $20,000 USD/month.",
   buttonText: "Book a call",
 };
 

@@ -129,7 +129,7 @@ function FaqSectionPricing() {
       <div className='lg:mt-[64px] justify-center lg:flex'>
         <div className='flex flex-col lg:w-[820px]'>
           <FaqItem title={'How much does GrowthX cost?'}>
-            <p>Subscriptions start at $12,000 per month and include:</p>
+            <p>Subscriptions start at $15,000 per month and include:</p>
             <ul className="list-disc pl-6">
               <li>Access to our full suite of growth workstreams (Content, SEO, CRO, Paid Media, Outbound)</li>
               <li>Flexibility to switch and add additional workstreams as your needs evolve</li>
@@ -140,7 +140,7 @@ function FaqSectionPricing() {
               <li>Access to the GrowthX platform and AI-Led Growth community</li>
             </ul>
             <p>We focus on delivering outcomes, not just tools. Our approach builds scalable growth engines that generate demand across multiple channels simultaneously.</p>
-            <p>Typical engagements range from $12,000 to $20,000 USD/month based on your specific growth goals and the workstreams you prioritize. This predictable pricing model eliminates the surprise bills common with traditional agencies while providing the expert execution that self-service tools lack.</p>
+            <p>Typical engagements range from $15,000 to $20,000 USD/month based on your specific growth goals and the workstreams you prioritize. This predictable pricing model eliminates the surprise bills common with traditional agencies while providing the expert execution that self-service tools lack.</p>
           </FaqItem>
           <FaqItem title={'What is the minimum commitment?'}>
             <p>GrowthX requires a 12-month minimum commitment because sustainable growth requires consistency and momentum. Unlike one-off campaigns or projects, our AI-powered growth engine is designed to build compounding results over time.</p>

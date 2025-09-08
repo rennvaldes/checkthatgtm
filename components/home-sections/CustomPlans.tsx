@@ -154,7 +154,7 @@ function CustomPlans() {
           <div className='max-w-3xl mx-auto text-center md:text-left bg-[#20233A] border-[1px] border-[#5F6382] p-6'>
             <div className='inline-block mb-6'>
               <div className='px-4 py-2 text-lg font-normal text-ui-whitest border-2 border-ui-whitest rounded-full font-clash-display'>
-                Starting at $12,000 per month
+                Starting at $15,000 per month
               </div>
             </div>
 

@@ -23,59 +23,119 @@ export default function TestimonialsSection() {
         alt: "Strapi",
       },
       quote:
-        "GrowthX elevated our content engine with a repeatable system that actually moved pipeline. The quality bar went up while cadence increased.",
-      authorName: "Marcel Santilli",
-      authorTitle: "CEO, GrowthX",
-    },
-    {
-      logo: {
-        src: "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg",
-        alt: "Ramp",
-      },
-      quote:
-        "Distribution and CRO finally clicked. Our content started showing up where it mattered and converted far better than before.",
-      authorName: "John Smith",
-      authorTitle: "Head of Growth, Ramp",
-    },
-    {
-      logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_webflow_b7ad975616.svg",
-        alt: "Webflow",
-      },
-      quote:
-        "They brought a real system—planning, production, and measurement—so our team could focus on messaging and results.",
-      authorName: "Alex Lee",
-      authorTitle: "Director of Content, Webflow",
+        "With GrowthX's systematic, AI-driven SEO approach, we're seeing consistent, repeatable results. Clicks are up week after week, and the bar for content quality keeps getting higher. Their strategy has turned AI powered SEO into a dependable growth engine.",
+      authorName: "Victor Coisne",
+      authorTitle: "VP of Marketing, Strapi",
     },
     {
       logo: {
         src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
-        alt: "Strapi",
+        alt: "Exec",
       },
       quote:
-        "GrowthX elevated our content engine with a repeatable system that actually moved pipeline. The quality bar went up while cadence increased.",
-      authorName: "Marcel Santilli",
-      authorTitle: "CEO, GrowthX",
+        "AI chat is the most important marketing channel of the last 20 years. GrowthX helped us become the leader in our niche.",
+      authorName: "Sean Linehan",
+      authorTitle: "CEO, Exec",
     },
     {
       logo: {
-        src: "https://growthxlabs-prod-strapi-bucket.s3.us-east-1.amazonaws.com/Ramp_idx_W_Yq9_Eu_0_1e7f07ca5f.svg",
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Together AI",
+      },
+      quote:
+        "GrowthX is truly defining AI-led growth, setting a new benchmark for what's possible. Their expert-in-the-loop model combines a powerful blend of strategy, execution, and AI, delivering a hands-on, scalable approach that drives real impact.",
+      authorName: "Rajan Sheth",
+      authorTitle: "CMO, Together AI",
+    },
+    {
+      logo: {
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Hypergrowth",
+      },
+      quote:
+        "Marcel is the mastermind behind the scaled LLM SEO strategy that's driving results for us. He's hands-on, incredibly technical, and his work speaks for itself. We're seeing real, measurable impact thanks to his approach.",
+      authorName: "Guillaume Cabane",
+      authorTitle: "General Partner, Hypergrowth",
+    },
+    {
+      logo: {
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
         alt: "Ramp",
       },
       quote:
-        "Distribution and CRO finally clicked. Our content started showing up where it mattered and converted far better than before.",
-      authorName: "John Smith",
-      authorTitle: "Head of Growth, Ramp",
+        "We've tried other partners, but GrowthX blew us away. Insanely responsive and fast, they deliver top-notch quality every time. Finally found a team that actually gets it.",
+      authorName: "Luke Tubinis",
+      authorTitle: "Director of Growth, Ramp",
     },
     {
       logo: {
-        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_webflow_b7ad975616.svg",
-        alt: "Webflow",
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Swoogo",
       },
       quote:
-        "They brought a real system—planning, production, and measurement—so our team could focus on messaging and results.",
-      authorName: "Alex Lee",
-      authorTitle: "Director of Content, Webflow",
+        "Your guidance and execution on this SEO journey has been invaluable and we love working with you!",
+      authorName: "Stacey Baer",
+      authorTitle: "VP of Marketing, Swoogo",
+    },
+    {
+      logo: {
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Datumate",
+      },
+      quote:
+        "I'll be honest—I thought content automation sounded a bit 'too good to be true,' but GrowthX proved me wrong. It's already paying huge dividends.",
+      authorName: "Chaz Ross-Munro",
+      authorTitle: "Head of Marketing, Datumate",
+    },
+    {
+      logo: {
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Teleport",
+      },
+      quote:
+        "GrowthX is the real deal for practical AI workflows. I've pulled so much value from their frameworks and applied it directly to my work. Highly recommend if you're ready to 100X your growth workflows!",
+      authorName: "Francesco Garofalo",
+      authorTitle: "Growth Engineer, Teleport",
+    },
+    {
+      logo: {
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Constrafor",
+      },
+      quote:
+        "If you're looking to dive into the next-gen of marketing, I'd definitely recommend.",
+      authorName: "Kenneth Tsai",
+      authorTitle: "Growth Marketing, Constrafor",
+    },
+    {
+      logo: {
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Arena",
+      },
+      quote:
+        "Highly recommended, folks. Marcel knows his thing!",
+      authorName: "Paulo Martins",
+      authorTitle: "CEO & Founder, Arena",
+    },
+    {
+      logo: {
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Hypergrowth Advisor",
+      },
+      quote:
+        "With GrowthX, AI-led growth is no longer a guessing game. Their systematic, AI-driven approach drives reliable results again and again. It's impressive to see the impact they deliver.",
+      authorName: "Carilu Dietrich",
+      authorTitle: "CMO & Hypergrowth Advisor",
+    },
+    {
+      logo: {
+        src: "https://glowing-rainbow-627a62133d.media.strapiapp.com/logo_strapi_1339eb5432.svg",
+        alt: "Homebase",
+      },
+      quote:
+        "It was a huge light bulb moment for me, rethinking what was possible and how we could approach things at Homebase.",
+      authorName: "John Waldmann",
+      authorTitle: "CEO, Homebase",
     },
   ];
 
@@ -117,12 +177,12 @@ export default function TestimonialsSection() {
           renderSlide={(t) => (
             <div className="p-6 md:p-8 border border-[#DCD9D5] h-[320px] md:h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
               <div className="mb-6">
-                <div className="relative h-[24px] md:h-[28px] w-full max-w-[160px]">
+                <div className="flex items-center">
                   <Image
                     src={t.logo.src}
                     alt={t.logo.alt}
-                    fill
-                    sizes="160px"
+                    width={110}
+                    height={110}
                     className="object-contain"
                   />
                 </div>
