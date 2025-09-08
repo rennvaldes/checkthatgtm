@@ -18,6 +18,7 @@ import TeleportLogo from "@/assets/img/logos/v2/logo-teleport.png";
 import ConstraforLogo from "@/assets/img/logos/v2/logo-constrafor.png";
 import ArenaLogo from "@/assets/img/logos/v2/logo-arena.png";
 import HomebaseLogo from "@/assets/img/logos/v2/logo-homebase.png";
+import AirbyteLogo from "@/assets/img/logos/v2/logo-airbyte.png";
 
 type Testimonial = {
   logo: { src: StaticImageData; alt: string; height?: number };
@@ -43,12 +44,23 @@ export default function TestimonialsSection() {
       logo: {
         src: ExecLogo,
         alt: "Exec",
-        height: 20,
+        height: 18,
       },
       quote:
         "AI chat is the most important marketing channel of the last 20 years. GrowthX helped us become the leader in our niche.",
       authorName: "Sean Linehan",
       authorTitle: "CEO, Exec",
+    },
+    {
+      logo: {
+        src: AirbyteLogo,
+        alt: "Airbyte",
+        height: 27,
+      },
+      quote:
+        "If you're not partnering with GrowthX AI to supercharge your growth with expert-led, AI-powered growth, you're going to be left behind. They're not only an incredible resource for any leader building high performing growth teams, but they're also a truly awesome group of humans. Some of the kindest people you'll ever work with.",
+      authorName: "Mario Moscatiello",
+      authorTitle: "Chief of Growth @ Airbyte",
     },
     {
       logo: {
@@ -65,7 +77,7 @@ export default function TestimonialsSection() {
       logo: {
         src: HypergrowthLogo,
         alt: "Hypergrowth",
-        height: 28,
+        height: 32,
       },
       quote:
         "Marcel is the mastermind behind the scaled LLM SEO strategy that's driving results for us. He's hands-on, incredibly technical, and his work speaks for itself. We're seeing real, measurable impact thanks to his approach.",
@@ -76,7 +88,7 @@ export default function TestimonialsSection() {
       logo: {
         src: RampLogo,
         alt: "Ramp",
-        height: 26,
+        height: 24,
       },
       quote:
         "We've tried other partners, but GrowthX blew us away. Insanely responsive and fast, they deliver top-notch quality every time. Finally found a team that actually gets it.",
@@ -87,7 +99,7 @@ export default function TestimonialsSection() {
       logo: {
         src: SwoogoLogo,
         alt: "Swoogo",
-        height: 24,
+        height: 22,
       },
       quote:
         "Your guidance and execution on this SEO journey has been invaluable and we love working with you!",
@@ -131,7 +143,7 @@ export default function TestimonialsSection() {
       logo: {
         src: ArenaLogo,
         alt: "Arena",
-        height: 18,
+        height: 16,
       },
       quote:
         "Highly recommended, folks. Marcel knows his thing!",
@@ -153,7 +165,7 @@ export default function TestimonialsSection() {
       logo: {
         src: HomebaseLogo,
         alt: "Homebase",
-        height: 20,
+        height: 18,
       },
       quote:
         "It was a huge light bulb moment for me, rethinking what was possible and how we could approach things at Homebase.",
