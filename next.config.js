@@ -10,14 +10,6 @@ const nextConfig = {
   swcMinify: true,
   outputFileTracing: true,
 
-  // Add assetPrefix for production
-  assetPrefix:
-    process.env.NODE_ENV === "production" && 
-    process.env.APP_PROTOCOL && 
-    process.env.APP_HOST
-      ? `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}`
-      : undefined,
-
   images: {
     // Allow Strapi assets and safe external HTTPS images
     remotePatterns: [
@@ -40,8 +32,6 @@ const nextConfig = {
         pathname: "**",
       },
     ],
-    // Domains shortcut for common dev hosts
-    domains: ["localhost", "127.0.0.1"],
   },
 
   async redirects() {
