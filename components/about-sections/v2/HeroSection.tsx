@@ -22,7 +22,7 @@ export default function HeroSectionv2() {
           descriptionClassName="mt-12 text-lg lg:text-2xl max-w-[520px]"
           ctaButton={{
             text: "Join our Mission",
-            href: "/book-demo",
+            href: "/careers",
             size: "md",
             icon: <ArrowRight16 className="w-4 h-4" />,
             className: "mt-5",
