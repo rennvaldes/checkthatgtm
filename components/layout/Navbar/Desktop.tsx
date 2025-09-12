@@ -44,7 +44,7 @@ function LearnDropdown() {
             withAnimatedArrow="to-top-right"
             className="justify-between font-normal !text-left"
           >
-            The Problem We're Solving
+            The Problem We&apos;re Solving
           </KitButton>
           <KitButton
             href="https://docs.growthx.ai/How-We-Work-2092ba60bc7480d2be9fe77bb107418f?source=copy_link"

@@ -58,7 +58,7 @@ function LearnDropdown() {
             size="custom"
             className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] !text-left"
           >
-            The Problem We're Solving
+            The Problem We&apos;re Solving
           </KitButton>
           <KitButton
             href="https://docs.growthx.ai/How-We-Work-2092ba60bc7480d2be9fe77bb107418f?source=copy_link"
