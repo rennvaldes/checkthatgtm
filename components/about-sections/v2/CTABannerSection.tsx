@@ -7,7 +7,7 @@ import logo from "@/assets/img/v2/growthx_logo.png";
 export default function CTABannerSection() {
   return (
     <section>
-      <div className="container mx-auto px-4 -mb-24">
+      <div className="container mx-auto px-4 -mb-40">
         <CTABanner
           logoSrc={logo}
           title="Get started with AI-Led Growth"

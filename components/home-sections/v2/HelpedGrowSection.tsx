@@ -35,7 +35,7 @@ const HelpedGrowSection = () => {
     { src: '/customers/customer-galileo.png', alt: 'Galileo' },
     { src: '/customers/customer-sunbit.png', alt: 'Sunbit' },
     { src: '/customers/customer-exec.png', alt: 'Exec' },
-    { src: '/customers/customer-coderabbit.png', alt: 'CodeRabbit' },
+    { src: '/customers/customer-baseten.png', alt: 'BaseTen' },
   ];
 
   // Repeat logos to create 30 items (6 columns x 5 rows)
