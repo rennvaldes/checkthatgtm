@@ -34,6 +34,7 @@ export default function ProofPointSection() {
                 height={1080}
                 className="w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                 priority
+                sizes="(max-width: 1024px) 100vw, 1024px"
               />
             </div>
 
