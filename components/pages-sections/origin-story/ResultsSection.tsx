@@ -37,13 +37,8 @@ export default function ResultsSection() {
     { src: '/customers/customer-baseten.png', alt: 'BaseTen' },
   ];
 
-  // Repeat logos to create 30 items (6 columns x 5 rows)
-  const repeatedLogos = [];
-  const totalItems = 30;
-  for (let i = 0; i < totalItems; i++) {
-    repeatedLogos.push(allLogos[i % allLogos.length]);
-  }
-
+  // Use the first 30 logos directly
+  const logosToRender = allLogos.slice(0, 30);
   return (
     <section className="relative w-full">
       <div className="container mx-auto px-4">
