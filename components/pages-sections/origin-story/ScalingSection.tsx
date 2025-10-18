@@ -41,7 +41,7 @@ export default function ScalingSection() {
 
             <div className="my-12 rounded-lg overflow-hidden bg-gray-100">
               <Image
-                src="/assets/img/pages/organic-growth-timeline-ibm-to-deepgram.png"
+                src="/img/pages/organic-growth-timeline-ibm-to-deepgram.png"
                 alt="Organic growth journey timeline from IBM to Deepgram showing battle-tested growth engine evolution"
                 width={1920}
                 height={1080}

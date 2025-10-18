@@ -28,7 +28,7 @@ export default function ProofPointSection() {
 
             <div className="my-12 rounded-lg overflow-hidden bg-gray-100">
               <Image
-                src="/assets/img/pages/organic-growth-timeline-ibm-to-deepgram.png"
+                src="/img/pages/organic-growth-timeline-ibm-to-deepgram.png"
                 alt="Organic growth marketing timeline showing $50M pipeline generation at IBM SecurityIntelligence.com and continued success at Deepgram"
                 width={1920}
                 height={1080}

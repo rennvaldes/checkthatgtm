@@ -51,7 +51,7 @@ export default function BreakthroughSection() {
 
             <div className="my-12 rounded-lg overflow-hidden bg-gray-100">
               <Image
-                src="/assets/img/pages/deepgram-growth-metrics-case-study.png"
+                src="/img/pages/deepgram-growth-metrics-case-study.png"
                 alt="Deepgram growth metrics showing 24x traffic growth and 4x revenue increase through AI-powered content strategy"
                 width={1920}
                 height={1080}

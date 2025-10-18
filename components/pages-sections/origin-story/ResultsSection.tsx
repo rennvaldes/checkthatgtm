@@ -28,7 +28,7 @@ export default function ResultsSection() {
 
             <div className="my-12 rounded-lg overflow-hidden bg-gray-100">
               <Image
-                src="/assets/img/pages/growthx-client-portfolio-traction-momentum.png"
+                src="/img/pages/growthx-client-portfolio-traction-momentum.png"
                 alt="GrowthX client portfolio showing proven traction and momentum across multiple B2B SaaS companies"
                 width={1920}
                 height={1080}
