@@ -1,6 +1,6 @@
 import React from 'react';
 
-type SpacerSize = 'small' | 'medium' | 'large' | 'xl' | 'xxl' | 'd88' | 'd122' | 'd164';
+type SpacerSize = 'small' | 'medium' | 'large' | 'xl' | 'xxl' | 'd80' | 'd88' | 'd122' | 'd164';
 
 interface SpacerProps {
   size?: SpacerSize;
@@ -19,6 +19,8 @@ const Spacer: React.FC<SpacerProps> = ({ size = 'medium' }) => {
         return 'h-13 sm:h-16 md:h-24 lg:h-30';
       case 'xxl':
         return 'h-16 sm:h-20 md:h-35 lg:h-40';
+      case 'd80':
+        return 'h-10 sm:h-12 md:h-14 lg:h-[80px]';
       case 'd88':
         return 'h-10 sm:h-12 md:h-16 lg:h-[88px]';
       case 'd122':
