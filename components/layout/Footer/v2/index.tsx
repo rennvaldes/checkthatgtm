@@ -103,7 +103,9 @@ export default function FooterV2() {
     <footer
       className={[
         "bg-black text-white flex flex-col lg:min-h-[600px]",
-        isAbout || isBlog || isCaseStudy || isPricing || isHome || isPages ? "pt-40 md:pt-48" : "",
+        isPages
+          ? "pt-40 md:pt-48"
+          : (isAbout || isBlog || isCaseStudy || isPricing || isHome ? "pt-24 md:pt-32" : ""),
       ]
         .filter(Boolean)
         .join(" ")}
