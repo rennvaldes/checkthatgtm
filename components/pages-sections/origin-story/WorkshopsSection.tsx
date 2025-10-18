@@ -22,11 +22,11 @@ export default function WorkshopsSection() {
         <div className="mt-12 max-w-5xl mx-auto">
           <div className="prose prose-lg lg:prose-xl max-w-none">
             <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8">
-              I started teaching workshops on building these AI workflows. 170 people paid for full-day sessions. But here's what I learned:
+              I started teaching workshops on building these AI workflows. 170 people paid for full-day sessions. But here&apos;s what I learned:
             </p>
 
             <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8 font-semibold">
-              People didn't want to build workflows. They wanted the outcomes.
+              People didn&apos;t want to build workflows. They wanted the outcomes.
             </p>
 
             <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8">
@@ -34,7 +34,7 @@ export default function WorkshopsSection() {
             </p>
 
             <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
-              That's how GrowthX was born.
+              That&apos;s how GrowthX was born.
             </p>
           </div>
         </div>

@@ -31,7 +31,7 @@ export default function DifferenceSection() {
             <div className="p-8 rounded-lg bg-gray-50">
               <h3 className="text-2xl lg:text-3xl font-semibold mb-4 tracking-tight">Content tools:</h3>
               <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
-                Give you features. You're still the bottleneck. Quality depends entirely on your team's expertise.
+                Give you features. You&apos;re still the bottleneck. Quality depends entirely on your team&apos;s expertise.
               </p>
             </div>
 

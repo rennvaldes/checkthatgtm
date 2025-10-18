@@ -36,7 +36,7 @@ export default function ScalingSection() {
             </ul>
 
             <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-12">
-              The playbook was working. But it wasn't getting easier.
+              The playbook was working. But it wasn&apos;t getting easier.
             </p>
 
             <div className="my-12 rounded-lg overflow-hidden bg-gray-100">

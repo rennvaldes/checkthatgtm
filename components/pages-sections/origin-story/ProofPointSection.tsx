@@ -46,7 +46,7 @@ export default function ProofPointSection() {
             </ul>
 
             <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
-              But here's what mattered more than the numbers: we shifted from interrupting people to helping them. Instead of asking "How do I get you to click?" we asked "How do I become the best answer to your questions?"
+              But here&apos;s what mattered more than the numbers: we shifted from interrupting people to helping them. Instead of asking &quot;How do I get you to click?&quot; we asked &quot;How do I become the best answer to your questions?&quot;
             </p>
           </div>
         </div>
