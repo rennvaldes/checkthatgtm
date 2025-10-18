@@ -10,6 +10,7 @@ export default function VideoSection() {
                 allowFullScreen
                 className="absolute top-0 left-0 w-full h-full rounded-lg"
                 style={{ border: 'none' }}
+                title="Origin story overview video"
               />
             </div>
           </div>
