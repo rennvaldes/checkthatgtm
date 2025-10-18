@@ -49,13 +49,14 @@ export default function BreakthroughSection() {
               <li>Content machine that actually got smarter over time</li>
             </ul>
 
-            <div className="my-12 rounded-lg overflow-hidden bg-gray-100">
+            <div className="my-12 bg-[#E6E3DE] border border-primary-gray p-4 md:p-6 lg:p-8 overflow-hidden group">
               <Image
                 src="/img/pages/deepgram-growth-metrics-case-study.png"
                 alt="Deepgram growth metrics showing 24x traffic growth and 4x revenue increase through AI-powered content strategy"
                 width={1920}
                 height={1080}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                loading="lazy"
               />
             </div>
           </div>

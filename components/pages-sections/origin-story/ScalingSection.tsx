@@ -1,7 +1,6 @@
 "use client";
 
 import ContentLayout from "@/components/layout/ContentLayout";
-import Image from "next/image";
 
 export default function ScalingSection() {
   return (
@@ -35,19 +34,9 @@ export default function ScalingSection() {
               <li>Biggest lead source for the business for over 10 years</li>
             </ul>
 
-            <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-12">
+            <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
               The playbook was working. But it wasn&apos;t getting easier.
             </p>
-
-            <div className="my-12 rounded-lg overflow-hidden bg-gray-100">
-              <Image
-                src="/img/pages/organic-growth-timeline-ibm-to-deepgram.png"
-                alt="Organic growth journey timeline from IBM to Deepgram showing battle-tested growth engine evolution"
-                width={1920}
-                height={1080}
-                className="w-full h-auto object-contain"
-              />
-            </div>
           </div>
         </div>
       </div>
