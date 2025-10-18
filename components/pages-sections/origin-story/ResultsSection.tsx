@@ -81,7 +81,7 @@ export default function ResultsSection() {
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-none -ml-[1px]">
-              {repeatedLogos.map((logo, index) => (
+              {logosToRender.map((logo, index) => (
                 <div
                   key={index}
                   className="flex items-center justify-center p-0 -mt-[1px] -ml-[1px] border border-[#D9D6D2] transition-colors duration-300"
