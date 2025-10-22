@@ -71,7 +71,7 @@ export default function FooterV2() {
   const isBlog = pathname?.includes("/blog");
   const isPricing = pathname?.includes("/pricing");
   const isCaseStudy = pathname?.includes("/case-study");
-  const isPages = pathname?.includes("/pages");
+  const isPages = pathname?.includes("/learn");
   const columns: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
     {
       title: "Company",
