@@ -48,7 +48,12 @@ const nextConfig = {
         source: '/workshop',
         destination: 'https://lu.ma/ai-answers-workshop?utm_source=tldr-0728',
         permanent: true,
-      }
+      },
+      {
+        source: '/pages/origin-story',
+        destination: '/learn/origin-story',
+        permanent: true,
+      },
     ];
   },
 };

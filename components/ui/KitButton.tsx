@@ -184,17 +184,33 @@ function KitButton({
       {content}
     </button>
   );
-  if (href)
-    buttonElement = (
-      <Link
-        target={sameBrowserTab ? undefined : "_blank"}
-        href={href}
-        className={classNameProp}
-        {...extraProps}
-      >
-        {content}
-      </Link>
-    );
+  if (href) {
+    const isExternal = href.startsWith('http://') || href.startsWith('https://');
+    
+    if (isExternal) {
+      buttonElement = (
+        <a
+          target={sameBrowserTab ? undefined : "_blank"}
+          href={href}
+          className={classNameProp}
+          {...extraProps}
+        >
+          {content}
+        </a>
+      );
+    } else {
+      buttonElement = (
+        <Link
+          target={sameBrowserTab ? undefined : "_blank"}
+          href={href}
+          className={classNameProp}
+          {...extraProps}
+        >
+          {content}
+        </Link>
+      );
+    }
+  }
 
   return variant === "outline" ? (
     <div className="border-ui-black relative rounded-full border-[1px]">

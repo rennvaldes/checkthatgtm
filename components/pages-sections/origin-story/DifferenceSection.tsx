@@ -58,8 +58,8 @@ export default function DifferenceSection() {
         <ContentLayout
           leftContent={<div>Our Approach</div>}
           rightContent={
-            <div className="flex flex-col gap-8 xl:gap-14">
-              <h2 className="text-3xl lg:text-5xl xl:text-[64px] tracking-tighter">
+            <div>
+              <h2 className="text-3xl lg:text-5xl xl:text-[64px] tracking-tighter mb-12">
                 <span className="text-primary-black">What We Built vs.</span>
                 <br />
                 <span className="text-primary-gray">What Everyone Else Builds</span>

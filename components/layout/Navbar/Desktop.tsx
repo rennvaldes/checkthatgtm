@@ -27,42 +27,46 @@ function LearnDropdown() {
       <div className="absolute left-0 w-full pt-[8px] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
         <div className="bg-ui-whitest absolute flex w-full flex-col rounded-[20px] p-[8px] min-w-[240px]">
           <KitButton
-            href="https://docs.growthx.ai/GrowthX-Origin-Story-2072ba60bc7480e1a21ed0d8d0120d15?pvs=74"
+            href="/learn/origin-story"
             arrowSize="medium"
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
             className="justify-between font-normal !text-left"
+            sameBrowserTab={true}
           >
             Origin Story
           </KitButton>
           <KitButton
-            href="https://docs.growthx.ai/The-Problem-We-re-Solving-2072ba60bc748063adecfa961c508143?source=copy_link"
+            href="/learn/problem-solving"
             arrowSize="medium"
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
             className="justify-between font-normal !text-left"
+            sameBrowserTab={true}
           >
             The Problem We&apos;re Solving
           </KitButton>
           <KitButton
-            href="https://docs.growthx.ai/How-We-Work-2092ba60bc7480d2be9fe77bb107418f?source=copy_link"
+            href="/learn/how-we-work"
             arrowSize="medium"
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
             className="justify-between font-normal !text-left"
+            sameBrowserTab={true}
           >
             How we work
           </KitButton>
           <KitButton
-            href="https://www.notion.so/growthxlabs/Creating-a-Winning-Content-Strategy-2092ba60bc7480f6b249eb9781c98d7f?source=copy_link"
+            href="/learn/winning-content-strategy"
             arrowSize="medium"
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
             className="justify-between font-normal !text-left"
+            sameBrowserTab={true}
           >
             Creating a winning content strategy
           </KitButton>
