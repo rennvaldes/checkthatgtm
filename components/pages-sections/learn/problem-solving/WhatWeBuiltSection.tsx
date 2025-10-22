@@ -27,7 +27,7 @@ export default function WhatWeBuiltSection() {
                       AI Workflows That Think Like Experts
                     </h3>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-4">
-                      We've distilled the entire content creation process into AI workflows. Audience research. Opportunity identification. Content planning. Writing. Optimization. Distribution.
+                      We&apos;ve distilled the entire content creation process into AI workflows. Audience research. Opportunity identification. Content planning. Writing. Optimization. Distribution.
                     </p>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold text-primary-gray">
                       The AI handles the heavy lifting. Humans guide the strategy.
@@ -39,7 +39,7 @@ export default function WhatWeBuiltSection() {
                       Expert Humans in the Loop
                     </h3>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-4">
-                      Our team includes people who ran TechCrunch, Apple's blog, and major publications. They don't write every word—they guide every decision.
+                      Our team includes people who ran TechCrunch, Apple&apos;s blog, and major publications. They don&apos;t write every word—they guide every decision.
                     </p>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold text-primary-gray">
                       World-class expertise without the overhead.

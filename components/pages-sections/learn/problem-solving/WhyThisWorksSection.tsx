@@ -24,11 +24,11 @@ export default function WhyThisWorksSection() {
                   </p>
 
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold mb-12">
-                    Creative projects don't scale. Engineering solutions do.
+                    Creative projects don&apos;t scale. Engineering solutions do.
                   </p>
 
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8">
-                    We've taken everything that's hard about building a content engine—the hiring, the coordination, the expertise, the maintenance—and systematized it.
+                    We&apos;ve taken everything that&apos;s hard about building a content engine—the hiring, the coordination, the expertise, the maintenance—and systematized it.
                   </p>
 
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8">
@@ -36,7 +36,7 @@ export default function WhyThisWorksSection() {
                   </p>
 
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold mb-12">
-                    That's what we do. That's why it works.
+                    That&apos;s what we do. That&apos;s why it works.
                   </p>
 
                   <div className="mt-16 pt-12 border-t border-[#D9D6D2]">
@@ -47,7 +47,7 @@ export default function WhyThisWorksSection() {
                       href="/book-demo"
                       className="text-[#818EFF] text-lg lg:text-2xl font-medium tracking-tight hover:underline inline-flex items-center gap-2"
                     >
-                      <span>Let's talk about what's possible for your company</span>
+                      <span>Let&apos;s talk about what&apos;s possible for your company</span>
                       <ArrowRight className="w-5 h-5" />
                     </a>
                   </div>

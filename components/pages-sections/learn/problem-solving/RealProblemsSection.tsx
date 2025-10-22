@@ -19,7 +19,7 @@ export default function RealProblemsSection() {
               <div className="mt-12">
                 <div className="prose prose-lg lg:prose-xl max-w-none">
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-12">
-                    Building a content engine isn't just hard—it's getting harder. Here's why:
+                    Building a content engine isn&apos;t just hard—it&apos;s getting harder. Here&apos;s why:
                   </p>
 
                   <div className="my-12">
@@ -27,7 +27,7 @@ export default function RealProblemsSection() {
                       1. The Expertise Bottleneck
                     </h3>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-4">
-                      Good content requires domain expertise. You can't just hire "content writers." You need people who understand your industry, your customers, your competitive landscape.
+                      Good content requires domain expertise. You can&apos;t just hire &quot;content writers.&quot; You need people who understand your industry, your customers, your competitive landscape.
                     </p>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold text-primary-gray">
                       Those people are expensive and rare.
@@ -39,10 +39,10 @@ export default function RealProblemsSection() {
                       2. The Context Problem
                     </h3>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-4">
-                      Every piece of content needs context. Brand voice. Strategic direction. Understanding of what's already been published. Knowledge of what's working and what isn't.
+                      Every piece of content needs context. Brand voice. Strategic direction. Understanding of what&apos;s already been published. Knowledge of what&apos;s working and what isn&apos;t.
                     </p>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold text-primary-gray">
-                      That context lives in people's heads, not in tools.
+                      That context lives in people&apos;s heads, not in tools.
                     </p>
                   </div>
 
@@ -54,7 +54,7 @@ export default function RealProblemsSection() {
                       You can publish fast or you can publish well. Most companies ping-pong between the two, never finding the right balance.
                     </p>
                     <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold text-primary-gray">
-                      Quality processes don't scale. Fast processes don't maintain quality.
+                      Quality processes don&apos;t scale. Fast processes don&apos;t maintain quality.
                     </p>
                   </div>
 

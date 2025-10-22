@@ -18,7 +18,7 @@ export default function Phase2TeamSection() {
 
               <div className="prose prose-lg lg:prose-xl max-w-none">
                 <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8">
-                  What "extension of your team" means:
+                  What &quot;extension of your team&quot; means:
                 </p>
 
                 <ul className="text-xl lg:text-2xl leading-relaxed tracking-tight space-y-4">

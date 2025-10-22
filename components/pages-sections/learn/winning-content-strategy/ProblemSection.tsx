@@ -18,7 +18,7 @@ export default function ProblemSection() {
 
               <div className="prose prose-lg lg:prose-xl max-w-none">
                 <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8">
-                  Most companies approach content backwards. They start with keywords they want to rank for, or topics they think are "good for SEO."
+                  Most companies approach content backwards. They start with keywords they want to rank for, or topics they think are &quot;good for SEO.&quot;
                 </p>
 
                 <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold mb-8">

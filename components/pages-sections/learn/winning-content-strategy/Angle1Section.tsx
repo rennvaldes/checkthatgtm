@@ -18,7 +18,7 @@ export default function Angle1Section() {
 
               <div className="prose prose-lg lg:prose-xl max-w-none">
                 <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8">
-                  Don&apos;t just say "we serve accountants." That tells you nothing.
+                  Don&apos;t just say &quot;we serve accountants.&quot; That tells you nothing.
                 </p>
 
                 <p className="text-xl lg:text-2xl leading-relaxed tracking-tight font-semibold mb-6">
@@ -41,7 +41,7 @@ export default function Angle1Section() {
                 </p>
 
                 <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
-                  When they read your content, they should be nodding the whole time thinking, "Yes, that&apos;s exactly me."
+                  When they read your content, they should be nodding the whole time thinking, &quot;Yes, that&apos;s exactly me.&quot;
                 </p>
               </div>
             </div>

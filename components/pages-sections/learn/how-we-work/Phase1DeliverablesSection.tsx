@@ -25,7 +25,7 @@ export default function Phase1DeliverablesSection() {
                   <li><strong>AI-Ready Brand Assets:</strong> Voice guide, style guide, content frameworks</li>
                   <li><strong>Calibration Content:</strong> 3-5 pieces that set the quality bar (ready to publish)</li>
                   <li><strong>6-12 Month Content Roadmap:</strong> Specific topics, angles, and priorities</li>
-                  <li><strong>Competitive Analysis:</strong> What's working, what gaps exist, where you win</li>
+                  <li><strong>Competitive Analysis:</strong> What&apos;s working, what gaps exist, where you win</li>
                   <li><strong>Custom AI Workflows:</strong> Built specifically for your business and audience</li>
                   <li><strong>ContentOS Setup:</strong> Your entire content operation, systematized</li>
                 </ul>
@@ -37,7 +37,7 @@ export default function Phase1DeliverablesSection() {
                   <ul className="text-xl lg:text-2xl leading-relaxed tracking-tight space-y-4">
                     <li><strong>Fixed fee:</strong> $20-$40k. No surprises.</li>
                     <li><strong>Mutual opt-in:</strong> After the sprint, we both decide if we want to continue. No long-term contracts. No awkward breakups.</li>
-                    <li><strong>Immediate value:</strong> Even if you don't continue to Phase 2, you have everything you need to execute internally.</li>
+                    <li><strong>Immediate value:</strong> Even if you don&apos;t continue to Phase 2, you have everything you need to execute internally.</li>
                     <li><strong>World-class team:</strong> Editor-in-chiefs from major publications. SEO specialists. AI engineers. Building custom workflows just for you.</li>
                   </ul>
                 </div>

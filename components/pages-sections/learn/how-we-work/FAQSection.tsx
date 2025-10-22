@@ -19,43 +19,43 @@ export default function FAQSection() {
               <div className="prose prose-lg lg:prose-xl max-w-none space-y-12">
                 <div>
                   <h3 className="text-2xl lg:text-3xl font-semibold tracking-tighter mb-4">
-                    "Can we skip the Strategy Sprint?"
+                    &quot;Can we skip the Strategy Sprint?&quot;
                   </h3>
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
-                    We tried that. It doesn't work. You end up spending the first 3 months of execution doing strategy work anyway—except now you're paying monthly fees for discovery work.
+                    We tried that. It doesn&apos;t work. You end up spending the first 3 months of execution doing strategy work anyway—except now you&apos;re paying monthly fees for discovery work.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-2xl lg:text-3xl font-semibold tracking-tighter mb-4">
-                    "What if we don't continue after the Sprint?"
+                    &quot;What if we don&apos;t continue after the Sprint?&quot;
                   </h3>
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
-                    You keep everything. The workflows, the content, the roadmap. We've had companies execute our recommendations internally for years.
+                    You keep everything. The workflows, the content, the roadmap. We&apos;ve had companies execute our recommendations internally for years.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-2xl lg:text-3xl font-semibold tracking-tighter mb-4">
-                    "How do we know you understand our business?"
+                    &quot;How do we know you understand our business?&quot;
                   </h3>
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
-                    That's literally what the Strategy Sprint is for. By week 2, we'll know your audience better than most of your employees.
+                    That&apos;s literally what the Strategy Sprint is for. By week 2, we&apos;ll know your audience better than most of your employees.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-2xl lg:text-3xl font-semibold tracking-tighter mb-4">
-                    "What if our priorities change during execution?"
+                    &quot;What if our priorities change during execution?&quot;
                   </h3>
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
-                    That's why we meet weekly. We're not following a rigid plan from 6 months ago. We adapt with your business.
+                    That&apos;s why we meet weekly. We&apos;re not following a rigid plan from 6 months ago. We adapt with your business.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-2xl lg:text-3xl font-semibold tracking-tighter mb-4">
-                    "How is this different from hiring an agency?"
+                    &quot;How is this different from hiring an agency?&quot;
                   </h3>
                   <p className="text-xl lg:text-2xl leading-relaxed tracking-tight">
                     Agencies sell you hours. We sell you outcomes. Agencies scale by hiring more people. We scale through AI workflows. Agencies take 3 weeks to publish one piece. We publish 20+ pieces monthly at higher quality.

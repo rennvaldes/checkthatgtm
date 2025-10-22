@@ -22,12 +22,12 @@ export default function Phase2ExecutionSection() {
                 </h3>
 
                 <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-8">
-                  We don't disappear into a black box and emerge with content. We become an extension of your team.
+                  We don&apos;t disappear into a black box and emerge with content. We become an extension of your team.
                 </p>
 
                 <ul className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-12 space-y-4">
-                  <li><strong>Weekly alignment:</strong> What's working, what's not, what to adjust</li>
-                  <li><strong>Flexible execution:</strong> We're not rigidly following a plan from 3 months ago</li>
+                  <li><strong>Weekly alignment:</strong> What&apos;s working, what&apos;s not, what to adjust</li>
+                  <li><strong>Flexible execution:</strong> We&apos;re not rigidly following a plan from 3 months ago</li>
                   <li><strong>Content pipeline:</strong> New pieces every week, plus maintenance of existing content</li>
                   <li><strong>Performance optimization:</strong> Weekly audits, constant improvements, doubling down on what works</li>
                 </ul>
@@ -37,14 +37,14 @@ export default function Phase2ExecutionSection() {
                 </h3>
 
                 <p className="text-xl lg:text-2xl leading-relaxed tracking-tight mb-6">
-                  By Phase 2, we've built your entire content operation:
+                  By Phase 2, we&apos;ve built your entire content operation:
                 </p>
 
                 <ul className="text-xl lg:text-2xl leading-relaxed tracking-tight space-y-4">
                   <li><strong>Assignment inventory:</strong> Months of content planned and prioritized</li>
-                  <li><strong>Quality standards:</strong> Calibrated to your exact definition of "great"</li>
+                  <li><strong>Quality standards:</strong> Calibrated to your exact definition of &quot;great&quot;</li>
                   <li><strong>Distribution strategy:</strong> Multi-channel approach tailored to your audience</li>
-                  <li><strong>Performance tracking:</strong> What's driving results, what needs improvement</li>
+                  <li><strong>Performance tracking:</strong> What&apos;s driving results, what needs improvement</li>
                 </ul>
               </div>
             </div>

@@ -13,7 +13,7 @@ export default function WhyTwoPhasesSection() {
               <h2 className="text-3xl lg:text-5xl xl:text-[64px] tracking-tighter mb-12">
                 <span className="text-primary-black">Why Two Phases</span>
                 <br />
-                <span className="text-primary-gray">(Instead of Just "Let's Start")</span>
+                <span className="text-primary-gray">(Instead of Just &quot;Let&apos;s Start&quot;)</span>
               </h2>
 
               <div className="prose prose-lg lg:prose-xl max-w-none">
