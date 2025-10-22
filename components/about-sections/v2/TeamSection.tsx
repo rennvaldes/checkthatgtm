@@ -30,7 +30,7 @@ export default function TeamSection() {
   const leadership = [
     {
       name: "Marcel Santilli",
-      description: "Ex CMO of Deepgram, Scale AI",
+      description: "Co-Founder & CEO",
       picture: MarcelImage.src,
     },
     {
