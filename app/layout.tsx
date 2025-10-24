@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <link rel='stylesheet' href='https://use.typekit.net/cqe3ufx.css' />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-7K9ZBVGKXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-K82TVE12FG"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-7K9ZBVGKXX');
+            gtag('config', 'G-K82TVE12FG');
           `}
         </Script>
         <Script id="koala-pixel" strategy="afterInteractive">
