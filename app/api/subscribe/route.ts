@@ -1,20 +1,29 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return NextResponse.json(
+      { message: 'Method not allowed' },
+      { status: 405 }
+    );
   }
 
-  const { email } = req.body;
+  const { email } = await req.json();
   if (!email) {
-    return res.status(400).json({ message: 'Email is required' });
+    return NextResponse.json(
+      { message: 'Email is required' },
+      { status: 400 }
+    );
   }
 
   const BEEHIIV_PUBLICATION_ID = process.env.NEXT_PUBLIC_BEEHIIV_PUBLICATION_ID;
   const BEEHIIV_API_KEY = process.env.NEXT_PUBLIC_BEEHIIV_API_TOKEN;
 
   if (!BEEHIIV_PUBLICATION_ID || !BEEHIIV_API_KEY) {
-    return res.status(500).json({ message: 'Beehiiv API credentials are not configured.' });
+    return NextResponse.json(
+      { message: 'Beehiiv API credentials are not configured.' },
+      { status: 500 }
+    );
   }
 
   try {
@@ -34,10 +43,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     );
     const data = await response.json();
     if (!response.ok) {
-      return res.status(response.status).json(data);
+      return NextResponse.json(data, { status: response.status });
     }
-    return res.status(200).json(data);
+    return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    return res.status(500).json({ message: 'Internal server error' });
+    return NextResponse.json(
+      { message: 'Internal server error' },
+      { status: 500 }
+    );
   }
-} 
+}
+
