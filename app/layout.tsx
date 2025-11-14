@@ -57,11 +57,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             gtag('config', 'G-K82TVE12FG');
           `}
         </Script>
-        <Script id="koala-pixel" strategy="afterInteractive">
+        {/* <Script id="koala-pixel" strategy="afterInteractive">
           {`
             !function(t){if(window.ko)return;window.ko=[],["identify","track","removeListeners","on","off","qualify","ready"].forEach(function(t){ko[t]=function(){var n=[].slice.call(arguments);return n.unshift(t),ko.push(n),ko}});var n=document.createElement("script");n.async=!0,n.setAttribute("src","https://cdn.getkoala.com/v1/pk_dbe3717899d890f5dabc90f4d55a27db1243/sdk.js"),(document.body || document.head).appendChild(n)}();
           `}
-        </Script>
+        </Script> */}
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="afterInteractive">
           {`
@@ -95,23 +95,23 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </Script>
         {/* End LinkedIn Insight Tag */}
         {/* HubSpot Embed Code */}
-        <Script
+        {/* <Script
           id="hs-script-loader"
           src="//js-na3.hs-scripts.com/341940338.js"
           strategy="afterInteractive"
           async
           defer
-        />
+        /> */}
         {/* End HubSpot Embed Code */}
         {/* Twitter conversion tracking base code */}
-        <Script id="twitter-pixel" strategy="afterInteractive">
+        {/* <Script id="twitter-pixel" strategy="afterInteractive">
           {`
             !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
             },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
             a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
             twq('config','q6cct');
           `}
-        </Script>
+        </Script> */}
         {/* End Twitter conversion tracking base code */}
         {/* PostHog Analytics */}
         <Script id="posthog-analytics" strategy="afterInteractive">
