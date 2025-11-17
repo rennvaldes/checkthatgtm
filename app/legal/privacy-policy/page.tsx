@@ -1,12 +1,11 @@
 
 export default function PrivacyPolicy() {
   return (
-    <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-4xl font-bold mb-2">GrowthX</h1>
-      <h2 className="text-3xl font-bold mb-4">Privacy Policy</h2>
+    <div className="max-w-4xl mx-auto py-32 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-4xl font-bold mb-2 tracking-tight">Privacy Policy</h1>
       <p className="text-gray-600 mb-8">Last modified: November 13, 2025</p>
 
-      <div className="prose prose-lg max-w-none space-y-6">
+      <div className="prose prose-lg max-w-none space-y-6 tracking-tight">
         <p>
           GrowthX AI, Inc. (&quot;GrowthX AI&quot;, &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) has prepared this Privacy Policy to explain (1) what personal information we collect, (2) how we use and share that information, and (3) your choices concerning our privacy and information practices.
         </p>
