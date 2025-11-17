@@ -152,8 +152,15 @@ export default function FooterV2() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-4 py-6 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
           <div className="text-white/60 text-sm tracking-tight">©{new Date().getFullYear()} GrowthX. All rights reserved.</div>
+          <ul className="flex flex-col sm:flex-row gap-4">
+            <li><Link href="/legal/privacy-policy" className="text-white/60 text-sm tracking-tight hover:text-white">Privacy Policy</Link></li>
+            <li><Link href="/legal/terms-of-service" className="text-white/60 text-sm tracking-tight hover:text-white">Terms of Service</Link></li>
+            <li><Link href="/legal/cookie-policy" className="text-white/60 text-sm tracking-tight hover:text-white">Cookie Policy</Link></li>
+            <li><Link href="/legal/data-processing-addendum" className="text-white/60 text-sm tracking-tight hover:text-white">Data Processing Addendum</Link></li>
+            <li><Link href="/legal/subprocessors" className="text-white/60 text-sm tracking-tight hover:text-white">Subprocessors</Link></li>
+          </ul>
         </div>
       </div>
     </footer>
