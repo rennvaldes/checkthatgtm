@@ -88,6 +88,7 @@ export default function FooterV2() {
         { label: "Blog", href: "/blog" },
         { label: "Tools", href: "/tools" },
         { label: "Guides", href: "/guides" },
+        { label: "AI Visibility", href: "https://checkthat.ai", external: true },
       ],
     },
     {
