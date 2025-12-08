@@ -7,6 +7,9 @@ const strapiUrl = new URL(
 const nextConfig = {
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
+  turbopack: {
+    root: __dirname,
+  },
 
   images: {
     // Allow Strapi assets and safe external HTTPS images

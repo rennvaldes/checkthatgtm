@@ -6,7 +6,7 @@
     "dev": "PORT=3555 next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "author": "Litebox LLC",
   "license": "UNLICENSED",
@@ -28,7 +28,8 @@
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.438.0",
-    "next": "15.5.2",
+    "next": "^16.0.7",
+    "posthog-js": "^1.302.2",
     "qs": "^6.13.0",
     "react": "^18",
     "react-dom": "^18",
@@ -45,6 +46,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
     "@tailwindcss/typography": "^0.5.16",
     "@types/lodash": "^4.17.9",
     "@types/node": "^20",
@@ -53,8 +55,8 @@
     "@types/react-dom": "^18",
     "@types/swiper": "^5.4.3",
     "autoprefixer": "^10.4.20",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.7",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
     "typescript": "^5"
