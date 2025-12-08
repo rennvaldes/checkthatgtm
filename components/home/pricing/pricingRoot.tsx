@@ -16,7 +16,13 @@ interface PlanTabButtonProps {
   tabRef: (el: HTMLButtonElement | null) => void;
 }
 
-function PlanTabButton({ planName, idx, activeTab, onClick, tabRef }: PlanTabButtonProps) {
+function PlanTabButton({
+  planName,
+  idx,
+  activeTab,
+  onClick,
+  tabRef,
+}: PlanTabButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const textSpring = useSpring({
     progress: activeTab === idx || isHovered ? 1 : 0,
@@ -29,7 +35,7 @@ function PlanTabButton({ planName, idx, activeTab, onClick, tabRef }: PlanTabBut
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="flex items-center py-5 text-base font-medium whitespace-nowrap flex-shrink-0"
+      className="flex items-center py-5 text-lg font-normal whitespace-nowrap flex-shrink-0"
       style={{
         color: textSpring.progress.to(
           [0, 1],
@@ -114,12 +120,14 @@ export function PricingRoot() {
               )}
 
               {/* Plan Name */}
-              <h3 className="text-lg font-medium mb-2 mt-16">{plan.name}</h3>
+              <h3 className="text-lg leading-[1.5] tracking-[-0.04em] font-medium mb-0 mt-16">
+                {plan.name}
+              </h3>
 
               {/* Description */}
               <p
                 className={cx(
-                  "text-base mb-6",
+                  "text-lg mb-6",
                   plan.highlight
                     ? "text-foreground/40"
                     : "text-muted-foreground"
@@ -130,11 +138,13 @@ export function PricingRoot() {
 
               {/* Price */}
               <div className="flex items-baseline gap-1 mt-auto">
-                <span className="text-2xl font-medium">{plan.price}</span>
+                <span className="text-2xl leading-[1.5] tracking-[-0.04em] font-[580]">
+                  {plan.price}
+                </span>
                 {plan.period && (
                   <span
                     className={cx(
-                      "text-sm",
+                      "text-lg",
                       plan.highlight
                         ? "text-foreground/40"
                         : "text-muted-foreground"
@@ -158,7 +168,7 @@ export function PricingRoot() {
                 )}
               >
                 <IconCheck />
-                <span className="text-base">{plan.features[featureIdx]}</span>
+                <span className="text-sm">{plan.features[featureIdx]}</span>
               </div>
             ))
           )}
@@ -246,12 +256,14 @@ export function PricingRoot() {
                   )}
 
                   {/* Plan Name */}
-                  <h3 className="text-lg font-medium mb-2 mt-8">{plan.name}</h3>
+                  <h3 className="text-lg leading-[1.5] tracking-[-0.04em] font-medium mb-0 mt-8">
+                    {plan.name}
+                  </h3>
 
                   {/* Description */}
                   <p
                     className={cx(
-                      "text-base mb-6",
+                      "text-lg mb-6",
                       plan.highlight
                         ? "text-foreground/40"
                         : "text-muted-foreground"
@@ -290,7 +302,7 @@ export function PricingRoot() {
                     )}
                   >
                     <IconCheck />
-                    <span className="text-base">{feature}</span>
+                    <span className="text-lg">{feature}</span>
                   </div>
                 ))}
 

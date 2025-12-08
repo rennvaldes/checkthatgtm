@@ -28,7 +28,7 @@ export function FooterCtaSection() {
 
           {/* Newsletter */}
           <div className="col-span-full lg:col-span-4 lg:col-start-3 mt-12 lg:mt-0">
-            <h3 className="text-[20px] font-medium leading-tight tracking-[-0.03em] text-foreground mb-6">
+            <h3 className="text-[20px] lg:text-2xl font-[580] leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] text-foreground mb-6">
               Subscribe to the GrowthX Newsletter
             </h3>
             <NewsletterInput />

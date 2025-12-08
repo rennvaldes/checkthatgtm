@@ -57,7 +57,8 @@ export function FitRoot() {
                 key={idx}
                 className={cx(
                   "flex items-center justify-center h-[40px] border-r-[0.5px] border-border cursor-pointer transition-colors",
-                  idx !== content.items.length - 1 && "border-b-[0.5px] border-border",
+                  idx !== content.items.length - 1 &&
+                    "border-b-[0.5px] border-border",
                   activeIndex === idx ? "bg-foreground" : "bg-background"
                 )}
                 onClick={() => setActiveIndex(idx)}
@@ -78,21 +79,22 @@ export function FitRoot() {
                 key={idx}
                 className={cx(
                   "flex items-center px-[10px] h-[40px] border-r-[0.5px] border-border cursor-pointer transition-colors",
-                  idx !== content.items.length - 1 && "border-b-[0.5px] border-border",
+                  idx !== content.items.length - 1 &&
+                    "border-b-[0.5px] border-border",
                   activeIndex === idx
                     ? "text-foreground"
                     : "text-muted-foreground"
                 )}
                 onClick={() => setActiveIndex(idx)}
               >
-                <span className="text-lg">{item.title}</span>
+                <span className="text-lg leading-[1.5] tracking-[-0.04em]">{item.title}</span>
               </div>
             ))}
           </div>
 
           {/* Description Column */}
           <div className="col-span-5 flex items-center px-10">
-            <p className="text-base text-foreground">
+            <p className="text-lg leading-[1.5] tracking-[-0.04em] text-foreground">
               {content.items[activeIndex].description}
             </p>
           </div>
@@ -100,7 +102,7 @@ export function FitRoot() {
 
         {/* Footer CTA */}
         <div className="px-5 lg:px-10 flex items-center justify-between py-10 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-border">
-          <p className="text-base text-foreground max-w-[600px]">
+          <p className="text-lg leading-[1.5] tracking-[-0.04em] text-foreground max-w-[600px]">
             {content.footer.text}
           </p>
           <Button href={content.footer.cta.url}>
@@ -120,7 +122,7 @@ export function FitRoot() {
               >
                 <IconCheck />
                 <span className="flex-1 text-base">{item.title}</span>
-                <span className="text-lg">
+                <span className="text-lg leading-[1.5] tracking-[-0.04em]">
                   {activeIndex === idx ? "−" : "+"}
                 </span>
               </button>
@@ -137,7 +139,7 @@ export function FitRoot() {
 
         {/* Footer CTA */}
         <div className="mt-10 flex flex-col gap-6 py-10 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-border">
-          <p className="text-base text-foreground">{content.footer.text}</p>
+          <p className="text-lg leading-[1.5] tracking-[-0.04em] text-foreground">{content.footer.text}</p>
           <Button href={content.footer.cta.url} fullWidth>
             {content.footer.cta.text}
           </Button>

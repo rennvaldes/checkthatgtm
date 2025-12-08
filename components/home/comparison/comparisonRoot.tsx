@@ -16,7 +16,13 @@ interface TabButtonProps {
   tabRef: (el: HTMLButtonElement | null) => void;
 }
 
-function TabButton({ column, idx, activeTab, onClick, tabRef }: TabButtonProps) {
+function TabButton({
+  column,
+  idx,
+  activeTab,
+  onClick,
+  tabRef,
+}: TabButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const textSpring = useSpring({
     progress: activeTab === idx || isHovered ? 1 : 0,
@@ -29,7 +35,7 @@ function TabButton({ column, idx, activeTab, onClick, tabRef }: TabButtonProps) 
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="flex items-center py-5 text-base font-medium"
+      className="flex items-center py-5 text-base font-normal"
       style={{
         color: textSpring.progress.to(
           [0, 1],
@@ -94,7 +100,7 @@ export function ComparisonRoot() {
                     Best Choice
                   </div>
                 )}
-                <span className="text-lg font-medium">{column}</span>
+                <span className="text-lg leading-[1.5] tracking-[-0.04em]">{column}</span>
               </div>
             ))}
           </div>
@@ -104,7 +110,7 @@ export function ComparisonRoot() {
             <div key={feature} className="grid grid-cols-4 col-span-4">
               {/* Feature Label */}
               <div className="flex items-center px-5 py-4 border-b-[0.5px] border-border">
-                <span className="text-base">{feature}</span>
+                <span className="text-sm">{feature}</span>
               </div>
 
               {/* Availability Cells */}

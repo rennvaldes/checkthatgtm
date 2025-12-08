@@ -35,7 +35,7 @@ export function PeopleRoot({ className }: PeopleRootProps) {
           <div className="md:flex gap-x-10 mt-8 min-w-0">
             {/* Left: Avatar Stack */}
             <div className="flex flex-col gap-y-[9px]">
-              <span className="text-foreground text-base lg:text-lg">
+              <span className="text-foreground text-base lg:text-lg lg:leading-[1.5] lg:tracking-[-0.04em]">
                 {content.avatarLabel}
               </span>
               <PeopleAvatarStack team={content.team} />
@@ -43,7 +43,7 @@ export function PeopleRoot({ className }: PeopleRootProps) {
 
             {/* Right: Company Logos */}
             <div className="flex flex-col gap-y-[9px] mt-6 md:mt-0 overflow-hidden">
-              <span className="text-foreground text-base lg:text-lg">
+              <span className="text-foreground text-base lg:text-lg lg:leading-[1.5] lg:tracking-[-0.04em]">
                 {content.companyLabel}
               </span>
               <PeopleCompanyLogos companies={content.companies} />

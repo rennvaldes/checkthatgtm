@@ -69,7 +69,7 @@ export function ProcessRoot({ className }: ProcessRootProps) {
                 <div className="size-4 flex-shrink-0">
                   <IconComponent />
                 </div>
-                <h3 className="text-base lg:text-lg font-medium text-foreground">
+                <h3 className="text-base lg:text-lg lg:leading-[1.5] lg:tracking-[-0.04em] font-medium text-foreground">
                   {step.title}
                 </h3>
               </div>
@@ -83,7 +83,7 @@ export function ProcessRoot({ className }: ProcessRootProps) {
                   "flex items-center"
                 )}
               >
-                <p className="text-base lg:text-lg text-muted-foreground leading-[1.5]">
+                <p className="text-base lg:text-lg text-muted-foreground lg:leading-[1.5] lg:tracking-[-0.04em]">
                   {step.description}
                 </p>
               </div>
@@ -93,7 +93,7 @@ export function ProcessRoot({ className }: ProcessRootProps) {
 
         {/* CTA Section */}
         <div className="col-span-full p-5 lg:p-10 border-border lg:border-l-[0.25px] lg:border-r-[0.25px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-          <p className="text-base lg:text-lg text-foreground">
+          <p className="text-base lg:text-lg lg:leading-[1.5] lg:tracking-[-0.04em] text-foreground">
             {content.cta.text}
           </p>
           <Button href={content.cta.url}>{content.cta.buttonText}</Button>
