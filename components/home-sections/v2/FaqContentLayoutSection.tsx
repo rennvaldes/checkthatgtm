@@ -1,6 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
+ 
 import React from "react";
 import ContentLayout from "@/components/layout/ContentLayout";
 import Accordion from "@/lib/litebox-lib/ui/Accordion/Accordion";

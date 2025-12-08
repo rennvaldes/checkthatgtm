@@ -20,7 +20,7 @@ interface ImageDimensions {
 }
 
 interface ChildrenType {
-  // eslint-disable-next-line react/no-unused-prop-types
+   
   children: ReactNode;
 }
 

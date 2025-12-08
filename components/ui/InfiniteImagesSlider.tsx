@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+ 
 import { cn } from '@/lib/litebox-lib/utils/cn';
 
 type Props = {
