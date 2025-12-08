@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 
 import ConditionalNavbar from '@/components/layout/ConditionalNavbar';
+import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import Footer from '@/components/layout/Footer';
 import Providers from '@/components/Providers';
 import { clashDisplay, messinaSans } from '@/assets/fonts';
 import PostHogPageView from '@/components/analytics/PostHogPageView';
 import '@/static/globals.css';
-import FooterV2 from '@/components/layout/Footer/v2';
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -143,7 +143,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <PostHogPageView />
           <ConditionalNavbar />
           {children}
-          <FooterV2 />
+          <ConditionalFooter />
         </Providers>
       </body>
     </html>

@@ -29,7 +29,7 @@ export function PeopleCompanyLogos({ companies }: PeopleCompanyLogosProps) {
         return (
           <div
             key={company.name}
-            className={`w-fit pr-4 md:pr-5 rounded-full border border-border bg-background flex items-center gap-1 md:gap-1.5 flex-shrink-0 ${getVisibilityClass()}`}
+            className={`w-fit pr-4 md:pr-5 rounded-full border-[0.5px] border-border bg-background flex items-center gap-1 md:gap-1.5 flex-shrink-0 ${getVisibilityClass()}`}
           >
             <Image
               src={company.logo}

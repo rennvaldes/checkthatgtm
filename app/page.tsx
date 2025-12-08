@@ -1,4 +1,4 @@
-import { HeroText, HeroLogos, HeroVideo } from "@/components/home/hero";
+import { HeroText, HeroLogos } from "@/components/home/hero";
 import { PlatformFeatures } from "@/components/home/platform";
 import { PeopleRoot } from "@/components/home/people";
 import { ProcessRoot } from "@/components/home/process/processRoot";
@@ -13,7 +13,7 @@ export default function Home() {
       <NavigationBar />
       <HeroText />
       <HeroLogos />
-      <HeroVideo />
+      {/* <HeroVideo /> */}
       <PlatformFeatures />
       <PeopleRoot />
       <ProcessRoot />

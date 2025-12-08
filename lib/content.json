@@ -130,7 +130,7 @@
     "items": [
       {
         "title": "You're a growth-stage company ready to scale content.",
-        "description": "[Description needed]"
+        "description": "You've moved past the early startup phase and are ready to invest in scalable content systems."
       },
       {
         "title": "You have product-market fit and need to accelerate acquisition.",
@@ -138,15 +138,15 @@
       },
       {
         "title": "Your current content process is a bottleneck, not a growth lever.",
-        "description": "[Description needed]"
+        "description": "You know content matters but your current approach can't keep up with your growth ambitions."
       },
       {
         "title": "You value quality and are willing to invest in doing content right.",
-        "description": "[Description needed]"
+        "description": "You understand that great content requires real investment and refuse to cut corners."
       },
       {
         "title": "You want a partner, not just a vendor.",
-        "description": "[Description needed]"
+        "description": "You're looking for a team that integrates with yours and cares about your success as much as you do."
       }
     ],
     "footer": {
