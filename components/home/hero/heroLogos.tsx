@@ -110,7 +110,7 @@ export function HeroLogos({ className }: HeroLogosProps) {
       <Grid>
         {/* Label */}
         <div className="col-span-full md:col-span-1">
-          <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground">
+          <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
             Customers
           </span>
         </div>
@@ -119,7 +119,7 @@ export function HeroLogos({ className }: HeroLogosProps) {
 
         {/* Description - responsive: full -> 6 cols (start 3) -> 8 cols (start 3) */}
         <div className="col-span-full md:col-span-6 md:col-start-3 lg:col-span-8 lg:col-start-3 mt-3 md:mt-0">
-          <p className="text-[20px] lg:text-2xl font-medium leading-[1.5] lg:leading-[1.25] tracking-[-0.03em] lg:tracking-[-0.06em]">
+          <p className="text-[20px] lg:text-2xl font-[580] leading-[1.5] lg:leading-[1.25] tracking-[-0.03em] lg:tracking-[-0.06em]">
             Trusted by the world&apos;s fastest-growing startups and reputable
             brands.
           </p>

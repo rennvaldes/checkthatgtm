@@ -37,7 +37,7 @@ export function FooterCtaSection() {
           {/* Social Links */}
           <div className="col-span-full lg:col-span-6 lg:col-start-7 mt-12 lg:mt-0 flex flex-col lg:items-end lg:justify-end">
             <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground mr-auto lg:mr-0">Follow us</span>
+              <span className="text-sm text-muted-foreground mr-auto lg:mr-0 font-light">Follow us</span>
               <LinkButton
                 href="https://www.linkedin.com/company/growthx-ai"
                 variant="tertiary"

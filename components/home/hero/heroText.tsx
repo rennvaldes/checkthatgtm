@@ -11,10 +11,14 @@ export function HeroText({ className }: HeroTextProps) {
     <section className={cx("pt-48 pb-32", className)}>
       {/* Title */}
       <Grid>
-        <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] font-medium leading-[0.89] tracking-[-0.07em]">
-          <span className="text-foreground">The growth engine</span>
+        <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
+          <span className="text-foreground font-semibold">
+            The growth engine
+          </span>
           <br />
-          <span className="font-medium text-muted-foreground">for modern marketing.</span>
+          <span className="font-regular text-muted-foreground">
+            for modern marketing.
+          </span>
         </h1>
       </Grid>
 
@@ -22,14 +26,16 @@ export function HeroText({ className }: HeroTextProps) {
       <Grid className="pt-16">
         {/* Label */}
         <div className="col-span-full md:col-span-1">
-          <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground">Join us</span>
+          <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
+            Join us
+          </span>
         </div>
 
         {/* Gap - col 2 is empty */}
 
         {/* Description */}
         <div className="col-span-full md:col-span-8 md:col-start-3 mt-3 md:mt-0">
-          <p className="text-2xl font-medium leading-[1.25] tracking-[-0.06em]">
+          <p className="text-2xl font-[580] leading-[1.25] tracking-[-0.06em]">
             Powerful AI workflows. Forward-deployed experts. One system that
             turns content into compounding organic growth.
           </p>
