@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 
-import Navbar from '@/components/layout/Navbar';
+import ConditionalNavbar from '@/components/layout/ConditionalNavbar';
 import Footer from '@/components/layout/Footer';
 import Providers from '@/components/Providers';
 import { clashDisplay, messinaSans } from '@/assets/fonts';
@@ -127,7 +127,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* End PostHog Analytics */}
       </head>
       <body
-        className={`${clashDisplay.variable} ${messinaSans.variable} font-messina-sans bg-[#F1EEE9] text-ui-black text-[14px] font-normal leading-none`}>
+        className={`${clashDisplay.variable} ${messinaSans.variable} font-messina-sans bg-[#F1EEE9] text-foreground text-[14px] font-normal leading-none`}>
         {/* LinkedIn Insight Tag (noscript) */}
         <noscript>
           <img height="1" width="1" style={{ display: 'none' }} alt="" src="https://px.ads.linkedin.com/collect/?pid=7407172&fmt=gif" />
@@ -141,7 +141,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* End Google Tag Manager (noscript) */}
         <Providers>
           <PostHogPageView />
-          <Navbar />
+          <ConditionalNavbar />
           {children}
           <FooterV2 />
         </Providers>

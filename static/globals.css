@@ -50,6 +50,48 @@ html {
 
 @layer base {
   :root {
+    /* =========================
+       SHADCN SEMANTIC COLORS
+       Mapped to GrowthX brand palette
+       ========================= */
+    --background: 38 22% 93%;        /* #F1EEE9 - paper */
+    --foreground: 210 23% 3%;        /* #080A0D - ink */
+
+    --card: 0 0% 100%;               /* #FFFFFF */
+    --card-foreground: 210 23% 3%;   /* ink */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 23% 3%;
+
+    --primary: 210 23% 3%;           /* #080A0D - ink */
+    --primary-foreground: 38 22% 93%; /* paper */
+
+    --secondary: 37 14% 89%;         /* #E6E3DE - paper-secondary */
+    --secondary-foreground: 210 23% 3%;
+
+    --muted: 37 14% 89%;             /* #E6E3DE */
+    --muted-foreground: 0 0% 58%;    /* #959595 - charcoal */
+
+    --accent: 341 100% 88%;          /* #FFC3D6 - pink */
+    --accent-foreground: 210 23% 3%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 70%;              /* #B3B3B3 */
+    --input: 0 0% 70%;
+    --ring: 210 23% 3%;              /* ink */
+
+    /* =========================
+       ADDITIONAL BRAND COLORS
+       ========================= */
+    --icon: 0 4% 12%;                /* #231F20 */
+    --pink: 341 100% 88%;            /* #FFC3D6 */
+    --yellow: 48 100% 74%;           /* #FFE57B */
+
+    /* =========================
+       RADIUS (shadcn default)
+       ========================= */
     --radius: 0.5rem;
   }
 }

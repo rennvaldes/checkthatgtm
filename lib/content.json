@@ -1,0 +1,302 @@
+{
+  "hero": {
+    "title": "GrowthX AI",
+    "subtitle": "Accelerate your growth with AI-powered marketing",
+    "cta": {
+      "primary": "Get Started",
+      "secondary": "Learn More"
+    }
+  },
+  "features": [
+    {
+      "title": "AI-Powered Insights",
+      "description": "Leverage cutting-edge AI to understand your customers better",
+      "icon": "chart"
+    },
+    {
+      "title": "Data-Driven Strategy",
+      "description": "Make informed decisions with comprehensive analytics",
+      "icon": "data"
+    },
+    {
+      "title": "Growth Optimization",
+      "description": "Continuously improve your marketing performance",
+      "icon": "growth"
+    }
+  ],
+  "about": {
+    "title": "Who We Are",
+    "description": "We help companies scale their marketing efforts with AI-powered solutions.",
+    "team": []
+  },
+  "people": {
+    "label": "The People",
+    "title": "Exceptional talent. An extension of your team.",
+    "subtitle": "Our forward-deployed expert network shapes strategy, builds agentic AI workflows, and ensures quality at scale.",
+    "avatarLabel": "Talented operators...",
+    "companyLabel": "that helped build companies like...",
+    "team": [
+      { "name": "Bridget", "image": "/images/avatars/avatar-bridget.webp", "initials": "BH" },
+      { "name": "George Maine", "image": "/images/avatars/avatar-georgemaine.webp", "initials": "GM" },
+      { "name": "GP", "image": "/images/avatars/avatar-gp.webp", "initials": "GP" },
+      { "name": "Jakub", "image": "/images/avatars/avatar-jakub.webp", "initials": "JK" },
+      { "name": "Kirkland", "image": "/images/avatars/avatar-kirkland.webp", "initials": "KM" },
+      { "name": "Meg", "image": "/images/avatars/avatar-meg.webp", "initials": "MG" }
+    ],
+    "companies": [
+      { "name": "Scale", "logo": "/images/logos/scale.webp" },
+      { "name": "TechCrunch", "logo": "/images/logos/techcrunch.webp" },
+      { "name": "Grammarly", "logo": "/images/logos/grammarly.webp" },
+      { "name": "Framer", "logo": "/images/logos/framer.webp" },
+      { "name": "Pitch", "logo": "/images/logos/pitch.webp" },
+      { "name": "Lyft", "logo": "/images/logos/lyft.webp" },
+      { "name": "Semrush", "logo": "/images/logos/semrush.webp" }
+    ]
+  },
+  "contact": {
+    "email": "hello@growthx.ai",
+    "social": {
+      "twitter": "https://twitter.com/growthxai",
+      "linkedin": "https://linkedin.com/company/growthx-ai"
+    }
+  },
+  "process": {
+    "label": "The Process",
+    "title": "Quality earns trust. Scale and speed deliver growth.",
+    "subtitle": "A proven process to accelerate time to the outcomes you care about: AI visibility, traffic, conversions.",
+    "steps": [
+      {
+        "id": "inputs-strategy",
+        "title": "Inputs & Strategy",
+        "description": "We learn your business, audience, and competitive landscape fast. Then we identify the opportunities that will drive the most impact."
+      },
+      {
+        "id": "calibration-workflows",
+        "title": "Calibration & Workflows",
+        "description": "We define quality standards and voice together. Then we build custom AI workflows with human oversight that scale quality consistently."
+      },
+      {
+        "id": "execution-iteration",
+        "title": "Execution & Iteration",
+        "description": "We publish and refresh content daily. Track AI visibility, rankings, traffic, and conversions. Iterate fast based on what's working."
+      },
+      {
+        "id": "growth-scale",
+        "title": "Growth & Scale",
+        "description": "Content compounds into consistent pipeline. The system gets smarter and faster. Experts shift toward strategy and new experiments."
+      }
+    ],
+    "cta": {
+      "text": "Ready to see this process at work and unlock your next stage of growth?",
+      "buttonText": "Unlock",
+      "url": "https://growthx.ai/book-demo"
+    }
+  },
+  "comparison": {
+    "label": "Comparison",
+    "title": "How we're different.",
+    "subtitle": "The best of AI efficiency and human expertise, without the tradeoffs.",
+    "columns": ["GrowthX", "AI tools", "Agencies"],
+    "bestChoiceColumn": 0,
+    "features": [
+      "AI-powered workflows",
+      "Human expert oversights",
+      "Scalable production",
+      "Strategic guidance",
+      "Cost-effective at scale",
+      "Quality guarantee",
+      "Custom AI workflows",
+      "Dedicated team"
+    ],
+    "availability": [
+      [true, true, false],
+      [true, false, true],
+      [true, false, false],
+      [true, false, true],
+      [true, true, false],
+      [true, false, false],
+      [true, false, false],
+      [true, false, true]
+    ],
+    "cta": {
+      "text": "Get Started",
+      "url": "https://growthx.ai/book-demo"
+    }
+  },
+  "fit": {
+    "label": "Fit",
+    "title": "Who we're built for.",
+    "subtitle": "GrowthX isn't for everyone. We work best with ambitious teams who understand that content is a competitive advantage worth investing in.",
+    "items": [
+      {
+        "title": "You're a growth-stage company ready to scale content.",
+        "description": "[Description needed]"
+      },
+      {
+        "title": "You have product-market fit and need to accelerate acquisition.",
+        "description": "Your product works, customers love it, and now you need to reach more of them efficiently."
+      },
+      {
+        "title": "Your current content process is a bottleneck, not a growth lever.",
+        "description": "[Description needed]"
+      },
+      {
+        "title": "You value quality and are willing to invest in doing content right.",
+        "description": "[Description needed]"
+      },
+      {
+        "title": "You want a partner, not just a vendor.",
+        "description": "[Description needed]"
+      }
+    ],
+    "footer": {
+      "text": "If this sounds like you, let's talk about how GrowthX can accelerate your content engine.",
+      "cta": {
+        "text": "Join 50+ growth teams",
+        "url": "https://growthx.ai/book-demo"
+      }
+    }
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "Simple, transparent pricing.",
+    "subtitle": "Choose the engagement model that fits your needs. Scale as you grow. All plans include a 30-day satisfaction guarantee. No long-term contracts required.",
+    "plans": [
+      {
+        "category": "Strategic Advisory",
+        "name": "You Drive → We Guide",
+        "description": "Expert guidance while you maintain control of execution",
+        "price": "$9,000",
+        "period": "/month",
+        "highlight": false,
+        "mostPopular": false,
+        "features": [
+          "Growth strategy & roadmap",
+          "AI workflow templates",
+          "Weekly strategy sessions",
+          "Content calendar planning",
+          "Performance dashboards",
+          "Slack support channel"
+        ],
+        "cta": { "text": "Get Started", "url": "https://growthx.ai/book-demo", "variant": "muted" }
+      },
+      {
+        "category": "Full-Service",
+        "name": "We Drive → We Guide",
+        "description": "We handle everything, you provide direction",
+        "price": "$18,000",
+        "period": "/month",
+        "highlight": true,
+        "mostPopular": true,
+        "features": [
+          "Everything in You Drive",
+          "Dedicated content team",
+          "End-to-end production",
+          "Custom AI workflows",
+          "Multi-Channel distribution",
+          "Monthly business reviews"
+        ],
+        "cta": { "text": "Get Started", "url": "https://growthx.ai/book-demo", "variant": "primary" }
+      },
+      {
+        "category": "Enterprise",
+        "name": "Custom",
+        "description": "Forward-deployed engineers, fully embedded in your team",
+        "price": "Let's talk",
+        "period": "",
+        "highlight": false,
+        "mostPopular": false,
+        "features": [
+          "Forward-deployed AI engineers",
+          "Forward-deployed design engineers",
+          "Fully custom to your needs",
+          "Embedded in your team",
+          "Enterprise security & compliance",
+          "Highly selective engagement"
+        ],
+        "cta": { "text": "Contact Us", "url": "https://growthx.ai/book-demo", "variant": "muted" }
+      }
+    ]
+  },
+  "platformFeatures": {
+    "sectionLabel": "Platform",
+    "heading": "Turn content into your growth multiplier.",
+    "subheading": "The operating system to turn content into a growth engine that compounds over time.",
+    "features": [
+      {
+        "id": "context",
+        "title": "Context",
+        "description": "Understand your company, audience, and market deeply to identify where you should be the definitive answer to questions that drive decisions.",
+        "visual": {
+          "type": "stack",
+          "video": "/videos/context.mov",
+          "poster": "/images/posters/context-poster.webp",
+          "items": [
+            "Content Analysis",
+            "Tone of Voice",
+            "Brand Identity",
+            "Traffic",
+            "Competitive Landscape",
+            "Personas"
+          ]
+        }
+      },
+      {
+        "id": "strategy",
+        "title": "Strategy",
+        "description": "Map the opportunities that position your brand as the best answer, driving visibility in AI and search while creating clear paths to conversion.",
+        "visual": {
+          "type": "cards",
+          "video": "/videos/strategy.mov",
+          "poster": "/images/posters/strategy-poster.webp",
+          "items": [
+            {
+              "label": "Opportunity",
+              "score": "8.3",
+              "question": "Which tool should I use for high volume transfers?"
+            }
+          ]
+        }
+      },
+      {
+        "id": "execution",
+        "title": "Execution",
+        "description": "Codify expert processes into agentic AI workflows with human review at critical moments, ensuring brand alignment and quality never slip.",
+        "visual": {
+          "type": "workflow",
+          "video": "/videos/execution.mov",
+          "poster": "/images/posters/execution-poster.webp",
+          "items": [
+            "Run Workflow",
+            "Classify Opportunity",
+            "Decide"
+          ]
+        }
+      },
+      {
+        "id": "optimization",
+        "title": "Optimization",
+        "description": "Monitor the right signals across visibility, engagement, and conversion, then feed insights back to improve every output.",
+        "visual": {
+          "type": "metrics",
+          "video": "/videos/optimization.mov",
+          "poster": "/images/posters/optimization-poster.webp",
+          "items": [
+            {
+              "metric": "Impressions",
+              "change": "+38%"
+            },
+            {
+              "metric": "Time on page",
+              "change": "+48%"
+            },
+            {
+              "metric": "CTA clicks",
+              "change": "+43%"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
