@@ -178,7 +178,7 @@
           "Performance dashboards",
           "Slack support channel"
         ],
-        "cta": { "text": "Get Started", "url": "https://growthx.ai/book-demo", "variant": "muted" }
+        "cta": { "text": "Get Started", "url": "https://growthx.ai/book-demo", "variant": "secondary" }
       },
       {
         "category": "Full-Service",
@@ -214,7 +214,7 @@
           "Enterprise security & compliance",
           "Highly selective engagement"
         ],
-        "cta": { "text": "Contact Us", "url": "https://growthx.ai/book-demo", "variant": "muted" }
+        "cta": { "text": "Contact Us", "url": "https://growthx.ai/book-demo", "variant": "secondary" }
       }
     ]
   },

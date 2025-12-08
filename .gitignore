@@ -73,3 +73,6 @@ build
 *.sql
 *.sqlite
 *.sqlite3
+
+# Temporary files
+tmp/

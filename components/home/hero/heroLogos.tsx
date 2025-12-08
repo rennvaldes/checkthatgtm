@@ -105,7 +105,7 @@ function LogoCell({ children }: { children?: React.ReactNode }) {
 
 export function HeroLogos({ className }: HeroLogosProps) {
   return (
-    <section className={cx("pt-16 pb-16", className)}>
+    <section className={cx("pt-16", className)}>
       {/* Header */}
       <Grid>
         {/* Label */}
@@ -142,7 +142,7 @@ export function HeroLogos({ className }: HeroLogosProps) {
       {/* Desktop Logo Grid - responsive columns, 2 rows */}
       <div
         className={cx(
-          "hidden sm:grid w-full my-10",
+          "hidden sm:grid w-full mt-10",
           "sm:grid-cols-3",
           "lg:grid-cols-5",
           "2xl:grid-cols-7",

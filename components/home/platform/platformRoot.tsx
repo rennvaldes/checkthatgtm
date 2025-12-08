@@ -30,7 +30,7 @@ export function PlatformFeatures() {
   };
 
   return (
-    <section className="pt-[176px] border-t-[0.5px] border-border">
+    <section className="pt-[176px]">
       {/* Section Header */}
       <Grid>
         {/* Label - Column 1 on tablet+, full on mobile */}
