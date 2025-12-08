@@ -138,7 +138,7 @@ export function FitRoot() {
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-10 flex flex-col gap-6 py-10 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-border">
+        <div className="mt-10 hidden flex-col gap-6 py-10 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-border">
           <p className="text-lg leading-[1.5] tracking-[-0.04em] text-foreground">{content.footer.text}</p>
           <Button href={content.footer.cta.url} fullWidth>
             {content.footer.cta.text}
