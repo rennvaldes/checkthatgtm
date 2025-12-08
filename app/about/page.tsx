@@ -3,7 +3,7 @@ import CompanySection from '@/components/about-sections/v2/CompanySection';
 import Spacer from '@/components/common/Spacer';
 import ValuesSection from '@/components/about-sections/v2/ValuesSection';
 import TeamSection from '@/components/about-sections/v2/TeamSection';
-import TestimonialsSection from "@/components/home-sections/v2/TestimonialsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTABannerSection from '@/components/about-sections/v2/CTABannerSection';
 
 export default function About() {

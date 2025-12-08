@@ -3,17 +3,17 @@ import localFont from 'next/font/local';
 export const clashDisplay = localFont({
   src: [
     {
-      path: './ClashDisplay/ClashDisplay-Regular.otf',
+      path: '../../public/fonts/ClashDisplay/ClashDisplay-Regular.otf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './ClashDisplay/ClashDisplay-Medium.otf',
+      path: '../../public/fonts/ClashDisplay/ClashDisplay-Medium.otf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: './ClashDisplay/ClashDisplay-Semibold.otf',
+      path: '../../public/fonts/ClashDisplay/ClashDisplay-Semibold.otf',
       weight: '600',
       style: 'normal',
     },
@@ -24,33 +24,13 @@ export const clashDisplay = localFont({
 export const messinaSans = localFont({
   src: [
     {
-      path: './MessinaSans/MessinaSans-Regular.woff2',
-      weight: '400',
+      path: '../../public/fonts/MessinaSans/MessinaSansComplete-VF-Upright.ttf',
+      weight: '300 900',
       style: 'normal',
     },
     {
-      path: './MessinaSans/MessinaSans-RegularItalic.woff2',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './MessinaSans/MessinaSans-SemiBold.woff2',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: './MessinaSans/MessinaSans-SemiBoldItalic.woff2',
-      weight: '600',
-      style: 'italic',
-    },
-    {
-      path: './MessinaSans/MessinaSans-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './MessinaSans/MessinaSans-BoldItalic.woff2',
-      weight: '700',
+      path: '../../public/fonts/MessinaSans/MessinaSansComplete-VF-Italic.ttf',
+      weight: '300 900',
       style: 'italic',
     },
   ],

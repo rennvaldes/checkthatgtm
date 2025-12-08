@@ -21,7 +21,7 @@ function Input({ value, onChange, isDisabled, className, withSearchIcon, placeho
       if (isFocused) inputRef.current.focus();
       else inputRef.current.blur();
     }
-  }, []);
+  }, [isDisabled]);
 
   return (
     <div
@@ -31,7 +31,6 @@ function Input({ value, onChange, isDisabled, className, withSearchIcon, placeho
       )}>
       <div
         role='search'
-        aria-disabled={isDisabled}
         tabIndex={isDisabled ? undefined : 0}
         onFocus={() => onContainerFocusToggle(true)}
         onBlur={() => onContainerFocusToggle(false)}

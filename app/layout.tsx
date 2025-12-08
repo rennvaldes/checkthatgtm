@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 
-import Navbar from '@/components/layout/Navbar';
+import ConditionalNavbar from '@/components/layout/ConditionalNavbar';
+import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import Footer from '@/components/layout/Footer';
 import Providers from '@/components/Providers';
 import { clashDisplay, messinaSans } from '@/assets/fonts';
 import PostHogPageView from '@/components/analytics/PostHogPageView';
 import '@/static/globals.css';
-import FooterV2 from '@/components/layout/Footer/v2';
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ),
   title: 'GrowthX: Expert-Led, AI‑Powered Growth',
   description:
-    'We build growth engines that blend AI workflows with experts. From content to distribution to conversion.',
+    'Powerful AI workflows. Forward-deployed experts. One system that turns content into compounding organic growth.',
   icons: {
     icon: '/icon.svg',
   },
@@ -115,7 +115,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* End Twitter conversion tracking base code */}
       </head>
       <body
-        className={`${clashDisplay.variable} ${messinaSans.variable} font-messina-sans bg-[#F1EEE9] text-ui-black text-[14px] font-normal leading-none`}>
+        className={`${clashDisplay.variable} ${messinaSans.variable} font-messina-sans bg-[#F1EEE9] text-foreground text-[14px] font-normal leading-none`}>
         {/* LinkedIn Insight Tag (noscript) */}
         <noscript>
           <img height="1" width="1" style={{ display: 'none' }} alt="" src="https://px.ads.linkedin.com/collect/?pid=7407172&fmt=gif" />
@@ -129,9 +129,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* End Google Tag Manager (noscript) */}
         <Providers>
           <PostHogPageView />
-          <Navbar />
+          <ConditionalNavbar />
           {children}
-          <FooterV2 />
+          <ConditionalFooter />
         </Providers>
       </body>
     </html>
