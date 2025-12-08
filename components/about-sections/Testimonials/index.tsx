@@ -1,6 +1,6 @@
 'use client';
 
-import ReviewsSection from '@/components/home-sections/ReviewsSection';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 function Title() {
   return (
