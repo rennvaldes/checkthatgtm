@@ -138,7 +138,7 @@ export function PricingRoot() {
 
               {/* Price */}
               <div className="flex items-baseline gap-1 mt-auto">
-                <span className="text-2xl leading-[1.5] tracking-[-0.04em] font-[580]">
+                <span className="text-2xl leading-[1.5] tracking-[-0.04em] font-[520]">
                   {plan.price}
                 </span>
                 {plan.period && (

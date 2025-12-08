@@ -119,7 +119,7 @@ export function HeroLogos({ className }: HeroLogosProps) {
 
         {/* Description - responsive: full -> 6 cols (start 3) -> 8 cols (start 3) */}
         <div className="col-span-full md:col-span-6 md:col-start-3 lg:col-span-8 lg:col-start-3 mt-3 md:mt-0">
-          <p className="text-[20px] lg:text-2xl font-[580] leading-[1.5] lg:leading-[1.25] tracking-[-0.03em] lg:tracking-[-0.06em]">
+          <p className="text-[20px] lg:text-2xl font-[520] leading-[1.5] lg:leading-[1.25] tracking-[-0.03em] lg:tracking-[-0.06em]">
             Trusted by the world&apos;s fastest-growing startups and reputable
             brands.
           </p>

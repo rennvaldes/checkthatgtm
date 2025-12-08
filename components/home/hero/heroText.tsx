@@ -35,7 +35,7 @@ export function HeroText({ className }: HeroTextProps) {
 
         {/* Description */}
         <div className="col-span-full md:col-span-8 md:col-start-3 mt-3 md:mt-0">
-          <p className="text-2xl font-[580] leading-[1.25] tracking-[-0.06em]">
+          <p className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em]">
             Powerful AI workflows. Forward-deployed experts. One system that
             turns content into compounding organic growth.
           </p>
