@@ -18,7 +18,7 @@ export function CtaSection() {
 
         {/* Title & Subtitle & CTA - responsive */}
         <div className="col-span-full md:col-span-8 md:col-start-3 mt-3 md:mt-0">
-          <h2 className="text-[20px] lg:text-2xl font-[580] leading-[1.5] lg:leading-[1.25] tracking-[-0.06em]">
+          <h2 className="text-[20px] lg:text-2xl font-[520] leading-[1.5] lg:leading-[1.25] tracking-[-0.06em]">
             Get started with AI-Led Growth
           </h2>
           <p className="text-[20px] lg:text-2xl font-400 leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] text-muted-foreground">

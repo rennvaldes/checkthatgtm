@@ -22,7 +22,7 @@ export function PeopleRoot({ className }: PeopleRootProps) {
         {/* Content - responsive: full -> 8 cols -> 10 cols */}
         <div className="col-span-full md:col-span-8 lg:col-span-10 flex flex-col mt-3 md:mt-0">
           {/* Title */}
-          <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[580] text-foreground">
+          <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[520] text-foreground">
             {content.title}
           </h2>
 

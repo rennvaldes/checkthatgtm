@@ -44,7 +44,7 @@ export function PlatformFeatures() {
 
         {/* Title & Subtitle - responsive: full -> 6 cols (start 3) -> 8 cols (start 3) */}
         <div className="col-span-full md:col-span-6 md:col-start-3 lg:col-span-8 lg:col-start-3 mt-3 md:mt-0 relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-full after:mt-10 after:w-screen after:h-[0.5px] after:bg-border">
-          <h2 className="text-[20px] lg:text-2xl font-[580] leading-[1.5] lg:leading-[1.25] tracking-[-0.06em]">
+          <h2 className="text-[20px] lg:text-2xl font-[520] leading-[1.5] lg:leading-[1.25] tracking-[-0.06em]">
             {content.heading}
           </h2>
           <p className="text-[20px] lg:text-2xl font-400 leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] text-muted-foreground">
