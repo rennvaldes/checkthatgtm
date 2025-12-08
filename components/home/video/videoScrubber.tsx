@@ -116,7 +116,7 @@ export function VideoScrubber({
     [seekToPosition]
   );
 
-  const handleMouseUp = useCallback(stopScrubbing, [stopScrubbing]);
+  const handleMouseUp = useCallback(() => stopScrubbing(), [stopScrubbing]);
 
   const handleTouchStart = useCallback(
     (event: TouchEvent) => {
@@ -132,7 +132,7 @@ export function VideoScrubber({
     [seekToPosition]
   );
 
-  const handleTouchEnd = useCallback(stopScrubbing, [stopScrubbing]);
+  const handleTouchEnd = useCallback(() => stopScrubbing(), [stopScrubbing]);
 
   const handleClick = useCallback((event: MouseEvent) => {
     event.stopPropagation();
