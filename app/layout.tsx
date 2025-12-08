@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ),
   title: 'GrowthX: Expert-Led, AI‑Powered Growth',
   description:
-    'We build growth engines that blend AI workflows with experts. From content to distribution to conversion.',
+    'Powerful AI workflows. Forward-deployed experts. One system that turns content into compounding organic growth.',
   icons: {
     icon: '/icon.svg',
   },
