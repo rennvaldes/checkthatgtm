@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+ 
 import ArrowRight from '@/components/icons/ArrowRight';
 import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
 import { getMainDataAndArticles } from '@/lib/api/strapi/blog';
