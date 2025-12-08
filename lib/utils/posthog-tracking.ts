@@ -1,14 +1,9 @@
 // PostHog tracking utility
-
-declare global {
-  interface Window {
-    posthog?: any;
-  }
-}
+import posthog from 'posthog-js';
 
 export const trackPostHogEvent = (eventName: string, properties?: Record<string, any>) => {
-  if (typeof window !== 'undefined' && window.posthog) {
-    window.posthog.capture(eventName, properties || {});
+  if (typeof window !== 'undefined') {
+    posthog.capture(eventName, properties || {});
   }
 };
 
@@ -102,14 +97,14 @@ export const trackVideoPlay = (videoTitle: string, location: string) => {
 
 // User identification helper
 export const identifyUser = (userId: string, properties?: Record<string, any>) => {
-  if (typeof window !== 'undefined' && window.posthog) {
-    window.posthog.identify(userId, properties);
+  if (typeof window !== 'undefined') {
+    posthog.identify(userId, properties);
   }
 };
 
 // Set user properties
 export const setUserProperties = (properties: Record<string, any>) => {
-  if (typeof window !== 'undefined' && window.posthog) {
-    window.posthog.setPersonProperties(properties);
+  if (typeof window !== 'undefined') {
+    posthog.setPersonProperties(properties);
   }
 };
