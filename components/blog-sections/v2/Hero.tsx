@@ -1,28 +1,41 @@
 "use client";
 
 import React from 'react';
-import ContentLayout from '@/components/layout/ContentLayout';
+import { Grid } from "@/components/home/grid/gridRoot";
 
 function BlogHeroV2() {
   const title = 'Learn';
   const description = 'Updates, interviews, stories, and everything from the business, team, and industry.';
 
   return (
-    <section className="w-full max-md:px-4 max-md:pt-10">
-      <div className="container mx-auto w-full">
-        <ContentLayout
-          leftContent={<span>Blog</span>}
-          rightContent={
-            <h1 className="text-primary-black tracking-tighter text-4xl lg:text-[96px] leading-[0.95] font-semibold ">
-              {title}
-            </h1>
-          }
-          description={description}
-          descriptionClassName="mt-6 xl:mt-12 text-base text-primary-black/70 lg:text-xl max-w-[498px]"
-          className="items-start"
-          leftClassName="md:pt-4"
-        />
-      </div>
+    <section className="pt-24 pb-32">
+      {/* Title */}
+      <Grid>
+        <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
+          <span className="text-foreground font-semibold">
+            {title}
+          </span>
+        </h1>
+      </Grid>
+
+      {/* Description Row */}
+      <Grid className="pt-16">
+        {/* Label */}
+        <div className="col-span-full md:col-span-1">
+          <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
+            Blog
+          </span>
+        </div>
+
+        {/* Gap - col 2 is empty */}
+
+        {/* Description */}
+        <div className="col-span-full md:col-span-8 md:col-start-3 mt-3 md:mt-0">
+          <p className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em]">
+            {description}
+          </p>
+        </div>
+      </Grid>
     </section>
   );
 }
