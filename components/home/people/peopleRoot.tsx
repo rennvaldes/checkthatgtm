@@ -12,7 +12,12 @@ export function PeopleRoot({ className }: PeopleRootProps) {
   const content = Data.people();
 
   return (
-    <section className={cx("pt-[176px] border-t-[0.5px] border-border overflow-x-clip", className)}>
+    <section
+      className={cx(
+        "pt-[176px] border-t-[0.5px] border-border overflow-x-clip",
+        className
+      )}
+    >
       <Grid>
         {/* Label - 2 columns */}
         <div className="col-span-full md:col-span-2">
@@ -20,7 +25,7 @@ export function PeopleRoot({ className }: PeopleRootProps) {
         </div>
 
         {/* Content - responsive: full -> 8 cols -> 10 cols */}
-        <div className="col-span-full md:col-span-8 lg:col-span-10 flex flex-col mt-3 md:mt-0">
+        <div className="col-span-full md:col-span-10 flex flex-col mt-3 md:mt-0">
           {/* Title */}
           <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[520] text-foreground">
             {content.title}
@@ -42,7 +47,7 @@ export function PeopleRoot({ className }: PeopleRootProps) {
             </div>
 
             {/* Right: Company Logos */}
-            <div className="flex flex-col gap-y-[9px] mt-6 md:mt-0 overflow-hidden">
+            <div className="flex flex-col gap-y-[9px] mt-6 md:mt-0">
               <span className="text-foreground text-base lg:text-lg lg:leading-[1.5] lg:tracking-[-0.04em]">
                 {content.companyLabel}
               </span>
