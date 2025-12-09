@@ -163,24 +163,6 @@
     "subtitle": "Choose the engagement model that fits your needs. Scale as you grow. All plans include a 30-day satisfaction guarantee. No long-term contracts required.",
     "plans": [
       {
-        "category": "Strategic Advisory",
-        "name": "You Drive → We Guide",
-        "description": "Expert guidance while you maintain control of execution",
-        "price": "$9,000",
-        "period": "/month",
-        "highlight": false,
-        "mostPopular": false,
-        "features": [
-          "Growth strategy & roadmap",
-          "AI workflow templates",
-          "Weekly strategy sessions",
-          "Content calendar planning",
-          "Performance dashboards",
-          "Slack support channel"
-        ],
-        "cta": { "text": "Get Started", "url": "https://growthx.ai/book-demo", "variant": "secondary" }
-      },
-      {
         "category": "Full-Service",
         "name": "We Drive → We Guide",
         "description": "We handle everything, you provide direction",
