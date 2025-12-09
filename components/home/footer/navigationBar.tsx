@@ -1,11 +1,31 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { cx } from "@/lib/classnames";
 import { Grid } from "@/components/home/grid/gridRoot";
 import Link from "next/link";
 
 export function NavigationBar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="w-full h-fit pt-16 md:h-16 md:pt-0 md:sticky md:top-0 md:z-50 md:bg-background/75 md:backdrop-blur-[15px]">
+    <nav 
+      className={cx(
+        "w-full h-fit pt-16 md:h-16 md:pt-0 md:sticky md:top-0 md:z-50",
+        "md:bg-background/75 md:backdrop-blur-[15px]",
+        "border-b-[0.5px] transition-all duration-300 ease-in-out",
+        isScrolled ? "border-border/50" : "border-transparent"
+      )}
+    >
       <Grid className="h-full items-center">
         {/* Logo */}
         <div className="col-span-6 md:col-span-2 flex items-center">

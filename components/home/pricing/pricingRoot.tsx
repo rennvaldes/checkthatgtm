@@ -163,8 +163,10 @@ export function PricingRoot() {
               <div
                 key={`${plan.name}-feature-${featureIdx}`}
                 className={cx(
-                  "flex items-center gap-5 px-10 h-[48px] border-b-[0.5px] border-border",
-                  plan.highlight && "bg-yellow"
+                  "flex items-center gap-5 px-10 h-[48px] border-b-[0.5px]",
+                  plan.highlight 
+                    ? "bg-yellow border-foreground/40" 
+                    : "border-border"
                 )}
               >
                 <IconCheck />
