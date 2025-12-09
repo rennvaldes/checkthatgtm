@@ -23,13 +23,14 @@ import {
   GalileoLogo,
   RelayLogo,
   YouDotComLogo,
+  SemrushLogo,
 } from "@/components/home/assets/assetsLogos";
 
 interface HeroLogosProps {
   className?: string;
 }
 
-// ODD POSITIONS - State A (9 logos)
+// ODD POSITIONS - State A (14 logos)
 const ODD_POSITION_LOGOS = [
   { id: 1, pos: 1, logo: <RampLogo /> },
   { id: 3, pos: 3, logo: <WebflowLogo /> },
@@ -40,19 +41,28 @@ const ODD_POSITION_LOGOS = [
   { id: 13, pos: 13, logo: <GalileoLogo /> },
   { id: 15, pos: 15, logo: <DeepgramLogo /> },
   { id: 17, pos: 17, logo: <ScaleAILogo /> },
+  { id: 19, pos: 19, logo: <SemrushLogo /> },
+  { id: 21, pos: 21, logo: <BrexLogo /> },
+  { id: 23, pos: 23, logo: <EngineLogo /> },
+  { id: 25, pos: 25, logo: <LovableLogo /> },
+  { id: 27, pos: 27, logo: <RelayLogo /> },
 ];
 
-// EVEN POSITIONS - State B (9 logos)
+// EVEN POSITIONS - State B (13 logos)
 const EVEN_POSITION_LOGOS = [
   { id: 2, pos: 2, logo: <AugmentLogo /> },
-  { id: 4, pos: 4, logo: <BrexLogo /> },
-  { id: 6, pos: 6, logo: <AirbyteLogo /> },
-  { id: 8, pos: 8, logo: <EngineLogo /> },
-  { id: 10, pos: 10, logo: <MetronomeLogo /> },
-  { id: 12, pos: 12, logo: <SurgeLogo /> },
-  { id: 14, pos: 14, logo: <LovableLogo /> },
-  { id: 16, pos: 16, logo: <RelayLogo /> },
-  { id: 18, pos: 18, logo: <YouDotComLogo /> },
+  { id: 4, pos: 4, logo: <AirbyteLogo /> },
+  { id: 6, pos: 6, logo: <MetronomeLogo /> },
+  { id: 8, pos: 8, logo: <SurgeLogo /> },
+  { id: 10, pos: 10, logo: <YouDotComLogo /> },
+  { id: 12, pos: 12, logo: <RampLogo /> },
+  { id: 14, pos: 14, logo: <WebflowLogo /> },
+  { id: 16, pos: 16, logo: <AbnormalLogo /> },
+  { id: 18, pos: 18, logo: <UdemyLogo /> },
+  { id: 20, pos: 20, logo: <RedditLogo /> },
+  { id: 22, pos: 22, logo: <SuperhumanLogo /> },
+  { id: 24, pos: 24, logo: <GalileoLogo /> },
+  { id: 26, pos: 26, logo: <DeepgramLogo /> },
 ];
 
 // Animated logo component that transitions between visible/hidden
@@ -122,20 +132,23 @@ export function HeroLogos({ className }: HeroLogosProps) {
         className={cx(
           "grid w-full my-10 sm:hidden",
           "grid-cols-3",
-          "grid-rows-[repeat(6,86px)]"
+          "grid-rows-[repeat(9,86px)]"
         )}
       >
-        {Array.from({ length: 18 }).map((_, index) => {
+        {Array.from({ length: 27 }).map((_, index) => {
           const position = index + 1;
 
-          // Mobile checkerboard pattern (3 cols × 6 rows)
+          // Mobile checkerboard pattern (3 cols × 9 rows)
           // Row 1: Logo, Empty, Logo
           // Row 2: Empty, Logo, Empty
           // Row 3: Logo, Empty, Logo
           // Row 4: Empty, Logo, Empty
           // Row 5: Logo, Empty, Logo
           // Row 6: Empty, Logo, Empty
-          const logoPositions = [1, 3, 5, 7, 9, 11, 13, 15, 17];
+          // Row 7: Logo, Empty, Logo
+          // Row 8: Empty, Logo, Empty
+          // Row 9: Logo, Empty, Logo
+          const logoPositions = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27];
           const hasLogo = logoPositions.includes(position);
           const logoIndex = logoPositions.indexOf(position);
 
@@ -178,7 +191,7 @@ export function HeroLogos({ className }: HeroLogosProps) {
         })}
       </div>
 
-      {/* Desktop Logo Grid - responsive columns, 2 rows, with animated cycling */}
+      {/* Desktop Logo Grid - responsive columns, 3 rows, with animated cycling */}
       <div
         className={cx(
           "hidden sm:grid w-full mt-10",
@@ -186,10 +199,10 @@ export function HeroLogos({ className }: HeroLogosProps) {
           "lg:grid-cols-5",
           "2xl:grid-cols-7",
           "4xl:grid-cols-9",
-          "grid-rows-[86px_86px] max-h-[172px] overflow-hidden"
+          "grid-rows-[86px_86px_86px] max-h-[258px] overflow-hidden"
         )}
       >
-        {Array.from({ length: 18 }).map((_, index) => {
+        {Array.from({ length: 27 }).map((_, index) => {
           const position = index + 1;
           const isOddPosition = position % 2 === 1;
 
@@ -201,13 +214,15 @@ export function HeroLogos({ className }: HeroLogosProps) {
             (item) => item.pos === position
           );
 
-          // Stagger delay: column-based with offset for row 2
-          // Positions 1-9 are row 1, 10-18 are row 2
+          // Stagger delay: column-based with offset for rows
+          // Positions 1-9 are row 1, 10-18 are row 2, 19-27 are row 3
           const isRow1 = position <= 9;
-          const column = isRow1 ? position - 1 : position - 10;
+          const isRow2 = position > 9 && position <= 18;
+          const column = isRow1 ? position - 1 : isRow2 ? position - 10 : position - 19;
           // Row 1: 0ms, 100ms, 200ms, ...
           // Row 2: 100ms, 200ms, 300ms, ... (adds 100ms base delay)
-          const staggerDelay = isRow1 ? column * 100 : 100 + column * 100;
+          // Row 3: 200ms, 300ms, 400ms, ... (adds 200ms base delay)
+          const staggerDelay = isRow1 ? column * 100 : isRow2 ? 100 + column * 100 : 200 + column * 100;
 
           return (
             <div
