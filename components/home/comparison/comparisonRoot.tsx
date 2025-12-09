@@ -71,12 +71,7 @@ export function ComparisonRoot() {
   });
 
   return (
-    <section 
-      className={cx(
-        "pt-[176px] border-t-[0.5px] overflow-x-clip",
-        content.bestChoiceColumn !== undefined ? "border-[#B58B9A]" : "border-border"
-      )}
-    >
+    <section className="pt-[176px] border-t-[0.5px] border-border overflow-x-clip">
       <SectionHeader
         label={content.label}
         title={content.title}
@@ -85,28 +80,18 @@ export function ComparisonRoot() {
 
       {/* Desktop Table */}
       <div className="hidden md:block mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
-        <div 
-          className={cx(
-            "grid grid-cols-4 gap-0 relative pt-6 border-l-[0.5px] border-r-[0.5px] before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:pointer-events-none before:z-20",
-            content.bestChoiceColumn !== undefined ? "border-[#B58B9A] before:bg-[#B58B9A]" : "border-border before:bg-border"
-          )}
-        >
+        <div className="grid grid-cols-4 gap-0 relative pt-6 border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border before:pointer-events-none before:z-20">
           {/* Sticky Header */}
-          <div 
-            className={cx(
-              "sticky top-0 grid grid-cols-4 col-span-4 bg-background z-10 relative border-b-[0.5px]",
-              content.bestChoiceColumn !== undefined ? "border-[#B58B9A]" : "border-border"
-            )}
-          >
+          <div className="sticky top-0 grid grid-cols-4 col-span-4 bg-background z-10 relative">
             {/* Empty first column */}
-            <div />
+            <div className="border-b-[0.5px] border-border" />
 
             {/* Column Headers */}
             {content.columns.map((column, idx) => (
               <div
                 key={column}
                 className={cx(
-                  "flex flex-col items-center justify-end h-[159px] py-10 relative",
+                  "flex flex-col items-center justify-end h-[159px] py-10 border-b-[0.5px] border-border relative",
                   idx === content.bestChoiceColumn && "bg-pink"
                 )}
               >
@@ -121,41 +106,27 @@ export function ComparisonRoot() {
           </div>
 
           {/* Feature Rows */}
-          {content.features.map((feature, featureIdx) => {
-            const isLastRow = featureIdx === content.features.length - 1;
-            const hasPinkColumn = content.availability[featureIdx].some((_, colIdx) => colIdx === content.bestChoiceColumn);
-            const borderColor = hasPinkColumn ? "#B58B9A" : undefined;
-            
-            return (
-              <div 
-                key={feature} 
-                className={cx(
-                  "grid grid-cols-4 col-span-4",
-                  !isLastRow && "border-b-[0.5px]",
-                  !isLastRow && !hasPinkColumn && "border-border"
-                )}
-                style={!isLastRow && borderColor ? { borderBottomColor: borderColor } : undefined}
-              >
-                {/* Feature Label */}
-                <div className="flex items-center px-5 py-4">
-                  <span className="text-sm">{feature}</span>
-                </div>
-
-                {/* Availability Cells */}
-                {content.availability[featureIdx].map((available, colIdx) => (
-                  <div
-                    key={colIdx}
-                    className={cx(
-                      "flex items-center justify-center py-4",
-                      colIdx === content.bestChoiceColumn && "bg-pink"
-                    )}
-                  >
-                    {available ? <IconCheck /> : <IconCross />}
-                  </div>
-                ))}
+          {content.features.map((feature, featureIdx) => (
+            <div key={feature} className="grid grid-cols-4 col-span-4">
+              {/* Feature Label */}
+              <div className="flex items-center px-5 py-4 border-b-[0.5px] border-border">
+                <span className="text-sm">{feature}</span>
               </div>
-            );
-          })}
+
+              {/* Availability Cells */}
+              {content.availability[featureIdx].map((available, colIdx) => (
+                <div
+                  key={colIdx}
+                  className={cx(
+                    "flex items-center justify-center py-4 border-b-[0.5px] border-border",
+                    colIdx === content.bestChoiceColumn && "bg-pink"
+                  )}
+                >
+                  {available ? <IconCheck /> : <IconCross />}
+                </div>
+              ))}
+            </div>
+          ))}
 
           {/* CTA Row */}
           <div className="grid grid-cols-4 col-span-4">
