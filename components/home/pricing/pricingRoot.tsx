@@ -49,7 +49,7 @@ function PlanTabButton({
 }
 
 export function PricingRoot() {
-  const [activeTab, setActiveTab] = useState(1); // Start with "Most Popular" plan
+  const [activeTab, setActiveTab] = useState(0); // Start with "Most Popular" plan
   const content = Data.pricing();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [tabMetrics, setTabMetrics] = useState({ width: 0, x: 0 });
@@ -81,7 +81,7 @@ export function PricingRoot() {
       {/* Desktop Table */}
       <div className="hidden md:block mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
         <div
-          className="grid grid-cols-3 gap-0 relative pt-6 border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border"
+          className="grid grid-cols-2 gap-0 relative pt-6 border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border"
           style={{ gridAutoRows: "auto" }}
         >
           {/* Headers Row - will all match height */}
