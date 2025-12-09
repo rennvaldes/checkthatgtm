@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, useEffect, ReactNode } from "react";
+import { useSpring, animated } from "@react-spring/web";
 import { cx } from "@/lib/classnames";
 import { Grid } from "@/components/home/grid/gridRoot";
 import {
@@ -7,103 +11,90 @@ import {
   UdemyLogo,
   RedditLogo,
   SuperhumanLogo,
-  OktaLogo,
-  BasecampLogo,
   DeepgramLogo,
-  HashiCorpLogo,
   ScaleAILogo,
-  IFTTTLogo,
-  TechstarsLogo,
-  ServiceTitanLogo,
-  CanopyLogo,
-  MadronaLogo,
+  AugmentLogo,
+  BrexLogo,
+  AirbyteLogo,
+  EngineLogo,
+  MetronomeLogo,
+  SurgeLogo,
+  LovableLogo,
+  GalileoLogo,
+  RelayLogo,
+  YouDotComLogo,
 } from "@/components/home/assets/assetsLogos";
 
 interface HeroLogosProps {
   className?: string;
 }
 
-// Desktop: logo, empty, logo, empty pattern for checkerboard
-const LOGO_CELLS = [
-  { id: 1, logo: <RampLogo /> },
-  { id: 2, logo: null },
-  { id: 3, logo: <WebflowLogo /> },
-  { id: 4, logo: null },
-  { id: 5, logo: <AbnormalLogo /> },
-  { id: 6, logo: null },
-  { id: 7, logo: <UdemyLogo /> },
-  { id: 8, logo: null },
-  { id: 9, logo: <RedditLogo /> },
-  { id: 10, logo: null },
-  { id: 11, logo: <SuperhumanLogo /> },
-  { id: 12, logo: null },
-  { id: 13, logo: <OktaLogo /> },
-  { id: 14, logo: null },
-  { id: 15, logo: <BasecampLogo /> },
-  { id: 16, logo: null },
-  { id: 17, logo: <DeepgramLogo /> },
-  { id: 18, logo: null },
-  { id: 19, logo: <HashiCorpLogo /> },
-  { id: 20, logo: null },
-  { id: 21, logo: <ScaleAILogo /> },
-  { id: 22, logo: null },
+// ODD POSITIONS - State A (9 logos)
+const ODD_POSITION_LOGOS = [
+  { id: 1, pos: 1, logo: <RampLogo /> },
+  { id: 3, pos: 3, logo: <WebflowLogo /> },
+  { id: 5, pos: 5, logo: <AbnormalLogo /> },
+  { id: 7, pos: 7, logo: <UdemyLogo /> },
+  { id: 9, pos: 9, logo: <RedditLogo /> },
+  { id: 11, pos: 11, logo: <SuperhumanLogo /> },
+  { id: 13, pos: 13, logo: <GalileoLogo /> },
+  { id: 15, pos: 15, logo: <DeepgramLogo /> },
+  { id: 17, pos: 17, logo: <ScaleAILogo /> },
 ];
 
-// Mobile only: logos arranged for checkerboard on 3 columns
-// Row 1 (odd): col 1, 3
-// Row 2 (even): col 2
-// Row 3 (odd): col 1, 3
-// Row 4 (even): col 2
-// Row 5 (odd): col 1, 3
-// Row 6 (even): col 2
-// Row 7 (odd): col 1, 3
-const MOBILE_LOGO_CELLS = [
-  // Row 1: logos in col 1 and 3
-  { id: 1, logo: <RampLogo /> },
-  { id: 2, logo: null },
-  { id: 3, logo: <WebflowLogo /> },
-  // Row 2: logo in col 2
-  { id: 4, logo: null },
-  { id: 5, logo: <AbnormalLogo /> },
-  { id: 6, logo: null },
-  // Row 3: logos in col 1 and 3
-  { id: 7, logo: <UdemyLogo /> },
-  { id: 8, logo: null },
-  { id: 9, logo: <RedditLogo /> },
-  // Row 4: logo in col 2
-  { id: 10, logo: null },
-  { id: 11, logo: <SuperhumanLogo /> },
-  { id: 12, logo: null },
-  // Row 5: logos in col 1 and 3
-  { id: 13, logo: <OktaLogo /> },
-  { id: 14, logo: null },
-  { id: 15, logo: <BasecampLogo /> },
-  // Row 6: logo in col 2
-  { id: 16, logo: null },
-  { id: 17, logo: <DeepgramLogo /> },
-  { id: 18, logo: null },
-  // Row 7: logos in col 1 and 3
-  { id: 19, logo: <HashiCorpLogo /> },
-  { id: 20, logo: null },
-  { id: 21, logo: <ScaleAILogo /> },
+// EVEN POSITIONS - State B (9 logos)
+const EVEN_POSITION_LOGOS = [
+  { id: 2, pos: 2, logo: <AugmentLogo /> },
+  { id: 4, pos: 4, logo: <BrexLogo /> },
+  { id: 6, pos: 6, logo: <AirbyteLogo /> },
+  { id: 8, pos: 8, logo: <EngineLogo /> },
+  { id: 10, pos: 10, logo: <MetronomeLogo /> },
+  { id: 12, pos: 12, logo: <SurgeLogo /> },
+  { id: 14, pos: 14, logo: <LovableLogo /> },
+  { id: 16, pos: 16, logo: <RelayLogo /> },
+  { id: 18, pos: 18, logo: <YouDotComLogo /> },
 ];
 
-function LogoCell({ children }: { children?: React.ReactNode }) {
+// Animated logo component that transitions between visible/hidden
+function AnimatedLogo({
+  logo,
+  isVisible,
+  delay = 0,
+}: {
+  logo: ReactNode;
+  isVisible: boolean;
+  delay?: number;
+}) {
+  const spring = useSpring({
+    opacity: isVisible ? 1 : 0,
+    scale: isVisible ? 1 : 0.875,
+    filter: isVisible ? "blur(0px)" : "blur(3px)",
+    config: { tension: 160, friction: 25, precision: 0.0001 },
+    delay,
+  });
+
   return (
-    <div
-      className={cx(
-        "flex items-center justify-center",
-        "h-[86px] px-10",
-        "shadow-[inset_0_0_0_0.25px_hsl(var(--border))]",
-        "[&_svg]:h-6 [&_svg]:max-h-6 [&_svg]:w-auto"
-      )}
+    <animated.div
+      style={spring}
+      className="absolute inset-0 flex items-center justify-center [&_svg]:max-h-5 [&_svg]:w-auto"
     >
-      {children}
-    </div>
+      {logo}
+    </animated.div>
   );
 }
 
 export function HeroLogos({ className }: HeroLogosProps) {
+  // State for cycling between odd and even logo positions
+  const [showEven, setShowEven] = useState(false);
+
+  // Cycle every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowEven((prev) => !prev);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className={cx("pt-16", className)}>
       {/* Header */}
@@ -126,20 +117,68 @@ export function HeroLogos({ className }: HeroLogosProps) {
         </div>
       </Grid>
 
-      {/* Mobile Logo Grid - 3 cols, 7 rows, checkerboard pattern */}
+      {/* Mobile Logo Grid - 3 cols, animated checkerboard pattern */}
       <div
         className={cx(
           "grid w-full my-10 sm:hidden",
           "grid-cols-3",
-          "grid-rows-[repeat(7,86px)]"
+          "grid-rows-[repeat(6,86px)]"
         )}
       >
-        {MOBILE_LOGO_CELLS.map((item) => (
-          <LogoCell key={item.id}>{item.logo}</LogoCell>
-        ))}
+        {Array.from({ length: 18 }).map((_, index) => {
+          const position = index + 1;
+
+          // Mobile checkerboard pattern (3 cols × 6 rows)
+          // Row 1: Logo, Empty, Logo
+          // Row 2: Empty, Logo, Empty
+          // Row 3: Logo, Empty, Logo
+          // Row 4: Empty, Logo, Empty
+          // Row 5: Logo, Empty, Logo
+          // Row 6: Empty, Logo, Empty
+          const logoPositions = [1, 3, 5, 7, 9, 11, 13, 15, 17];
+          const hasLogo = logoPositions.includes(position);
+          const logoIndex = logoPositions.indexOf(position);
+
+          const oddLogo = hasLogo && ODD_POSITION_LOGOS[logoIndex];
+          const evenLogo = hasLogo && EVEN_POSITION_LOGOS[logoIndex];
+
+          // Stagger delay for mobile (simpler pattern)
+          const row = Math.floor(index / 3);
+          const col = index % 3;
+          const staggerDelay = row * 100 + col * 50;
+
+          return (
+            <div
+              key={position}
+              className={cx(
+                "flex items-center justify-center relative",
+                "h-[86px] px-10",
+                "shadow-[inset_0_0_0_0.25px_hsl(var(--border))]"
+              )}
+            >
+              {/* Odd position logo */}
+              {oddLogo && (
+                <AnimatedLogo
+                  logo={oddLogo.logo}
+                  isVisible={!showEven}
+                  delay={staggerDelay}
+                />
+              )}
+
+              {/* Even position logo */}
+              {evenLogo && (
+                <AnimatedLogo
+                  logo={evenLogo.logo}
+                  isVisible={showEven}
+                  delay={staggerDelay}
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
 
-      {/* Desktop Logo Grid - responsive columns, 2 rows */}
+      {/* Desktop Logo Grid - responsive columns, 2 rows, with animated cycling */}
       <div
         className={cx(
           "hidden sm:grid w-full mt-10",
@@ -147,13 +186,58 @@ export function HeroLogos({ className }: HeroLogosProps) {
           "lg:grid-cols-5",
           "2xl:grid-cols-7",
           "4xl:grid-cols-9",
-          "6xl:grid-cols-11",
           "grid-rows-[86px_86px] max-h-[172px] overflow-hidden"
         )}
       >
-        {LOGO_CELLS.map((item) => (
-          <LogoCell key={item.id}>{item.logo}</LogoCell>
-        ))}
+        {Array.from({ length: 18 }).map((_, index) => {
+          const position = index + 1;
+          const isOddPosition = position % 2 === 1;
+
+          // Get logo for this position
+          const oddLogo = ODD_POSITION_LOGOS.find(
+            (item) => item.pos === position
+          );
+          const evenLogo = EVEN_POSITION_LOGOS.find(
+            (item) => item.pos === position
+          );
+
+          // Stagger delay: column-based with offset for row 2
+          // Positions 1-9 are row 1, 10-18 are row 2
+          const isRow1 = position <= 9;
+          const column = isRow1 ? position - 1 : position - 10;
+          // Row 1: 0ms, 100ms, 200ms, ...
+          // Row 2: 100ms, 200ms, 300ms, ... (adds 100ms base delay)
+          const staggerDelay = isRow1 ? column * 100 : 100 + column * 100;
+
+          return (
+            <div
+              key={position}
+              className={cx(
+                "flex items-center justify-center relative",
+                "h-[86px] px-10",
+                "shadow-[inset_0_0_0_0.25px_hsl(var(--border))]"
+              )}
+            >
+              {/* Odd position logo */}
+              {oddLogo && (
+                <AnimatedLogo
+                  logo={oddLogo.logo}
+                  isVisible={!showEven}
+                  delay={staggerDelay}
+                />
+              )}
+
+              {/* Even position logo */}
+              {evenLogo && (
+                <AnimatedLogo
+                  logo={evenLogo.logo}
+                  isVisible={showEven}
+                  delay={staggerDelay}
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
