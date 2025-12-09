@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Grid } from "@/components/home/grid/gridRoot";
 import { LinkButton } from "@/components/home/custom/link-button";
 import { NewsletterInput } from "./newsletterInput";
@@ -29,31 +30,87 @@ export function FooterCtaSection() {
           {/* Newsletter */}
           <div className="col-span-full lg:col-span-4 lg:col-start-3 mt-12 lg:mt-0">
             <h3 className="text-[20px] lg:text-2xl font-[520] leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] text-foreground mb-6">
-              Subscribe to the GrowthX Newsletter
+              Subscribe to Our Newsletter
             </h3>
-            <NewsletterInput />
+            <div className="max-w-[21rem]">
+              <NewsletterInput />
+            </div>
           </div>
 
-          {/* Social Links */}
-          <div className="col-span-full lg:col-span-6 lg:col-start-7 mt-12 lg:mt-0 flex flex-col lg:items-end lg:justify-end">
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground mr-auto lg:mr-0 font-light">Follow us</span>
+          {/* Links Section */}
+          <div className="col-span-full lg:col-span-6 lg:col-start-7 mt-12 lg:mt-0 flex flex-col lg:flex-row gap-8 lg:gap-12 lg:justify-end">
+            {/* Company Links */}
+            <div className="flex flex-col gap-2 flex-1">
+              <span className="text-sm text-muted-foreground mb-2 font-light">Company</span>
+              <Link
+                href="/careers"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                Careers
+              </Link>
+              <Link
+                href="/blog"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                Blog
+              </Link>
+            </div>
+
+            {/* Legal Links */}
+            <div className="flex flex-col gap-2 flex-1">
+              <span className="text-sm text-muted-foreground mb-2 font-light">Legal</span>
+              <Link
+                href="/legal/privacy-policy"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/legal/terms-of-service"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/legal/cookie-policy"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                Cookie Policy
+              </Link>
+              <Link
+                href="/legal/data-processing-addendum"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                Data Processing Addendum
+              </Link>
+              <Link
+                href="/legal/subprocessors"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                Subprocessors
+              </Link>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex flex-col gap-2 flex-1">
+              <span className="text-sm text-muted-foreground mb-2 font-light">Follow us</span>
               <LinkButton
                 href="https://www.linkedin.com/company/growthx-ai"
                 variant="tertiary"
-                className="flex-shrink-0"
+                className="flex-shrink-0 w-fit"
               >
                 LinkedIn
               </LinkButton>
               <LinkButton
                 href="https://twitter.com/growthxai"
                 variant="tertiary"
-                className="flex-shrink-0"
+                className="flex-shrink-0 w-fit"
               >
                 Twitter
               </LinkButton>
             </div>
           </div>
+          
         </Grid>
       </div>
     </section>
