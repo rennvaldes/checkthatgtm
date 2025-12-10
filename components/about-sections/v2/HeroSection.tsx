@@ -1,9 +1,9 @@
 import { Grid } from "@/components/home/grid/gridRoot";
-import { Button } from "@/components/home/button";
+import { StickyJoinMissionButton } from "./StickyJoinMissionButton";
 
 export default function HeroSectionv2() {
   return (
-    <section className="pt-48 pb-32">
+    <section className="pt-48 pb-[76.8px]">
       {/* Title */}
       <Grid>
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
@@ -39,9 +39,7 @@ export default function HeroSectionv2() {
 
         {/* Button */}
         <div className="col-span-full md:col-span-2 md:col-start-11 flex justify-start md:justify-end mt-6 md:mt-0">
-          <Button href="/careers" variant="primary">
-            Join our Mission
-          </Button>
+          <StickyJoinMissionButton />
         </div>
       </Grid>
     </section>

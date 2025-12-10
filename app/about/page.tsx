@@ -9,15 +9,14 @@ import CTABannerSection from '@/components/about-sections/v2/CTABannerSection';
 export default function About() {
   return (
     <main className="relative flex min-h-screen flex-col">
-      <Spacer size="d122" />
       <HeroSectionv2 />
-      <Spacer size="d164" />
+      <div className="h-9 sm:h-12 md:h-18 lg:h-[73.8px]" aria-hidden="true" />
       <CompanySection />
-      <Spacer size="d164" />
+      <div className="h-8 sm:h-10 md:h-14 lg:h-[59.04px]" aria-hidden="true" />
       <ValuesSection />
-      <Spacer size="d164" />
+      <div className="h-8 sm:h-10 md:h-14 lg:h-[59.04px]" aria-hidden="true" />
       <TeamSection />
-      <Spacer size="d164" />
+      <div className="h-16 sm:h-20 md:h-28 lg:h-[98.4px]" aria-hidden="true" />
       <TestimonialsSection />
       <Spacer size="d164" />
       <CTABannerSection />

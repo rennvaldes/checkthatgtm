@@ -18,6 +18,8 @@ export type TestimonialsCarouselProps<T = any> = {
   pauseOnHover?: boolean;
   disableInnerPadding?: boolean;
   itemClassName?: string;
+  hideArrows?: boolean;
+  onApiChange?: (api: CarouselApi | null) => void;
 };
 
 export default function TestimonialsCarousel<T = any>({
@@ -44,6 +46,8 @@ export default function TestimonialsCarousel<T = any>({
   pauseOnHover = true,
   disableInnerPadding = false,
   itemClassName,
+  hideArrows = false,
+  onApiChange,
 }: TestimonialsCarouselProps<T>) {
   // Note: Swiper-specific props are kept for API compatibility but not used.
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
@@ -76,6 +80,12 @@ export default function TestimonialsCarousel<T = any>({
 
   useEffect(handleCarouselWall, [handleCarouselWall]);
 
+  useEffect(() => {
+    if (onApiChange) {
+      onApiChange(carouselApi);
+    }
+  }, [carouselApi, onApiChange]);
+
   return (
     <div className={`relative w-full ${className ?? ""}`}>
       <div
@@ -93,33 +103,35 @@ export default function TestimonialsCarousel<T = any>({
             {items.map((item, index) => (
               <CarouselItem
                 key={index}
-                className={`${itemClassName ?? "basis-[100%] w-[100%] md:basis-auto md:w-auto"} first-of-type:pl-4 last-of-type:pr-4`}
+                className={`${itemClassName ?? "basis-[100%] w-[100%] md:basis-auto md:w-auto"} first-of-type:pl-4 last-of-type:pr-0`}
               >
                 {renderSlide(item, index)}
               </CarouselItem>
             ))}
           </CarouselContent>
         </Carousel>
-        <div className="flex w-min gap-11">
-          <KitButton
-            variant="secondary"
-            size="custom"
-            isDisabled={carouselWall === "left"}
-            onClick={() => carouselApi?.scrollPrev()}
-            className="disabled:text-ui-black/40 rounded-full px-3 py-3 lg:px-4 transition-all duration-200 hover:bg-ui-black/10 active:bg-ui-black/15 hover:-translate-y-0.5"
-          >
-            <ArrowRight className="rotate-180 lg:w-8 lg:h-8" />
-          </KitButton>
-          <KitButton
-            variant="secondary"
-            size="custom"
-            isDisabled={carouselWall === "right"}
-            onClick={() => carouselApi?.scrollNext()}
-            className="disabled:text-ui-black/40 rounded-full px-3 py-3 lg:px-4 transition-all duration-200 hover:bg-ui-black/10 active:bg-ui-black/15 hover:-translate-y-0.5"
-          >
-            <ArrowRight className="lg:w-8 lg:h-8" />
-          </KitButton>
-        </div>
+        {!hideArrows && (
+          <div className="flex w-min gap-11">
+            <KitButton
+              variant="secondary"
+              size="custom"
+              isDisabled={carouselWall === "left"}
+              onClick={() => carouselApi?.scrollPrev()}
+              className="disabled:text-ui-black/40 rounded-full px-3 py-3 lg:px-4 transition-all duration-200 hover:bg-ui-black/10 active:bg-ui-black/15 hover:-translate-y-0.5"
+            >
+              <ArrowRight className="rotate-180 lg:w-8 lg:h-8" />
+            </KitButton>
+            <KitButton
+              variant="secondary"
+              size="custom"
+              isDisabled={carouselWall === "right"}
+              onClick={() => carouselApi?.scrollNext()}
+              className="disabled:text-ui-black/40 rounded-full px-3 py-3 lg:px-4 transition-all duration-200 hover:bg-ui-black/10 active:bg-ui-black/15 hover:-translate-y-0.5"
+            >
+              <ArrowRight className="lg:w-8 lg:h-8" />
+            </KitButton>
+          </div>
+        )}
       </div>
     </div>
   );

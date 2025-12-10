@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import ContentLayout from "@/components/layout/ContentLayout";
+import { Grid } from "@/components/home/grid/gridRoot";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/lib/shadcn/ui/carousel";
 import KitButton from "@/components/ui/KitButton";
 import ArrowRight from "@/components/icons/ArrowRight";
@@ -11,6 +11,7 @@ import Experts3Image from "@/assets/img/AboutSection/company_03.jpg";
 import Experts4Image from "@/assets/img/AboutSection/company_04.jpg";
 import expertsData from "@/components/pricing-sections/ExpertsSection/expertsData";
 import MadronaLogo from "@/assets/img/v2/madrona-logo.png";
+import HubSpotLogo from "@/assets/img/logos/v2/logo-hubspot.png";
 import TeamMemberCard from "@/components/common/TeamMemberCard";
 import Spacer from "@/components/common/Spacer";
 import MarcelImage from "@/assets/img/AboutSection/marcel.png";
@@ -127,104 +128,163 @@ export default function TeamSection() {
   ];
 
   return (
-    <section>
-      <div className="container mx-auto px-4">
-        <ContentLayout
-          leftContent={<div className="text-sm text-[#303030]">Team</div>}
-          className="items-start"
-          leftClassName="md:text-base"
-          rightContent={
-            <div className="flex flex-col">
-              <div className="mb-6 xl:mb-10">
-                <h2 className="text-black text-3xl lg:text-5xl tracking-tighter">
-                  We’re a team of world-class operators
-                  <br />
-                  <span className="text-primary-gray">Fully remote</span>
-                </h2>
-              </div>
+    <section className="pt-[105.6px]">
+      <Grid>
+        {/* Label - 2 columns */}
+        <div className="col-span-full md:col-span-2">
+          <span className="text-muted-foreground text-sm">Team</span>
+        </div>
 
-              <div className="flex flex-col gap-6 lg:gap-10 lg:max-w-[1920px]">
-                <Carousel
-                  className="bg-transparent"
-                  setApi={setCarouselApi}
-                  opts={{ align: "start", slidesToScroll: 1, startIndex: 0 }}
-                >
-                  <CarouselContent>
-                    {CAROUSEL_IMAGES.map((src, i) => (
-                      <CarouselItem
-                        key={`team-carousel-${i}`}
-                        className="basis-auto first-of-type:pl-4 lg:pl-8"
-                      >
-                        <img
-                          src={src}
-                          alt={`team-${i}`}
-                          className="h-48 md:h-[380px] lg:h-[471px] object-cover grayscale"
-                        />
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                </Carousel>
-                <div className="flex w-min gap-11 lg:gap-7">
-                  <KitButton
-                    variant="secondary"
-                    size="custom"
-                    isDisabled={carouselWall === "left"}
-                    onClick={() => carouselApi?.scrollPrev()}
-                    className="disabled:text-ui-black/40 lg:px-4"
-                  >
-                    <ArrowRight className="rotate-180 lg:w-8 lg:h-8" />
-                  </KitButton>
-                  <KitButton
-                    variant="secondary"
-                    size="custom"
-                    isDisabled={carouselWall === "right"}
-                    onClick={() => carouselApi?.scrollNext()}
-                    className="disabled:text-ui-black/40 lg:px-4"
-                  >
-                    <ArrowRight className="lg:w-8 lg:h-8" />
-                  </KitButton>
-                </div>
-              </div>
-              <Spacer size="d164" />
-              <div className="flex flex-col gap-6">
-                <h3 className="text-primary-black text-3xl lg:text-5xl tracking-tighter font-medium">Leadership</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 xl:gap-y-10">
-                  {leadership.map((m) => (
-                    <TeamMemberCard
-                      key={`leader-${m.name}`}
-                      name={m.name}
-                      title={m.description}
-                      image={m.picture}
-                      grayscale
-                      wrapperClassName="w-full"
-                      className="border-primary-gray"
-                    />
+        {/* Content - responsive: full -> 8 cols -> 10 cols */}
+        <div className="col-span-full md:col-span-8 lg:col-span-10 flex flex-col mt-3 md:mt-0">
+          {/* Title */}
+          <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[520] text-foreground">
+            We're a team of world-class operators
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-normal text-muted-foreground">
+            Fully remote
+          </p>
+        </div>
+      </Grid>
+
+      <div className="mt-8 overflow-x-clip">
+        <div className="flex flex-col gap-6 lg:gap-10">
+          <div className="relative w-screen -ml-[20px]">
+            <div className="ml-[20px] md:ml-[clamp(20px,calc((100vw-1280px)/2+20px),20px)]">
+              <Carousel
+                className="bg-transparent"
+                setApi={setCarouselApi}
+                opts={{ align: "start", slidesToScroll: 1, startIndex: 0 }}
+              >
+                <CarouselContent className="md:ml-0">
+                  {CAROUSEL_IMAGES.map((src, i) => (
+                    <CarouselItem
+                      key={`team-carousel-${i}`}
+                      className="basis-auto first-of-type:pl-0"
+                    >
+                      <img
+                        src={src}
+                        alt={`team-${i}`}
+                        className="h-48 md:h-[380px] lg:h-[471px] object-cover grayscale"
+                      />
+                    </CarouselItem>
                   ))}
-                </div>
+                </CarouselContent>
+              </Carousel>
+            </div>
+          </div>
+          <Grid>
+            <div className="col-span-full md:col-span-8 md:col-start-3">
+              <div className="flex w-min gap-11">
+                <KitButton
+                  variant="secondary"
+                  size="custom"
+                  isDisabled={carouselWall === "left"}
+                  onClick={() => carouselApi?.scrollPrev()}
+                  className="disabled:text-ui-black/40 rounded-full px-3 py-3 lg:px-4 transition-all duration-200 hover:bg-ui-black/10 active:bg-ui-black/15 hover:-translate-y-0.5"
+                >
+                  <ArrowRight className="rotate-180 lg:w-8 lg:h-8" />
+                </KitButton>
+                <KitButton
+                  variant="secondary"
+                  size="custom"
+                  isDisabled={carouselWall === "right"}
+                  onClick={() => carouselApi?.scrollNext()}
+                  className="disabled:text-ui-black/40 rounded-full px-3 py-3 lg:px-4 transition-all duration-200 hover:bg-ui-black/10 active:bg-ui-black/15 hover:-translate-y-0.5"
+                >
+                  <ArrowRight className="lg:w-8 lg:h-8" />
+                </KitButton>
               </div>
-              <Spacer size="d164" />
-              <div className="flex flex-col gap-6 xl:gap-10">
-                <h3 className="text-primary-black text-3xl lg:text-5xl tracking-tighter font-medium">Investors</h3>
+            </div>
+          </Grid>
+        </div>
+      </div>
+      
+      <Grid className="mt-[22.4px]">
+        <div className="col-span-full md:col-span-8 md:col-start-3">
+          <div className="h-16 sm:h-20 md:h-28 lg:h-[82px]" aria-hidden="true" />
+          <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[520] text-foreground">
+            Leadership
+          </h2>
+          <div className="mt-8 flex flex-col gap-4">
+            {/* Featured founders - larger and highlighted */}
+            <div className="flex flex-wrap gap-4">
+              {leadership
+                .filter((m) => m.name === "Marcel Santilli" || m.name === "Daniel Lopes")
+                .map((m) => (
+                  <TeamMemberCard
+                    key={`leader-${m.name}`}
+                    name={m.name}
+                    title={m.description}
+                    image={m.picture}
+                    grayscale
+                    wrapperClassName="w-[280px] md:w-[320px] lg:w-[360px]"
+                    className="border-[0.5px] border-border bg-transparent"
+                    imageAspectClass="aspect-[3/3]"
+                    nameClassName="text-xl font-semibold text-[#141414] tracking-tighter"
+                    titleClassName="text-sm mt-2.5 tracking-tighter leading-[1.25] max-w-[200px]"
+                  />
+                ))}
+            </div>
+            {/* Rest of leadership - smaller */}
+            <div className="flex flex-wrap gap-4">
+              {leadership
+                .filter((m) => m.name !== "Marcel Santilli" && m.name !== "Daniel Lopes")
+                .map((m) => (
+                  <TeamMemberCard
+                    key={`leader-${m.name}`}
+                    name={m.name}
+                    title={m.description}
+                    image={m.picture}
+                    grayscale
+                    wrapperClassName="w-[132px] md:w-[152px] lg:w-[172px]"
+                    className="border-[0.5px] border-border bg-transparent"
+                    imageAspectClass="aspect-[4/3]"
+                    nameClassName="text-base font-semibold text-[#141414] tracking-tighter"
+                    titleClassName="text-xs mt-1.5 tracking-tight leading-[1.25]"
+                  />
+                ))}
+            </div>
+          </div>
+              <div className="h-[114.8px]"></div>
+              <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[520] text-foreground">
+                Investors
+              </h2>
+              <div className="mt-8">
                 <div className="flex flex-col gap-8">
                   {investorGroups.map((group) => (
                     <div key={`inv-group-${group.firm}`} className="w-full">
-                      <div className="mb-2">
+                      <div className="mb-6 grid grid-cols-4 gap-0">
                         {group.firm === "Madrona" ? (
-                          <img src={(MadronaLogo as any).src} alt="Madrona" className="h-8 md:h-10" />
+                          <>
+                            <div className="flex items-center gap-4">
+                              <img src={(MadronaLogo as any).src} alt="Madrona" className="h-6 md:h-8" />
+                            </div>
+                            <div className="col-span-3 flex items-center">
+                              <img src={(HubSpotLogo as any).src} alt="HubSpot" className="h-24 md:h-[120px] grayscale" />
+                            </div>
+                          </>
                         ) : (
                           <h4 className="text-primary-black text-3xl lg:text-5xl tracking-tighter font-semibold">
                             {group.firm}
                           </h4>
                         )}
                       </div>
-                      <div className="divide-y divide-primary-gray border-b border-primary-gray">
+                      <div className="grid grid-cols-4 gap-0 relative before:absolute before:top-0 before:inset-x-[calc(-50vw+50%)] before:h-[0.5px] before:bg-border after:absolute after:bottom-0 after:inset-x-[calc(-50vw+50%)] after:h-[0.5px] after:bg-border">
+                        {/* Rows */}
                         {group.people.map((inv, idx) => (
                           <div
                             key={`inv-${group.firm}-${idx}`}
-                            className="pt-3 pb-1 grid grid-cols-1 md:grid-cols-2 items-center gap-x-12 md:gap-x-16"
+                            className="grid grid-cols-4 col-span-4"
                           >
-                            <div className="text-primary-black text-lg lg:text-xl tracking-tight">{inv.name}</div>
-                            <div className="text-primary-black text-lg lg:text-xl font-light tracking-tight">{inv.role}</div>
+                            <div className="flex items-center py-4 border-b-[0.5px] border-border">
+                              <span className="text-sm font-semibold">{inv.name}</span>
+                            </div>
+                            <div className="flex items-center pl-5 py-4 border-b-[0.5px] border-border col-span-3">
+                              <span className="text-sm">{inv.role}</span>
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -232,10 +292,8 @@ export default function TeamSection() {
                   ))}
                 </div>
               </div>
-            </div>
-          }
-        />
-      </div>
+        </div>
+      </Grid>
     </section>
   );
 }

@@ -1,12 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { livretText } from "@/assets/fonts";
-import ContentLayout from "@/components/layout/ContentLayout";
+import { Grid } from "@/components/home/grid/gridRoot";
 import Spacer from "@/components/common/Spacer";
 import Image, { StaticImageData } from "next/image";
 import TestimonialsCarousel from "@/components/common/TestimonialsCarousel";
-import { useAlignedContentLeft } from "@/hooks/useAlignedContentLeft";
+import { CarouselApi } from "@/lib/shadcn/ui/carousel";
+import KitButton from "@/components/ui/KitButton";
+import ArrowRight from "@/components/icons/ArrowRight";
 import StrapiLogo from "@/assets/img/logos/v2/logo-strapi.png";
 import ExecLogo from "@/assets/img/logos/v2/logo-exec.png";
 import TogetherAILogo from "@/assets/img/logos/v2/logo-togetherai.png";
@@ -28,6 +30,40 @@ type Testimonial = {
 };
 
 export default function TestimonialsSection() {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [carouselWall, setCarouselWall] = useState<"left" | "right" | undefined>();
+
+  const handleCarouselWall = () => {
+    if (!carouselApi) return;
+
+    const onSnapChange = () => {
+      const canScrollLeft = carouselApi.canScrollPrev();
+      const canScrollRight = carouselApi.canScrollNext();
+
+      if (canScrollLeft && canScrollRight) {
+        setCarouselWall(undefined);
+      } else if (canScrollLeft) {
+        setCarouselWall("right");
+      } else if (canScrollRight) {
+        setCarouselWall("left");
+      } else {
+        setCarouselWall(undefined);
+      }
+    };
+
+    onSnapChange();
+    carouselApi.on("select", onSnapChange);
+    return () => {
+      carouselApi.off("select", onSnapChange);
+    };
+  };
+
+  React.useEffect(() => {
+    if (carouselApi) {
+      handleCarouselWall();
+    }
+  }, [carouselApi]);
+
   const testimonials: Testimonial[] = [
     {
       logo: {
@@ -174,68 +210,91 @@ export default function TestimonialsSection() {
     },
   ];
 
-  // Reusable alignment calculation
-  const { padLeft } = useAlignedContentLeft({
-    containerMax: 1440,
-    gutter: 16,
-    cols: 12,
-    leftCols: 2,
-    offset: -290, // match your current visual tweak
-    minApplyWidth: 768,
-    initialPad: 0,
-  });
-
   return (
-    <section className="overflow-hidden">
-      <div className="container mx-auto px-4">
-        <ContentLayout
-          leftContent={
-            <div className="text-lg font-medium mb-4 md:mb-0">Testimonials</div>
-          }
-          rightContent={
-            <div className="flex flex-col gap-8">
-              <h2 className="text-3xl lg:text-5xl tracking-tighter">
-                Praise <br />
-                <span className="text-primary-gray">
-                  Why our customers love us
-                </span>
-              </h2>
-            </div>
-          }
-        />
-      </div>
+    <section className="pt-[105.6px] overflow-hidden">
+      <Grid>
+        {/* Label - 2 columns */}
+        <div className="col-span-full md:col-span-2">
+          <span className="text-muted-foreground text-sm">Testimonials</span>
+        </div>
+
+        {/* Content - responsive: full -> 8 cols -> 10 cols */}
+        <div className="col-span-full md:col-span-8 lg:col-span-10 flex flex-col mt-3 md:mt-0">
+          {/* Title */}
+          <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[520] text-foreground">
+            Praise
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-normal text-muted-foreground">
+            Why our customers love us
+          </p>
+        </div>
+      </Grid>
       <Spacer size="medium" />
-      <div className="px-4 md:px-0" style={{ paddingLeft: padLeft }}>
-        <TestimonialsCarousel
-          disableInnerPadding
-          items={testimonials}
-          renderSlide={(t) => (
-            <div className="p-6 md:p-8 border border-[#DCD9D5] h-[320px] md:h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
-              <div className="mb-6">
-                <div className="flex justify-start items-start">
-                  <Image
-                    src={t.logo.src}
-                    alt={t.logo.alt}
-                    width={140}
-                    height={140}
-                    style={{ height: `${t.logo.height || 40}px`, width: "auto" }}
-                  />
-                </div>
-              </div>
+      <div className="flex flex-col gap-6 lg:gap-10">
+        <div className="overflow-x-clip">
+          <div className="relative w-screen -ml-[20px]">
+            <div className="ml-[20px] md:ml-[clamp(20px,calc((100vw-1280px)/2+20px),20px)]">
+              <TestimonialsCarousel
+                disableInnerPadding
+                hideArrows
+                items={testimonials}
+                onApiChange={setCarouselApi}
+                renderSlide={(t) => (
+                  <div className="p-6 md:p-8 border border-[#DCD9D5] h-[320px] md:h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
+                    <div className="mb-6">
+                      <div className="flex justify-start items-start">
+                        <Image
+                          src={t.logo.src}
+                          alt={t.logo.alt}
+                          width={140}
+                          height={140}
+                          style={{ height: `${t.logo.height || 40}px`, width: "auto" }}
+                        />
+                      </div>
+                    </div>
 
-              <p className={`${livretText.className} text-[24px] font-light leading-[1.1] lg:leading-[1.3] tracking-tight text-[#151515]`}>
-                “{t.quote}”
-              </p>
+                    <p className={`${livretText.className} text-[24px] font-light leading-[1.1] lg:leading-[1.3] tracking-tight text-[#303030]`}>
+                      "{t.quote}"
+                    </p>
 
-              <div className="flex items-center gap-3">
-                <div className="tracking-tight text-base leading-[1.2]">
-                  <div className="font-semibold text-[#151515]">{t.authorName}</div>
-                  <div className="text-primary-gray">{t.authorTitle}</div>
-                </div>
-              </div>
+                    <div className="flex items-center gap-3">
+                      <div className="tracking-tight text-base leading-[1.2]">
+                        <div className="font-semibold text-[#303030]">{t.authorName}</div>
+                        <div className="text-[#303030]/60">{t.authorTitle}</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              />
             </div>
-          )}
-        />
+          </div>
+        </div>
+        <Grid>
+          <div className="col-span-full md:col-span-8 md:col-start-3">
+            <div className="flex w-min gap-11">
+              <KitButton
+                variant="secondary"
+                size="custom"
+                isDisabled={carouselWall === "left"}
+                onClick={() => carouselApi?.scrollPrev()}
+                className="disabled:text-ui-black/40 rounded-full px-3 py-3 lg:px-4 transition-all duration-200 hover:bg-ui-black/10 active:bg-ui-black/15 hover:-translate-y-0.5"
+              >
+                <ArrowRight className="rotate-180 lg:w-8 lg:h-8" />
+              </KitButton>
+              <KitButton
+                variant="secondary"
+                size="custom"
+                isDisabled={carouselWall === "right"}
+                onClick={() => carouselApi?.scrollNext()}
+                className="disabled:text-ui-black/40 rounded-full px-3 py-3 lg:px-4 transition-all duration-200 hover:bg-ui-black/10 active:bg-ui-black/15 hover:-translate-y-0.5"
+              >
+                <ArrowRight className="lg:w-8 lg:h-8" />
+              </KitButton>
+            </div>
+          </div>
+        </Grid>
       </div>
     </section>
   );

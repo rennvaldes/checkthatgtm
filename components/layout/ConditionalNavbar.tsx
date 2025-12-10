@@ -13,14 +13,9 @@ export default function ConditionalNavbar() {
     return null;
   }
 
-  // Use homepage navbar for careers and blog pages
-  if (pathname === "/careers" || pathname?.startsWith("/blog")) {
+  // Use homepage navbar for careers, blog, and about pages
+  if (pathname === "/careers" || pathname?.startsWith("/blog") || pathname === "/about") {
     return <NavigationBar />;
-  }
-
-  // Use styled navbar for about/company page
-  if (pathname === "/about") {
-    return <StyledNavbar />;
   }
 
   return <Navbar />;

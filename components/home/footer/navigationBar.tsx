@@ -53,6 +53,12 @@ export function NavigationBar() {
         {/* Navigation Links - positioned left to avoid sticky button on right */}
         <div className="col-span-6 md:col-span-4 md:col-start-3 flex items-center gap-4 lg:gap-6">
           <Link
+            href="/about"
+            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+          >
+            Company
+          </Link>
+          <Link
             href="/careers"
             className="text-sm text-foreground hover:text-muted-foreground transition-colors"
           >

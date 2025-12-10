@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { Grid } from "@/components/home/grid/gridRoot";
 import GrowthxLogo from "@/assets/img/v2/growthx_logo.png";
 
 type CompanySectionProps = {
@@ -84,19 +85,14 @@ export default function CompanySection({
 
   return (
     <section className="relative w-full">
-      <div className="container mx-auto px-4">
+      <Grid className="relative before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.25px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.25px] after:bg-border">
         <div
           ref={containerRef}
-          className="rounded-sm p-6 md:p-8 lg:p-12 max-h-[900px] overflow-hidden"
-          style={{ backgroundColor: "#E6E3DE" }}
+          className="col-span-full md:col-span-8 md:col-start-3 pb-16 pt-16"
         >
-
           <div
-            className="whitespace-pre-wrap tracking-tighter leading-snug text-2xl lg:text-[42px] max-w-[950px] mx-auto"
+            className="whitespace-pre-wrap tracking-tighter leading-snug text-2xl lg:text-[42px]"
           >
-            <div className="relative w-[137px] h-[30px] mb-8">
-              <Image src={GrowthxLogo} alt="GrowthX" fill className="object-contain" sizes="137px" />
-            </div>
             {chars.map((c, idx) => {
               if (c.ch === "\n") {
                 return (
@@ -116,7 +112,7 @@ export default function CompanySection({
             })}
           </div>
         </div>
-      </div>
+      </Grid>
     </section>
   );
 }
