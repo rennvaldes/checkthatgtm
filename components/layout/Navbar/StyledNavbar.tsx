@@ -149,6 +149,8 @@ function MobileLearnDropdown() {
 
 // Desktop Navbar
 function Desktop() {
+  const pathname = usePathname();
+
   return (
     <nav className="w-full h-fit pt-16 md:h-16 md:pt-0 md:sticky md:top-0 md:z-50 md:bg-background/75 md:backdrop-blur-[15px]">
       <Grid className="h-full items-center">

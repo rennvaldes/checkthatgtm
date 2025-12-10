@@ -256,7 +256,7 @@ export default function TestimonialsSection() {
                     </div>
 
                     <p className={`${livretText.className} text-[24px] font-light leading-[1.1] lg:leading-[1.3] tracking-tight text-[#303030]`}>
-                      "{t.quote}"
+                      &quot;{t.quote}&quot;
                     </p>
 
                     <div className="flex items-center gap-3">

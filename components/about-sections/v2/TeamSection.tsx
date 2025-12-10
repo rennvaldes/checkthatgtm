@@ -139,7 +139,7 @@ export default function TeamSection() {
         <div className="col-span-full md:col-span-8 lg:col-span-10 flex flex-col mt-3 md:mt-0">
           {/* Title */}
           <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[520] text-foreground">
-            We're a team of world-class operators
+            We&apos;re a team of world-class operators
           </h2>
 
           {/* Subtitle */}
