@@ -30,7 +30,7 @@ export function FooterCtaSection() {
           {/* Newsletter */}
           <div className="col-span-full lg:col-span-4 lg:col-start-3 mt-12 lg:mt-0">
             <h3 className="text-[20px] lg:text-2xl font-[520] leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] text-foreground mb-6">
-              Subscribe to Our Newsletter
+              Subscribe to our Newsletter
             </h3>
             <div className="max-w-[21rem]">
               <NewsletterInput />
@@ -42,6 +42,12 @@ export function FooterCtaSection() {
             {/* Company Links */}
             <div className="flex flex-col gap-2 flex-1">
               <span className="text-sm text-muted-foreground mb-2 font-light">Company</span>
+              <Link
+                href="/about"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                About
+              </Link>
               <Link
                 href="/careers"
                 className="text-sm text-foreground hover:text-muted-foreground transition-colors"
