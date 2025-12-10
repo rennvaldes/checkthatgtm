@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { cx } from "@/lib/classnames";
 import { Grid } from "@/components/home/grid/gridRoot";
 import Link from "next/link";
 
 export function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,24 +53,39 @@ export function NavigationBar() {
         </div>
 
         {/* Navigation Links - positioned left to avoid sticky button on right */}
-        <div className="col-span-6 md:col-span-4 md:col-start-3 flex items-center gap-4 lg:gap-6">
+        <div className="col-span-6 md:col-span-4 md:col-start-3 flex items-center gap-2 lg:gap-3">
           <Link
             href="/about"
-            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+            className={cx(
+              "text-sm transition-all px-3 py-1.5 rounded-full",
+              pathname === "/about"
+                ? "text-foreground bg-foreground/5"
+                : "text-foreground hover:text-muted-foreground hover:bg-foreground/2"
+            )}
           >
             Company
           </Link>
           <Link
             href="/careers"
-            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+            className={cx(
+              "text-sm transition-all px-3 py-1.5 rounded-full",
+              pathname === "/careers"
+                ? "text-foreground bg-foreground/5"
+                : "text-foreground hover:text-muted-foreground hover:bg-foreground/2"
+            )}
           >
             Careers
           </Link>
           <Link
             href="/blog"
-            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+            className={cx(
+              "text-sm transition-all px-3 py-1.5 rounded-full",
+              pathname === "/blog" || pathname?.startsWith("/blog/")
+                ? "text-foreground bg-foreground/5"
+                : "text-foreground hover:text-muted-foreground hover:bg-foreground/2"
+            )}
           >
-            Blog
+            News
           </Link>
         </div>
       </Grid>

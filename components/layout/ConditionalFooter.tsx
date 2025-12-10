@@ -12,11 +12,13 @@ export default function ConditionalFooter() {
     return null;
   }
 
-  // Use new footer for legal pages, careers, and about page
+  // Use new footer for legal pages, careers, about page, and blog
   const useNewFooter = 
     pathname?.startsWith("/legal/") || 
     pathname === "/careers" || 
-    pathname === "/about";
+    pathname === "/about" ||
+    pathname === "/blog" ||
+    pathname?.startsWith("/blog/");
 
   if (useNewFooter) {
     return (

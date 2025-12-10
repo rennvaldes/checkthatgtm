@@ -80,7 +80,7 @@ export function ComparisonRoot() {
 
       {/* Desktop Table */}
       <div className="hidden md:block mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
-        <div className="grid grid-cols-4 gap-0 relative pt-6 border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border before:pointer-events-none before:z-20">
+        <div className="grid grid-cols-4 gap-0 relative pt-6 pb-6 border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border before:pointer-events-none before:z-20">
           {/* Sticky Header */}
           <div className="sticky top-0 grid grid-cols-4 col-span-4 bg-background z-10 relative">
             {/* Empty first column */}
@@ -91,7 +91,7 @@ export function ComparisonRoot() {
               <div
                 key={column}
                 className={cx(
-                  "flex flex-col items-center justify-end h-[159px] py-10 border-b-[0.5px] border-border relative",
+                  "flex flex-col items-center justify-end h-[159px] pt-10 pb-10 border-b-[0.5px] border-border relative",
                   idx === content.bestChoiceColumn && "bg-pink"
                 )}
               >

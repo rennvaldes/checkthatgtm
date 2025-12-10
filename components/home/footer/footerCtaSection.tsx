@@ -9,7 +9,8 @@ export function FooterCtaSection() {
   return (
     <section className="w-full bg-secondary mt-[120px]">
       <div className="py-20 lg:py-24">
-        <Grid>
+        <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8">
+          <Grid className="max-w-[1200px]">
           {/* Mobile: Stack all content */}
           {/* Desktop: X Logo (cols 1-2), Newsletter (cols 3-6), Socials (cols 7-12) */}
 
@@ -58,7 +59,7 @@ export function FooterCtaSection() {
                 href="/blog"
                 className="text-sm text-foreground hover:text-muted-foreground transition-colors"
               >
-                Blog
+                News
               </Link>
             </div>
 
@@ -118,6 +119,7 @@ export function FooterCtaSection() {
           </div>
           
         </Grid>
+        </div>
       </div>
     </section>
   );

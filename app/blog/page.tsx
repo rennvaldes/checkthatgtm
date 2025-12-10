@@ -3,8 +3,8 @@
 import ArticlesSection from '@/components/blog-sections/v2/ArticlesSection';
 import BlogHero from '@/components/blog-sections/v2/Hero';
 import Spacer from '@/components/common/Spacer';
+import CTABannerSection from '@/components/about-sections/v2/CTABannerSection';
 import { ErrorBoundary } from 'react-error-boundary';
-;
 
 function ErrorFallback({error}: {error: Error}) {
   return (
@@ -23,6 +23,8 @@ export default function Blog() {
         <Spacer size="d122" />
         <BlogHero />
         <ArticlesSection />
+        <Spacer size="d164" />
+        <CTABannerSection />
       </main>
     </ErrorBoundary>
   );

@@ -5,8 +5,8 @@ import CTABanner from "@/components/common/CTABanner";
 
 export default function CTABannerSection() {
   return (
-    <section>
-      <div className="container mx-auto px-4 -mb-40">
+    <section className="w-full">
+      <div className="w-full -mb-40">
         <CTABanner
           title={
             <>

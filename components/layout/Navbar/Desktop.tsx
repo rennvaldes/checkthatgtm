@@ -2,6 +2,8 @@
 
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cx } from "@/lib/classnames";
 
 import KitButton from "@/components/ui/KitButton";
 import useHideOnScroll from "@/lib/litebox-lib/hooks/useHideOnScroll";
@@ -78,6 +80,7 @@ function LearnDropdown() {
 
 function Desktop() {
   const { isVisible } = useHideOnScroll();
+  const pathname = usePathname();
 
   return (
     <nav
@@ -115,6 +118,11 @@ function Desktop() {
             variant="secondary"
             size="medium"
             sameBrowserTab={true}
+            className={cx(
+              pathname === "/pricing" || pathname?.startsWith("/pricing")
+                ? "opacity-100"
+                : "opacity-70"
+            )}
           >
             Pricing
           </KitButton>
@@ -125,6 +133,11 @@ function Desktop() {
             sameBrowserTab={true}
             variant="secondary"
             size="medium"
+            className={cx(
+              pathname === "/about"
+                ? "opacity-100"
+                : "opacity-70"
+            )}
           >
             Company
           </KitButton>
@@ -135,8 +148,13 @@ function Desktop() {
             href="/blog"
             variant="secondary"
             size="medium"
+            className={cx(
+              pathname === "/blog" || pathname?.startsWith("/blog/")
+                ? "opacity-100"
+                : "opacity-70"
+            )}
           >
-            Blog
+            News
           </KitButton>
         </li>
         <li>

@@ -8,6 +8,7 @@ import ChevronThin from "@/components/icons/ChevronThin";
 import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 import Logo from "@/components/icons/Logo";
 import { usePathname, useRouter } from "next/navigation";
+import { cx } from "@/lib/classnames";
 import React from "react";
 import Menu from "@/components/icons/Menu";
 import Close from "@/components/icons/Close";
@@ -187,6 +188,9 @@ function Desktop() {
                 variant="secondary"
                 size="medium"
                 sameBrowserTab={true}
+                className={cx(
+                  (pathname === "/pricing" || pathname?.startsWith("/pricing")) ? "opacity-100" : "opacity-70"
+                )}
               >
                 Pricing
               </KitButton>
@@ -197,6 +201,9 @@ function Desktop() {
                 sameBrowserTab={true}
                 variant="secondary"
                 size="medium"
+                className={cx(
+                  pathname === "/about" ? "opacity-100" : "opacity-70"
+                )}
               >
                 Company
               </KitButton>
@@ -207,8 +214,11 @@ function Desktop() {
                 href="/blog"
                 variant="secondary"
                 size="medium"
+                className={cx(
+                  (pathname === "/blog" || pathname?.startsWith("/blog/")) ? "opacity-100" : "opacity-70"
+                )}
               >
-                Blog
+                News
               </KitButton>
             </li>
             <li>
@@ -323,7 +333,10 @@ function Mobile() {
               onKeyDown={(e) => e.key === 'Enter' && setIsOpen(false)}
             >
               <KitButton
-                className={`${OPTION_STYLES} !text-left`}
+                className={cx(
+                  `${OPTION_STYLES} !text-left`,
+                  (pathname === "/pricing" || pathname?.startsWith("/pricing")) ? "opacity-100" : "opacity-70"
+                )}
                 href="/pricing"
                 variant="ghost"
                 size="custom"
@@ -337,7 +350,10 @@ function Mobile() {
               onKeyDown={(e) => e.key === 'Enter' && setIsOpen(false)}
             >
               <KitButton
-                className={`${OPTION_STYLES} !text-left`}
+                className={cx(
+                  `${OPTION_STYLES} !text-left`,
+                  pathname === "/about" ? "opacity-100" : "opacity-70"
+                )}
                 href="/about"
                 variant="ghost"
                 size="custom"
@@ -355,9 +371,12 @@ function Mobile() {
                 sameBrowserTab
                 variant="ghost"
                 size="custom"
-                className={`${OPTION_STYLES} !text-left`}
+                className={cx(
+                  `${OPTION_STYLES} !text-left`,
+                  (pathname === "/blog" || pathname?.startsWith("/blog/")) ? "opacity-100" : "opacity-70"
+                )}
               >
-                Blog
+                News
               </KitButton>
             </li>
             <li>

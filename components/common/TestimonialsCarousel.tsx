@@ -95,7 +95,7 @@ export default function TestimonialsCarousel<T = any>({
         ].join(" ")}
       >
         <Carousel
-          className="bg-transparent max-md:px-4"
+          className="bg-transparent max-md:px-4 md:pr-0"
           setApi={setCarouselApi}
           opts={{ align: "start", slidesToScroll: 1, startIndex: 0 }}
         >
@@ -103,7 +103,7 @@ export default function TestimonialsCarousel<T = any>({
             {items.map((item, index) => (
               <CarouselItem
                 key={index}
-                className={`${itemClassName ?? "basis-[100%] w-[100%] md:basis-auto md:w-auto"} first-of-type:pl-4 last-of-type:pr-0`}
+                className={`${itemClassName ?? "basis-[100%] w-[100%] md:basis-auto md:w-auto"} pl-0 first-of-type:pl-4 last-of-type:pr-0`}
               >
                 {renderSlide(item, index)}
               </CarouselItem>

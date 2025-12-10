@@ -3,8 +3,6 @@ import { chunk } from 'lodash';
 
 import BlogCard from '@/components/ui/BlogCard';
 import { CardData } from '@/static/types';
-import CTABanner from '@/components/common/CTABanner';
-import GrowthXLogo from '@/assets/img/v2/growthx_logo.png';
 
 type Props = {
   cardsData: CardData[];
@@ -26,21 +24,6 @@ function DesktopArticlesV2({ cardsData, isLoading }: Props) {
             </div>
           </React.Fragment>
         ))}
-
-        <div className="px-0 -mb-24 xl:-mb-52">
-          <CTABanner
-            logoSrc={GrowthXLogo}
-            bgClassName="bg-[#FFD83E]"
-            title={
-              <>
-                Get Started with
-                <br className="hidden lg:block" /> AI-Led Growth
-              </>
-            }
-            primaryButton={{ label: 'Book a Call', href: '/book-demo' }}
-            description="Whether you're a budding startup or an established enterprise, discover how our AI can streamline your content creation and fuel your growth."
-          />
-        </div>
       </div>
     </div>
   );

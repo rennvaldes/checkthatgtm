@@ -242,7 +242,7 @@ export default function TestimonialsSection() {
                 items={testimonials}
                 onApiChange={setCarouselApi}
                 renderSlide={(t) => (
-                  <div className="p-6 md:p-8 border border-[#DCD9D5] h-[320px] md:h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
+                  <div className="p-6 md:p-8 border-[0.5px] border-border h-[320px] md:h-[540px] flex flex-col justify-between lg:min-w-[520px] lg:max-w-[521px]">
                     <div className="mb-6">
                       <div className="flex justify-start items-start">
                         <Image

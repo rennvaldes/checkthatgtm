@@ -12,6 +12,7 @@ import useHideOnScroll from "@/lib/litebox-lib/hooks/useHideOnScroll";
 import { trackDemoBookingClick } from "@/lib/utils/posthog-tracking";
 
 import { usePathname, useRouter } from "next/navigation";
+import { cx } from "@/lib/classnames";
 import Button from "@/components/common/Button";
 
 const OPTION_STYLES = "focus:text-ui-blue text-[28px] leading-[31px]";
@@ -173,7 +174,11 @@ function Mobile() {
               onKeyDown={(e) => e.key === 'Enter' && setIsOpen(false)}
             >
               <KitButton
-                className={`${OPTION_STYLES} !text-left`}
+                className={cx(
+                  `${OPTION_STYLES} !text-left`,
+                  (pathname === "/pricing" || pathname?.startsWith("/pricing")) && "opacity-100",
+                  !(pathname === "/pricing" || pathname?.startsWith("/pricing")) && "opacity-70"
+                )}
                 href="/pricing"
                 variant="ghost"
                 size="custom"
@@ -187,7 +192,11 @@ function Mobile() {
               onKeyDown={(e) => e.key === 'Enter' && setIsOpen(false)}
             >
               <KitButton
-                className={`${OPTION_STYLES} !text-left`}
+                className={cx(
+                  `${OPTION_STYLES} !text-left`,
+                  pathname === "/about" && "opacity-100",
+                  pathname !== "/about" && "opacity-70"
+                )}
                 href="/about"
                 variant="ghost"
                 size="custom"
@@ -205,9 +214,13 @@ function Mobile() {
                 sameBrowserTab
                 variant="ghost"
                 size="custom"
-                className={`${OPTION_STYLES} !text-left`}
+                className={cx(
+                  `${OPTION_STYLES} !text-left`,
+                  (pathname === "/blog" || pathname?.startsWith("/blog/")) && "opacity-100",
+                  !(pathname === "/blog" || pathname?.startsWith("/blog/")) && "opacity-70"
+                )}
               >
-                Blog
+                News
               </KitButton>
             </li>
             <li>

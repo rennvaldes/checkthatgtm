@@ -59,7 +59,7 @@ function Footer() {
             <LinksColumn
               title="Resources"
               links={[
-                { to: "/blog", text: "Blog", sameBrowserTab: true },
+                { to: "/blog", text: "News", sameBrowserTab: true },
                 { to: "/tools", text: "Tools", sameBrowserTab: true },
                 { to: "/guides", text: "Guides", sameBrowserTab: true },
               ]}

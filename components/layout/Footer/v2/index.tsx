@@ -85,7 +85,7 @@ export default function FooterV2() {
     {
       title: "Resources",
       links: [
-        { label: "Blog", href: "/blog" },
+        { label: "News", href: "/blog" },
         { label: "Tools", href: "/tools" },
         { label: "Guides", href: "/guides" },
         { label: "AI Visibility", href: "https://checkthat.ai", external: true },

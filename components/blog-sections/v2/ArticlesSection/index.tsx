@@ -55,8 +55,8 @@ function ArticlesSectionV2() {
   const showingArticles = React.useMemo(() => articles?.slice(0, showUpTo) || [], [articles, showUpTo]);
 
   return (
-    <section className='mx-auto w-full pb-10 pt-10 lg:pb-[120px] lg:pt-[56px] max-md:px-4'>
-      <div className='mx-auto w-full container'>
+    <section className='mx-auto w-full pb-10 pt-10 lg:pb-[120px] lg:pt-[56px]'>
+      <div className='mx-auto w-[calc(100%-40px)] max-w-[1280px] px-4 md:px-6 lg:px-8'>
         <div className='flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
           <div className='w-[320px] lg:flex-shrink-0'>
             <div className='flex items-center gap-2 border-b border-primary-gray pb-2'>
@@ -76,16 +76,14 @@ function ArticlesSectionV2() {
               areCategoriesLoading ? (
                 <Skeleton key={filter} className='mr-[8px] h-[40px] w-[90px] rounded-full' />
               ) : (
-                <Button
+                <button
                   onClick={() => setSelectedFilter(filter)}
                   key={filter}
-                  variant={filter === selectedFilter ? 'secondary' : 'outline'}
-                  size='sm'
                   className={[
-                    'mr-[8px] my-2 rounded-full font-medium ',
+                    'mr-[8px] my-2 rounded-full font-medium inline-flex items-center gap-2 px-4 py-2 text-sm transition-opacity',
                     filter === selectedFilter
-                      ? ''
-                      : '!border-0 text-ui-black bg-[#e1ddd8]'
+                      ? 'bg-primary text-primary-foreground hover:opacity-80'
+                      : '!border-0 text-ui-black bg-[#e1ddd8] hover:opacity-80'
                   ].join(' ')}
                 >
                   <span className="inline-flex items-center text-lg gap-4">
@@ -94,7 +92,7 @@ function ArticlesSectionV2() {
                       <Icon icon="ri:check-fill" className="w-4 h-4" />
                     ) : null}
                   </span>
-                </Button>
+                </button>
               )
             )}
           </div>

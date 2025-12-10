@@ -158,11 +158,11 @@ export default function TeamSection() {
                 setApi={setCarouselApi}
                 opts={{ align: "start", slidesToScroll: 1, startIndex: 0 }}
               >
-                <CarouselContent className="md:ml-0">
+                <CarouselContent className="md:ml-0 md:pr-0">
                   {CAROUSEL_IMAGES.map((src, i) => (
                     <CarouselItem
                       key={`team-carousel-${i}`}
-                      className="basis-auto first-of-type:pl-0"
+                      className="basis-auto pl-0 first-of-type:pl-4"
                     >
                       <img
                         src={src}
