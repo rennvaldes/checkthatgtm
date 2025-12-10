@@ -42,8 +42,8 @@ export default function CTABanner({
   secondaryButton,
 }: CTABannerProps) {
   return (
-    <section className={`${bgClassName} max-h-[606px] pt-[128.8px] pb-[184px] w-full px-4 md:px-6 lg:px-8`}>
-      <div className={`px-4 md:px-6 lg:px-8 mx-auto max-w-[1200px] flex flex-col items-center gap-[46px]`}>
+    <section className={`${bgClassName} max-h-[606px] pt-[128.8px] pb-[184px] mx-auto w-[calc(100%-40px)] max-w-[1280px] px-4 md:px-6 lg:px-8`}>
+      <div className={`flex flex-col items-center gap-[46px]`}>
         {logoSrc ? (
           <div className="flex justify-center">
             <Image

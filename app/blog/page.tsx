@@ -19,11 +19,9 @@ function ErrorFallback({error}: {error: Error}) {
 export default function Blog() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <main className='relative flex flex-col items-center'>
-        <Spacer size="d122" />
+      <main>
         <BlogHero />
         <ArticlesSection />
-        <Spacer size="d164" />
         <CTABannerSection />
       </main>
     </ErrorBoundary>

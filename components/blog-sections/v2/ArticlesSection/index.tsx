@@ -6,6 +6,7 @@ import { capitalize } from 'lodash';
 import Button from '@/components/common/Button';
 import { Icon } from '@iconify/react';
 import Search from '@/components/icons/Search';
+import { Grid } from '@/components/home/grid/gridRoot';
 import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
 import { getArticleCategories, getMainDataAndArticles } from '@/lib/api/strapi/blog';
 import { getCardFromStrapiRawData } from '@/lib/utils';
@@ -55,9 +56,9 @@ function ArticlesSectionV2() {
   const showingArticles = React.useMemo(() => articles?.slice(0, showUpTo) || [], [articles, showUpTo]);
 
   return (
-    <section className='mx-auto w-full pb-10 pt-10 lg:pb-[120px] lg:pt-[56px]'>
-      <div className='mx-auto w-[calc(100%-40px)] max-w-[1280px] px-4 md:px-6 lg:px-8'>
-        <div className='flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
+    <section className='pb-10 pt-10 lg:pb-[120px] lg:pt-[56px]'>
+      <Grid>
+        <div className='col-span-full flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
           <div className='w-[320px] lg:flex-shrink-0'>
             <div className='flex items-center gap-2 border-b border-primary-gray pb-2'>
               <Search className='h-5 w-5 lg:h-6 lg:w-6 text-primary-gray' />
@@ -97,9 +98,9 @@ function ArticlesSectionV2() {
             )}
           </div>
         </div>
-
-        <DesktopArticles isLoading={isLoading || isRefetching} cardsData={showingArticles} />
-      </div>
+      </Grid>
+      
+      <DesktopArticles isLoading={isLoading || isRefetching} cardsData={showingArticles} />
     </section>
   );
 }
