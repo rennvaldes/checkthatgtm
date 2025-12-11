@@ -163,7 +163,7 @@ export function PricingRoot() {
               <div
                 key={`${plan.name}-feature-${featureIdx}`}
                 className={cx(
-                  "flex items-center gap-5 px-10 h-[48px] border-b-[0.5px]",
+                  "flex items-center gap-5 pl-6 pr-10 h-[48px] border-b-[0.5px]",
                   featureIdx === 0 && "border-t-[0.5px]",
                   plan.highlight 
                     ? "bg-yellow border-foreground/40" 
