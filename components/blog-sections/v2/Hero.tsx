@@ -21,7 +21,7 @@ function BlogHeroV2() {
       {/* Description Row */}
       <Grid className="pt-16">
         {/* Label */}
-        <div className="col-span-full md:col-span-1">
+        <div className="col-span-full md:col-span-1 flex items-start">
           <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
             News
           </span>

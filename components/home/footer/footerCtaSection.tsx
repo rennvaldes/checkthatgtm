@@ -2,20 +2,18 @@
 
 import Link from "next/link";
 import { Grid } from "@/components/home/grid/gridRoot";
-import { LinkButton } from "@/components/home/custom/link-button";
 import { NewsletterInput } from "./newsletterInput";
 
 export function FooterCtaSection() {
   return (
     <section className="w-full bg-secondary mt-[120px]">
       <div className="py-20 lg:py-24">
-        <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8">
-          <Grid className="max-w-[1200px]">
+        <Grid>
           {/* Mobile: Stack all content */}
-          {/* Desktop: X Logo (cols 1-2), Newsletter (cols 3-6), Socials (cols 7-12) */}
+          {/* Desktop: X Logo (col 1), Newsletter (cols 3-6), Socials (cols 7-12) */}
 
           {/* X Logo */}
-          <div className="col-span-full lg:col-span-2 flex items-start">
+          <div className="col-span-full lg:col-span-1 flex items-start">
             <svg
               width="24"
               height="20"
@@ -101,25 +99,28 @@ export function FooterCtaSection() {
             {/* Social Links */}
             <div className="flex flex-col gap-2 flex-1">
               <span className="text-sm text-muted-foreground mb-2 font-light">Follow us</span>
-              <LinkButton
+              <Link
                 href="https://www.linkedin.com/company/growthx-ai"
-                variant="tertiary"
-                className="flex-shrink-0 w-fit"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors inline-flex items-center gap-1"
               >
                 LinkedIn
-              </LinkButton>
-              <LinkButton
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block">
+                  <path d="M4.5 2L7.5 6L4.5 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
+              <Link
                 href="https://twitter.com/growthxai"
-                variant="tertiary"
-                className="flex-shrink-0 w-fit"
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors inline-flex items-center gap-1"
               >
                 Twitter
-              </LinkButton>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block">
+                  <path d="M4.5 2L7.5 6L4.5 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
             </div>
           </div>
           
         </Grid>
-        </div>
       </div>
     </section>
   );

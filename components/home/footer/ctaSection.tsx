@@ -8,7 +8,7 @@ export function CtaSection() {
     <section className="pt-[176px]">
       <Grid>
         {/* Label - Column 1 on tablet+, full on mobile */}
-        <div className="col-span-full md:col-span-1">
+        <div className="col-span-full md:col-span-1 flex items-start">
           <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
             Join us
           </span>

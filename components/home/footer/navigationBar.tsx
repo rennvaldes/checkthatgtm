@@ -53,39 +53,42 @@ export function NavigationBar() {
         </div>
 
         {/* Navigation Links - positioned left to avoid sticky button on right */}
-        <div className="col-span-6 md:col-span-4 md:col-start-3 flex items-center gap-2 lg:gap-3">
+        <div className="col-span-6 md:col-span-4 md:col-start-3 flex items-center gap-2 lg:gap-3 h-full">
           <Link
             href="/about"
             className={cx(
-              "text-sm transition-all px-3 py-1.5 rounded-full",
+              "relative inline-flex items-center text-sm transition-all px-3 h-full",
+              "after:absolute after:bottom-[-0.5px] after:h-[0.5px] after:transition-all",
               pathname === "/about"
-                ? "text-foreground bg-foreground/5"
-                : "text-foreground hover:text-muted-foreground hover:bg-foreground/2"
+                ? "text-foreground after:bg-foreground after:left-3 after:right-3"
+                : "text-foreground/40 after:bg-transparent after:left-3 after:right-3 hover:text-foreground/60"
             )}
           >
-            Company
+            <span className="inline-block">Company</span>
           </Link>
           <Link
             href="/careers"
             className={cx(
-              "text-sm transition-all px-3 py-1.5 rounded-full",
+              "relative inline-flex items-center text-sm transition-all px-3 h-full",
+              "after:absolute after:bottom-[-0.5px] after:h-[0.5px] after:transition-all",
               pathname === "/careers"
-                ? "text-foreground bg-foreground/5"
-                : "text-foreground hover:text-muted-foreground hover:bg-foreground/2"
+                ? "text-foreground after:bg-foreground after:left-3 after:right-3"
+                : "text-foreground/40 after:bg-transparent after:left-3 after:right-3 hover:text-foreground/60"
             )}
           >
-            Careers
+            <span className="inline-block">Careers</span>
           </Link>
           <Link
             href="/blog"
             className={cx(
-              "text-sm transition-all px-3 py-1.5 rounded-full",
+              "relative inline-flex items-center text-sm transition-all px-3 h-full",
+              "after:absolute after:bottom-[-0.5px] after:h-[0.5px] after:transition-all",
               pathname === "/blog" || pathname?.startsWith("/blog/")
-                ? "text-foreground bg-foreground/5"
-                : "text-foreground hover:text-muted-foreground hover:bg-foreground/2"
+                ? "text-foreground after:bg-foreground after:left-3 after:right-3"
+                : "text-foreground/40 after:bg-transparent after:left-3 after:right-3 hover:text-foreground/60"
             )}
           >
-            News
+            <span className="inline-block">News</span>
           </Link>
         </div>
       </Grid>
