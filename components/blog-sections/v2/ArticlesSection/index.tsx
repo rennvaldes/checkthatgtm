@@ -60,7 +60,7 @@ function ArticlesSectionV2() {
       <Grid>
         <div className='col-span-full flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
           <div className='w-[320px] lg:flex-shrink-0'>
-            <div className='flex items-center gap-2 border-b border-primary-gray pb-2'>
+            <div className='flex items-center gap-2 border-b-[0.5px] border-border pb-2'>
               <Search className='h-5 w-5 lg:h-6 lg:w-6 text-primary-gray' />
               <input
                 value={searchedValue}
@@ -71,28 +71,24 @@ function ArticlesSectionV2() {
             </div>
           </div>
 
-          <div className='hide-scrollbar flex w-full overflow-x-auto lg:w-auto lg:max-w-[900px] lg:items-center'>
-            <p className='mr-[20px] hidden flex-shrink-0 text-xl font-semibold tracking-tight text-primary-gray lg:block'>Filter by</p>
+          <div className='hide-scrollbar flex w-full overflow-x-auto lg:w-auto lg:flex-1 lg:items-center lg:justify-end gap-3'>
+            <p className='hidden flex-shrink-0 text-sm text-muted-foreground lg:block'>Filter by</p>
             {(areCategoriesLoading ? ['1', '2', '3', '4', '5'] : ['all', ...categories]).map((filter: string) =>
               areCategoriesLoading ? (
-                <Skeleton key={filter} className='mr-[8px] h-[40px] w-[90px] rounded-full' />
+                <Skeleton key={filter} className='h-[40px] w-[120px] rounded-full bg-foreground/10' />
               ) : (
                 <button
                   onClick={() => setSelectedFilter(filter)}
                   key={filter}
                   className={[
-                    'mr-[8px] my-2 rounded-full font-medium inline-flex items-center gap-2 px-4 py-2 text-sm transition-opacity',
+                    'rounded-full font-normal inline-flex items-center gap-2 px-4 py-2 text-sm transition-all flex-shrink-0 border border-border',
                     filter === selectedFilter
-                      ? 'bg-primary text-primary-foreground hover:opacity-80'
-                      : '!border-0 text-ui-black bg-[#e1ddd8] hover:opacity-80'
+                      ? 'bg-background text-foreground'
+                      : 'bg-background text-foreground opacity-50 hover:opacity-70'
                   ].join(' ')}
                 >
-                  <span className="inline-flex items-center text-lg gap-4">
-                    {capitalize(filter)}
-                    {filter === selectedFilter ? (
-                      <Icon icon="ri:check-fill" className="w-4 h-4" />
-                    ) : null}
-                  </span>
+                  {capitalize(filter)}
+                  <Icon icon="ri:add-line" className="w-4 h-4" />
                 </button>
               )
             )}
