@@ -30,7 +30,7 @@
     "team": []
   },
   "people": {
-    "label": "The People",
+    "label": "People",
     "title": "Exceptional talent. An extension of your team.",
     "subtitle": "Our forward-deployed expert network shapes strategy, builds agentic AI workflows, and ensures quality at scale.",
     "avatarLabel": "Talented operators...",
@@ -61,7 +61,7 @@
     }
   },
   "process": {
-    "label": "The Process",
+    "label": "Process",
     "title": "Quality earns trust. Scale and speed deliver growth.",
     "subtitle": "A proven process to accelerate time to the outcomes you care about: AI visibility, traffic, conversions.",
     "steps": [
