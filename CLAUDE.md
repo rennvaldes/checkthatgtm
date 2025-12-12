@@ -58,6 +58,44 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   - `/components/[feature]-sections`: Feature-specific sections
   - `/components/icons`: SVG icon components
 
+#### 4. Section Spacing Pattern
+All major sections on homepage and blog pages follow a consistent responsive spacing pattern:
+
+**Standard Section Spacing:**
+```tsx
+// Use this pattern for py (vertical padding) or pt (top padding)
+className="py-24 md:py-32 lg:py-44"
+// OR
+className="pt-24 md:pt-32 lg:pt-44"
+```
+
+**Breakdown:**
+- Mobile: `py-24` = 96px
+- Tablet: `md:py-32` = 128px
+- Desktop: `lg:py-44` = 176px
+
+**Examples:**
+```tsx
+// Homepage sections
+<section className="pt-24 md:pt-32 lg:pt-44">
+  <Grid>...</Grid>
+</section>
+
+// Blog sections
+<Grid className="py-24 md:py-32 lg:py-44">
+  <div>...</div>
+</Grid>
+```
+
+**When to use:**
+- All major page sections (hero, features, pricing, etc.)
+- Blog sections (most recent, featured, all cards grid)
+- Any section that needs consistent vertical spacing
+
+**Exceptions:**
+- Filter bars and smaller UI elements may use different spacing
+- Headers may combine different pt/pb values (e.g., `pt-24 md:pt-32 lg:pt-44 pb-32`)
+
 ### Environment Configuration
 
 Required environment variables:

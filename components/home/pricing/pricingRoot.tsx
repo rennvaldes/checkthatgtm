@@ -71,7 +71,7 @@ export function PricingRoot() {
   });
 
   return (
-    <section className="pt-[176px] border-t-[0.5px] border-border overflow-x-clip">
+    <section className="pt-24 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
       <SectionHeader
         label={content.label}
         title={content.title}

@@ -8,7 +8,7 @@ interface HeroTextProps {
 
 export function HeroText({ className }: HeroTextProps) {
   return (
-    <section className={cx("pt-48 pb-32", className)}>
+    <section className={cx("pt-24 md:pt-32 lg:pt-44 pb-32", className)}>
       {/* Title */}
       <Grid>
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
