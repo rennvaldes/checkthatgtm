@@ -43,7 +43,6 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
 
   const hasMore = (filteredArticles?.length || 0) > showUpTo;
 
-
   return (
     <>
       {/* Section 1: Header (hardcoded) */}
@@ -66,18 +65,20 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
 
       {/* Section 3: Most Recent Cards */}
       {mostRecentArticles.length > 0 && (
-        <Grid className="py-24 md:py-32 lg:py-44">
-          <div className="col-span-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mostRecentArticles.map((article) => (
+        <div className="w-full border-t-[0.5px] border-border flex flex-wrap">
+          {mostRecentArticles.map((article) => (
+            <div
+              key={article.id}
+              className="w-full md:w-1/2 lg:w-1/3 border-b-[0.5px] border-r-[0.5px] border-border"
+            >
               <BlogCard
-                key={article.id}
                 {...article}
                 variant="regular"
                 slug={article.slug}
               />
-            ))}
-          </div>
-        </Grid>
+            </div>
+          ))}
+        </div>
       )}
 
       {/* Section 4: Featured Card */}
