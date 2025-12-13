@@ -1,8 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useTransition, a } from "@react-spring/web";
-import useMeasure from "react-use-measure";
 import { Grid } from "@/components/home/grid/gridRoot";
 import { BlogCard } from "./blogCard";
 import { BlogFilters } from "./blogFilters";
@@ -45,55 +43,6 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
 
   const hasMore = (filteredArticles?.length || 0) > showUpTo;
 
-  // Masonry grid for All Cards section
-  const [ref, { width }] = useMeasure();
-  const columns = width < 768 ? 1 : width < 1024 ? 2 : 3;
-
-  const [heights, gridItems] = useMemo(() => {
-    if (width === 0) return [[], []];
-
-    let heights = new Array(columns).fill(0);
-    const cardHeight = 400; // Approximate card height
-
-    let gridItems = allArticles.map((article) => {
-      const column = heights.indexOf(Math.min(...heights));
-      const x = (width / columns) * column;
-      const y = heights[column];
-      heights[column] += cardHeight + 32; // card height + gap
-
-      return {
-        ...article,
-        x,
-        y,
-        width: width / columns - 16, // subtract gap
-        height: cardHeight,
-      };
-    });
-
-    return [heights, gridItems];
-  }, [columns, allArticles, width]);
-
-  const transitions = useTransition(gridItems, {
-    key: (item: any) => item.id,
-    from: ({ x, y, width, height }) => ({
-      x,
-      y,
-      width,
-      height,
-      opacity: 0,
-    }),
-    enter: ({ x, y, width, height }) => ({
-      x,
-      y,
-      width,
-      height,
-      opacity: 1,
-    }),
-    update: ({ x, y, width, height }) => ({ x, y, width, height }),
-    leave: { height: 0, opacity: 0 },
-    config: { mass: 5, tension: 500, friction: 100 },
-    trail: 25,
-  });
 
   return (
     <>
@@ -144,24 +93,19 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
         </Grid>
       )}
 
-      {/* Section 5: All Cards Grid with masonry animations */}
+      {/* Section 5: All Cards Grid */}
       <div className="py-24 md:py-32 lg:py-44">
-        <div
-          ref={ref}
-          className="relative mx-auto px-6 max-w-[1440px]"
-          style={{ height: Math.max(...heights, 0) }}
-        >
-          {transitions((style, item) => (
-            <a.div
-              key={item.id}
-              style={{
-                ...style,
-                position: "absolute",
-              }}
-            >
-              <BlogCard {...item} variant="regular" slug={item.slug} />
-            </a.div>
-          ))}
+        <div className="mx-auto w-[calc(100%-40px)] max-w-[1280px]">
+          <div className="flex flex-wrap relative border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border">
+            {allArticles.map((article) => (
+              <div
+                key={article.id}
+                className="w-full md:w-1/2 lg:w-1/3 border-b-[0.5px] border-r-[0.5px] border-border"
+              >
+                <BlogCard {...article} variant="regular" slug={article.slug} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {hasMore && (
