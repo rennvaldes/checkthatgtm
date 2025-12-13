@@ -47,8 +47,10 @@ export function AnimatedBlogGrid({
 
   // Calculate grid positions
   const gridItems = useMemo<GridItem[]>(() => {
-    // Use measured width or fallback to max-width (1280px - 40px padding)
-    const width = containerWidth || 1240;
+    // Use measured width or fallback to window width if not yet measured
+    const width =
+      containerWidth ||
+      (typeof window !== "undefined" ? window.innerWidth : 1280);
 
     return visibleArticles.map((article, i) => {
       const column = i % columns;
