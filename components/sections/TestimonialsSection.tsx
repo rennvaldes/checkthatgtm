@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { livretText } from "@/assets/fonts";
 import { Grid } from "@/components/home/grid/gridRoot";
 import Spacer from "@/components/common/Spacer";
@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [carouselWall, setCarouselWall] = useState<"left" | "right" | undefined>();
 
-  const handleCarouselWall = () => {
+  const handleCarouselWall = useCallback(() => {
     if (!carouselApi) return;
 
     const onSnapChange = () => {
@@ -56,13 +56,13 @@ export default function TestimonialsSection() {
     return () => {
       carouselApi.off("select", onSnapChange);
     };
-  };
+  }, [carouselApi]);
 
   React.useEffect(() => {
     if (carouselApi) {
       handleCarouselWall();
     }
-  }, [carouselApi]);
+  }, [carouselApi, handleCarouselWall]);
 
   const testimonials: Testimonial[] = [
     {
