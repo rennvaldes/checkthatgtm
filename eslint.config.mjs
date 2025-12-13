@@ -3,6 +3,9 @@ import nextConfig from "eslint-config-next";
 const eslintConfig = [
   ...nextConfig,
   {
+    ignores: ["tmp/**"],
+  },
+  {
     rules: {
       "react/no-unescaped-entities": [
         "error",
