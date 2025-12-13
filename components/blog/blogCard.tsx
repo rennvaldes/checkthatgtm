@@ -18,6 +18,7 @@ export function BlogCard({
   image_alt,
   category,
   title,
+  description,
   publisher_avatar,
   publisher_name,
   publisher_legend,
@@ -25,140 +26,104 @@ export function BlogCard({
 }: BlogCardProps) {
   if (variant === "featured") {
     return (
-      <article className={cn("group relative", className)}>
-        <Link href={`/blog/${slug}`} className="block">
-          {/* Mobile: VStack with "Highlight" label */}
-          <div className="flex flex-col gap-12 md:hidden">
-            <span className="text-sm text-muted-foreground font-light">
-              Highlight
-            </span>
-            <div className="relative w-full" style={{ aspectRatio: "10/11" }}>
-              <Image
-                src={image}
-                alt={image_alt || title}
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-            </div>
-            <div className="flex flex-col gap-4">
-              <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] flex items-center justify-between">
-                {title}
-                <span className="ml-2">→</span>
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 text-sm border border-border rounded-full">
-                  {category}
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="relative w-9 h-9 rounded-full overflow-hidden">
-                  <Image
-                    src={publisher_avatar}
-                    alt={publisher_name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex items-center gap-1 text-sm">
-                  <span className="font-medium">{publisher_name}</span>
-                  {publisher_legend && (
-                    <>
-                      <span>·</span>
-                      <span className="text-muted-foreground">
-                        {publisher_legend}
-                      </span>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Tablet+: HStack 50/50 */}
-          <div className="hidden md:flex items-center gap-12">
-            <div className="relative w-1/2" style={{ aspectRatio: "10/11" }}>
-              <Image
-                src={image}
-                alt={image_alt || title}
-                fill
-                className="object-cover"
-                sizes="50vw"
-              />
-            </div>
-            <div className="flex flex-col gap-4 w-1/2">
-              <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] flex items-center justify-between">
-                {title}
-                <span className="ml-2">→</span>
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 text-sm border border-border rounded-full">
-                  {category}
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="relative w-9 h-9 rounded-full overflow-hidden">
-                  <Image
-                    src={publisher_avatar}
-                    alt={publisher_name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex items-center gap-1 text-sm">
-                  <span className="font-medium">{publisher_name}</span>
-                  {publisher_legend && (
-                    <>
-                      <span>·</span>
-                      <span className="text-muted-foreground">
-                        {publisher_legend}
-                      </span>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </article>
-    );
-  }
-
-  // Regular variant: 5:3 aspect ratio
-  return (
-    <article className={cn("group relative", className)}>
-      <Link href={`/blog/${slug}`} className="block p-5 lg:p-10">
-        <div className="flex flex-col gap-4">
-          <div className="relative w-full" style={{ aspectRatio: "5/3" }}>
+      <Link
+        href={`/blog/${slug}`}
+        className={cn("group block relative p-4", className)}
+      >
+        {/* Mobile: VStack with "Highlight" label */}
+        <div className="md:hidden">
+          <p className="text-xs mb-4 leading-7 text-muted-foreground ">
+            Highlight
+          </p>
+          <div className="relative w-full" style={{ aspectRatio: "10/11" }}>
             <Image
               src={image}
               alt={image_alt || title}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="100vw"
             />
           </div>
-          <div className="flex flex-col gap-4">
-            <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] flex items-center justify-between">
-              {title}
-              <span className="ml-2">→</span>
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 text-sm border border-border rounded-full">
-                {category}
-              </span>
+          <div className="p-2 pt-5">
+            <div className="mb-8 md:mb-12">
+              <h3 className="text-[20px] font-[520] leading-[1.25] tracking-[-0.03em] mb-3 md:text-[36px] md:mb-5 flex items-center justify-between">
+                {title}
+                <span className="ml-2">→</span>
+              </h3>
+              <div className="flex flex-wrap gap-2.5 mt-3">
+                <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
+                  {category}
+                </span>
+              </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="relative w-9 h-9 rounded-full overflow-hidden">
+            {description && (
+              <p className="text-base leading-[1.5] tracking-[-0.03em] md:text-[18px] line-clamp-3 mb-12">
+                {description}
+              </p>
+            )}
+            <div className="flex items-center gap-2">
+              <picture className="relative w-9 h-9 rounded-full overflow-hidden">
                 <Image
                   src={publisher_avatar}
                   alt={publisher_name}
                   fill
                   className="object-cover"
                 />
+              </picture>
+              <div className="flex items-center gap-1 text-sm md:text-[18px] tracking-[-0.04em]">
+                <span>{publisher_name}</span>
+                {publisher_legend && (
+                  <>
+                    <span>·</span>
+                    <span className="text-muted-foreground">
+                      {publisher_legend}
+                    </span>
+                  </>
+                )}
               </div>
-              <div className="flex items-center gap-1 text-sm">
-                <span className="font-medium">{publisher_name}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Tablet+: HStack 50/50 */}
+        <div className="hidden md:flex items-center gap-12">
+          <div className="relative w-1/2" style={{ aspectRatio: "10/11" }}>
+            <Image
+              src={image}
+              alt={image_alt || title}
+              fill
+              className="object-cover"
+              sizes="50vw"
+            />
+          </div>
+          <div className="flex flex-col w-1/2">
+            <div className="mb-8 md:mb-12">
+              <h3 className="text-[20px] font-[520] leading-[1.25] tracking-[-0.03em] mb-3 md:text-[36px] md:mb-5 flex items-center justify-between">
+                {title}
+                <span className="ml-2">→</span>
+              </h3>
+              <div className="flex flex-wrap gap-2.5 mt-3">
+                <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
+                  {category}
+                </span>
+              </div>
+            </div>
+            {description && (
+              <p className="text-base leading-[1.5] tracking-[-0.03em] md:text-[18px] line-clamp-3 mb-24">
+                {description}
+              </p>
+            )}
+            <div className="flex items-center gap-2">
+              <picture className="relative w-9 h-9 rounded-full overflow-hidden">
+                <Image
+                  src={publisher_avatar}
+                  alt={publisher_name}
+                  fill
+                  className="object-cover"
+                />
+              </picture>
+              <div className="flex items-center gap-1 text-sm md:text-[18px] tracking-[-0.04em]">
+                <span>{publisher_name}</span>
                 {publisher_legend && (
                   <>
                     <span>·</span>
@@ -172,6 +137,56 @@ export function BlogCard({
           </div>
         </div>
       </Link>
-    </article>
+    );
+  }
+
+  // Regular variant: 5:3 aspect ratio
+  return (
+    <Link
+      href={`/blog/${slug}`}
+      className={cn("group relative flex flex-col p-4 lg:p-5", className)}
+    >
+      <picture className="relative w-full" style={{ aspectRatio: "5/3" }}>
+        <Image
+          src={image}
+          alt={image_alt || title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+      </picture>
+      <div className="flex flex-col px-2 pt-5 pb-2 lg:pt-9 lg:px-5 lg:pb-5">
+        <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] flex items-center justify-between">
+          {title}
+          <span className="ml-2">→</span>
+        </h3>
+        <div className="flex flex-wrap gap-2.5 mt-3 mb-9 md:mb-12">
+          <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
+            {category}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <picture className="relative w-9 h-9 rounded-full overflow-hidden">
+            <Image
+              src={publisher_avatar}
+              alt={publisher_name}
+              fill
+              className="object-cover"
+            />
+          </picture>
+          <div className="flex items-center gap-1 text-sm tracking-[-0.04em]">
+            <span>{publisher_name}</span>
+            {publisher_legend && (
+              <>
+                <span>·</span>
+                <span className="text-muted-foreground">
+                  {publisher_legend}
+                </span>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 }
