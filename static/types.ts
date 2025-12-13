@@ -14,6 +14,7 @@ export type CardData = {
   publisher_avatar: string;
   publisher_name: string;
   publisher_legend?: string;
+  slug?: string;
   className?: string;
   visits?: number | string;
   pages?: number | string;
