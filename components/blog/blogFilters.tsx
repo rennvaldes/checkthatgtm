@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useMemo, useState, useRef, useEffect } from "react";
-import { useTransition, useSpring, a } from "@react-spring/web";
-import useMeasure from "react-use-measure";
+import { useState, useEffect } from "react";
+import { useSpring, a } from "@react-spring/web";
 import { Grid } from "@/components/home/grid/gridRoot";
 import { Icon } from "@iconify/react";
 
@@ -16,45 +15,57 @@ type FilterPillProps = {
   category: string;
   isSelected: boolean;
   onClick: () => void;
-  style: any;
-  measureRef: (el: HTMLButtonElement | null) => void;
 };
 
-function FilterPill({ category, isSelected, onClick, style, measureRef }: FilterPillProps) {
-  const colorSpring = useSpring({
-    progress: isSelected ? 1 : 0,
-    config: { tension: 300, friction: 35, precision: 0.0001 },
+function FilterPill({ category, isSelected, onClick }: FilterPillProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const springs = useSpring({
+    opacity: isSelected || isHovered ? 1 : 0,
+    textProgress: isSelected || isHovered ? 1 : 0,
+    rotate: isSelected ? 405 : 0,
+    config: { tension: 150.93265, friction: 19.56007, precision: 0.0001 },
   });
 
   return (
     <a.button
-      ref={measureRef}
       onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       style={{
-        ...style,
-        position: "absolute",
-        backgroundColor: colorSpring.progress.to(
+        backgroundColor: "hsl(var(--background))",
+        borderColor: "hsl(var(--primary))",
+        borderWidth: "0.5px",
+        borderStyle: "solid",
+        color: springs.textProgress.to(
           [0, 1],
-          ["hsl(var(--background))", "hsl(var(--primary))"]
+          ["hsl(var(--primary))", "white"]
         ),
-        color: colorSpring.progress.to(
-          [0, 1],
-          ["hsl(var(--foreground))", "white"]
-        ),
-        borderColor: colorSpring.progress.to(
-          [0, 1],
-          ["hsl(var(--border))", "hsl(var(--foreground))"]
-        ),
-        zIndex: isSelected ? 10 : 0,
       }}
-      className="rounded-full px-[22px] py-[9px] lg:px-[24px] text-base lg:text-lg leading-[1.5] tracking-[-0.03em] border inline-flex items-center gap-2"
+      className="rounded-full pl-[22px] pr-[14px] py-[9px] lg:pl-[24px] lg:pr-[16px] text-base lg:text-lg leading-[1.5] tracking-[-0.03em] inline-flex items-center gap-2 relative overflow-hidden"
     >
-      {category}
-      {isSelected ? (
-        <Icon icon="ri:close-line" className="w-4 h-4" />
-      ) : (
+      {/* Active/hover background overlay */}
+      <a.div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "hsl(var(--primary))",
+          borderRadius: "inherit",
+          opacity: springs.opacity,
+          zIndex: -1,
+        }}
+      />
+
+      <span className="relative z-10">{category}</span>
+      <a.span
+        className="relative z-10"
+        style={{
+          display: "inline-flex",
+          transform: springs.rotate.to(r => `rotate(${r}deg)`),
+        }}
+      >
         <Icon icon="ri:add-line" className="w-4 h-4" />
-      )}
+      </a.span>
     </a.button>
   );
 }
@@ -64,115 +75,27 @@ export function BlogFilters({
   selectedFilters,
   onFilterChange,
 }: BlogFiltersProps) {
-  const [ref, { width }] = useMeasure();
-  const [selectionOrder, setSelectionOrder] = useState<string[]>([]);
-  const [pillWidths, setPillWidths] = useState<Record<string, number>>({});
-  const [hasMeasured, setHasMeasured] = useState(false);
-  const pillRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // Measure pill widths synchronously after layout
+  // Fade in after mount
   useEffect(() => {
-    // Force a measurement on next frame to ensure DOM is ready
-    const measure = () => {
-      const widths: Record<string, number> = {};
-      let allMeasured = true;
+    const timer = setTimeout(() => setHasMounted(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
-      categories.forEach((category) => {
-        const el = pillRefs.current[category];
-        if (el) {
-          widths[category] = el.offsetWidth;
-        } else {
-          allMeasured = false;
-        }
-      });
+  const containerSpring = useSpring({
+    opacity: hasMounted ? 1 : 0,
+    config: { tension: 300, friction: 35 },
+  });
 
-      if (allMeasured) {
-        setPillWidths(widths);
-        // Fade in after 300ms once measurements are complete
-        setTimeout(() => setHasMeasured(true), 300);
-      } else {
-        // Retry if not all refs are set
-        requestAnimationFrame(measure);
-      }
-    };
-
-    requestAnimationFrame(measure);
-  }, [categories, width]);
-
-  // Toggle filter selection and track order
+  // Toggle filter selection
   const toggleFilter = (filter: string) => {
     if (selectedFilters.includes(filter)) {
       onFilterChange(selectedFilters.filter((f) => f !== filter));
-      setSelectionOrder((prev) => prev.filter((f) => f !== filter));
     } else {
       onFilterChange([...selectedFilters, filter]);
-      setSelectionOrder((prev) => [...prev, filter]);
     }
   };
-
-  // Calculate pill positions based on selection order (Option 1)
-  const gridItems = useMemo(() => {
-    if (width === 0) return [];
-
-    // Selected pills in selection order
-    const selectedInOrder = selectionOrder.filter((cat) =>
-      selectedFilters.includes(cat)
-    );
-    // Unselected pills in array order
-    const unselected = categories.filter(
-      (cat) => !selectedFilters.includes(cat)
-    );
-    const orderedCategories = [...selectedInOrder, ...unselected];
-
-    let x = 0;
-    let y = 0;
-
-    // Determine pill height based on breakpoint
-    const isDesktop = width >= 1024; // lg breakpoint
-    const pillHeight = isDesktop ? 48 : 44;
-    const gap = 16;
-
-    return orderedCategories.map((category) => {
-      const isSelected = selectedFilters.includes(category);
-      const pillWidth = pillWidths[category] || 100; // fallback to 100px if not measured yet
-
-      if (x + pillWidth > width && x > 0) {
-        x = 0;
-        y += pillHeight + gap; // pill height + vertical gap
-      }
-
-      const position = { x, y, category, isSelected };
-      x += pillWidth + gap; // horizontal gap
-
-      return position;
-    });
-  }, [categories, selectedFilters, selectionOrder, pillWidths, width]);
-
-  // Animate transitions
-  const transitions = useTransition(gridItems, {
-    key: (item: { category: string; x: number; y: number; isSelected: boolean }) => item.category,
-    from: ({ x, y }: { x: number; y: number }) => ({ x, y, opacity: 0 }),
-    enter: ({ x, y }: { x: number; y: number }) => ({ x, y, opacity: 1 }),
-    update: ({ x, y }: { x: number; y: number }) => ({ x, y }),
-    leave: { opacity: 0 },
-    config: { tension: 300, friction: 35 },
-    trail: 25,
-  });
-
-  // Fade in container
-  const containerSpring = useSpring({
-    opacity: hasMeasured ? 1 : 0,
-    config: { tension: 300, friction: 35 },
-  });
-
-  // Calculate container height
-  const containerHeight = useMemo(() => {
-    if (gridItems.length === 0) return 44;
-    const maxY = Math.max(...gridItems.map((item) => item.y));
-    const isDesktop = width >= 1024;
-    const pillHeight = isDesktop ? 48 : 44;
-    return maxY + pillHeight; // Just the content height, no extra padding
-  }, [gridItems, width]);
 
   return (
     <Grid className="py-8 lg:py-16">
@@ -186,23 +109,17 @@ export function BlogFilters({
       {/* Filter pills - 10 cols */}
       <div className="col-span-full md:col-span-10 mt-4 md:mt-0">
         <a.div
-          ref={ref}
-          className="relative"
+          className="flex flex-wrap gap-4"
           style={{
-            height: containerHeight,
             opacity: containerSpring.opacity,
           }}
         >
-          {transitions((style, item) => (
+          {categories.map((category) => (
             <FilterPill
-              key={item.category}
-              category={item.category}
-              isSelected={item.isSelected}
-              onClick={() => toggleFilter(item.category)}
-              style={style}
-              measureRef={(el) => {
-                pillRefs.current[item.category] = el;
-              }}
+              key={category}
+              category={category}
+              isSelected={selectedFilters.includes(category)}
+              onClick={() => toggleFilter(category)}
             />
           ))}
         </a.div>
