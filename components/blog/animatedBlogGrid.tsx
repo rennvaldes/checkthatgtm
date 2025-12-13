@@ -71,7 +71,7 @@ export function AnimatedBlogGrid({
 
   // Animate transitions
   const transitions = useTransition(gridItems, {
-    key: (item: GridItem) => item.id,
+    keys: (item: GridItem) => item.id,
     from: ({ x, y, width, height }: GridItem) => ({
       x,
       y,
@@ -94,7 +94,7 @@ export function AnimatedBlogGrid({
     }),
     leave: { opacity: 0 },
     config: { tension: 300, friction: 35 },
-    immediate: (key: string) => key === "leave",
+    immediate: (phase: string) => phase === "leave",
   });
 
   // Calculate container height
