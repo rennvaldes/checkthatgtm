@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useSpring, a } from "@react-spring/web";
 import { Grid } from "@/components/home/grid/gridRoot";
 import { Icon } from "@iconify/react";
@@ -26,11 +26,19 @@ function FilterPill({ category, isSelected, onClick }: FilterPillProps) {
     config: { tension: 300, friction: 35, clamp: true },
   });
 
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
+
   return (
     <a.button
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       style={{
         backgroundColor: springs.progress.to(
           [0, 1],
@@ -78,13 +86,29 @@ export function BlogFilters({
   });
 
   // Toggle filter selection
-  const toggleFilter = (filter: string) => {
-    if (selectedFilters.includes(filter)) {
-      onFilterChange(selectedFilters.filter((f) => f !== filter));
-    } else {
-      onFilterChange([...selectedFilters, filter]);
-    }
-  };
+  const toggleFilter = useCallback(
+    (filter: string) => {
+      if (selectedFilters.includes(filter)) {
+        onFilterChange(selectedFilters.filter((f) => f !== filter));
+      } else {
+        onFilterChange([...selectedFilters, filter]);
+      }
+    },
+    [selectedFilters, onFilterChange]
+  );
+
+  // Create stable onClick handlers for each category
+  const filterHandlers = useMemo(
+    () =>
+      categories.reduce(
+        (acc, category) => {
+          acc[category] = () => toggleFilter(category);
+          return acc;
+        },
+        {} as Record<string, () => void>
+      ),
+    [categories, toggleFilter]
+  );
 
   return (
     <Grid className="py-8 lg:py-16">
@@ -108,7 +132,7 @@ export function BlogFilters({
               key={category}
               category={category}
               isSelected={selectedFilters.includes(category)}
-              onClick={() => toggleFilter(category)}
+              onClick={filterHandlers[category]}
             />
           ))}
         </a.div>

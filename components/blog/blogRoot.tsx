@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { Grid } from "@/components/home/grid/gridRoot";
 import { BlogCard } from "./blogCard";
 import { BlogFilters } from "./blogFilters";
@@ -43,6 +43,10 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
 
   const hasMore = (filteredArticles?.length || 0) > showUpTo;
 
+  const handleShowMore = useCallback(() => {
+    setShowUpTo((prev) => prev + 9);
+  }, []);
+
   return (
     <>
       {/* Section 1: Header (hardcoded) */}
@@ -67,16 +71,13 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
       {mostRecentArticles.length > 0 && (
         <div className="w-full border-t-[0.5px] border-border flex flex-wrap">
           {mostRecentArticles.map((article) => (
-            <div
+            <BlogCard
+              {...article}
+              variant="regular"
+              slug={article.slug}
               key={article.id}
               className="w-full md:w-1/2 lg:w-1/3 border-b-[0.5px] border-r-[0.5px] border-border"
-            >
-              <BlogCard
-                {...article}
-                variant="regular"
-                slug={article.slug}
-              />
-            </div>
+            />
           ))}
         </div>
       )}
@@ -111,10 +112,7 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
 
         {hasMore && (
           <div className="flex justify-center mt-12">
-            <Button
-              variant="secondary"
-              onClick={() => setShowUpTo((prev) => prev + 9)}
-            >
+            <Button variant="secondary" onClick={handleShowMore}>
               Show more
             </Button>
           </div>

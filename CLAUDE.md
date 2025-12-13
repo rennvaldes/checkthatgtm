@@ -58,7 +58,36 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   - `/components/[feature]-sections`: Feature-specific sections
   - `/components/icons`: SVG icon components
 
-#### 4. Section Spacing Pattern
+#### 4. Event Handler Optimization (Blog Domain)
+All event handlers in blog components (`/components/blog/`) must be wrapped with `useCallback` to prevent unnecessary re-renders:
+
+**Pattern:**
+```typescript
+import { useCallback } from "react";
+
+// ✅ Correct: Event handler wrapped in useCallback
+const handleClick = useCallback(() => {
+  // handler logic
+}, [dependencies]);
+
+// ❌ Incorrect: Inline arrow function
+<button onClick={() => doSomething()}>Click</button>
+
+// ❌ Incorrect: Unwrapped function
+const handleClick = () => doSomething();
+```
+
+**Why:**
+- Prevents child component re-renders when passing handlers as props
+- Maintains referential equality between renders
+- Critical for components using React.memo or React Spring animations
+
+**Applies to:**
+- All event handlers passed to DOM elements (`onClick`, `onMouseEnter`, `onMouseLeave`, etc.)
+- All callback functions passed to child components
+- All handlers in the blog domain (`blogRoot.tsx`, `blogFilters.tsx`, `blogCard.tsx`)
+
+#### 5. Section Spacing Pattern
 All major sections on homepage and blog pages follow a consistent responsive spacing pattern:
 
 **Standard Section Spacing:**
