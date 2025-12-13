@@ -84,15 +84,12 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
 
       {/* Section 4: Featured Card */}
       {featuredArticle && (
-        <Grid className="py-24 md:py-32 lg:py-44">
-          <div className="col-span-full">
-            <BlogCard
-              {...featuredArticle}
-              variant="featured"
-              slug={featuredArticle.slug}
-            />
-          </div>
-        </Grid>
+        <BlogCard
+          {...featuredArticle}
+          variant="featured"
+          slug={featuredArticle.slug}
+          className="w-full lg:py-44 "
+        />
       )}
 
       {/* Section 5: All Cards Grid */}
