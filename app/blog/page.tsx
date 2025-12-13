@@ -1,31 +1,29 @@
-'use client';
+import { BlogRoot } from "@/components/blog/blogRoot";
+import { CtaSection } from "@/components/home/footer";
+import {
+  getArticleCategories,
+  getMainDataAndArticles,
+} from "@/lib/api/strapi/blog";
+import { getCardFromStrapiRawData } from "@/lib/utils";
 
-import ArticlesSection from '@/components/blog-sections/v2/ArticlesSection';
-import BlogHero from '@/components/blog-sections/v2/Hero';
-import Spacer from '@/components/common/Spacer';
-import CTABannerSection from '@/components/about-sections/v2/CTABannerSection';
-import { ErrorBoundary } from 'react-error-boundary';
+export default async function BlogIndexPage() {
+  // Fetch data on the server
+  const [rawData, rawCategoriesData] = await Promise.all([
+    getMainDataAndArticles(),
+    getArticleCategories(),
+  ]);
 
-function ErrorFallback({error}: {error: Error}) {
+  // Transform articles
+  const articles = rawData?.data?.articles?.map(getCardFromStrapiRawData) ?? [];
+
+  // Get categories
+  const categories =
+    rawCategoriesData?.data?.map(({ name }: { name: string }) => name) ?? [];
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-4 bg-red-50 text-red-900">
-      <h2 className="text-xl font-bold">Something went wrong:</h2>
-      <pre className="mt-2 p-4 bg-red-100 rounded">{error.message}</pre>
-      <pre className="mt-2 p-4 bg-red-100 rounded text-sm">{error.stack}</pre>
-    </div>
-  );
-}
-
-export default function Blog() {
-  return (
-    <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <main className='relative flex flex-col items-center'>
-        <Spacer size="d122" />
-        <BlogHero />
-        <ArticlesSection />
-        <Spacer size="d164" />
-        <CTABannerSection />
-      </main>
-    </ErrorBoundary>
+    <main className="relative flex flex-col items-center">
+      <BlogRoot articles={articles} categories={categories} />
+      <CtaSection />
+    </main>
   );
 }
