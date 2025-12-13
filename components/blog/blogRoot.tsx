@@ -4,6 +4,7 @@ import { useMemo, useState, useCallback } from "react";
 import { Grid } from "@/components/home/grid/gridRoot";
 import { BlogCard } from "./blogCard";
 import { BlogFilters } from "./blogFilters";
+import { AnimatedBlogGrid } from "./animatedBlogGrid";
 import { CardData } from "@/static/types";
 import { Button } from "@/components/home/button";
 
@@ -16,30 +17,26 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [showUpTo, setShowUpTo] = useState(9);
 
-  // Filter articles
+  // Featured article - always first article (unaffected by filters)
+  const featuredArticle = useMemo(() => {
+    // For now, feature the first article
+    // TODO: Add featured flag to Strapi schema
+    return articles?.[0];
+  }, [articles]);
+
+  // Most Recent articles - always first 3 articles (unaffected by filters)
+  const mostRecentArticles = useMemo(
+    () => articles?.slice(0, 3) || [],
+    [articles]
+  );
+
+  // Filter articles for All Cards Grid only
   const filteredArticles = useMemo(() => {
     if (selectedFilters.length === 0) return articles;
     return articles.filter((article) =>
       selectedFilters.includes(article.category)
     );
   }, [articles, selectedFilters]);
-
-  // Split articles into sections
-  const mostRecentArticles = useMemo(
-    () => filteredArticles?.slice(0, 3) || [],
-    [filteredArticles]
-  );
-
-  const featuredArticle = useMemo(() => {
-    // For now, feature the first article
-    // TODO: Add featured flag to Strapi schema
-    return filteredArticles?.[0];
-  }, [filteredArticles]);
-
-  const allArticles = useMemo(
-    () => filteredArticles?.slice(0, showUpTo) || [],
-    [filteredArticles, showUpTo]
-  );
 
   const hasMore = (filteredArticles?.length || 0) > showUpTo;
 
@@ -60,14 +57,17 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
         </h1>
       </Grid>
 
-      {/* Section 2: Filters */}
-      <BlogFilters
-        categories={categories}
-        selectedFilters={selectedFilters}
-        onFilterChange={setSelectedFilters}
-      />
+      {/* Section 2: Featured Card - Always visible, unaffected by filters */}
+      {featuredArticle && (
+        <BlogCard
+          {...featuredArticle}
+          variant="featured"
+          slug={featuredArticle.slug}
+          className="w-full lg:py-44"
+        />
+      )}
 
-      {/* Section 3: Most Recent Cards */}
+      {/* Section 3: Most Recent Cards - Always visible, unaffected by filters */}
       {mostRecentArticles.length > 0 && (
         <div className="w-full border-t-[0.5px] border-border flex flex-wrap">
           {mostRecentArticles.map((article) => (
@@ -82,28 +82,21 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
         </div>
       )}
 
-      {/* Section 4: Featured Card */}
-      {featuredArticle && (
-        <BlogCard
-          {...featuredArticle}
-          variant="featured"
-          slug={featuredArticle.slug}
-          className="w-full lg:py-44 "
-        />
-      )}
+      {/* Section 4: Filters - Only affects Section 5 */}
+      <BlogFilters
+        categories={categories}
+        selectedFilters={selectedFilters}
+        onFilterChange={setSelectedFilters}
+      />
 
-      {/* Section 5: All Cards Grid */}
+      {/* Section 5: All Cards Grid - Animated, filtered content */}
       <div className="py-24 md:py-32 lg:py-44">
         <div className="mx-auto w-[calc(100%-40px)] max-w-[1280px]">
-          <div className="flex flex-wrap relative border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border">
-            {allArticles.map((article) => (
-              <div
-                key={article.id}
-                className="w-full md:w-1/2 lg:w-1/3 border-b-[0.5px] border-r-[0.5px] border-border"
-              >
-                <BlogCard {...article} variant="regular" slug={article.slug} />
-              </div>
-            ))}
+          <div className="relative border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border">
+            <AnimatedBlogGrid
+              articles={filteredArticles}
+              showUpTo={showUpTo}
+            />
           </div>
         </div>
 

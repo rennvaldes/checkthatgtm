@@ -67,3 +67,33 @@ export function useIsTouchDevice(): boolean {
   return isTouchDevice;
 }
 
+// Media query hook that returns values based on matching queries
+export function useMedia<T>(
+  queries: string[],
+  values: T[],
+  defaultValue: T
+): T {
+  const mediaQueryLists = queries.map((q) =>
+    typeof window !== "undefined" ? window.matchMedia(q) : null
+  );
+
+  const getValue = () => {
+    const index = mediaQueryLists.findIndex((mql) => mql?.matches);
+    return index !== -1 ? values[index] : defaultValue;
+  };
+
+  const [value, setValue] = useState<T>(getValue);
+
+  useEffect(() => {
+    const handler = () => setValue(getValue);
+    mediaQueryLists.forEach((mql) => mql?.addEventListener("change", handler));
+    return () =>
+      mediaQueryLists.forEach((mql) =>
+        mql?.removeEventListener("change", handler)
+      );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return value;
+}
+
