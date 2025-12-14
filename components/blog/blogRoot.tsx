@@ -2,7 +2,6 @@
 
 import { useMemo, useState, useCallback } from "react";
 import { Grid } from "@/components/home/grid/gridRoot";
-import { BlogCard } from "./blogCard";
 import { BlogFilters } from "./blogFilters";
 import { AnimatedBlogGrid } from "./animatedBlogGrid";
 import { CardData } from "@/static/types";
@@ -15,38 +14,34 @@ type BlogRootProps = {
 
 export function BlogRoot({ articles, categories }: BlogRootProps) {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [showUpTo, setShowUpTo] = useState(9);
+  const [showUpTo, setShowUpTo] = useState(12);
 
-  // Featured article - always first article (unaffected by filters)
-  const featuredArticle = useMemo(() => {
-    // For now, feature the first article
-    // TODO: Add featured flag to Strapi schema
-    return articles?.[0];
-  }, [articles]);
+  // When no filters: show all articles with 4th as featured
+  // When filters applied: show only filtered articles (no featured)
+  const { gridArticles, featuredIndex } = useMemo(() => {
+    const hasFilters = selectedFilters.length > 0;
 
-  // Most Recent articles - always first 3 articles (unaffected by filters)
-  const mostRecentArticles = useMemo(
-    () => articles?.slice(0, 3) || [],
-    [articles]
-  );
+    if (hasFilters) {
+      // Filter articles and show all as regular (no featured)
+      const filtered = articles.filter((article) =>
+        selectedFilters.includes(article.category)
+      );
+      return { gridArticles: filtered, featuredIndex: -1 };
+    }
 
-  // Filter articles for All Cards Grid only
-  const filteredArticles = useMemo(() => {
-    if (selectedFilters.length === 0) return articles;
-    return articles.filter((article) =>
-      selectedFilters.includes(article.category)
-    );
+    // No filters: show all articles with 4th as featured
+    return { gridArticles: articles, featuredIndex: 3 };
   }, [articles, selectedFilters]);
 
-  const hasMore = (filteredArticles?.length || 0) > showUpTo;
+  const hasMore = (gridArticles?.length || 0) > showUpTo;
 
   const handleShowMore = useCallback(() => {
-    setShowUpTo((prev) => prev + 9);
+    setShowUpTo((prev) => prev + 12);
   }, []);
 
   return (
     <>
-      {/* Section 1: Header (hardcoded) */}
+      {/* Header */}
       <Grid className="pt-24 md:pt-32 lg:pt-44 pb-32">
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
           <span className="text-muted-foreground font-regular">Read</span>
@@ -57,48 +52,20 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
         </h1>
       </Grid>
 
-      {/* Section 2: Featured Card - Always visible, unaffected by filters */}
-      {featuredArticle && (
-        <BlogCard
-          {...featuredArticle}
-          variant="featured"
-          slug={featuredArticle.slug}
-          className="w-full lg:py-44"
-        />
-      )}
-
-      {/* Section 3: Most Recent Cards - Always visible, unaffected by filters */}
-      {mostRecentArticles.length > 0 && (
-        <div className="w-full border-t-[0.5px] border-border flex flex-wrap">
-          {mostRecentArticles.map((article) => (
-            <BlogCard
-              {...article}
-              variant="regular"
-              slug={article.slug}
-              key={article.id}
-              className="w-full md:w-1/2 lg:w-1/3 border-b-[0.5px] border-r-[0.5px] border-border"
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Section 4: Filters - Only affects Section 5 */}
+      {/* Filters */}
       <BlogFilters
         categories={categories}
         selectedFilters={selectedFilters}
         onFilterChange={setSelectedFilters}
       />
 
-      {/* Section 5: All Cards Grid - Animated, filtered content */}
-      <div className="py-24 md:py-32 lg:py-44">
-        <div className="mx-auto w-[calc(100%-40px)] max-w-[1280px]">
-          <div className="relative border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border">
-            <AnimatedBlogGrid
-              articles={filteredArticles}
-              showUpTo={showUpTo}
-            />
-          </div>
-        </div>
+      {/* Animated Grid - 4th article is featured when no filters applied */}
+      <div className="relative w-full border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border">
+        <AnimatedBlogGrid
+          articles={gridArticles}
+          showUpTo={showUpTo}
+          featuredIndex={featuredIndex}
+        />
 
         {hasMore && (
           <div className="flex justify-center mt-12">

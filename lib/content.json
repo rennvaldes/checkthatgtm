@@ -280,5 +280,163 @@
         }
       }
     ]
-  }
+  },
+  "blogArticles": [
+    {
+      "documentId": "ai-content-strategy-2025",
+      "id": 1,
+      "slug": "ai-content-strategy-2025",
+      "image": "/images/posters/strategy-poster.webp",
+      "image_alt": "AI Content Strategy",
+      "category": "Strategy",
+      "title": "Building an AI-First Content Strategy for 2025",
+      "description": "Learn how to leverage AI tools and frameworks to build a scalable content strategy that drives real business results in the age of generative AI.",
+      "publisher_avatar": "/images/avatars/avatar-georgemaine.webp",
+      "publisher_name": "George Maine",
+      "publisher_legend": "Head of Strategy"
+    },
+    {
+      "documentId": "scaling-content-production",
+      "id": 2,
+      "slug": "scaling-content-production",
+      "image": "/images/posters/context-poster.webp",
+      "image_alt": "Scaling Content Production",
+      "category": "Content",
+      "title": "How to Scale Content Production Without Sacrificing Quality",
+      "description": "A practical guide to building content operations that can produce 10x more content while maintaining high editorial standards and brand consistency.",
+      "publisher_avatar": "/images/avatars/avatar-bridget.webp",
+      "publisher_name": "Bridget",
+      "publisher_legend": "Content Lead"
+    },
+    {
+      "documentId": "growth-loops-execution",
+      "id": 3,
+      "slug": "growth-loops-execution",
+      "image": "/images/posters/execution-poster.webp",
+      "image_alt": "Growth Loops Execution",
+      "category": "Execution",
+      "title": "Implementing Growth Loops That Actually Work",
+      "description": "Step-by-step framework for designing, building, and optimizing growth loops that compound over time and drive sustainable user acquisition.",
+      "publisher_avatar": "/images/avatars/avatar-gp.webp",
+      "publisher_name": "GP",
+      "publisher_legend": "Growth Engineer"
+    },
+    {
+      "documentId": "product-market-fit-signals",
+      "id": 4,
+      "slug": "product-market-fit-signals",
+      "image": "/images/posters/optimization-poster.webp",
+      "image_alt": "Product Market Fit Signals",
+      "category": "Strategy",
+      "title": "7 Data Signals That Prove You've Found Product-Market Fit",
+      "description": "Beyond vanity metrics: the key indicators that show you've truly achieved product-market fit and are ready to scale your growth efforts.",
+      "publisher_avatar": "/images/avatars/avatar-panzer.webp",
+      "publisher_name": "Panzer",
+      "publisher_legend": "Product Strategy"
+    },
+    {
+      "documentId": "seo-ai-era",
+      "id": 5,
+      "slug": "seo-ai-era",
+      "image": "/images/posters/strategy-poster.webp",
+      "image_alt": "SEO in the AI Era",
+      "category": "Content",
+      "title": "SEO Strategy for the Age of ChatGPT and Perplexity",
+      "description": "How search is evolving with AI assistants and what content creators need to do differently to maintain visibility and traffic in 2025.",
+      "publisher_avatar": "/images/avatars/avatar-kirkland.webp",
+      "publisher_name": "Kirkland",
+      "publisher_legend": "SEO Lead"
+    },
+    {
+      "documentId": "conversion-optimization-framework",
+      "id": 6,
+      "slug": "conversion-optimization-framework",
+      "image": "/images/posters/context-poster.webp",
+      "image_alt": "Conversion Optimization Framework",
+      "category": "Execution",
+      "title": "A Data-Driven Framework for Conversion Rate Optimization",
+      "description": "Move beyond A/B testing random changes. Learn the systematic approach top companies use to consistently improve conversion rates by 2-3x.",
+      "publisher_avatar": "/images/avatars/avatar-meg.webp",
+      "publisher_name": "Meg",
+      "publisher_legend": "CRO Specialist"
+    },
+    {
+      "documentId": "go-to-market-playbook",
+      "id": 7,
+      "slug": "go-to-market-playbook",
+      "image": "/images/posters/execution-poster.webp",
+      "image_alt": "Go-to-Market Playbook",
+      "category": "Strategy",
+      "title": "The Modern B2B Go-to-Market Playbook for 2025",
+      "description": "Traditional B2B marketing is broken. Here's the new playbook that combines product-led growth, community, and AI-powered outreach.",
+      "publisher_avatar": "/images/avatars/avatar-georgemaine.webp",
+      "publisher_name": "George Maine",
+      "publisher_legend": "Head of Strategy"
+    },
+    {
+      "documentId": "storytelling-short-form",
+      "id": 8,
+      "slug": "storytelling-short-form",
+      "image": "/images/posters/optimization-poster.webp",
+      "image_alt": "Storytelling in Short-Form Content",
+      "category": "Content",
+      "title": "Mastering Storytelling in 280 Characters or Less",
+      "description": "How to craft compelling narratives that resonate with audiences in the age of Twitter, LinkedIn, and TikTok without sacrificing depth.",
+      "publisher_avatar": "/images/avatars/avatar-bridget.webp",
+      "publisher_name": "Bridget",
+      "publisher_legend": "Content Lead"
+    },
+    {
+      "documentId": "attribution-modeling-guide",
+      "id": 9,
+      "slug": "attribution-modeling-guide",
+      "image": "/images/posters/strategy-poster.webp",
+      "image_alt": "Attribution Modeling Guide",
+      "category": "Execution",
+      "title": "Multi-Touch Attribution: A Practical Implementation Guide",
+      "description": "Stop guessing which channels drive conversions. Build an attribution model that actually helps you make better marketing investment decisions.",
+      "publisher_avatar": "/images/avatars/avatar-gp.webp",
+      "publisher_name": "GP",
+      "publisher_legend": "Growth Engineer"
+    },
+    {
+      "documentId": "pricing-strategy-saas",
+      "id": 10,
+      "slug": "pricing-strategy-saas",
+      "image": "/images/posters/context-poster.webp",
+      "image_alt": "SaaS Pricing Strategy",
+      "category": "Strategy",
+      "title": "How to Design a SaaS Pricing Strategy That Maximizes LTV",
+      "description": "The psychology and mathematics behind pricing that converts. Learn from real examples of companies that 3x'd revenue with pricing changes.",
+      "publisher_avatar": "/images/avatars/avatar-panzer.webp",
+      "publisher_name": "Panzer",
+      "publisher_legend": "Product Strategy"
+    },
+    {
+      "documentId": "video-content-roi",
+      "id": 11,
+      "slug": "video-content-roi",
+      "image": "/images/posters/execution-poster.webp",
+      "image_alt": "Video Content ROI",
+      "category": "Content",
+      "title": "Measuring Real ROI from Video Content Marketing",
+      "description": "Video is expensive. Here's how to track the metrics that matter and prove video content's impact on pipeline and revenue, not just views.",
+      "publisher_avatar": "/images/avatars/avatar-kirkland.webp",
+      "publisher_name": "Kirkland",
+      "publisher_legend": "SEO Lead"
+    },
+    {
+      "documentId": "email-automation-best-practices",
+      "id": 12,
+      "slug": "email-automation-best-practices",
+      "image": "/images/posters/optimization-poster.webp",
+      "image_alt": "Email Automation Best Practices",
+      "category": "Execution",
+      "title": "Building Email Automations That Feel Personal at Scale",
+      "description": "The technical and creative playbook for email sequences that drive 40%+ open rates and consistently move users through your funnel.",
+      "publisher_avatar": "/images/avatars/avatar-meg.webp",
+      "publisher_name": "Meg",
+      "publisher_legend": "CRO Specialist"
+    }
+  ]
 }

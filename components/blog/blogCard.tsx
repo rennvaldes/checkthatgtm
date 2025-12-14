@@ -46,10 +46,12 @@ export function BlogCard({
           </div>
           <div className="p-2 pt-5">
             <div className="mb-8 md:mb-12">
-              <h3 className="text-[20px] font-[520] leading-[1.25] tracking-[-0.03em] mb-3 md:text-[36px] md:mb-5 flex items-center justify-between">
-                {title}
-                <span className="ml-2">→</span>
-              </h3>
+              <div className="flex items-start justify-between gap-2 mb-3 md:mb-5">
+                <h3 className="text-[20px] font-[520] leading-[1.25] tracking-[-0.03em] md:text-[36px] line-clamp-2 flex-1">
+                  {title}
+                </h3>
+                <span className="text-[20px] md:text-[36px] mt-0.5 flex-shrink-0">→</span>
+              </div>
               <div className="flex flex-wrap gap-2.5 mt-3">
                 <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
                   {category}
@@ -98,10 +100,12 @@ export function BlogCard({
           </div>
           <div className="flex flex-col w-1/2">
             <div className="mb-8 md:mb-12">
-              <h3 className="text-[20px] font-[520] leading-[1.25] tracking-[-0.03em] mb-3 md:text-[36px] md:mb-5 flex items-center justify-between">
-                {title}
-                <span className="ml-2">→</span>
-              </h3>
+              <div className="flex items-start justify-between gap-2 mb-3 md:mb-5">
+                <h3 className="text-[20px] font-[520] leading-[1.25] tracking-[-0.03em] md:text-[36px] line-clamp-2 flex-1">
+                  {title}
+                </h3>
+                <span className="text-[20px] md:text-[36px] mt-0.5 flex-shrink-0">→</span>
+              </div>
               <div className="flex flex-wrap gap-2.5 mt-3">
                 <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
                   {category}
@@ -156,10 +160,12 @@ export function BlogCard({
         />
       </picture>
       <div className="flex flex-col px-2 pt-5 pb-2 lg:pt-9 lg:px-5 lg:pb-5">
-        <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] flex items-center justify-between">
-          {title}
-          <span className="ml-2">→</span>
-        </h3>
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] line-clamp-2 flex-1">
+            {title}
+          </h3>
+          <span className="text-2xl mt-0.5 flex-shrink-0">→</span>
+        </div>
         <div className="flex flex-wrap gap-2.5 mt-3 mb-9 md:mb-12">
           <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
             {category}

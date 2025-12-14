@@ -72,19 +72,6 @@ export function BlogFilters({
   selectedFilters,
   onFilterChange,
 }: BlogFiltersProps) {
-  const [hasMounted, setHasMounted] = useState(false);
-
-  // Fade in after mount
-  useEffect(() => {
-    const timer = setTimeout(() => setHasMounted(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const containerSpring = useSpring({
-    opacity: hasMounted ? 1 : 0,
-    config: { tension: 300, friction: 35 },
-  });
-
   // Toggle filter selection
   const toggleFilter = useCallback(
     (filter: string) => {
@@ -121,12 +108,7 @@ export function BlogFilters({
 
       {/* Filter pills - 10 cols */}
       <div className="col-span-full md:col-span-10 mt-4 md:mt-0">
-        <a.div
-          className="flex flex-wrap gap-4"
-          style={{
-            opacity: containerSpring.opacity,
-          }}
-        >
+        <div className="flex flex-wrap gap-4">
           {categories.map((category) => (
             <FilterPill
               key={category}
@@ -135,7 +117,7 @@ export function BlogFilters({
               onClick={filterHandlers[category]}
             />
           ))}
-        </a.div>
+        </div>
       </div>
     </Grid>
   );
