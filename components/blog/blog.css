@@ -71,6 +71,10 @@
     margin-bottom: 40px;
   }
 
+  p + ul {
+    margin-top: 18px;
+  }
+
   li {
     font-size: 16px;
     line-height: 1.5;

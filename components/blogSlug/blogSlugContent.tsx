@@ -28,7 +28,7 @@ function BlogSlugContent({
   }
 
   return (
-    <Grid className="w-full px-6 lg:px-0 mb-14">
+    <Grid className="w-full mt-18 px-6 lg:px-0 mt-44 mb-14">
       {/* Content - 8 cols, max-w-820px */}
       <div className="col-span-12 lg:col-span-8 lg:col-start-3">
         <div className="w-full max-w-[820px] mx-auto">

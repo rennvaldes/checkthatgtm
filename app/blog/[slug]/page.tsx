@@ -7,7 +7,11 @@ import { getCardFromStrapiRawData } from '@/lib/utils';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
-  const { data } = await getArticle(resolvedParams.slug);
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
+  const showDrafts = isLocalEnv || isPullRequest;
+
+  const { data } = await getArticle(resolvedParams.slug, showDrafts);
 
   if (!data) {
     return {
@@ -53,8 +57,22 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
 
+  // Debug logs
+  console.log('[Blog Slug Page] Environment check:', {
+    slug,
+    isLocalEnv,
+    isPullRequest,
+    showDrafts,
+    env_NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV: process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV,
+    env_IS_PULL_REQUEST: process.env.IS_PULL_REQUEST,
+  });
+
   // Fetch data server-side
   const rawData = await getArticle(slug, showDrafts);
+  console.log('[Blog Slug Page] Article data fetched:', {
+    hasData: !!rawData?.data,
+    dataKeys: rawData?.data ? Object.keys(rawData.data) : null,
+  });
   const articleData = rawData?.data ? getCardFromStrapiRawData(rawData.data) : {};
 
   // Construct URL from request headers (Next.js best practice)
