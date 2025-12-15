@@ -171,10 +171,10 @@ export function BlogCard({
         {/* Chin top: Title + Category grouped */}
         <div>
           <div className="flex items-start justify-between gap-2">
-            <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] line-clamp-2 flex-1">
+            <h3 className="text-[20px] lg:text-[24px] font-[520] leading-[1.25] tracking-[-0.06em] line-clamp-2 flex-1">
               {title}
             </h3>
-            <span className="text-2xl mt-0.5 flex-shrink-0">→</span>
+            <span className="text-[20px] lg:text-[24px] mt-0.5 flex-shrink-0">→</span>
           </div>
           <div className="flex flex-wrap gap-2.5 mt-3">
             <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
