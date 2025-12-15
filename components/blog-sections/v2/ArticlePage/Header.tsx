@@ -1,81 +1,148 @@
- 
-import ArrowRight from '@/components/icons/ArrowRight';
-import useGetQueryWithRefetchOnChange from '@/hooks/useGetQueryWithRefetchOnChange';
-import { getMainDataAndArticles } from '@/lib/api/strapi/blog';
 import { Skeleton } from '@/lib/shadcn/ui/skeleton';
-import React from 'react';
-
-function ArticleImage({ imageUrl, image16x9Url, isLoading }: { imageUrl: string; image16x9Url?: string; isLoading: boolean }) {
-  if (isLoading) {
-    return <Skeleton className='w-full h-[186px] lg:h-[461px] mt-10 order-5 md:order-1' />;
-  }
-
-  if (!imageUrl) {
-    return null;
-  }
-
-  return (
-    <div className='pt-10 order-5 md:order-1 relative'>
-      {/* Mobile image */}
-      <img 
-        className='block lg:hidden aspect-square object-cover w-full' 
-        src={imageUrl} 
-        alt='Featured Image'
-      />
-      {/* Desktop image */}
-      <img 
-        className='hidden lg:block aspect-video object-cover w-full' 
-        src={image16x9Url || imageUrl} 
-        alt='Featured Image'
-      />
-    </div>
-  );
-}
-
-function getFormattedDate(date: string) {
-  const formattedDate = new Date(date);
-
-  return `${formattedDate.getDay()} ${new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' }).format(formattedDate)}`;
-}
+import { Grid } from '@/components/home/grid/gridRoot';
 
 function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) {
-  const { category, image, image_16x9, title, publisher_name, publisher_avatar, publisher_legend, updatedAt, createdAt } = data;
-  const categoryName = category?.name || category;
+  const { category, image, title, publisher_name, publisher_avatar, publisher_legend } = data;
 
-  const { data: rawData, isLoading: isGeneralDataLoading } = useGetQueryWithRefetchOnChange({
-    key: 'blog-data-hero',
-    getFn: () => getMainDataAndArticles(),
-  });
+  // Handle category as array or string
+  const categories = Array.isArray(category) ? category : category ? [category] : [];
+  const categoryNames = categories.map((cat: any) => cat?.name || cat);
 
-  const { blog_x_link, blog_instagram_link, blog_linkedin_link } = React.useMemo(() => rawData?.data ?? {}, [rawData]);
+  if (isLoading) {
+    return (
+      <section className='w-full px-5 lg:px-0'>
+        <Grid className='pt-8 lg:pt-12'>
+          {/* Desktop skeleton */}
+          <div className='hidden lg:block col-span-5'>
+            <Skeleton className='w-full aspect-square' />
+          </div>
+          <div className='hidden lg:flex lg:col-span-7 flex-col justify-center gap-6 pl-12'>
+            <Skeleton className='h-12 w-3/4' />
+            <div className='flex gap-2'>
+              <Skeleton className='h-8 w-24 rounded-full' />
+              <Skeleton className='h-8 w-28 rounded-full' />
+            </div>
+            <Skeleton className='h-6 w-48' />
+          </div>
+
+          {/* Mobile skeleton */}
+          <div className='lg:hidden col-span-12 flex flex-col gap-6'>
+            <Skeleton className='h-10 w-3/4' />
+            <div className='flex gap-2'>
+              <Skeleton className='h-8 w-20 rounded-full' />
+              <Skeleton className='h-8 w-24 rounded-full' />
+            </div>
+            <Skeleton className='h-6 w-40' />
+            <Skeleton className='w-full aspect-square mt-4' />
+          </div>
+        </Grid>
+      </section>
+    );
+  }
 
   return (
-    <section className='flex w-full max-w-[624px] transition-[max-width] lg:max-w-[1246px] flex-col items-center self-center pb-[4px] lg:px-0 lg:pb-0'>
-      {isLoading ? (
-        <div className='flex flex-col items-center mt-[24px] lg:mt-[32px] gap-3'>
-          <Skeleton className='h-[24px] w-[88px] rounded-md' />
-          <Skeleton className='h-[16px] w-[160px]' />
+    <section className='w-full px-5 lg:px-0'>
+      <Grid className='pt-8 lg:pt-12'>
+        {/* Desktop layout - LTR (image left, chin right) */}
+        <div className='hidden lg:block col-span-5'>
+          {image && (
+            <img
+              src={image}
+              alt={title}
+              className='w-full aspect-square object-cover'
+            />
+          )}
         </div>
-      ) : (
-        <div className='flex flex-col items-center mt-[24px] lg:mt-[32px] gap-3 order-1'>
-          <div className='border border-ui-black p-2.5 text-[12px] leading-none font-medium'>
-            {categoryName}
-          </div>
-          <span className='text-ui-black/80 text-sm'>
-            {new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(new Date(createdAt))}
-          </span>
+
+        <div className='hidden lg:flex lg:col-span-7 flex-col justify-center gap-6 pl-12'>
+          <h1 className='text-[40px] leading-[1.1] font-medium tracking-tight'>
+            {title}
+          </h1>
+
+          {categoryNames.length > 0 && (
+            <div className='flex gap-2 flex-wrap'>
+              {categoryNames.map((name: string, index: number) => (
+                <span
+                  key={index}
+                  className='inline-flex items-center px-4 py-2 rounded-full border border-foreground text-sm'
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {(publisher_name || publisher_avatar) && (
+            <div className='flex items-center gap-3'>
+              {publisher_avatar && (
+                <img
+                  src={publisher_avatar}
+                  alt={publisher_name}
+                  className='w-10 h-10 rounded-full object-cover'
+                />
+              )}
+              <div className='flex items-center gap-1.5'>
+                <span className='font-medium text-foreground'>{publisher_name}</span>
+                {publisher_legend && (
+                  <>
+                    <span className='text-foreground/60'>·</span>
+                    <span className='text-foreground/60'>{publisher_legend}</span>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
         </div>
-      )}
-      {isLoading ? (
-        <Skeleton className='mt-[16px] h-[62px] w-full lg:h-[114px] lg:w-[1246px]' />
-      ) : (
-        <h1 className='mt-6 w-full text-center text-4xl xl:text-5xl tracking-tighter leading-[0.95] font-medium order-2 md:order-1'>
-          {title}
-        </h1>
-      )}
 
-      <ArticleImage imageUrl={image} image16x9Url={image_16x9} isLoading={isLoading} />
+        {/* Mobile layout - Vertical (chin above, image below) */}
+        <div className='lg:hidden col-span-12 flex flex-col'>
+          <h1 className='text-[32px] leading-[1.1] font-medium tracking-tight'>
+            {title}
+          </h1>
 
+          {categoryNames.length > 0 && (
+            <div className='flex gap-2 flex-wrap mt-6'>
+              {categoryNames.map((name: string, index: number) => (
+                <span
+                  key={index}
+                  className='inline-flex items-center px-4 py-2 rounded-full border border-foreground text-sm'
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {(publisher_name || publisher_avatar) && (
+            <div className='flex items-center gap-3 mt-6'>
+              {publisher_avatar && (
+                <img
+                  src={publisher_avatar}
+                  alt={publisher_name}
+                  className='w-10 h-10 rounded-full object-cover'
+                />
+              )}
+              <div className='flex items-center gap-1.5'>
+                <span className='font-medium text-foreground'>{publisher_name}</span>
+                {publisher_legend && (
+                  <>
+                    <span className='text-foreground/60'>·</span>
+                    <span className='text-foreground/60'>{publisher_legend}</span>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+
+          {image && (
+            <img
+              src={image}
+              alt={title}
+              className='w-full aspect-square object-cover mt-8'
+            />
+          )}
+        </div>
+      </Grid>
     </section>
   );
 }
