@@ -74,6 +74,7 @@ export function BlogCard({
                   alt={publisher_name}
                   fill
                   className="object-cover"
+                  sizes="36px"
                 />
               </picture>
               <div className="flex items-center gap-1 text-sm md:text-[18px] tracking-[-0.04em]">
@@ -128,6 +129,7 @@ export function BlogCard({
                   alt={publisher_name}
                   fill
                   className="object-cover"
+                  sizes="36px"
                 />
               </picture>
               <div className="flex items-center gap-1 text-sm md:text-[18px] tracking-[-0.04em]">
