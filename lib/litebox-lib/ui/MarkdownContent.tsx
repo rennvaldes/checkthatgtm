@@ -89,9 +89,16 @@ const MarkdownContent = ({ content, isLoading }: { content: string; isLoading: b
         </div>
       );
     },
-    p: (paragraph: ChildrenType) => (
-      <p>{paragraph.children}</p>
-    ),
+    p: (paragraph: any) => {
+      // Check if paragraph contains an image (to avoid div inside p error)
+      const hasImage = paragraph.node?.children?.some((child: any) => child.tagName === 'img');
+
+      if (hasImage) {
+        return <div>{paragraph.children}</div>;
+      }
+
+      return <p>{paragraph.children}</p>;
+    },
     strong: (strong: ChildrenType) => <strong>{strong.children}</strong>,
     a: (link: LinkChildrenType) => (
       <a
