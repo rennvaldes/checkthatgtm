@@ -1,25 +1,20 @@
 import { BlogRoot } from "@/components/blog/blogRoot";
 import { CtaSection } from "@/components/home/footer";
-import contentData from "@/lib/content.json";
+import { getArticleCategories, getMainDataAndArticles } from "@/lib/api/strapi/blog";
+import { getCardFromStrapiRawData } from "@/lib/utils";
 
-// Uncomment these imports when switching back to Strapi
-// import { getArticleCategories, getMainDataAndArticles } from "@/lib/api/strapi/blog";
-// import { getCardFromStrapiRawData } from "@/lib/utils";
+// ISR: Revalidate every 60 seconds
+export const revalidate = 60;
 
 export default async function BlogIndexPage() {
-  // Use mock articles from content.json for testing
-  const articles = contentData.blogArticles || [];
+  // Fetch articles and categories from Strapi in parallel
+  const [rawData, rawCategoriesData] = await Promise.all([
+    getMainDataAndArticles(),
+    getArticleCategories(),
+  ]);
 
-  // Extract unique categories from mock articles
-  const categories = Array.from(new Set(articles.map((a: { category: string }) => a.category)));
-
-  // TODO: Uncomment to use Strapi data instead of mock data
-  // const [rawData, rawCategoriesData] = await Promise.all([
-  //   getMainDataAndArticles(),
-  //   getArticleCategories(),
-  // ]);
-  // const articles = rawData?.data?.articles?.map(getCardFromStrapiRawData) ?? [];
-  // const categories = rawCategoriesData?.data?.map(({ name }: { name: string }) => name) ?? [];
+  const articles = rawData?.data?.articles?.map(getCardFromStrapiRawData) ?? [];
+  const categories = rawCategoriesData?.data?.map(({ name }: { name: string }) => name) ?? [];
 
   return (
     <main className="relative flex flex-col items-center">
