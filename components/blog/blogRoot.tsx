@@ -3,7 +3,7 @@
 import { useMemo, useState, useCallback } from "react";
 import { Grid } from "@/components/home/grid/gridRoot";
 import { BlogFilters } from "./blogFilters";
-import { AnimatedBlogGrid } from "./animatedBlogGrid";
+import { BlogCardsGrid } from "./blogCardsGrid";
 import { CardData } from "@/static/types";
 import { Button } from "@/components/home/button";
 
@@ -15,6 +15,7 @@ type BlogRootProps = {
 export function BlogRoot({ articles, categories }: BlogRootProps) {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [showUpTo, setShowUpTo] = useState(12);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
   // When no filters: show all articles with 4th as featured
   // When filters applied: show only filtered articles (no featured)
@@ -34,6 +35,18 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
   }, [articles, selectedFilters]);
 
   const hasMore = (gridArticles?.length || 0) > showUpTo;
+
+  // Handle filter changes with animation
+  const handleFilterChange = useCallback((filters: string[]) => {
+    // Enable animation and update filters
+    setShouldAnimate(true);
+    setSelectedFilters(filters);
+
+    // Reset animation flag after animation completes
+    setTimeout(() => {
+      setShouldAnimate(false);
+    }, 600);
+  }, []);
 
   const handleShowMore = useCallback(() => {
     setShowUpTo((prev) => prev + 12);
@@ -56,15 +69,16 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
       <BlogFilters
         categories={categories}
         selectedFilters={selectedFilters}
-        onFilterChange={setSelectedFilters}
+        onFilterChange={handleFilterChange}
       />
 
-      {/* Animated Grid - 4th article is featured when no filters applied */}
+      {/* Blog Cards Grid - 4th article is featured when no filters applied */}
       <div className="relative w-full border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border">
-        <AnimatedBlogGrid
+        <BlogCardsGrid
           articles={gridArticles}
           showUpTo={showUpTo}
           featuredIndex={featuredIndex}
+          shouldAnimate={shouldAnimate}
         />
 
         {hasMore && (

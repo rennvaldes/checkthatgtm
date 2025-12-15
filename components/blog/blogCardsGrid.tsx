@@ -1,16 +1,17 @@
 "use client";
 
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useMemo, useState, useEffect } from "react";
 import useMeasure from "react-use-measure";
 import { useTransition, a } from "@react-spring/web";
 import { useMedia } from "@/lib/hooks";
 import { CardData } from "@/static/types";
 import { BlogCard } from "./blogCard";
 
-type AnimatedBlogGridProps = {
+type BlogCardsGridProps = {
   articles: CardData[];
   showUpTo: number;
   featuredIndex?: number;
+  shouldAnimate?: boolean;
 };
 
 type GridItem = CardData & {
@@ -21,29 +22,22 @@ type GridItem = CardData & {
   isFeatured: boolean;
 };
 
-export function AnimatedBlogGrid({
+export function BlogCardsGrid({
   articles,
   showUpTo,
   featuredIndex = -1,
-}: AnimatedBlogGridProps) {
+  shouldAnimate = false,
+}: BlogCardsGridProps) {
   // Only render grid items on client to avoid hydration mismatch
   const [isMounted, setIsMounted] = useState(false);
 
-  // Track if this is the initial mount to skip animations on page load
-  const isInitialMount = useRef(true);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Debounced measurements to prevent layout thrashing during resize
   const [debouncedColumns, setDebouncedColumns] = useState<number>(1);
   const [debouncedWidth, setDebouncedWidth] = useState<number>(0);
-
-  useEffect(() => {
-    setIsMounted(true);
-    // Mark as no longer initial mount after first render
-    const timer = setTimeout(() => {
-      isInitialMount.current = false;
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Responsive columns based on breakpoints
   const columns = useMedia<number>(
@@ -94,7 +88,6 @@ export function AnimatedBlogGrid({
     const layoutOrder: number[] = [];
     const used = new Set<number>();
     let currentColumn = 0;
-    let currentRow = 0;
 
     for (let i = 0; i < visibleArticles.length; i++) {
       if (used.has(i)) continue; // Skip if already placed
@@ -121,7 +114,6 @@ export function AnimatedBlogGrid({
         // If we filled the row, move to next row
         if (currentColumn >= debouncedColumns) {
           currentColumn = 0;
-          currentRow += 1;
         }
 
         // Place featured card on new row
@@ -130,13 +122,11 @@ export function AnimatedBlogGrid({
 
         // Featured takes full row, so move to next row
         currentColumn = 0;
-        currentRow += 1;
       } else if (isFeatured) {
         // Featured at start of row
         layoutOrder.push(i);
         used.add(i);
         currentColumn = 0;
-        currentRow += 1; // Featured takes full row, move to next row
       } else {
         // Regular card
         layoutOrder.push(i);
@@ -150,7 +140,6 @@ export function AnimatedBlogGrid({
 
     // Now position cards based on layout order
     currentColumn = 0;
-    let cumulativeY = 0;
     let currentRowStartY = 0;
     let currentRowHeight = cardHeight;
 
@@ -172,17 +161,15 @@ export function AnimatedBlogGrid({
       // Update position for next card
       if (isFeatured) {
         // Featured card ends the row, move to next
-        cumulativeY = currentRowStartY + itemHeight;
         currentColumn = 0;
-        currentRowStartY = cumulativeY;
+        currentRowStartY += itemHeight;
         currentRowHeight = cardHeight; // Reset for next row
       } else {
         currentColumn += 1;
         if (currentColumn >= debouncedColumns) {
           // Row complete, move to next
-          cumulativeY = currentRowStartY + currentRowHeight;
           currentColumn = 0;
-          currentRowStartY = cumulativeY;
+          currentRowStartY += currentRowHeight;
           currentRowHeight = cardHeight; // Reset for next row
         }
       }
@@ -201,32 +188,12 @@ export function AnimatedBlogGrid({
   // Animate transitions
   const transitions = useTransition(gridItems, {
     keys: (item: GridItem) => item.id,
-    from: ({ x, y, width, height }: GridItem) => ({
-      x,
-      y,
-      width,
-      height,
-      opacity: isInitialMount.current ? 1 : 0,
-    }),
-    enter: ({ x, y, width, height }: GridItem) => ({
-      x,
-      y,
-      width,
-      height,
-      opacity: 1,
-    }),
-    update: ({ x, y, width, height }: GridItem) => ({
-      x,
-      y,
-      width,
-      height,
-    }),
+    from: ({ x, y, width, height }: GridItem) => ({ x, y, width, height }),
+    enter: ({ x, y, width, height }: GridItem) => ({ x, y, width, height }),
+    update: ({ x, y, width, height }: GridItem) => ({ x, y, width, height }),
     leave: { opacity: 0 },
     config: { tension: 300, friction: 35 },
-    immediate: (phase: string) => {
-      // Skip animations on initial mount or for leave phase
-      return isInitialMount.current || phase === "leave";
-    },
+    immediate: !shouldAnimate,
   });
 
   // Calculate container height based on actual grid items
