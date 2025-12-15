@@ -2,7 +2,7 @@
 import React from "react";
 import useGetQueryWithRefetchOnChange from "@/hooks/useGetQueryWithRefetchOnChange";
 import BlogPageHeader from "./Header";
-import BlogPageContent from "./Content";
+import BlogSlugContent from "./blogSlugContent";
 import KeepReading from "./KeepReading";
 import CTABanner from "@/components/common/CTABanner";
 import { getCardFromStrapiRawData } from "@/lib/utils";
@@ -41,7 +41,7 @@ export default function ArticlePageClient({
       data-is-local-env={isLocalEnv}
     >
       <BlogPageHeader isLoading={isLoading} data={articleData} />
-      <BlogPageContent
+      <BlogSlugContent
         isLoading={isLoading}
         content={articleData.content}
         data={articleData}
