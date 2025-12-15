@@ -132,3 +132,31 @@ html {
   position: absolute;
   left: -0.75rem;
 }
+
+/* Fluid section header typography */
+@layer utilities {
+  .text-section-header {
+    font-size: calc(20px + ((21 - 20) * (100vw - 375px) / (600 - 375)));
+    line-height: 1.5;
+    letter-spacing: -0.06em;
+
+    @media (min-width: 600px) {
+      font-size: calc(21px + ((22 - 21) * (100vw - 600px) / (800 - 600)));
+    }
+
+    @media (min-width: 800px) {
+      font-size: calc(22px + ((23 - 22) * (100vw - 800px) / (1000 - 800)));
+      line-height: 1.35;
+    }
+
+    @media (min-width: 1000px) {
+      font-size: calc(23px + ((24 - 23) * (100vw - 1000px) / (1400 - 1000)));
+      line-height: 1.25;
+    }
+
+    @media (min-width: 1400px) {
+      font-size: 24px;
+      line-height: 1.25;
+    }
+  }
+}
