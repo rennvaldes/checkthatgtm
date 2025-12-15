@@ -48,7 +48,7 @@ function BlogPageHeader({ data, isLoading }: { isLoading: boolean; data: any }) 
     getFn: () => getMainDataAndArticles(),
   });
 
-  const { blog_x_link, blog_instagram_link, blog_linkedin_link } = React.useMemo(() => rawData?.data ?? {}, [rawData]);
+  const { blog_x_link, blog_instagram_link, blog_linkedin_link } = React.useMemo(() => (rawData?.data ?? {}) as any, [rawData]);
 
   return (
     <section className='flex w-full max-w-[624px] transition-[max-width] lg:max-w-[863px] flex-col items-start self-center px-[20px] pb-[4px] lg:px-0 lg:pb-0'>

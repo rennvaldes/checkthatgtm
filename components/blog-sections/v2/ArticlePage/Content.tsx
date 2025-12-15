@@ -25,7 +25,7 @@ function BlogPageContent({ content, isLoading, data }: { content: string; isLoad
     getFn: () => getMainDataAndArticles(),
   });
 
-  const { blog_x_link, blog_instagram_link, blog_linkedin_link } = React.useMemo(() => rawData?.data ?? {}, [rawData]);
+  const { blog_x_link, blog_instagram_link, blog_linkedin_link } = React.useMemo(() => (rawData?.data ?? {}) as any, [rawData]);
 
   return (
     <section className={`max-w-[1200px] lg:border-x border-ui-black/25 mb-14 w-full ${isLoading ? 'px-[20px]' : ''}`}>

@@ -37,10 +37,10 @@ function BlogHero() {
 
   const { title, sub_title, main_article, documentId, slug } = React.useMemo(() => {
     if (!rawData) return {};
-    const { title, sub_title, main_article: rawMainArticleData } = rawData.data;
-    const main_article = getCardFromStrapiRawData(rawMainArticleData);
-    const documentId = rawMainArticleData.documentId;
-    const slug = rawMainArticleData.slug;
+    const { title, sub_title, main_article: rawMainArticleData } = rawData.data as any;
+    const main_article = rawMainArticleData ? getCardFromStrapiRawData(rawMainArticleData) : null;
+    const documentId = rawMainArticleData?.documentId;
+    const slug = rawMainArticleData?.slug;
 
     return { main_article, title, sub_title, documentId, slug };
   }, [rawData]);
