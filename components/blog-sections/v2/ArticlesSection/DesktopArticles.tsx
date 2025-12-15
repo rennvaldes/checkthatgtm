@@ -3,6 +3,7 @@ import { chunk } from 'lodash';
 
 import BlogCard from '@/components/ui/BlogCard';
 import { CardData } from '@/static/types';
+import { Grid } from '@/components/home/grid/gridRoot';
 
 type Props = {
   cardsData: CardData[];
@@ -13,8 +14,8 @@ function DesktopArticlesV2({ cardsData, isLoading }: Props) {
   const rows = React.useMemo(() => chunk(cardsData, 2), [cardsData]);
 
   return (
-    <div className="flex w-full flex-col items-center">
-      <div className="mt-10 flex w-full flex-col gap-20 lg:mt-16">
+    <Grid className="mt-10 lg:mt-16">
+      <div className="col-span-full flex w-full flex-col gap-20">
         {rows.map((row, rowIndex) => (
           <React.Fragment key={rowIndex}>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -25,7 +26,7 @@ function DesktopArticlesV2({ cardsData, isLoading }: Props) {
           </React.Fragment>
         ))}
       </div>
-    </div>
+    </Grid>
   );
 }
 

@@ -110,7 +110,7 @@ export function HeroLogos({ className }: HeroLogosProps) {
       {/* Header */}
       <Grid>
         {/* Label */}
-        <div className="col-span-full md:col-span-1">
+        <div className="col-span-full md:col-span-1 flex items-start">
           <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
             Customers
           </span>

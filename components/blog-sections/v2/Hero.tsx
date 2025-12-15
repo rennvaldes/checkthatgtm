@@ -8,7 +8,7 @@ function BlogHeroV2() {
   const description = 'Updates, interviews, stories, and everything from the business, team, and industry.';
 
   return (
-    <section className="pt-24 pb-0">
+    <section className="pt-48 pb-0">
       {/* Title */}
       <Grid>
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
@@ -21,7 +21,7 @@ function BlogHeroV2() {
       {/* Description Row */}
       <Grid className="pt-16">
         {/* Label */}
-        <div className="col-span-full md:col-span-1">
+        <div className="col-span-full md:col-span-1 flex items-start">
           <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
             News
           </span>

@@ -162,7 +162,7 @@ export default function TeamSection() {
                   {CAROUSEL_IMAGES.map((src, i) => (
                     <CarouselItem
                       key={`team-carousel-${i}`}
-                      className="basis-auto pl-0 first-of-type:pl-4"
+                      className="basis-auto pl-0 first-of-type:pl-4 mr-4"
                     >
                       <img
                         src={src}
