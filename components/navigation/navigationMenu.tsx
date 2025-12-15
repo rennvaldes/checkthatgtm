@@ -69,7 +69,7 @@ export function NavigationMenu({ isOpen, onClose, pathname }: NavigationMenuProp
         <Link
           href="/book-demo"
           onClick={handleLinkClick}
-          className="w-full max-w-[300px] inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-base text-primary-foreground transition-opacity hover:opacity-80"
+          className="w-full max-w-[300px] inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
         >
           Book a demo
           <span aria-hidden="true">→</span>

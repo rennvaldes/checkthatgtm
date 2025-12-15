@@ -56,7 +56,7 @@ export function NavigationBar({
             {showBackButton ? (
               <Link
                 href={backButtonHref}
-                className="inline-flex items-center gap-2 text-sm transition-colors text-foreground/60 hover:text-foreground"
+                className="inline-flex items-center gap-2 text-sm transition-colors text-foreground/60 hover:text-foreground whitespace-nowrap"
               >
                 <span>←</span>
                 <span>{backButtonLabel}</span>
@@ -128,7 +128,7 @@ export function NavigationBar({
           <div className="col-span-2 col-start-11 flex items-center justify-end">
             <Link
               href="/book-demo"
-              className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80"
+              className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
             >
               Book a demo
               <span aria-hidden="true">→</span>
@@ -142,7 +142,7 @@ export function NavigationBar({
         {showBackButton && (
           <Link
             href={backButtonHref}
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-secondary rounded-full text-foreground hover:opacity-80"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-secondary rounded-full text-foreground hover:opacity-80 whitespace-nowrap"
           >
             <span>←</span>
             <span>{backButtonLabel}</span>

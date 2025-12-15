@@ -45,7 +45,7 @@ export function StickyBookButton() {
         {!isSticky && (
           <a
             href="https://growthx.ai/book-demo"
-            className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80"
+            className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
           >
             Book a demo
             <span aria-hidden="true">→</span>
@@ -61,7 +61,7 @@ export function StickyBookButton() {
         >
           <a
             href="https://growthx.ai/book-demo"
-            className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80"
+            className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
           >
             Book a demo
             <span aria-hidden="true">→</span>
