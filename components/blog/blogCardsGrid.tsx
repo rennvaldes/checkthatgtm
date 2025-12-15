@@ -42,12 +42,6 @@ export function BlogCardsGrid({
   const [containerRef, { width: containerWidth }] = useMeasure();
   const [refFeaturedCardRef, { height: measuredFeaturedHeight }] = useMeasure();
 
-  // Derived values
-  // Regular cards: 1:1 aspect ratio, height = width
-  const cardWidth = debouncedWidth / debouncedColumns;
-  const cardHeight = cardWidth;
-  const featuredCardHeight = measuredFeaturedHeight || 450;
-
   // Limit articles to showUpTo
   const visibleArticles = useMemo(
     () => articles.slice(0, showUpTo),
@@ -63,7 +57,10 @@ export function BlogCardsGrid({
       debouncedWidth ||
       (typeof window !== "undefined" ? window.innerWidth : 1280);
 
+    // Regular cards: always square, width = viewport / columns
     const cardWidth = width / debouncedColumns;
+    const cardHeight = cardWidth; // Square aspect ratio
+    const featuredCardHeight = measuredFeaturedHeight || 450;
 
     // Build layout order: if featured card would leave gap, reorder to fill it
     const layoutOrder: number[] = [];
@@ -164,7 +161,7 @@ export function BlogCardsGrid({
         isFeatured,
       };
     });
-  }, [isMounted, visibleArticles, debouncedColumns, debouncedWidth, cardHeight, featuredCardHeight, featuredIndex]);
+  }, [isMounted, visibleArticles, debouncedColumns, debouncedWidth, measuredFeaturedHeight, featuredIndex]);
 
   // Animate transitions
   const transitions = useTransition(gridItems, {
