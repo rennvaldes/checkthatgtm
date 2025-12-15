@@ -4,11 +4,13 @@ import { cn } from "@/lib/litebox-lib/utils/cn";
 import { CardData } from "@/static/types";
 import Link from "next/link";
 import Image from "next/image";
+import { Ref } from "react";
 
 type BlogCardProps = CardData & {
   variant?: "regular" | "featured";
   className?: string;
   slug?: string;
+  measureRef?: Ref<HTMLAnchorElement>;
 };
 
 export function BlogCard({
@@ -23,10 +25,12 @@ export function BlogCard({
   publisher_name,
   publisher_legend,
   className,
+  measureRef,
 }: BlogCardProps) {
   if (variant === "featured") {
     return (
       <Link
+        ref={measureRef}
         href={`/blog/${slug}`}
         className={cn("group block relative p-4", className)}
       >
@@ -147,6 +151,7 @@ export function BlogCard({
   // Regular variant: 5:3 aspect ratio
   return (
     <Link
+      ref={measureRef}
       href={`/blog/${slug}`}
       className={cn("group relative flex flex-col p-4 lg:p-5", className)}
     >

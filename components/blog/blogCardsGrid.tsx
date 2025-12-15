@@ -28,42 +28,22 @@ export function BlogCardsGrid({
   featuredIndex = -1,
   shouldAnimate = false,
 }: BlogCardsGridProps) {
-  // Only render grid items on client to avoid hydration mismatch
+  // State - at top
   const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  // Debounced measurements to prevent layout thrashing during resize
   const [debouncedColumns, setDebouncedColumns] = useState<number>(1);
   const [debouncedWidth, setDebouncedWidth] = useState<number>(0);
 
-  // Responsive columns based on breakpoints
+  // Hooks - measurements and media queries
   const columns = useMedia<number>(
     ["(min-width: 1024px)", "(min-width: 768px)"],
     [3, 2],
     1
   );
-
-  // Measure container width
   const [containerRef, { width: containerWidth }] = useMeasure();
-
-  // Debounce measurements to wait for both columns and containerWidth to settle
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setDebouncedColumns(columns);
-      setDebouncedWidth(containerWidth);
-    }, 50); // 50ms debounce
-
-    return () => clearTimeout(timeout);
-  }, [columns, containerWidth]);
-
-  // Measure reference card heights (regular and featured)
   const [refCardRef, { height: measuredHeight }] = useMeasure();
   const [refFeaturedCardRef, { height: measuredFeaturedHeight }] = useMeasure();
 
-  // Use measured height or fallback
+  // Derived values
   const cardHeight = measuredHeight || 450;
   const featuredCardHeight = measuredFeaturedHeight || 450;
 
@@ -209,16 +189,25 @@ export function BlogCardsGrid({
     return maxBottom;
   }, [gridItems]);
 
+  // Effects - at bottom before return
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedColumns(columns);
+      setDebouncedWidth(containerWidth);
+    }, 50);
+    return () => clearTimeout(timeout);
+  }, [columns, containerWidth]);
+
   return (
     <>
       {/* Invisible reference cards for height measurement */}
       {debouncedWidth > 0 && (
-        <>
-          <div
-            ref={refCardRef}
-            className="invisible absolute pointer-events-none"
-            style={{ width: debouncedWidth / debouncedColumns }}
-          >
+        <div className="invisible absolute pointer-events-none">
+          <div style={{ width: debouncedWidth / debouncedColumns }}>
             <BlogCard
               documentId="ref"
               id={0}
@@ -230,13 +219,10 @@ export function BlogCardsGrid({
               publisher_avatar="/placeholder.jpg"
               publisher_name="Publisher"
               variant="regular"
+              measureRef={refCardRef}
             />
           </div>
-          <div
-            ref={refFeaturedCardRef}
-            className="invisible absolute pointer-events-none"
-            style={{ width: debouncedWidth }}
-          >
+          <div style={{ width: debouncedWidth }}>
             <BlogCard
               documentId="ref-featured"
               id={0}
@@ -249,9 +235,10 @@ export function BlogCardsGrid({
               publisher_avatar="/placeholder.jpg"
               publisher_name="Publisher"
               variant="featured"
+              measureRef={refFeaturedCardRef}
             />
           </div>
-        </>
+        </div>
       )}
 
       {/* Animated grid container */}
@@ -263,6 +250,7 @@ export function BlogCardsGrid({
         {transitions((style, item) => (
           <a.div
             key={item.id}
+            className="border-b-[0.5px] border-r-[0.5px] border-border"
             style={{
               position: "absolute",
               ...style,
@@ -272,7 +260,6 @@ export function BlogCardsGrid({
               {...item}
               variant={item.isFeatured ? "featured" : "regular"}
               slug={item.slug}
-              className="border-b-[0.5px] border-r-[0.5px] border-border"
             />
           </a.div>
         ))}
