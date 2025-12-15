@@ -1,6 +1,6 @@
 import { Skeleton } from "@/lib/shadcn/ui/skeleton";
 
-function BlogPageHeader({
+function BlogSlugHeader({
   data,
   isLoading,
 }: {
@@ -175,4 +175,4 @@ function BlogPageHeader({
   );
 }
 
-export default BlogPageHeader;
+export default BlogSlugHeader;

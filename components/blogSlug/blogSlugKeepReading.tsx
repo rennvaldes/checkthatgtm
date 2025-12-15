@@ -6,7 +6,7 @@ import { CardData } from '@/static/types';
 
 import { chunk } from 'lodash';
 
-function KeepReading({ relatedArticles }: { relatedArticles: CardData[] }) {
+function BlogSlugKeepReading({ relatedArticles }: { relatedArticles: CardData[] }) {
   if (!relatedArticles?.length) return null;
 
   return (
@@ -44,4 +44,4 @@ function KeepReading({ relatedArticles }: { relatedArticles: CardData[] }) {
   );
 }
 
-export default KeepReading;
+export default BlogSlugKeepReading;

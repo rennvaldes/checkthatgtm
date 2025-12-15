@@ -1,12 +1,14 @@
 import React from 'react';
 import { Metadata } from 'next';
-import ArticlePageClient from '@/components/blog-sections/v2/ArticlePage/ArticlePageClient';
+import { headers } from 'next/headers';
+import BlogSlugRoot from '@/components/blogSlug/blogSlugRoot';
 import { getArticle } from '@/lib/api/strapi/blog';
+import { getCardFromStrapiRawData } from '@/lib/utils';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const { data } = await getArticle(resolvedParams.slug);
-  
+
   if (!data) {
     return {
       title: 'GrowthX Blog',
@@ -51,12 +53,23 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
 
+  // Fetch data server-side
+  const rawData = await getArticle(slug, showDrafts);
+  const articleData = rawData?.data ? getCardFromStrapiRawData(rawData.data) : {};
+
+  // Construct URL from request headers (Next.js best practice)
+  const headersList = await headers();
+  const host = headersList.get('host') || 'growthx.ai';
+  const protocol = headersList.get('x-forwarded-proto') || 'https';
+  const currentUrl = `${protocol}://${host}/blog/${slug}`;
+
   return (
-    <ArticlePageClient
-      slug={slug}
+    <BlogSlugRoot
+      articleData={articleData}
       showDrafts={showDrafts}
       isLocalEnv={isLocalEnv}
       isPullRequest={isPullRequest}
+      currentUrl={currentUrl}
     />
   );
 }
