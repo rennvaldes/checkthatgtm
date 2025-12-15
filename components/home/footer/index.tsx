@@ -1,4 +1,3 @@
-export { NavigationBar } from "./navigationBar";
 export { CtaSection } from "./ctaSection";
 export { FooterCtaSection } from "./footerCtaSection";
 export { SitemapSection } from "./sitemapSection";

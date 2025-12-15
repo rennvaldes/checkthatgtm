@@ -25,26 +25,26 @@ export default function ArticlePageClient({ slug, showDrafts, isLocalEnv, isPull
 
   return (
     <main className='relative flex min-h-screen flex-col items-center justify-start pt-20 lg:pt-28' data-show-drafts={showDrafts} data-is-pull-request={isPullRequest} data-is-local-env={isLocalEnv}>
-      <BlogPageHeader isLoading={isLoading} data={articleData} />
-      <BlogPageContent isLoading={isLoading} content={articleData.content} data={articleData} />
-      <div className={`w-full max-w-[1350px] mt-16 lg:mt-24 ${hasKeepReading ? 'mb-4 lg:mb-12' : 'lg:-mb-24'}`}>
-        <CTABanner
-          logoSrc={GrowthXLogo}
-          
-          title={<>
-            Get Started with
-            <br className='hidden md:block' />
-            AI-Led Growth
-          </>}
-          description={'Whether you’re a budding startup or an established enterprise, discover how our AI can streamline your content creation and fuel your growth.'}
-          primaryButton={{
-            label: 'Book a call',
-            href: '/book-demo',
-            className: 'rounded-full'
-          }}
-        />
-      </div>
-      <KeepReading relatedArticles={articleData.related_articles} />
+        <BlogPageHeader isLoading={isLoading} data={articleData} />
+        <BlogPageContent isLoading={isLoading} content={articleData.content} data={articleData} />
+        <div className={`w-full max-w-[1350px] mt-16 lg:mt-24 ${hasKeepReading ? 'mb-4 lg:mb-12' : 'lg:-mb-24'}`}>
+          <CTABanner
+            logoSrc={GrowthXLogo}
+
+            title={<>
+              Get Started with
+              <br className='hidden md:block' />
+              AI-Led Growth
+            </>}
+            description="Whether you're a budding startup or an established enterprise, discover how our AI can streamline your content creation and fuel your growth."
+            primaryButton={{
+              label: 'Book a call',
+              href: '/book-demo',
+              className: 'rounded-full'
+            }}
+          />
+        </div>
+        <KeepReading relatedArticles={articleData.related_articles} />
     </main>
   );
 }

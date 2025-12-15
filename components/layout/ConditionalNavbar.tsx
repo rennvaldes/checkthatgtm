@@ -1,9 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Navbar from "@/components/layout/Navbar";
-import StyledNavbar from "@/components/layout/Navbar/StyledNavbar";
-import { NavigationBar } from "@/components/home/footer";
+import { NavigationBar } from "@/components/navigation/navigationBar";
 
 export default function ConditionalNavbar() {
   const pathname = usePathname();
@@ -13,10 +11,11 @@ export default function ConditionalNavbar() {
     return null;
   }
 
-  // Use homepage navbar for careers, blog, and about pages
-  if (pathname === "/careers" || pathname?.startsWith("/blog") || pathname === "/about") {
-    return <NavigationBar />;
+  // Blog article pages - show back button
+  if (pathname?.startsWith("/blog/") && pathname !== "/blog") {
+    return <NavigationBar showBackButton backButtonHref="/blog" backButtonLabel="News overview" />;
   }
 
-  return <Navbar />;
+  // All other pages use new unified navigation
+  return <NavigationBar />;
 }
