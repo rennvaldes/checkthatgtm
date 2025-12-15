@@ -40,11 +40,12 @@ export function BlogCardsGrid({
     1
   );
   const [containerRef, { width: containerWidth }] = useMeasure();
-  const [refCardRef, { height: measuredHeight }] = useMeasure();
   const [refFeaturedCardRef, { height: measuredFeaturedHeight }] = useMeasure();
 
   // Derived values
-  const cardHeight = measuredHeight || 450;
+  // Regular cards: 1:1 aspect ratio, height = width
+  const cardWidth = debouncedWidth / debouncedColumns;
+  const cardHeight = cardWidth;
   const featuredCardHeight = measuredFeaturedHeight || 450;
 
   // Limit articles to showUpTo
@@ -204,24 +205,9 @@ export function BlogCardsGrid({
 
   return (
     <>
-      {/* Invisible reference cards for height measurement */}
+      {/* Invisible reference card for featured height measurement */}
       {debouncedWidth > 0 && (
         <div className="invisible absolute pointer-events-none">
-          <div style={{ width: debouncedWidth / debouncedColumns }}>
-            <BlogCard
-              documentId="ref"
-              id={0}
-              slug="reference"
-              image="https://placehold.co/600x360.png"
-              image_alt="Reference"
-              category="Strategy"
-              title="Sample Long Title Text That Would Wrap To Two Lines For Measurement Purpose"
-              publisher_avatar="https://placehold.co/36x36.png"
-              publisher_name="Publisher"
-              variant="regular"
-              measureRef={refCardRef}
-            />
-          </div>
           <div style={{ width: debouncedWidth }}>
             <BlogCard
               documentId="ref-featured"

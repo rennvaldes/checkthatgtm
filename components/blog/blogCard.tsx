@@ -150,12 +150,13 @@ export function BlogCard({
     );
   }
 
-  // Regular variant: 5:3 aspect ratio
+  // Regular variant: 1:1 aspect ratio (square)
   return (
     <Link
       ref={measureRef}
       href={`/blog/${slug}`}
       className={cn("group relative flex flex-col p-4 lg:p-5", className)}
+      style={{ aspectRatio: "1/1" }}
     >
       <picture className="relative w-full" style={{ aspectRatio: "5/3" }}>
         <Image
@@ -166,18 +167,23 @@ export function BlogCard({
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </picture>
-      <div className="flex flex-col px-2 pt-5 pb-2 lg:pt-9 lg:px-5 lg:pb-5">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] line-clamp-2 flex-1">
-            {title}
-          </h3>
-          <span className="text-2xl mt-0.5 flex-shrink-0">→</span>
+      <div className="flex flex-col flex-1 justify-between px-2 pt-5 pb-2 lg:pt-9 lg:px-5 lg:pb-5">
+        {/* Chin top: Title + Category grouped */}
+        <div>
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em] line-clamp-2 flex-1">
+              {title}
+            </h3>
+            <span className="text-2xl mt-0.5 flex-shrink-0">→</span>
+          </div>
+          <div className="flex flex-wrap gap-2.5 mt-3">
+            <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
+              {category}
+            </span>
+          </div>
         </div>
-        <div className="flex flex-wrap gap-2.5 mt-3 mb-9 md:mb-12">
-          <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
-            {category}
-          </span>
-        </div>
+
+        {/* Chin bottom: Publisher meta */}
         <div className="flex items-center gap-2">
           <picture className="relative w-9 h-9 rounded-full overflow-hidden">
             <Image
