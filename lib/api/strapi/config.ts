@@ -24,7 +24,6 @@ export async function getWithQsParams(path: string, params?: any) {
   if (params) {
     const queryString = QueryString.stringify(params);
     url += `?${queryString}`;
-    console.log('[getWithQsParams] Full URL:', url.substring(0, 500)); // Log first 500 chars
   }
 
   const { data } = await strapiAPI({ method: 'GET', url });
