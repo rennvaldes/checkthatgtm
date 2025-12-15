@@ -1,11 +1,11 @@
-import { ElementType, HTMLAttributes, ReactNode } from 'react';
-import ReactMarkdown, { Components } from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeUnwrapImages from 'rehype-unwrap-images';
-import rehypeRaw from 'rehype-raw';
+import { ElementType, HTMLAttributes, ReactNode } from "react";
+import ReactMarkdown, { Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeUnwrapImages from "rehype-unwrap-images";
+import rehypeRaw from "rehype-raw";
 
-import { slug } from '../utils/slug';
-import { Skeleton } from '@/lib/shadcn/ui/skeleton';
+import { slug } from "../utils/slug";
+import { Skeleton } from "@/lib/shadcn/ui/skeleton";
 
 interface CustomImageProps {
   properties: {
@@ -20,7 +20,6 @@ interface ImageDimensions {
 }
 
 interface ChildrenType {
-   
   children: ReactNode;
 }
 
@@ -30,33 +29,40 @@ interface LinkChildrenType extends ChildrenType {
 
 const listIcon = (
   <svg
-    xmlns='http://www.w3.org/2000/svg'
-    width='24'
-    height='24'
-    viewBox='0 0 24 24'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='2'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-    className='text-ui-blue'>
-    <path d='M20 6 9 17l-5-5' />
+    width="17"
+    height="27"
+    viewBox="0 0 17 27"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M1.25078 12.8938L6.83828 18.4813L16.1758 9.1438"
+      stroke="#080A0D"
+      strokeWidth="1.875"
+      strokeLinejoin="bevel"
+    />
   </svg>
 );
 
 const getImageDimensionsFromUrl = (imageUrl: string): ImageDimensions => {
   const url = new URL(imageUrl);
-  const width = Number(url.searchParams.get('width')) || 800;
-  const height = Number(url.searchParams.get('height')) || 600;
+  const width = Number(url.searchParams.get("width")) || 800;
+  const height = Number(url.searchParams.get("height")) || 600;
 
   return { width, height };
 };
 
-const createCustomHeading = (Tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {
+const createCustomHeading = (Tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") => {
   const CustomHeading = (props: HTMLAttributes<HTMLHeadingElement>) => {
     const { children } = props;
 
-    return <Tag id={slug(String(children))} className="markdown-content-anchor" {...props} />;
+    return (
+      <Tag
+        id={slug(String(children))}
+        className="markdown-content-anchor"
+        {...props}
+      />
+    );
   };
 
   return CustomHeading;
@@ -65,33 +71,48 @@ const createCustomHeading = (Tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6') => {
 /**
  * The `MarkdownContent` component renders Markdown with style customizations using `react-markdown` and `remark-gfm`. It supports predefined styles for Markdown elements and integrates with Tailwind CSS. Your project should include these dependencies to use the component.
  * Version: 1.0.0
- * Docs: https://www.notion.so/litebox/MarkdownContent-1-0-0-d41f8c43dbe24397a999107824724ce7
+ * Docs: https://www.notion.so/litebox/MarkdownContent-1-0-0-d41f8c43dbe24397a999107this 824724ce7
  *
  * @param content - The Markdown content to be rendered (string).
  *
  */
-const MarkdownContent = ({ content, isLoading }: { content: string; isLoading: boolean }) => {
+const MarkdownContent = ({
+  content,
+  isLoading,
+}: {
+  content: string;
+  isLoading: boolean;
+}) => {
   const components: any = {
-    h1: createCustomHeading('h1'),
-    h2: createCustomHeading('h2'),
-    h3: createCustomHeading('h3'),
-    h4: createCustomHeading('h4'),
-    h5: createCustomHeading('h5'),
-    h6: createCustomHeading('h6'),
+    h1: createCustomHeading("h1"),
+    h2: createCustomHeading("h2"),
+    h3: createCustomHeading("h3"),
+    h4: createCustomHeading("h4"),
+    h5: createCustomHeading("h5"),
+    h6: createCustomHeading("h6"),
     img: (image: { node: CustomImageProps }) => {
       const { src, alt } = image.node.properties;
       const { width, height } = getImageDimensionsFromUrl(src);
 
       return (
-        <div className='xl:w-[1200px] xl:max-w-[100dvw] xl:-translate-x-[16.35%] xl:relative xl:py-12 xl:z-20 xl:-my-8'>
-          <div className='xl:absolute xl:inset-0 bg-transparent' />
-          <img src={src} alt={alt} width={width} height={height} className='w-full relative z-20 m-0' />
+        <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border  my-12 lg:my-44  relative left-1/2 -translate-x-1/2">
+          <picture className="block max-w-[1240px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
+            <img
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              className="w-full h-auto"
+            />
+          </picture>
         </div>
       );
     },
     p: (paragraph: any) => {
       // Check if paragraph contains an image (to avoid div inside p error)
-      const hasImage = paragraph.node?.children?.some((child: any) => child.tagName === 'img');
+      const hasImage = paragraph.node?.children?.some(
+        (child: any) => child.tagName === "img"
+      );
 
       if (hasImage) {
         return <div>{paragraph.children}</div>;
@@ -99,39 +120,37 @@ const MarkdownContent = ({ content, isLoading }: { content: string; isLoading: b
 
       return <p>{paragraph.children}</p>;
     },
-    strong: (strong: ChildrenType) => <strong>{strong.children}</strong>,
+    strong: (strong: ChildrenType) => (
+      <strong className="font-[520]">{strong.children}</strong>
+    ),
     a: (link: LinkChildrenType) => (
-      <a
-        href={link.href}
-        target='_blank'
-        rel='noreferrer noopener'>
+      <a href={link.href} target="_blank" rel="noreferrer noopener">
         {link.children}
       </a>
     ),
-    ul: (list: ChildrenType) => <ul className='list-none pl-0'>{list.children}</ul>,
+    ul: (list: ChildrenType) => (
+      <ul className="list-none pl-0">{list.children}</ul>
+    ),
     ol: (list: ChildrenType) => <ol>{list.children}</ol>,
     li: (listItem: ChildrenType) => (
-      <li className='flex items-start gap-2'>
-        <span className='translate-y-[5px]'>{listIcon}</span>
+      <li className="flex items-start gap-3">
+        {listIcon}
         <span>{listItem.children}</span>
       </li>
     ),
-    table: ({ children }: ChildrenType) => (
-      <table>{children}</table>
-    ),
-    th: ({ children }: ChildrenType) => (
-      <th>{children}</th>
-    ),
+    table: ({ children }: ChildrenType) => <table>{children}</table>,
+    th: ({ children }: ChildrenType) => <th>{children}</th>,
     td: ({ children }: ChildrenType) => <td>{children}</td>,
   };
 
   return isLoading ? (
-    <Skeleton className='h-[2000px] w-full' />
+    <Skeleton className="h-[2000px] w-full" />
   ) : (
     <ReactMarkdown
       components={components}
       remarkPlugins={[remarkGfm, rehypeUnwrapImages]}
-      rehypePlugins={[rehypeRaw]}>
+      rehypePlugins={[rehypeRaw]}
+    >
       {content}
     </ReactMarkdown>
   );
