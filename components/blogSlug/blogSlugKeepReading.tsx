@@ -37,7 +37,7 @@ export default function BlogSlugKeepReading({
         {/* Cards Container */}
         <Grid className="md:border-l-[0.5px] border-border w-full">
           {/* Mobile & Tablet: Scroll container */}
-          <div className="col-span-full lg:hidden overflow-x-scroll scroll-smooth [scroll-snap-type:x_mandatory] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
+          <div className="col-span-full lg:hidden overflow-x-scroll [scroll-snap-type:x_mandatory] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
             <ul className="flex">
               {relatedArticles.map((article) => (
                 <li key={article.id} className="[scroll-snap-align:center]">
