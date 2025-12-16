@@ -24,9 +24,9 @@ export function NavigationMenu({
       aria-hidden={!isOpen}
       className="bg-background/80 backdrop-blur-[64px] aria-hidden: group fixed left-0 top-0 z-[100] flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-y-[100%] aria-hidden:opacity-50"
     >
-      {/* Menu Items - Left aligned with CTA at bottom */}
-      <div className="flex flex-1 flex-col justify-between items-start px-10 pb-12 pt-20 transition-transform duration-1000 group-aria-hidden:translate-y-[15%]">
-        <ul className="flex flex-col items-start gap-8 flex-1 justify-center w-full">
+      <div className="flex flex-1 flex-col justify-between items-start px-10 pb-12 pt-48 transition-transform duration-1000 group-aria-hidden:translate-y-[15%]">
+        {/* Top Section - Main Navigation */}
+        <ul className="flex flex-col items-start gap-8 w-full">
           <li onClick={handleLinkClick}>
             <Link
               href="/about"
@@ -68,15 +68,38 @@ export function NavigationMenu({
           </li>
         </ul>
 
-        {/* Book Demo CTA - 48px from bottom */}
-        <Link
-          href="/book-demo"
-          onClick={handleLinkClick}
-          className="w-full inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
-        >
-          Book a demo
-          <span aria-hidden="true">→</span>
-        </Link>
+        {/* Bottom Section - Social Links + CTA */}
+        <ul className="flex flex-col items-start gap-4 w-full">
+          <li onClick={handleLinkClick}>
+            <a
+              href="https://www.linkedin.com/company/growthxai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-foreground/40 hover:text-foreground transition-colors"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li onClick={handleLinkClick}>
+            <a
+              href="https://x.com/growthxai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-foreground/40 hover:text-foreground transition-colors"
+            >
+              X
+            </a>
+          </li>
+          <li onClick={handleLinkClick} className="w-full">
+            <Link
+              href="/book-demo"
+              className="w-full inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
+            >
+              Book a demo
+              <span aria-hidden="true">→</span>
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   );
