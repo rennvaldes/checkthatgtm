@@ -18,11 +18,11 @@ export function NavigationMenu({ isOpen, onClose, pathname }: NavigationMenuProp
   return (
     <div
       aria-hidden={!isOpen}
-      className="bg-background/80 backdrop-blur-[64px] aria-hidden: group fixed left-0 top-0 z-[100] flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-x-[100%] aria-hidden:opacity-50"
+      className="bg-background/80 backdrop-blur-[64px] aria-hidden: group fixed left-0 top-0 z-[100] flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-y-[100%] aria-hidden:opacity-50"
     >
 
       {/* Menu Items - Centered with CTA at bottom */}
-      <div className="flex flex-1 flex-col justify-between items-center px-5 pb-12 pt-20 transition-transform duration-1000 group-aria-hidden:translate-x-[15%]">
+      <div className="flex flex-1 flex-col justify-between items-center px-5 pb-12 pt-20 transition-transform duration-1000 group-aria-hidden:translate-y-[15%]">
         <ul className="flex flex-col items-center gap-8 flex-1 justify-center">
           <li onClick={handleLinkClick}>
             <Link
