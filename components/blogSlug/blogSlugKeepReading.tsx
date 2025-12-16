@@ -45,7 +45,7 @@ export default function BlogSlugKeepReading({
                     {...article}
                     variant="regular"
                     slug={article.slug}
-                    className="w-[88vw] h-[88vw] max-w-[576px] max-h-[576px] border-r-[0.5px] border-border"
+                    className="size-[88vw] max-size-[576px] border-r-[0.5px] border-border"
                   />
                 </li>
               ))}
@@ -60,7 +60,7 @@ export default function BlogSlugKeepReading({
                   {...article}
                   variant="regular"
                   slug={article.slug}
-                  className="max-w-[576px] max-h-[576px] border-r-[0.5px] border-border"
+                  className="size-[88vw] max-w-[576px] max-h-[576px] border-r-[0.5px] border-border"
                 />
               </li>
             ))}
