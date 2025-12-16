@@ -12,6 +12,7 @@ import rehypeRaw from "rehype-raw";
 
 import { slug } from "../utils/slug";
 import { Skeleton } from "@/lib/shadcn/ui/skeleton";
+import { ScrollAnimationWrapper } from "@/components/animations/scrollAnimationWrapper";
 
 interface CustomImageProps {
   properties: {
@@ -144,33 +145,37 @@ const MarkdownContent = ({
       const { width, height } = getImageDimensionsFromUrl(src);
 
       return (
-        <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border  my-12 lg:my-44  relative left-1/2 -translate-x-1/2">
-          <picture className="block max-w-[1280px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
-            <img
-              src={src}
-              alt={alt}
-              width={width}
-              height={height}
-              className="w-full h-auto"
-            />
-          </picture>
-        </div>
+        <ScrollAnimationWrapper>
+          <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border  my-12 lg:my-44  relative left-1/2 -translate-x-1/2">
+            <picture className="block max-w-[1280px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
+              <img
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
+                className="w-full h-auto"
+              />
+            </picture>
+          </div>
+        </ScrollAnimationWrapper>
       );
     },
     video: (video: any) => {
       const { src, ...props } = video.node.properties;
 
       return (
-        <div
-          className="w-screen border-t-[0.5px] border-b-[0.5px] border-border my-12 lg:my-44 relative left-1/2 
+        <ScrollAnimationWrapper>
+          <div
+            className="w-screen border-t-[0.5px] border-b-[0.5px] border-border my-12 lg:my-44 relative left-1/2
     -translate-x-1/2"
-        >
-          <div className="block max-w-[1280px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
-            <video src={src} controls className="w-full h-auto" {...props}>
-              Your browser does not support the video tag.
-            </video>
+          >
+            <div className="block max-w-[1280px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
+              <video src={src} controls className="w-full h-auto" {...props}>
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
-        </div>
+        </ScrollAnimationWrapper>
       );
     },
     p: (paragraph: any) => {
@@ -207,11 +212,13 @@ const MarkdownContent = ({
 
       if (isVideo) {
         return (
-          <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border my-12 lg:my-44 relative left-1/2 -translate-x-1/2">
-            <div className="block max-w-[1280px] mx-auto lg:border-x-[0.5px] border-border">
-              <AutoplayVideo src={link.href} />
+          <ScrollAnimationWrapper>
+            <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border my-12 lg:my-44 relative left-1/2 -translate-x-1/2">
+              <div className="block max-w-[1280px] mx-auto lg:border-x-[0.5px] border-border">
+                <AutoplayVideo src={link.href} />
+              </div>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
         );
       }
 
