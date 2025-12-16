@@ -12,7 +12,7 @@ import rehypeRaw from "rehype-raw";
 
 import { slug } from "../utils/slug";
 import { Skeleton } from "@/lib/shadcn/ui/skeleton";
-import { ScrollAnimationWrapper } from "@/components/animations/scrollAnimationWrapper";
+import { ScrollAnimationWrapper } from "@/components/blog/blogAnimations";
 
 interface CustomImageProps {
   properties: {

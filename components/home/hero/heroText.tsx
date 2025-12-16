@@ -1,6 +1,7 @@
 import { cx } from "@/lib/classnames";
 import { Grid } from "@/components/home/grid/gridRoot";
 import { StickyBookButton } from "./stickyBookButton";
+import Logo from "@/components/icons/Logo";
 
 interface HeroTextProps {
   className?: string;
@@ -11,14 +12,15 @@ export function HeroText({ className }: HeroTextProps) {
     <section className={cx("pt-24 md:pt-32 lg:pt-44 pb-32", className)}>
       {/* Title */}
       <Grid>
+        <div className="col-span-full md:hidden mb-16">
+          <Logo />
+        </div>
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
           <span className="text-foreground font-semibold">
             The growth engine
           </span>
           <br />
-          <span className="font-regular text-muted-foreground">
-            for modern marketing.
-          </span>
+          <span className=" text-muted-foreground">for modern marketing.</span>
         </h1>
       </Grid>
 
