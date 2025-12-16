@@ -73,7 +73,7 @@ function BlogSlugHeader({
         </div>
 
         <div className="w-1/2 flex flex-col justify-center gap-6 px-12 lg:px-16">
-          <h1 className="text-[40px] leading-[1.1] font-medium tracking-tight">
+          <h1 className="text-2xl lg:text-4xl leading-[1.05] font-[540] tracking-[-0.06em]">
             {title}
           </h1>
 
@@ -120,7 +120,7 @@ function BlogSlugHeader({
       {/* Mobile layout - Vertical (content above, image below) */}
       <div className="lg:hidden flex flex-col pt-8">
         <div className="px-5">
-          <h1 className="text-[32px] leading-[1.1] font-medium tracking-tight">
+          <h1 className="text-2xl lg:text-4xl leading-[1.05] font-[540] tracking-[-0.06em]">
             {title}
           </h1>
 

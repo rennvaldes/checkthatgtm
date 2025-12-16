@@ -30,6 +30,14 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @keyframes swipe {
   0% {
     transform: translate(0);

@@ -1,4 +1,10 @@
-import { ElementType, HTMLAttributes, ReactNode } from "react";
+import {
+  ElementType,
+  HTMLAttributes,
+  ReactNode,
+  useEffect,
+  useRef,
+} from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeUnwrapImages from "rehype-unwrap-images";
@@ -68,6 +74,49 @@ const createCustomHeading = (Tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") => {
   return CustomHeading;
 };
 
+const AutoplayVideo = ({ src }: { src: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch((error) => {
+              console.log("Autoplay prevented:", error);
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 } // Play when 50% visible
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      muted
+      loop
+      playsInline
+      className="w-full h-auto"
+    >
+      Your browser does not support the video tag.
+    </video>
+  );
+};
+
 /**
  * The `MarkdownContent` component renders Markdown with style customizations using `react-markdown` and `remark-gfm`. It supports predefined styles for Markdown elements and integrates with Tailwind CSS. Your project should include these dependencies to use the component.
  * Version: 1.0.0
@@ -96,7 +145,7 @@ const MarkdownContent = ({
 
       return (
         <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border  my-12 lg:my-44  relative left-1/2 -translate-x-1/2">
-          <picture className="block max-w-[1240px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
+          <picture className="block max-w-[1280px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
             <img
               src={src}
               alt={alt}
@@ -108,26 +157,70 @@ const MarkdownContent = ({
         </div>
       );
     },
+    video: (video: any) => {
+      const { src, ...props } = video.node.properties;
+
+      return (
+        <div
+          className="w-screen border-t-[0.5px] border-b-[0.5px] border-border my-12 lg:my-44 relative left-1/2 
+    -translate-x-1/2"
+        >
+          <div className="block max-w-[1280px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
+            <video src={src} controls className="w-full h-auto" {...props}>
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      );
+    },
     p: (paragraph: any) => {
       // Check if paragraph contains an image (to avoid div inside p error)
       const hasImage = paragraph.node?.children?.some(
         (child: any) => child.tagName === "img"
       );
 
-      if (hasImage) {
+      // Check if paragraph contains a video link
+      const videoExtensions = [".mp4", ".webm", ".ogg", ".mov"];
+      const hasVideoLink = paragraph.node?.children?.some((child: any) => {
+        if (child.tagName === "a" && child.properties?.href) {
+          return videoExtensions.some((ext) =>
+            child.properties.href.toLowerCase().endsWith(ext)
+          );
+        }
+        return false;
+      });
+
+      if (hasImage || hasVideoLink) {
         return <div>{paragraph.children}</div>;
       }
 
       return <p>{paragraph.children}</p>;
     },
     strong: (strong: ChildrenType) => (
-      <strong className="font-[520]">{strong.children}</strong>
+      <strong className="font-[580]">{strong.children}</strong>
     ),
-    a: (link: LinkChildrenType) => (
-      <a href={link.href} target="_blank" rel="noreferrer noopener">
-        {link.children}
-      </a>
-    ),
+    a: (link: LinkChildrenType) => {
+      const videoExtensions = [".mp4", ".webm", ".ogg", ".mov"];
+      const isVideo = videoExtensions.some((ext) =>
+        link.href?.toLowerCase().endsWith(ext)
+      );
+
+      if (isVideo) {
+        return (
+          <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border my-12 lg:my-44 relative left-1/2 -translate-x-1/2">
+            <div className="block max-w-[1280px] mx-auto lg:border-x-[0.5px] border-border">
+              <AutoplayVideo src={link.href} />
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <a href={link.href} target="_blank" rel="noreferrer noopener">
+          {link.children}
+        </a>
+      );
+    },
     ul: (list: ChildrenType) => (
       <ul className="list-none pl-0">{list.children}</ul>
     ),
