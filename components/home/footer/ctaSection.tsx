@@ -5,7 +5,7 @@ import { Button } from "@/components/home/button";
 
 export function CtaSection() {
   return (
-    <section className="pt-[176px]">
+    <section className="pt-20 lg:pt-[176px]">
       <Grid>
         {/* Label - Column 1 on tablet+, full on mobile */}
         <div className="col-span-full md:col-span-1 flex items-start">
