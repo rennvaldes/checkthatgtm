@@ -6,7 +6,7 @@ import './styles.scss';
 
 export default function Career() {
   return (
-    <main className='relative min-h-screen flex flex-col items-center py-24'>
+    <main className='relative min-h-screen flex flex-col items-center pt-48 pb-24'>
       <div className="w-full max-w-7xl px-4">
         <h1 className="text-4xl font-bold text-center mb-6">Help Us Redefine Growth</h1>
         <div className="text-ui-grey text-center max-w-2xl mx-auto mb-8 space-y-4 text-lg">

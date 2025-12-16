@@ -11,7 +11,7 @@ import { NavigationBar } from "@/components/navigation/navigationBar";
 export default function Home() {
   return (
     <main>
-      <NavigationBar />
+      <NavigationBar showBookButton={false} />
       <HeroText />
       <HeroLogos />
       {/* <HeroVideo /> */}

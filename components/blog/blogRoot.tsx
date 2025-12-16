@@ -55,7 +55,7 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
   return (
     <>
       {/* Header */}
-      <Grid className="pt-24 md:pt-32 lg:pt-44 pb-32">
+      <Grid className="pt-48 md:pt-32 lg:pt-44 pb-32">
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
           <span className="text-muted-foreground font-regular">Read</span>
           <br />

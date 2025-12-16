@@ -8,6 +8,7 @@ import Link from "next/link";
 import { NavigationMenu } from "./navigationMenu";
 import Menu from "@/components/icons/Menu";
 import Close from "@/components/icons/Close";
+import Logo from "@/components/icons/Logo";
 import { useSpring, animated } from "@react-spring/web";
 import { config } from "@react-spring/web";
 
@@ -15,12 +16,14 @@ type NavigationBarProps = {
   showBackButton?: boolean;
   backButtonHref?: string;
   backButtonLabel?: string;
+  showBookButton?: boolean;
 };
 
 export function NavigationBar({
   showBackButton = false,
   backButtonHref = "/blog",
   backButtonLabel = "News overview",
+  showBookButton = true,
 }: NavigationBarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -159,21 +162,23 @@ export function NavigationBar({
           </div>
 
           {/* Book Demo CTA - Cols 11-12 */}
-          <div className="col-span-2 col-start-11 flex items-center justify-end">
-            <Link
-              href="/book-demo"
-              className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
-            >
-              Book a demo
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+          {showBookButton && (
+            <div className="col-span-2 col-start-11 flex items-center justify-end">
+              <Link
+                href="/book-demo"
+                className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
+              >
+                Book a demo
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          )}
         </Grid>
       </nav>
 
-      {/* Mobile Header - Back Button + Hamburger */}
+      {/* Mobile Header - Logo/Back Button + Hamburger */}
       <div className="md:hidden fixed top-2 right-1 left-5 z-[110] flex items-center justify-between">
-        {showBackButton && (
+        {showBackButton ? (
           <Link
             href={backButtonHref}
             className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-secondary rounded-full text-foreground hover:opacity-80 whitespace-nowrap"
@@ -181,14 +186,18 @@ export function NavigationBar({
             <span>←</span>
             <span>{backButtonLabel}</span>
           </Link>
-        )}
+        ) : pathname !== "/" ? (
+          <Link href="/" aria-label="GrowthX Home">
+            <Logo />
+          </Link>
+        ) : null}
 
         <button
           type="button"
           onClick={handleMenuToggle}
           className={cx(
             "flex size-16 items-center justify-center rounded-full  bg-transparent",
-            !showBackButton && "ml-auto"
+            !showBackButton && pathname === "/" && "ml-auto"
           )}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
