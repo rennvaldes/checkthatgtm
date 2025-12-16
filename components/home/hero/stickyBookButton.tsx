@@ -14,7 +14,8 @@ export function StickyBookButton() {
       const rect = placeholderRef.current.getBoundingClientRect();
       const mobileThreshold = 12;
       const desktopThreshold = 14;
-      const threshold = window.innerWidth >= 768 ? desktopThreshold : mobileThreshold;
+      const threshold =
+        window.innerWidth >= 768 ? desktopThreshold : mobileThreshold;
 
       // Capture the button's position before it becomes sticky
       if (!isSticky) {
@@ -56,7 +57,7 @@ export function StickyBookButton() {
       {/* Fixed button that appears when scrolling */}
       {isSticky && (
         <div
-          className="fixed top-[12px] md:top-[14px] z-[60]"
+          className="fixed top-[20px] md:top-[20px] z-[60]"
           style={{ right: `${buttonPosition.right}px` }}
         >
           <a

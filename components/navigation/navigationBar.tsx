@@ -172,7 +172,7 @@ export function NavigationBar({
       </nav>
 
       {/* Mobile Header - Back Button + Hamburger */}
-      <div className="md:hidden fixed top-2 right-0 left-5 z-[110] flex items-center justify-between">
+      <div className="md:hidden fixed top-2 right-1 left-5 z-[110] flex items-center justify-between">
         {showBackButton && (
           <Link
             href={backButtonHref}
