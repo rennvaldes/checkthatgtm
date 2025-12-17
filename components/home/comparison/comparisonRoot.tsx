@@ -79,7 +79,7 @@ export function ComparisonRoot() {
       />
 
       {/* Desktop Table */}
-      <div className="hidden md:block mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
+      <div className="hidden md:block mt-10 mx-auto w-[calc(100%-48px)] max-w-[1280px]">
         <div className="grid grid-cols-4 gap-0 relative pt-6 pb-6 border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border before:pointer-events-none before:z-20">
           {/* Sticky Header */}
           <div className="sticky top-0 grid grid-cols-4 col-span-4 bg-background z-10 relative">
@@ -144,7 +144,7 @@ export function ComparisonRoot() {
       </div>
 
       {/* Mobile Tabs */}
-      <div className="md:hidden mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
+      <div className="md:hidden mt-10 mx-auto w-[calc(100%-48px)] max-w-[1280px]">
         {/* Tab Navigation */}
         <div className="flex gap-6 h-16 mb-6 relative after:absolute after:bottom-0 after:inset-x-[calc(-50vw+50%)] after:h-[0.5px] after:bg-border">
           {content.columns.map((column, idx) => (

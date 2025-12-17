@@ -79,7 +79,7 @@ export function PricingRoot() {
       />
 
       {/* Desktop Table */}
-      <div className="hidden md:block mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
+      <div className="hidden md:block mt-10 mx-auto w-[calc(100%-48px)] max-w-[1280px]">
         <div
           className="grid grid-cols-2 gap-0 relative pt-6 pb-6 px-6 border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border"
           style={{ gridAutoRows: "auto" }}
@@ -198,7 +198,7 @@ export function PricingRoot() {
       </div>
 
       {/* Mobile Tabs */}
-      <div className="md:hidden mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
+      <div className="md:hidden mt-10 mx-auto w-[calc(100%-48px)] max-w-[1280px]">
         {/* Tab Navigation */}
         <div className="flex gap-4 overflow-x-auto h-16 mb-4 relative after:absolute after:bottom-0 after:inset-x-[calc(-50vw+50%)] after:h-[0.5px] after:bg-border">
           {content.plans.map((plan, idx) => (

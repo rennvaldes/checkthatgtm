@@ -42,7 +42,9 @@ export default function CTABanner({
   secondaryButton,
 }: CTABannerProps) {
   return (
-    <section className={`${bgClassName} max-h-[606px] pt-[128.8px] pb-[184px] mx-auto w-[calc(100%-40px)] max-w-[1280px] px-4 md:px-6 lg:px-8`}>
+    <section
+      className={`${bgClassName} max-h-[606px] pt-[128.8px] pb-[184px] mx-auto w-[calc(100%-48px)] max-w-[1280px] px-4 md:px-6 lg:px-8`}
+    >
       <div className={`flex flex-col items-center gap-[46px]`}>
         {logoSrc ? (
           <div className="flex justify-center">
@@ -66,7 +68,9 @@ export default function CTABanner({
               primaryButton.href ? (
                 <a
                   href={primaryButton.href}
-                  className={`inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap ${primaryButton.className || ""}`}
+                  className={`inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap ${
+                    primaryButton.className || ""
+                  }`}
                 >
                   {primaryButton.label}
                   <span aria-hidden="true">→</span>
@@ -74,7 +78,9 @@ export default function CTABanner({
               ) : (
                 <button
                   onClick={primaryButton.onClick}
-                  className={`inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap ${primaryButton.className || ""}`}
+                  className={`inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap ${
+                    primaryButton.className || ""
+                  }`}
                 >
                   {primaryButton.label}
                   <span aria-hidden="true">→</span>
@@ -86,7 +92,9 @@ export default function CTABanner({
               secondaryButton.href ? (
                 <a
                   href={secondaryButton.href}
-                  className={`inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap ${secondaryButton.className || ""}`}
+                  className={`inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap ${
+                    secondaryButton.className || ""
+                  }`}
                 >
                   {secondaryButton.label}
                   <span aria-hidden="true">→</span>
@@ -94,7 +102,9 @@ export default function CTABanner({
               ) : (
                 <button
                   onClick={secondaryButton.onClick}
-                  className={`inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap ${secondaryButton.className || ""}`}
+                  className={`inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap ${
+                    secondaryButton.className || ""
+                  }`}
                 >
                   {secondaryButton.label}
                   <span aria-hidden="true">→</span>
@@ -105,7 +115,9 @@ export default function CTABanner({
         )}
 
         {description ? (
-          <p className={`${descriptionClassName} max-w-[498px] mx-auto tracking-tight mb-[92px]`}>
+          <p
+            className={`${descriptionClassName} max-w-[498px] mx-auto tracking-tight mb-[92px]`}
+          >
             {description}
           </p>
         ) : null}

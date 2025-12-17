@@ -48,7 +48,7 @@ export function FitRoot() {
       />
 
       {/* Desktop Cycler */}
-      <div className="hidden md:block mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
+      <div className="hidden md:block mt-10 mx-auto w-[calc(100%-48px)] max-w-[1280px]">
         <div className="grid grid-cols-12 relative border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border">
           {/* Checkmarks Column */}
           <div className="col-span-1 flex flex-col">
@@ -114,7 +114,7 @@ export function FitRoot() {
       </div>
 
       {/* Mobile Accordion */}
-      <div className="md:hidden mt-10 mx-auto w-[calc(100%-40px)] max-w-[1280px]">
+      <div className="md:hidden mt-10 mx-auto w-[calc(100%-48px)] max-w-[1280px]">
         <div className="flex flex-col">
           {content.items.map((item, idx) => (
             <div key={idx} className="border-b-[0.5px] border-border">
