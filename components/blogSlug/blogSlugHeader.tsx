@@ -44,7 +44,7 @@ function BlogSlugHeader({
 
         {/* Mobile skeleton */}
         <div className="lg:hidden flex flex-col pt-8">
-          <div className="px-5">
+          <div className="px-6">
             <Skeleton className="h-10 w-3/4" />
             <div className="flex gap-2 mt-6">
               <Skeleton className="h-8 w-20 rounded-full" />
@@ -119,7 +119,7 @@ function BlogSlugHeader({
 
       {/* Mobile layout - Vertical (content above, image below) */}
       <div className="lg:hidden flex flex-col pt-8">
-        <div className="px-5">
+        <div className="px-6">
           <h1 className="text-2xl lg:text-4xl leading-[1.05] font-[540] tracking-[-0.06em]">
             {title}
           </h1>
