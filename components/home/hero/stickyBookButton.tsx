@@ -10,25 +10,21 @@ export function StickyBookButton() {
 
   // Desktop: 14px from top
   // Mobile: 22px from top (centers with hamburger button at 40px: hamburger at top-2 (8px) + half of size-16 (32px) - half of h-9 (18px))
-  const STICKY_TOP_MOBILE = 22;
-  const STICKY_TOP_DESKTOP = 14;
 
   useScroll({
     onChange: () => {
       if (!placeholderRef.current) return;
 
       const rect = placeholderRef.current.getBoundingClientRect();
-      const isMobile = window.innerWidth < 768;
-      const threshold = isMobile ? STICKY_TOP_MOBILE : STICKY_TOP_DESKTOP;
 
       // Update button position when not sticky
-      if (rect.top > threshold) {
+      if (rect.top > 14) {
         setButtonPosition({
           right: window.innerWidth - rect.right,
         });
       }
 
-      setShouldStick(rect.top <= threshold);
+      setShouldStick(rect.top <= 14);
     },
   });
 
@@ -50,7 +46,7 @@ export function StickyBookButton() {
       {/* Fixed button that appears when scrolling */}
       {shouldStick && (
         <div
-          className="fixed top-[22px] md:top-[14px] z-[60]"
+          className="fixed top-[14px] z-[60]"
           style={{ right: `${buttonPosition.right}px` }}
         >
           <a
