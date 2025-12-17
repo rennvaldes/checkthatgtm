@@ -1,26 +1,10 @@
 "use client";
 
-import { useScroll, animated } from "@react-spring/web";
+import { useScroll, a } from "@react-spring/web";
 import Link from "next/link";
 
 export function NavigationLogo() {
-  const { scrollYProgress } = useScroll();
-
-  // Growth group: scale down + fade out
-  const growthStyle = {
-    opacity: scrollYProgress.to([0, 1], [1, 0]),
-    transform: scrollYProgress
-      .to([0, 1], [1, 0.8])
-      .to((scale) => `scale(${scale})`),
-    transformOrigin: "center",
-  };
-
-  // X group: translate left to left edge
-  const xStyle = {
-    transform: scrollYProgress
-      .to([0, 1], [0, -87])
-      .to((x) => `translate(${x}px, 0)`),
-  };
+  const { scrollY } = useScroll();
 
   return (
     <Link href="/" aria-label="GrowthX Home">
@@ -33,7 +17,15 @@ export function NavigationLogo() {
         className="h-[18px] w-auto"
       >
         {/* Growth group - paths 1-6 (G, r, o, w, t, h) */}
-        <animated.g style={growthStyle}>
+        <a.g
+          style={{
+            opacity: scrollY.to([0, 100], [1, 0], "clamp"),
+            transform: scrollY
+              .to([0, 100], [1, 0.8], "clamp")
+              .to((scale) => `scale(${scale})`),
+            transformOrigin: "center",
+          }}
+        >
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -66,19 +58,20 @@ export function NavigationLogo() {
             d="M3.30225 8.99395C3.30225 5.80482 5.71876 3.36374 8.53016 3.36374C10.223 3.36374 11.5996 4.09114 12.5246 5.30136H16.3083C15.0245 2.25041 12.2619 0.0300903 8.52859 0.0300903C3.74276 0.0300903 0 4.12132 0 8.99395C0 13.8666 3.73332 17.9578 8.52229 17.9578C11.082 17.9578 13.2436 17.043 14.7634 15.45C16.2721 13.8682 17.0446 11.7288 17.0446 9.45612V7.79009H8.52859V11.1237H13.5174C13.2908 11.9163 12.9006 12.5992 12.3862 13.1392C11.5477 14.0175 10.2749 14.6257 8.52387 14.6257C5.71562 14.6257 3.30382 12.1863 3.30382 8.99554L3.30225 8.99395Z"
             fill="#151515"
           />
-        </animated.g>
+        </a.g>
 
-        {/* X group + ® - path 7-8 */}
-        <animated.g style={xStyle}>
+        <a.g
+          style={{
+            transform: scrollY
+              .to([0, 100], [0, -86], "clamp")
+              .to((x) => `translate(${x}px, 0)`),
+          }}
+        >
           <path
             d="M108.411 0.00158821H103.805C101.422 0.00158821 99.2143 1.26739 97.9934 3.33524L96.5413 5.79538L90.7392 0.00317642H82.4702L91.6517 9.16715C92.24 9.76114 93.2926 10.5378 93.8117 10.8268C93.84 10.8427 93.829 10.8856 93.796 10.8856H85.9848V17.6403H87.0766C89.4601 17.6403 91.6674 16.3745 92.8882 14.3066L94.3388 11.8481L100.142 17.6403H108.411L98.8304 8.07764C98.2829 7.52494 97.7071 7.06913 97.1329 6.81501C97.1014 6.80072 97.1108 6.75466 97.1454 6.75466H108.413V0L108.411 0.00158821Z"
             fill="#151515"
           />
-          <path
-            d="M110.886 15.2056C111.552 15.2056 112.093 15.7504 112.093 16.4222C112.093 17.094 111.553 17.6388 110.886 17.6388C110.219 17.6388 109.681 17.094 109.681 16.4222C109.681 15.7504 110.221 15.2056 110.886 15.2056ZM110.886 15.4486C110.353 15.4486 109.922 15.8838 109.922 16.4222C109.922 16.9606 110.353 17.3958 110.886 17.3958C111.42 17.3958 111.851 16.9606 111.851 16.4222C111.851 15.8838 111.42 15.4486 110.886 15.4486ZM110.946 15.8139C111.179 15.8139 111.368 16.0045 111.368 16.2396C111.368 16.3936 111.286 16.5286 111.165 16.6033L111.471 17.0305H111.174L110.911 16.6652H110.644V17.0305H110.403V15.8139H110.946ZM110.946 16.0569H110.644V16.4222H110.946C111.04 16.4222 111.117 16.3491 111.125 16.257V16.2396C111.125 16.1379 111.045 16.0569 110.946 16.0569Z"
-            fill="#151515"
-          />
-        </animated.g>
+        </a.g>
       </svg>
     </Link>
   );

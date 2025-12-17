@@ -10,6 +10,7 @@ import { NavigationLogo } from "./navigationLogo";
 import Menu from "@/components/icons/Menu";
 import Close from "@/components/icons/Close";
 import Logo from "@/components/icons/Logo";
+import XOnlyLogo from "@/components/icons/XOnlyLogo";
 import { useSpring, animated } from "@react-spring/web";
 import { config } from "@react-spring/web";
 
@@ -29,6 +30,11 @@ export function NavigationBar({
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const logoFade = useSpring({
+    opacity: isMenuOpen ? 1 : 0,
+    config: { tension: 300, friction: 35 },
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,13 +73,13 @@ export function NavigationBar({
                 <span>←</span>
                 <span>{backButtonLabel}</span>
               </Link>
-            ) : pathname === "/" ? (
+            ) : pathname !== "/" && pathname !== "/about" && !pathname?.startsWith("/blog/") ? (
               <NavigationLogo />
-            ) : (
+            ) : pathname?.startsWith("/blog/") ? (
               <Link href="/" aria-label="GrowthX Home">
                 <Logo />
               </Link>
-            )}
+            ) : null}
           </div>
 
           {/* Navigation Links - Cols 3-6, 40px gap */}
@@ -141,7 +147,15 @@ export function NavigationBar({
             <span>←</span>
             <span>{backButtonLabel}</span>
           </Link>
-        ) : pathname !== "/" ? (
+        ) : isMenuOpen && (pathname === "/" || pathname === "/about") ? (
+          <animated.div style={logoFade}>
+            <Link href="/" aria-label="GrowthX Home" onClick={handleMenuClose}>
+              <XOnlyLogo />
+            </Link>
+          </animated.div>
+        ) : pathname !== "/" && pathname !== "/about" && !pathname?.startsWith("/blog/") ? (
+          <NavigationLogo />
+        ) : pathname?.startsWith("/blog/") ? (
           <Link href="/" aria-label="GrowthX Home">
             <Logo />
           </Link>
@@ -152,7 +166,7 @@ export function NavigationBar({
           onClick={handleMenuToggle}
           className={cx(
             "flex size-16 items-center justify-center rounded-full  bg-transparent",
-            !showBackButton && pathname === "/" && "ml-auto"
+            !showBackButton && !isMenuOpen && (pathname === "/" || pathname === "/about") && "ml-auto"
           )}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >

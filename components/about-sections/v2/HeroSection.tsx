@@ -1,11 +1,15 @@
 import { Grid } from "@/components/home/grid/gridRoot";
 import { StickyJoinMissionButton } from "./StickyJoinMissionButton";
+import Logo from "@/components/icons/Logo";
 
 export default function HeroSectionv2() {
   return (
-    <section className="pt-48 pb-[76.8px]">
+    <section className="pt-24 md:pt-32 lg:pt-44 pb-32">
       {/* Title */}
       <Grid>
+        <div className="col-span-full md:hidden mb-16">
+          <Logo />
+        </div>
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
           <span className="text-foreground font-semibold">
             Reimagining

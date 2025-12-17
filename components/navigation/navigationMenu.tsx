@@ -24,82 +24,69 @@ export function NavigationMenu({
       aria-hidden={!isOpen}
       className="bg-background/80 backdrop-blur-[64px] aria-hidden: group fixed left-0 top-0 z-[100] flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-y-[100%] aria-hidden:opacity-50"
     >
-      <div className="flex flex-1 flex-col justify-between items-start px-10 pb-12 pt-48 transition-transform duration-1000 group-aria-hidden:translate-y-[15%]">
+      <div className="flex flex-1 flex-col items-start px-16 pb-10 pt-16 transition-transform duration-1000 group-aria-hidden:translate-y-[15%]">
         {/* Top Section - Main Navigation */}
-        <ul className="flex flex-col items-start gap-8 w-full">
-          <li onClick={handleLinkClick}>
+        <ul className="flex flex-col items-start w-full">
+          <li onClick={handleLinkClick} className="h-[54px] flex items-center">
             <Link
               href="/about"
-              className={cx(
-                "text-2xl transition-colors",
-                pathname === "/about"
-                  ? "text-foreground font-medium"
-                  : "text-foreground/40 hover:text-foreground"
-              )}
+              className="text-2xl leading-[1.25] tracking-[-0.03em] font-[520] text-foreground transition-colors hover:opacity-80"
             >
               Company
             </Link>
           </li>
-          <li onClick={handleLinkClick}>
+          <li onClick={handleLinkClick} className="h-[54px] flex items-center">
             <Link
               href="/careers"
-              className={cx(
-                "text-2xl transition-colors",
-                pathname === "/careers"
-                  ? "text-foreground font-medium"
-                  : "text-foreground/40 hover:text-foreground"
-              )}
+              className="text-2xl leading-[1.25] tracking-[-0.03em] font-[520] text-foreground transition-colors hover:opacity-80"
             >
               Careers
             </Link>
           </li>
-          <li onClick={handleLinkClick}>
+          <li onClick={handleLinkClick} className="h-[54px] flex items-center">
             <Link
               href="/blog"
-              className={cx(
-                "text-2xl transition-colors",
-                pathname === "/blog" || pathname?.startsWith("/blog/")
-                  ? "text-foreground font-medium"
-                  : "text-foreground/40 hover:text-foreground"
-              )}
+              className="text-2xl leading-[1.25] tracking-[-0.03em] font-[520] text-foreground transition-colors hover:opacity-80"
             >
               News
             </Link>
           </li>
         </ul>
 
-        {/* Bottom Section - Social Links + CTA */}
-        <ul className="flex flex-col items-start gap-4 w-full">
-          <li onClick={handleLinkClick}>
+        {/* Social Links */}
+        <ul className="flex flex-col items-start w-full mt-[18px]">
+          <li onClick={handleLinkClick} className="h-[40px] flex items-center">
             <a
               href="https://www.linkedin.com/company/growthxai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-foreground/40 hover:text-foreground transition-colors"
+              className="text-lg leading-[1.25] tracking-[-0.06em] font-[520] text-foreground transition-colors hover:opacity-80"
             >
               LinkedIn
             </a>
           </li>
-          <li onClick={handleLinkClick}>
+          <li onClick={handleLinkClick} className="h-[40px] flex items-center">
             <a
               href="https://x.com/growthxai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-foreground/40 hover:text-foreground transition-colors"
+              className="text-lg leading-[1.25] tracking-[-0.06em] font-[520] text-foreground transition-colors hover:opacity-80"
             >
               X
             </a>
           </li>
-          <li onClick={handleLinkClick} className="w-full">
-            <Link
-              href="/book-demo"
-              className="w-full inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
-            >
-              Book a demo
-              <span aria-hidden="true">→</span>
-            </Link>
-          </li>
         </ul>
+
+        {/* Book Demo CTA - 40px from bottom */}
+        <div className="w-full mt-auto" onClick={handleLinkClick}>
+          <Link
+            href="/book-demo"
+            className="w-full inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
+          >
+            Book a demo
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </div>
     </div>
   );
