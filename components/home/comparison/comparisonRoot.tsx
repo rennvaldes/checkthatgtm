@@ -71,7 +71,7 @@ export function ComparisonRoot() {
   });
 
   return (
-    <section className="pt-24 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
+    <section className="pt-20 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
       <SectionHeader
         label={content.label}
         title={content.title}
@@ -100,7 +100,9 @@ export function ComparisonRoot() {
                     Best Choice
                   </div>
                 )}
-                <span className="text-lg leading-[1.5] tracking-[-0.04em]">{column}</span>
+                <span className="text-lg leading-[1.5] tracking-[-0.04em]">
+                  {column}
+                </span>
               </div>
             ))}
           </div>

@@ -10,17 +10,29 @@ export function PlatformFeatures() {
   const content = Data.platformFeatures();
 
   // Track each section with useInView
-  const [contextRef, contextInView] = useInView({ rootMargin: '-25% 0px -75% 0px' });
-  const [strategyRef, strategyInView] = useInView({ rootMargin: '-25% 0px -75% 0px' });
-  const [executionRef, executionInView] = useInView({ rootMargin: '-25% 0px -75% 0px' });
-  const [optimizationRef, optimizationInView] = useInView({ rootMargin: '-25% 0px -75% 0px' });
+  const [contextRef, contextInView] = useInView({
+    rootMargin: "-25% 0px -75% 0px",
+  });
+  const [strategyRef, strategyInView] = useInView({
+    rootMargin: "-25% 0px -75% 0px",
+  });
+  const [executionRef, executionInView] = useInView({
+    rootMargin: "-25% 0px -75% 0px",
+  });
+  const [optimizationRef, optimizationInView] = useInView({
+    rootMargin: "-25% 0px -75% 0px",
+  });
 
   // Determine active feature (first in view wins)
-  const activeFeature = contextInView ? 'context'
-    : strategyInView ? 'strategy'
-    : executionInView ? 'execution'
-    : optimizationInView ? 'optimization'
-    : 'context';
+  const activeFeature = contextInView
+    ? "context"
+    : strategyInView
+    ? "strategy"
+    : executionInView
+    ? "execution"
+    : optimizationInView
+    ? "optimization"
+    : "context";
 
   const scrollToFeature = (featureId: string) => {
     const element = document.getElementById(featureId);
@@ -30,7 +42,7 @@ export function PlatformFeatures() {
   };
 
   return (
-    <section className="pt-24 md:pt-32 lg:pt-44">
+    <section className="pt-20 md:pt-32 lg:pt-44">
       {/* Section Header */}
       <Grid>
         {/* Label - Column 1 on tablet+, full on mobile */}

@@ -14,7 +14,7 @@ export function PeopleRoot({ className }: PeopleRootProps) {
   return (
     <section
       className={cx(
-        "pt-24 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip",
+        "pt-20 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip",
         className
       )}
     >

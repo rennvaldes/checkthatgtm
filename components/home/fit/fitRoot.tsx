@@ -40,7 +40,7 @@ export function FitRoot() {
   }, [content.items.length]);
 
   return (
-    <section className="pt-24 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
+    <section className="pt-20 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
       <SectionHeader
         label={content.label}
         title={content.title}
@@ -87,7 +87,9 @@ export function FitRoot() {
                 )}
                 onClick={() => setActiveIndex(idx)}
               >
-                <span className="text-lg leading-[1.5] tracking-[-0.04em]">{item.title}</span>
+                <span className="text-lg leading-[1.5] tracking-[-0.04em]">
+                  {item.title}
+                </span>
               </div>
             ))}
           </div>
@@ -139,7 +141,9 @@ export function FitRoot() {
 
         {/* Footer CTA */}
         <div className="mt-10 hidden flex-col gap-6 py-10 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-border">
-          <p className="text-lg leading-[1.5] tracking-[-0.04em] text-foreground">{content.footer.text}</p>
+          <p className="text-lg leading-[1.5] tracking-[-0.04em] text-foreground">
+            {content.footer.text}
+          </p>
           <Button href={content.footer.cta.url} fullWidth>
             {content.footer.cta.text}
           </Button>

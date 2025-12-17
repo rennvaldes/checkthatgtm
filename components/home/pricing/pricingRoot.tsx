@@ -71,7 +71,7 @@ export function PricingRoot() {
   });
 
   return (
-    <section className="pt-24 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
+    <section className="pt-20 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
       <SectionHeader
         label={content.label}
         title={content.title}
@@ -165,8 +165,8 @@ export function PricingRoot() {
                 className={cx(
                   "flex items-center gap-5 pl-6 pr-10 h-[48px] border-b-[0.5px]",
                   featureIdx === 0 && "border-t-[0.5px]",
-                  plan.highlight 
-                    ? "bg-yellow border-foreground/40" 
+                  plan.highlight
+                    ? "bg-yellow border-foreground/40"
                     : "border-border"
                 )}
               >

@@ -14,7 +14,7 @@ export function NavigationLogo() {
         viewBox="0 0 113 18"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="h-[18px] w-auto"
+        className="h-[20px] w-auto"
       >
         {/* Growth group - paths 1-6 (G, r, o, w, t, h) */}
         <a.g

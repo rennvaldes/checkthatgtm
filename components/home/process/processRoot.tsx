@@ -26,7 +26,7 @@ export function ProcessRoot({ className }: ProcessRootProps) {
   const content = Data.process();
 
   return (
-    <section className={cx("pt-24 md:pt-32 lg:pt-44", className)}>
+    <section className={cx("pt-20 md:pt-32 lg:pt-44", className)}>
       <Grid>
         {/* Label - 2 columns */}
         <div className="col-span-full md:col-span-2">
