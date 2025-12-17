@@ -26,13 +26,16 @@ export function NavigationMenu({
     >
       <div className="flex flex-1 flex-col items-start px-16 pb-10 pt-16 transition-transform duration-1000 group-aria-hidden:translate-y-[15%]">
         {/* Top Section - Main Navigation */}
+        <div className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light mb-2">
+          Company
+        </div>
         <ul className="flex flex-col items-start w-full">
           <li onClick={handleLinkClick} className="h-[54px] flex items-center">
             <Link
               href="/about"
               className="text-2xl leading-[1.25] tracking-[-0.03em] font-[520] text-foreground transition-colors hover:opacity-80"
             >
-              Company
+              About
             </Link>
           </li>
           <li onClick={handleLinkClick} className="h-[54px] flex items-center">
@@ -54,7 +57,10 @@ export function NavigationMenu({
         </ul>
 
         {/* Social Links */}
-        <ul className="flex flex-col items-start w-full mt-[18px]">
+        <div className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light mb-2 mt-7">
+          Follow us
+        </div>
+        <ul className="flex flex-col items-start w-full">
           <li onClick={handleLinkClick} className="h-[40px] flex items-center">
             <a
               href="https://www.linkedin.com/company/growthxai"
@@ -78,10 +84,10 @@ export function NavigationMenu({
         </ul>
 
         {/* Book Demo CTA - 40px from bottom */}
-        <div className="w-full mt-auto" onClick={handleLinkClick}>
+        <div className="w-full mt-auto flex justify-start" onClick={handleLinkClick}>
           <Link
             href="/book-demo"
-            className="w-full inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-base text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap w-fit"
           >
             Book a demo
             <span aria-hidden="true">→</span>
