@@ -63,7 +63,7 @@ export function NavigationLogo() {
         <a.g
           style={{
             transform: scrollY
-              .to([0, 100], [0, -86], "clamp")
+              .to([0, 100], [0, -82], "clamp")
               .to((x) => `translate(${x}px, 0)`),
           }}
         >

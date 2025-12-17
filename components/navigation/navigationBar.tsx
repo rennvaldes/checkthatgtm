@@ -73,15 +73,11 @@ export function NavigationBar({
                 <span>←</span>
                 <span>{backButtonLabel}</span>
               </Link>
-            ) : pathname !== "/" &&
-              pathname !== "/about" &&
-              !pathname?.startsWith("/blog/") ? (
-              <NavigationLogo />
-            ) : pathname?.startsWith("/blog/") ? (
+            ) : (
               <Link href="/" aria-label="GrowthX Home">
-                <Logo />
+                <Logo className="h-[18px] w-auto" />
               </Link>
-            ) : null}
+            )}
           </div>
 
           {/* Navigation Links - Cols 3-6, 40px gap */}
@@ -140,7 +136,7 @@ export function NavigationBar({
       </nav>
 
       {/* Mobile Header - Logo/Back Button + Hamburger */}
-      <div className="md:hidden fixed top-0 right-1 left-5 z-[110] flex items-center justify-between">
+      <div className="md:hidden fixed top-0 right-1 left-6 z-[110] flex items-center justify-between">
         {showBackButton ? (
           <Link
             href={backButtonHref}
