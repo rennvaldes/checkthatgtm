@@ -104,3 +104,33 @@ Draft content is shown when:
    - /workshop → external Luma link
 
 6. **Production Deployment**: Render.com uses npm for builds and deployments
+
+## Git Commit Convention
+
+**Format**: `<type>(<scope>): <brief description>`
+
+### Rules
+- **Brevity**: Keep subject line under 50 characters
+- **Scope**: Use component/feature name (nav, menu, grid, blog, hero, etc.)
+- **Types**: `feat`, `fix`, `refactor`, `docs`, `style`, `test`, `chore`
+- **Tense**: Present imperative ("add" not "added", "fix" not "fixed")
+- **Case**: Lowercase description, no period at end
+- **No boilerplate**: Omit "Generated with Claude Code" attribution and co-author lines
+
+### Examples
+```
+fix(nav): align demo button left
+feat(menu): add section labels
+refactor(grid): update mobile padding to 24px
+style(blog): format imports
+docs(readme): update setup instructions
+```
+
+### Multi-line commits (when needed)
+Only add body text when absolutely necessary to explain *why* (not *what*):
+```
+fix(nav): prevent logo overlap on mobile
+
+The animated logo was covering navigation items on small screens
+due to z-index stacking context.
+```
