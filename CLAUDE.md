@@ -105,6 +105,19 @@ Draft content is shown when:
 
 6. **Production Deployment**: Render.com uses npm for builds and deployments
 
+## Pre-Commit Workflow
+
+**IMPORTANT**: Before creating any git commit, ALWAYS run:
+
+```bash
+npm run lint
+```
+
+- Must pass with zero errors before committing
+- If lint fails, fix all errors first
+- Never commit with lint errors
+- Never disable ESLint rules to bypass errors (unless explicitly approved)
+
 ## Git Commit Convention
 
 **Format**: `<type>(<scope>): <brief description>`
