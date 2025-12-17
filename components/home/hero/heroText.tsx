@@ -9,12 +9,11 @@ interface HeroTextProps {
 
 export function HeroText({ className }: HeroTextProps) {
   return (
-    <section className={cx("pt-24 md:pt-32 lg:pt-44 pb-32", className)}>
+    <section className={cx("pt-20 md:pt-32 lg:pt-44 pb-32", className)}>
+      {/* Logo - Mobile only, scrolls with content */}
+
       {/* Title */}
       <Grid>
-        <div className="col-span-full md:hidden mb-16">
-          <Logo />
-        </div>
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
           <span className="text-foreground font-semibold">
             The growth engine

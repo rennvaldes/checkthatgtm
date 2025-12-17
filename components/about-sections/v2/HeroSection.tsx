@@ -1,19 +1,13 @@
 import { Grid } from "@/components/home/grid/gridRoot";
 import { StickyJoinMissionButton } from "./StickyJoinMissionButton";
-import Logo from "@/components/icons/Logo";
 
 export default function HeroSectionv2() {
   return (
-    <section className="pt-24 md:pt-32 lg:pt-44 pb-32">
+    <section className="pt-20 md:pt-32 lg:pt-44 pb-32">
       {/* Title */}
       <Grid>
-        <div className="col-span-full md:hidden mb-16">
-          <Logo />
-        </div>
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
-          <span className="text-foreground font-semibold">
-            Reimagining
-          </span>
+          <span className="text-foreground font-semibold">Reimagining</span>
           <br />
           <span className="font-regular text-muted-foreground">
             Service as Software
@@ -35,7 +29,8 @@ export default function HeroSectionv2() {
         {/* Description */}
         <div className="col-span-full md:col-span-8 md:col-start-3 mt-3 md:mt-0">
           <p className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em]">
-            High-quality content production in 8 weeks. Publishing 5 articles per week across multiple topic categories.
+            High-quality content production in 8 weeks. Publishing 5 articles
+            per week across multiple topic categories.
           </p>
         </div>
 

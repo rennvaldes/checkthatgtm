@@ -73,7 +73,9 @@ export function NavigationBar({
                 <span>←</span>
                 <span>{backButtonLabel}</span>
               </Link>
-            ) : pathname !== "/" && pathname !== "/about" && !pathname?.startsWith("/blog/") ? (
+            ) : pathname !== "/" &&
+              pathname !== "/about" &&
+              !pathname?.startsWith("/blog/") ? (
               <NavigationLogo />
             ) : pathname?.startsWith("/blog/") ? (
               <Link href="/" aria-label="GrowthX Home">
@@ -138,7 +140,7 @@ export function NavigationBar({
       </nav>
 
       {/* Mobile Header - Logo/Back Button + Hamburger */}
-      <div className="md:hidden fixed top-2 right-1 left-5 z-[110] flex items-center justify-between">
+      <div className="md:hidden fixed top-0 right-1 left-5 z-[110] flex items-center justify-between">
         {showBackButton ? (
           <Link
             href={backButtonHref}
@@ -153,7 +155,9 @@ export function NavigationBar({
               <XOnlyLogo />
             </Link>
           </animated.div>
-        ) : pathname !== "/" && pathname !== "/about" && !pathname?.startsWith("/blog/") ? (
+        ) : pathname !== "/" &&
+          pathname !== "/about" &&
+          !pathname?.startsWith("/blog/") ? (
           <NavigationLogo />
         ) : pathname?.startsWith("/blog/") ? (
           <Link href="/" aria-label="GrowthX Home">
@@ -166,7 +170,10 @@ export function NavigationBar({
           onClick={handleMenuToggle}
           className={cx(
             "flex size-16 items-center justify-center rounded-full  bg-transparent",
-            !showBackButton && !isMenuOpen && (pathname === "/" || pathname === "/about") && "ml-auto"
+            !showBackButton &&
+              !isMenuOpen &&
+              (pathname === "/" || pathname === "/about") &&
+              "ml-auto"
           )}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
