@@ -14,11 +14,9 @@ export default function VisualHero() {
             className="w-full h-auto"
             priority
           />
-          <div className="absolute inset-0 flex items-center px-6 lg:px-12">
-            <h2 className="text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em] font-regular text-white max-w-[800px]">
-              We&apos;re a team of
-              <br />
-              world-class operators.
+          <div className="absolute inset-0 flex items-center justify-center px-6 lg:px-12">
+            <h2 className="text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em] font-regular text-white max-w-[1280px]">
+              We&apos;re a team of world-class operators.
               <br />
               Fully remote.
             </h2>
