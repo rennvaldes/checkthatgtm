@@ -11,7 +11,6 @@ export default function VisualHero() {
             alt="GrowthX team"
             width={3376}
             height={1680}
-            srcSet="/img/about/company-hero-desktop-1x.webp 1x, /img/about/company-hero-desktop-2x.webp 2x"
             className="w-full h-auto"
             priority
           />
@@ -33,7 +32,6 @@ export default function VisualHero() {
             alt="GrowthX team"
             width={740}
             height={740}
-            srcSet="/img/about/company-hero-mobile-1x.webp 1x, /img/about/company-hero-mobile-2x.webp 2x"
             className="w-full h-auto"
             priority
           />
