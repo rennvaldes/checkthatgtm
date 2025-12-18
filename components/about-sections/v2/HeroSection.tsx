@@ -1,5 +1,4 @@
 import { Grid } from "@/components/home/grid/gridRoot";
-import { StickyJoinMissionButton } from "./StickyJoinMissionButton";
 
 export default function HeroSectionv2() {
   return (
@@ -7,10 +6,12 @@ export default function HeroSectionv2() {
       {/* Title */}
       <Grid>
         <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
-          <span className="text-foreground font-semibold">Reimagining</span>
+          <span className="text-muted-foreground font-regular">
+            Reimagining
+          </span>
           <br />
-          <span className="font-regular text-muted-foreground">
-            Service as Software
+          <span className="font-[520] text-foreground">
+            Service as Software.
           </span>
         </h1>
       </Grid>
@@ -20,25 +21,28 @@ export default function HeroSectionv2() {
         {/* Label */}
         <div className="col-span-full md:col-span-1 flex items-start">
           <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
-            Company
+            In short
           </span>
         </div>
 
         {/* Gap - col 2 is empty */}
 
         {/* Description */}
-        <div className="col-span-full md:col-span-8 md:col-start-3 mt-3 md:mt-0">
+        <div className="col-span-full md:col-span-10 md:col-start-3 mt-3 md:mt-0">
           <p className="text-2xl font-[520] leading-[1.25] tracking-[-0.06em]">
-            High-quality content production in 8 weeks. Publishing 5 articles
-            per week across multiple topic categories.
+            At GrowthX, we believe the future isn&apos;t just building better
+            tools—it&apos;s treating services like software. We structure
+            knowledge work as living code: versioned, observed, and continuously
+            improved through AI-driven workflows with expert refinement at the
+            core.
+            <br />
+            <br />
+            Our services are dynamic, scalable workflows that learn, adapt, and
+            compound value over time. We aren&apos;t here to sell hours or
+            software licenses. We build engines for growth that operate like the
+            best software platforms: fast, flexible, and relentlessly
+            outcome-focused.
           </p>
-        </div>
-
-        {/* Empty cols 9-10 */}
-
-        {/* Button */}
-        <div className="col-span-full md:col-span-2 md:col-start-11 flex justify-start md:justify-end mt-6 md:mt-0">
-          <StickyJoinMissionButton />
         </div>
       </Grid>
     </section>

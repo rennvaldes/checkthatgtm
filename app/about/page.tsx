@@ -1,5 +1,5 @@
 import HeroSectionv2 from "@/components/about-sections/v2/HeroSection";
-import CompanySection from "@/components/about-sections/v2/CompanySection";
+import VisualHero from "@/components/about-sections/v2/VisualHero";
 import Spacer from "@/components/common/Spacer";
 import ValuesSection from "@/components/about-sections/v2/ValuesSection";
 import TeamSection from "@/components/about-sections/v2/TeamSection";
@@ -15,7 +15,7 @@ export default function About() {
       </div>
       <HeroSectionv2 />
       <div className="h-9 sm:h-12 md:h-18 lg:h-[73.8px]" aria-hidden="true" />
-      <CompanySection />
+      <VisualHero />
       <div className="h-8 sm:h-10 md:h-14 lg:h-[59.04px]" aria-hidden="true" />
       <ValuesSection />
       <div className="h-8 sm:h-10 md:h-14 lg:h-[59.04px]" aria-hidden="true" />
