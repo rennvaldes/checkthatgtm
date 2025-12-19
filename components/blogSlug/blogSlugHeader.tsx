@@ -10,11 +10,14 @@ function BlogSlugHeader({
   const {
     category,
     image,
+    hero_image,
     title,
     publisher_name,
     publisher_avatar,
     publisher_legend,
   } = data;
+
+  const displayImage = hero_image || image;
 
   // Handle category as array or string
   const categories = Array.isArray(category)
@@ -63,9 +66,9 @@ function BlogSlugHeader({
       {/* Desktop layout - LTR (image left, content right) */}
       <div className="hidden lg:flex flex-row px-4 pb-4 lg:px-5 lg:pb-5">
         <div className="w-1/2">
-          {image && (
+          {displayImage && (
             <img
-              src={image}
+              src={displayImage}
               alt={title}
               className="w-full aspect-square object-cover"
             />
@@ -163,9 +166,9 @@ function BlogSlugHeader({
           )}
         </div>
 
-        {image && (
+        {displayImage && (
           <img
-            src={image}
+            src={displayImage}
             alt={title}
             className="w-full aspect-square object-cover mt-8"
           />

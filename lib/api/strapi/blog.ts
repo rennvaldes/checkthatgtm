@@ -5,20 +5,23 @@ import { getWithQsParams } from "./config";
 export async function getMainDataAndArticles({
   ofCategory,
   titleSearch,
+  showDrafts,
 }: {
   ofCategory?: string;
   titleSearch?: string;
+  showDrafts?: boolean;
 } = {}) {
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.NEXT_PUBLIC_IS_PULL_REQUEST === "true";
-  const showDrafts = isLocalEnv || isPullRequest;
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
+  const shouldShowDrafts = showDrafts ?? (isLocalEnv || isPullRequest);
 
-  // Query articles directly with publicationState
+  // Query articles directly with status (Strapi v5 syntax)
   const articlesResult = await getWithQsParams("/articles", {
-    publicationState: showDrafts ? 'preview' : 'live',
+    status: shouldShowDrafts ? 'draft' : 'published',
     sort: ['publishedAt:desc'],
     populate: {
       image: true,
+      card_image: true,
       publisher_avatar: true,
       category: true,
     },
@@ -41,7 +44,7 @@ export async function getMainDataAndArticles({
           },
         },
         // Show staging posts in local environment or pull requests
-        showDrafts ? {} : { staging: { $eq: false } },
+        shouldShowDrafts ? {} : { staging: { $eq: false } },
       ],
     },
   });
@@ -65,9 +68,11 @@ export async function getArticle(slug: string, showDrafts: boolean = false) {
 
   const data = await getWithQsParams("/articles", {
     filters,
-    publicationState: showDrafts ? 'preview' : 'live',
+    status: showDrafts ? 'draft' : 'published',
     populate: {
       image: true,
+      card_image: true,
+      hero_image: true,
       image_16x9: true,
       meta_image: true,
       publisher_avatar: true,
@@ -75,6 +80,7 @@ export async function getArticle(slug: string, showDrafts: boolean = false) {
       related_articles: {
         populate: {
           image: true,
+          card_image: true,
           publisher_avatar: true,
           category: true,
         },

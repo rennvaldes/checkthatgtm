@@ -17,6 +17,7 @@ export function BlogCard({
   variant = "regular",
   slug,
   image,
+  card_image,
   image_alt,
   category,
   title,
@@ -27,6 +28,7 @@ export function BlogCard({
   className,
   measureRef,
 }: BlogCardProps) {
+  const displayImage = card_image || image;
   if (variant === "featured") {
     return (
       <Link
@@ -41,7 +43,7 @@ export function BlogCard({
           </p>
           <div className="relative w-full" style={{ aspectRatio: "10/11" }}>
             <Image
-              src={image}
+              src={displayImage}
               alt={image_alt || title}
               fill
               className="object-cover"
@@ -96,7 +98,7 @@ export function BlogCard({
         <div className="hidden md:flex items-center gap-12">
           <div className="relative w-1/2" style={{ aspectRatio: "10/11" }}>
             <Image
-              src={image}
+              src={displayImage}
               alt={image_alt || title}
               fill
               className="object-cover"
@@ -160,7 +162,7 @@ export function BlogCard({
     >
       <picture className="relative w-full" style={{ aspectRatio: "5/3" }}>
         <Image
-          src={image}
+          src={displayImage}
           alt={image_alt || title}
           fill
           className="object-cover"

@@ -16,7 +16,7 @@ function ErrorFallback({ error }: { error: Error }) {
 export default async function CaseStudyArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.NEXT_PUBLIC_IS_PULL_REQUEST === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
 
   return (

@@ -7,6 +7,8 @@ export type CardData = {
   documentId: string;
   id: number;
   image: string;
+  card_image?: string;
+  hero_image?: string;
   image_alt: string;
   category: string;
   title: string;

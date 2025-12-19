@@ -10,7 +10,7 @@ export async function getMainDataAndCaseStudies({
   titleSearch?: string;
 } = {}) {
   const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.NEXT_PUBLIC_IS_PULL_REQUEST === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
   const showDrafts = isLocalEnv || isPullRequest;
 
   return await getWithQsParams("/case-studies", {
@@ -39,7 +39,7 @@ export async function getMainDataAndCaseStudies({
         },
       ],
     },
-    ...(showDrafts ? { publicationState: 'preview' } : {}),
+    status: showDrafts ? 'draft' : 'published',
   });
 }
 
@@ -66,7 +66,7 @@ export async function getCaseStudy(slug: string, showDrafts: boolean = false) {
         },
       },
     },
-    ...(showDrafts ? { publicationState: 'preview' } : {}),
+    status: showDrafts ? 'draft' : 'published',
   });
 
   if (data?.data) {
