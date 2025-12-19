@@ -50,6 +50,8 @@ The outcome was a profitable business in its first full year, built on work that
 
 This year, we partnered with companies including Ramp, Webflow, Baseten, Outreach, Superhuman, SentinelOne, Abnormal Security, Airbyte, Lovable, and Surge AI.
 
+For Lovable, we built a template gallery that showcases ready-to-use app templates—helping developers and teams quickly find starting points for their projects.
+
 Our role went beyond producing content.
 
 We helped teams set up:
@@ -88,7 +90,7 @@ Growth work doesn't happen in isolation.
 
 This year we continued investing in in-person and small-group conversations through our CXO Breakfast Series. Our December event was the most attended of the year, with strong feedback and open discussion among operators.
 
-We also expanded the AI-Led Growth Community, which is open and practical in nature. It's become a place for GTM leaders to compare notes, share what's working, and talk candidly about what isn't.
+We also expanded the [AI-Led Growth Community](https://ailedgrowth.com), which is open and practical in nature. It's become a place for GTM leaders to compare notes, share what's working, and talk candidly about what isn't.
 
 These conversations remain an important part of how we learn and improve.`,
   },
