@@ -23,7 +23,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const fields = data.attributes || data;
   const { meta_title, meta_description, meta_image, image_16x9, image, title, description } = fields;
 
-  const imageUrl = (meta_image && meta_image.url) || (image_16x9 && image_16x9.url) || (image && image.url);
+  // Override preview images for specific blog posts
+  let customImageUrl = null;
+  const slug = resolvedParams.slug;
+  if (slug === 'growth-x-2025-year-in-review') {
+    customImageUrl = '/images/blog/yir.png';
+  } else if (slug === 'announcing-growth-x-ai' || slug === 'announcing-growthx-ai') {
+    customImageUrl = '/images/blog/announcing.png';
+  } else if (slug === 'growth-x-raises-12-m-series-a' || slug === 'growthx-raises-12m-series-a') {
+    customImageUrl = '/images/blog/funding.png';
+  }
+
+  const imageUrl = customImageUrl || (meta_image && meta_image.url) || (image_16x9 && image_16x9.url) || (image && image.url);
   const ogImage = imageUrl
     ? [{
         url: imageUrl,

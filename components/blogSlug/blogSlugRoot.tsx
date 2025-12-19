@@ -25,7 +25,7 @@ const NEW_CONTENT_SECTIONS = [
 - We helped category-leading companies turn content into measurable pipeline and revenue
 - We scaled quickly while keeping quality and judgment intact
 
-![Event Photos.png](https://glowing-rainbow-627a62133d.media.strapiapp.com/Event_Photos_151c1ea154.png)
+![Intro](/images/blog/intro.png)
 
 ## From an idea to a working company
 
@@ -93,13 +93,13 @@ This year we continued investing in in-person and small-group conversations thro
 
 We also expanded the AI-Led Growth Community, which is open and practical in nature. It's become a place for GTM leaders to compare notes, share what's working, and talk candidly about what isn't.
 
-These conversations remain an important part of how we learn and improve.
-
-![Event Photos.png](https://glowing-rainbow-627a62133d.media.strapiapp.com/Event_Photos_151c1ea154.png)`,
+These conversations remain an important part of how we learn and improve.`,
   },
   {
     // Section 5: After fourth image
-    text: `## Platform and internal foundations
+    text: `![Tech](/images/blog/tech.png)
+
+## Platform and internal foundations
 
 Behind the scenes, our product, engineering, and design teams focused on increasing reliability and capacity.
 
@@ -115,7 +115,7 @@ More of this will become visible over time.`,
   },
   {
     // Section 6: Final section
-    text: `![Event Photos.png](https://glowing-rainbow-627a62133d.media.strapiapp.com/Event_Photos_151c1ea154.png)
+    text: `![Closing](/images/blog/closing.png)
 
 ## What I'm most proud of
 
@@ -296,16 +296,24 @@ export default function BlogSlugRoot({
   // Process content to map new text while preserving images
   let processedContent = articleData.content;
   let displayTitle = articleData.title;
+  let displayImage = articleData.image;
 
-  if (isYearReviewPost && articleData.content) {
+  // Override header images for specific posts based on title matching
+  if (isYearReviewPost) {
     displayTitle = "GrowthX 2025: Building Real Growth";
+    displayImage = '/images/blog/yir.png';
     processedContent = mapContentWithImages(articleData.content);
+  } else if (articleData?.title?.toLowerCase().includes("announcing") && articleData?.title?.toLowerCase().includes("growthx")) {
+    displayImage = '/images/blog/announcing.png';
+  } else if (articleData?.title?.toLowerCase().includes("raises") && articleData?.title?.toLowerCase().includes("12m")) {
+    displayImage = '/images/blog/funding.png';
   }
 
   const displayData = {
     ...articleData,
     title: displayTitle,
     content: processedContent,
+    image: displayImage,
   };
 
   return (
