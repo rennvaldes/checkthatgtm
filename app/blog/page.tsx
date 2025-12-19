@@ -8,13 +8,9 @@ import { BlogPageWrapper } from "@/components/blog/blogAnimations";
 export const revalidate = 60;
 
 export default async function BlogIndexPage() {
-  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
-  const showDrafts = isLocalEnv || isPullRequest;
-
   // Fetch articles and categories from Strapi in parallel
   const [rawData, rawCategoriesData] = await Promise.all([
-    getMainDataAndArticles({ showDrafts }),
+    getMainDataAndArticles(),
     getArticleCategories(),
   ]);
 

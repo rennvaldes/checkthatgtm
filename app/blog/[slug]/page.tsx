@@ -7,11 +7,8 @@ import { getCardFromStrapiRawData } from '@/lib/utils';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
-  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
-  const showDrafts = isLocalEnv || isPullRequest;
 
-  const { data } = await getArticle(resolvedParams.slug, showDrafts);
+  const { data } = await getArticle(resolvedParams.slug);
 
   if (!data) {
     return {
@@ -23,18 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const fields = data.attributes || data;
   const { meta_title, meta_description, meta_image, image_16x9, image, title, description } = fields;
 
-  // Override preview images for specific blog posts
-  let customImageUrl = null;
-  const slug = resolvedParams.slug;
-  if (slug === 'growth-x-2025-year-in-review') {
-    customImageUrl = '/images/blog/yir.png';
-  } else if (slug === 'announcing-growth-x-ai' || slug === 'announcing-growthx-ai') {
-    customImageUrl = '/images/blog/announcing.png';
-  } else if (slug === 'growth-x-raises-12-m-series-a' || slug === 'growthx-raises-12m-series-a') {
-    customImageUrl = '/images/blog/funding.png';
-  }
-
-  const imageUrl = customImageUrl || (meta_image && meta_image.url) || (image_16x9 && image_16x9.url) || (image && image.url);
+  const imageUrl = (meta_image && meta_image.url) || (image_16x9 && image_16x9.url) || (image && image.url);
   const ogImage = imageUrl
     ? [{
         url: imageUrl,
@@ -64,12 +50,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
-  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
-  const showDrafts = isLocalEnv || isPullRequest;
 
   // Fetch data server-side
-  const rawData = await getArticle(slug, showDrafts);
+  const rawData = await getArticle(slug);
   const articleData = rawData?.data ? getCardFromStrapiRawData(rawData.data) : {};
 
   // Construct URL from request headers (Next.js best practice)
@@ -81,9 +64,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <BlogSlugRoot
       articleData={articleData}
-      showDrafts={showDrafts}
-      isLocalEnv={isLocalEnv}
-      isPullRequest={isPullRequest}
       currentUrl={currentUrl}
     />
   );

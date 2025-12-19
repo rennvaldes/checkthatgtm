@@ -5,20 +5,14 @@ import { getWithQsParams } from "./config";
 export async function getMainDataAndArticles({
   ofCategory,
   titleSearch,
-  showDrafts,
 }: {
   ofCategory?: string;
   titleSearch?: string;
-  showDrafts?: boolean;
 } = {}) {
-  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
-  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
-  const shouldShowDrafts = showDrafts ?? (isLocalEnv || isPullRequest);
-
-  // Query articles directly with status (Strapi v5 syntax)
+  // Always show only published articles
   const articlesResult = await getWithQsParams("/articles", {
-    status: shouldShowDrafts ? 'draft' : 'published',
-    sort: ['publishedAt:desc'],
+    status: 'published',
+    sort: ['createdAt:desc'],
     populate: {
       image: true,
       card_image: true,
@@ -43,8 +37,8 @@ export async function getMainDataAndArticles({
             $containsi: titleSearch ?? undefined,
           },
         },
-        // Show staging posts in local environment or pull requests
-        shouldShowDrafts ? {} : { staging: { $eq: false } },
+        // Always hide staging posts
+        { staging: { $eq: false } },
       ],
     },
   });
@@ -58,17 +52,17 @@ export async function getMainDataAndArticles({
   };
 }
 
-export async function getArticle(slug: string, showDrafts: boolean = false) {
+export async function getArticle(slug: string) {
   const filters = {
     $and: [
       { slug: { $eq: slug } },
-      showDrafts ? {} : { staging: { $eq: false } },
+      { staging: { $eq: false } },
     ],
   };
 
   const data = await getWithQsParams("/articles", {
     filters,
-    status: showDrafts ? 'draft' : 'published',
+    status: 'published',
     populate: {
       image: true,
       card_image: true,
