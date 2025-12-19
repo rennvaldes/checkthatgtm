@@ -9,7 +9,12 @@ export async function getMainDataAndArticles({
   ofCategory?: string;
   titleSearch?: string;
 } = {}) {
-  // Always show only published articles
+  // Show staging articles on local dev and PR preview environments
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
+  const showStaging = isLocalEnv || isPullRequest;
+
+  // Always show only published articles (hide drafts everywhere)
   const articlesResult = await getWithQsParams("/articles", {
     status: 'published',
     sort: ['createdAt:desc'],
@@ -37,8 +42,8 @@ export async function getMainDataAndArticles({
             $containsi: titleSearch ?? undefined,
           },
         },
-        // Always hide staging posts
-        { staging: { $eq: false } },
+        // Show staging posts on local dev and PR previews, hide on production
+        showStaging ? {} : { staging: { $eq: false } },
       ],
     },
   });
@@ -53,10 +58,16 @@ export async function getMainDataAndArticles({
 }
 
 export async function getArticle(slug: string) {
+  // Show staging articles on local dev and PR preview environments
+  const isLocalEnv = process.env.NEXT_PUBLIC_STRAPI_IS_LOCAL_ENV === "true";
+  const isPullRequest = process.env.IS_PULL_REQUEST === "true";
+  const showStaging = isLocalEnv || isPullRequest;
+
   const filters = {
     $and: [
       { slug: { $eq: slug } },
-      { staging: { $eq: false } },
+      // Show staging posts on local dev and PR previews, hide on production
+      showStaging ? {} : { staging: { $eq: false } },
     ],
   };
 
