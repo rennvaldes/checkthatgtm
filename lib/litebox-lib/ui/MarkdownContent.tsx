@@ -52,11 +52,16 @@ const listIcon = (
 );
 
 const getImageDimensionsFromUrl = (imageUrl: string): ImageDimensions => {
-  const url = new URL(imageUrl);
-  const width = Number(url.searchParams.get("width")) || 800;
-  const height = Number(url.searchParams.get("height")) || 600;
-
-  return { width, height };
+  // Check if it's a relative path (local image) or a full URL
+  try {
+    const url = new URL(imageUrl);
+    const width = Number(url.searchParams.get("width")) || 800;
+    const height = Number(url.searchParams.get("height")) || 600;
+    return { width, height };
+  } catch (e) {
+    // If it's a relative path, return default dimensions
+    return { width: 800, height: 600 };
+  }
 };
 
 const createCustomHeading = (Tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") => {
