@@ -6,9 +6,6 @@ import { CtaSection } from "@/components/home/footer";
 
 interface BlogSlugRootProps {
   articleData: any;
-  showDrafts: boolean;
-  isLocalEnv: boolean;
-  isPullRequest: boolean;
   currentUrl: string;
 }
 
@@ -283,45 +280,32 @@ function mapContentWithImages(originalContent: string): string {
 
 export default function BlogSlugRoot({
   articleData,
-  showDrafts,
-  isLocalEnv,
-  isPullRequest,
   currentUrl,
 }: BlogSlugRootProps) {
   // Check if this is the GrowthX 2025 Year in Review post
-  const isYearReviewPost = 
-    articleData?.title?.includes("2025") && 
+  const isYearReviewPost =
+    articleData?.title?.includes("2025") &&
     (articleData?.title?.includes("Year") || articleData?.title?.includes("Building Real Growth"));
 
   // Process content to map new text while preserving images
   let processedContent = articleData.content;
   let displayTitle = articleData.title;
-  let displayImage = articleData.image;
 
-  // Override header images for specific posts based on title matching
+  // Override content for Year in Review post
   if (isYearReviewPost) {
     displayTitle = "GrowthX 2025: Building Real Growth";
-    displayImage = '/images/blog/yir.png';
     processedContent = mapContentWithImages(articleData.content);
-  } else if (articleData?.title?.toLowerCase().includes("announcing") && articleData?.title?.toLowerCase().includes("growthx")) {
-    displayImage = '/images/blog/announcing.png';
-  } else if (articleData?.title?.toLowerCase().includes("raises") && articleData?.title?.toLowerCase().includes("12m")) {
-    displayImage = '/images/blog/funding.png';
   }
 
   const displayData = {
     ...articleData,
     title: displayTitle,
     content: processedContent,
-    image: displayImage,
   };
 
   return (
     <main
       className="relative flex min-h-screen flex-col items-center justify-start pt-[122px] md:pt-0"
-      data-show-drafts={showDrafts}
-      data-is-pull-request={isPullRequest}
-      data-is-local-env={isLocalEnv}
     >
       <BlogSlugHeader isLoading={false} data={displayData} />
       <BlogSlugContent
