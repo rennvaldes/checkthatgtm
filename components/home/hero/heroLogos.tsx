@@ -12,8 +12,8 @@ import {
   RedditLogo,
   SuperhumanLogo,
   DeepgramLogo,
-  ScaleAILogo,
-  AugmentLogo,
+  ServiceTitanLogo,
+  OktaLogo,
   BrexLogo,
   AirbyteLogo,
   EngineLogo,
@@ -23,7 +23,7 @@ import {
   GalileoLogo,
   RelayLogo,
   YouDotComLogo,
-  SemrushLogo,
+  Auth0Logo,
 } from "@/components/home/assets/assetsLogos";
 
 interface HeroLogosProps {
@@ -40,8 +40,8 @@ const ODD_POSITION_LOGOS = [
   { id: 11, pos: 11, logo: <SuperhumanLogo /> },
   { id: 13, pos: 13, logo: <GalileoLogo /> },
   { id: 15, pos: 15, logo: <DeepgramLogo /> },
-  { id: 17, pos: 17, logo: <ScaleAILogo /> },
-  { id: 19, pos: 19, logo: <SemrushLogo /> },
+  { id: 17, pos: 17, logo: <ServiceTitanLogo /> },
+  { id: 19, pos: 19, logo: <Auth0Logo /> },
   { id: 21, pos: 21, logo: <BrexLogo /> },
   { id: 23, pos: 23, logo: <EngineLogo /> },
   { id: 25, pos: 25, logo: <LovableLogo /> },
@@ -50,7 +50,7 @@ const ODD_POSITION_LOGOS = [
 
 // EVEN POSITIONS - State B (13 logos)
 const EVEN_POSITION_LOGOS = [
-  { id: 2, pos: 2, logo: <AugmentLogo /> },
+  { id: 2, pos: 2, logo: <OktaLogo /> },
   { id: 4, pos: 4, logo: <AirbyteLogo /> },
   { id: 6, pos: 6, logo: <MetronomeLogo /> },
   { id: 8, pos: 8, logo: <SurgeLogo /> },
@@ -86,7 +86,7 @@ function AnimatedLogo({
   return (
     <animated.div
       style={spring}
-      className="absolute inset-0 flex items-center justify-center [&_svg]:max-h-5 [&_svg]:w-auto"
+      className="absolute inset-0 flex items-center justify-center [&_svg]:max-h-5 [&_svg]:w-auto transform-gpu"
     >
       {logo}
     </animated.div>
@@ -148,7 +148,9 @@ export function HeroLogos({ className }: HeroLogosProps) {
           // Row 7: Logo, Empty, Logo
           // Row 8: Empty, Logo, Empty
           // Row 9: Logo, Empty, Logo
-          const logoPositions = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27];
+          const logoPositions = [
+            1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27,
+          ];
           const hasLogo = logoPositions.includes(position);
           const logoIndex = logoPositions.indexOf(position);
 
@@ -218,11 +220,19 @@ export function HeroLogos({ className }: HeroLogosProps) {
           // Positions 1-9 are row 1, 10-18 are row 2, 19-27 are row 3
           const isRow1 = position <= 9;
           const isRow2 = position > 9 && position <= 18;
-          const column = isRow1 ? position - 1 : isRow2 ? position - 10 : position - 19;
+          const column = isRow1
+            ? position - 1
+            : isRow2
+            ? position - 10
+            : position - 19;
           // Row 1: 0ms, 100ms, 200ms, ...
           // Row 2: 100ms, 200ms, 300ms, ... (adds 100ms base delay)
           // Row 3: 200ms, 300ms, 400ms, ... (adds 200ms base delay)
-          const staggerDelay = isRow1 ? column * 100 : isRow2 ? 100 + column * 100 : 200 + column * 100;
+          const staggerDelay = isRow1
+            ? column * 100
+            : isRow2
+            ? 100 + column * 100
+            : 200 + column * 100;
 
           return (
             <div
