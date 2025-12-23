@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { cx } from "@/lib/classnames";
 import { Data } from "@/lib/data";
 import { IconCheck } from "@/components/home/assets/assetsIcons";
@@ -10,34 +10,61 @@ import { Button } from "@/components/home/button";
 export function FitRoot() {
   const [activeIndex, setActiveIndex] = useState(1); // Start with item 2 (index 1) which has description
   const content = Data.fit();
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const mediaQueryRef = useRef<MediaQueryList | null>(null);
+
+  // Setup interval function
+  const setupInterval = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    if (mediaQueryRef.current?.matches) {
+      intervalRef.current = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % content.items.length);
+      }, 3000);
+    }
+  }, [content.items.length]);
+
+  // Reset interval on manual interaction (desktop only)
+  const resetInterval = useCallback(() => {
+    if (mediaQueryRef.current?.matches) {
+      setupInterval();
+    }
+  }, [setupInterval]);
+
+  // Click handlers
+  const handleDesktopClick = useCallback((idx: number) => () => {
+    setActiveIndex(idx);
+    resetInterval();
+  }, [resetInterval]);
+
+  const handleMobileClick = useCallback((idx: number) => () => {
+    setActiveIndex((prev) => {
+      // If clicking the open section, cycle to next
+      if (prev === idx) {
+        return (idx + 1) % content.items.length;
+      }
+      // Otherwise, open the clicked section
+      return idx;
+    });
+  }, [content.items.length]);
 
   // Auto-cycle through items every 3 seconds (desktop only)
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    mediaQueryRef.current = window.matchMedia("(min-width: 768px)");
 
-    const setupInterval = () => {
-      if (mediaQuery.matches) {
-        return setInterval(() => {
-          setActiveIndex((prev) => (prev + 1) % content.items.length);
-        }, 3000);
-      }
-      return null;
-    };
-
-    let interval = setupInterval();
+    setupInterval();
 
     const handleChange = () => {
-      if (interval) clearInterval(interval);
-      interval = setupInterval();
+      setupInterval();
     };
 
-    mediaQuery.addEventListener("change", handleChange);
+    mediaQueryRef.current.addEventListener("change", handleChange);
 
     return () => {
-      if (interval) clearInterval(interval);
-      mediaQuery.removeEventListener("change", handleChange);
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      mediaQueryRef.current?.removeEventListener("change", handleChange);
     };
-  }, [content.items.length]);
+  }, [setupInterval]);
 
   return (
     <section className="pt-20 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
@@ -61,7 +88,7 @@ export function FitRoot() {
                     "border-b-[0.5px] border-border",
                   activeIndex === idx ? "bg-foreground" : "bg-background"
                 )}
-                onClick={() => setActiveIndex(idx)}
+                onClick={handleDesktopClick(idx)}
               >
                 <div
                   className={cx("w-4 h-4", activeIndex === idx ? "invert" : "")}
@@ -85,7 +112,7 @@ export function FitRoot() {
                     ? "text-foreground"
                     : "text-muted-foreground"
                 )}
-                onClick={() => setActiveIndex(idx)}
+                onClick={handleDesktopClick(idx)}
               >
                 <span className="text-lg leading-[1.5] tracking-[-0.04em]">
                   {item.title}
@@ -119,7 +146,7 @@ export function FitRoot() {
           {content.items.map((item, idx) => (
             <div key={idx} className="border-b-[0.5px] border-border">
               <button
-                onClick={() => setActiveIndex(activeIndex === idx ? -1 : idx)}
+                onClick={handleMobileClick(idx)}
                 className="w-full flex items-center gap-3 py-4 text-left"
               >
                 <IconCheck />
