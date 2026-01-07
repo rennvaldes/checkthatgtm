@@ -29,6 +29,7 @@ export function PeopleCompanyLogos({ companies }: PeopleCompanyLogosProps) {
               height={48}
               className="size-9 md:size-12 shrink-0"
               sizes="48px"
+              placeholder={false}
             />
             <span className="text-foreground text-xs md:text-sm whitespace-nowrap max-w-0 group-hover:max-w-[200px] overflow-hidden transition-all duration-300 ease-in-out group-hover:ml-1 md:group-hover:ml-1.5">
               {company.name}
