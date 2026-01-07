@@ -1,21 +1,19 @@
 import { Fragment } from "react";
-import Image from "next/image";
+import { CloudflareImage } from "@/components/ui/CloudflareImage";
 import { GridRoot } from "@/components/home/grid/gridRoot";
-import MarcelImage from "@/public/images/avatars/avatar-marcel.webp";
-import DanielImage from "@/public/images/avatars/avatar-daniel.webp";
 
 const founders = [
   {
     name: "Marcel Santilli",
     role: "Co-Founder & CEO · Ex-CMO at Deepgram, Scale AI, HashiCorp, ServiceTitan",
     bio: "Marcel spent 15+ years building growth engines at companies that went on to $9B-$29B outcomes. Now he's brought that playbook to GrowthX AI.",
-    image: MarcelImage,
+    image: "/images/avatars/avatar-marcel.webp",
   },
   {
     name: "Daniel Lopes",
     role: "Co-Founder & CTO · Ex-Canopy (37signals spin-off)",
     bio: "Daniel leads engineering and product at GrowthX AI, building the systems that turn content into growth.",
-    image: DanielImage,
+    image: "/images/avatars/avatar-daniel.webp",
   },
 ];
 
@@ -68,11 +66,11 @@ export function AboutFounders() {
               <li className="flex-1 py-8 tablet:p-12 desktop:p-16 cinema:p-32 flex flex-col">
                 {/* Photo */}
                 <div className="relative aspect-square w-full overflow-hidden">
-                  <Image
+                  <CloudflareImage
                     src={founder.image}
                     alt={founder.name}
                     fill
-                    sizes="(min-width:1180px) 50vw, 100vw"
+                    sizes={{ desktop: "50vw", mobile: "100vw" }}
                     className="object-cover"
                   />
                 </div>

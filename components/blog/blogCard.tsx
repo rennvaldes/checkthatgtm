@@ -3,7 +3,7 @@
 import { cn } from "@/lib/litebox-lib/utils/cn";
 import { CardData } from "@/static/types";
 import Link from "next/link";
-import Image from "next/image";
+import { CloudflareImage } from "@/components/ui/CloudflareImage";
 import { Ref } from "react";
 
 type BlogCardProps = CardData & {
@@ -42,7 +42,7 @@ export function BlogCard({
             Highlight
           </p>
           <div className="relative w-full" style={{ aspectRatio: "10/11" }}>
-            <Image
+            <CloudflareImage
               src={displayImage}
               alt={image_alt || title}
               fill
@@ -71,7 +71,7 @@ export function BlogCard({
             )}
             <div className="flex items-center gap-2">
               <picture className="relative w-9 h-9 rounded-full overflow-hidden">
-                <Image
+                <CloudflareImage
                   src={publisher_avatar}
                   alt={publisher_name}
                   fill
@@ -97,7 +97,7 @@ export function BlogCard({
         {/* Tablet+: HStack 50/50 */}
         <div className="hidden md:flex items-center gap-12">
           <div className="relative w-1/2" style={{ aspectRatio: "10/11" }}>
-            <Image
+            <CloudflareImage
               src={displayImage}
               alt={image_alt || title}
               fill
@@ -126,7 +126,7 @@ export function BlogCard({
             )}
             <div className="flex items-center gap-2">
               <picture className="relative w-9 h-9 rounded-full overflow-hidden">
-                <Image
+                <CloudflareImage
                   src={publisher_avatar}
                   alt={publisher_name}
                   fill
@@ -161,7 +161,7 @@ export function BlogCard({
       style={{ aspectRatio: "1/1" }}
     >
       <picture className="relative w-full" style={{ aspectRatio: "5/3" }}>
-        <Image
+        <CloudflareImage
           src={displayImage}
           alt={image_alt || title}
           fill
@@ -188,11 +188,12 @@ export function BlogCard({
         {/* Chin bottom: Publisher meta */}
         <div className="flex items-center gap-2">
           <picture className="relative w-9 h-9 rounded-full overflow-hidden">
-            <Image
+            <CloudflareImage
               src={publisher_avatar}
               alt={publisher_name}
               fill
               className="object-cover"
+              sizes="36px"
             />
           </picture>
           <div className="flex items-center gap-1 text-sm tracking-[-0.04em]">
