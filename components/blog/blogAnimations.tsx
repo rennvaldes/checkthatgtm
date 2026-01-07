@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useMemo } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, a } from "@react-spring/web";
 import { useHasMountedWhen } from "@/hooks/useHasMountedWhen";
 import { useIntersection } from "@/hooks/useIntersection";
 import { useMedia } from "@/lib/hooks";
@@ -31,9 +31,9 @@ export function BlogPageWrapper({
   });
 
   return (
-    <animated.div style={fadeInSpring} className={className}>
+    <a.div style={fadeInSpring} className={className}>
       {children}
-    </animated.div>
+    </a.div>
   );
 }
 
@@ -105,8 +105,8 @@ export function ScrollAnimationWrapper({
   }
 
   return (
-    <animated.div ref={setRef} style={springs} className={className}>
+    <a.div ref={setRef} style={springs} className={className}>
       {children}
-    </animated.div>
+    </a.div>
   );
 }

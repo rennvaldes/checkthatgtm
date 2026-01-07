@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, a } from "@react-spring/web";
 import { cx } from "@/lib/classnames";
 import { Data } from "@/lib/data";
 import { IconCheck } from "@/components/home/assets/assetsIcons";
@@ -31,7 +31,7 @@ function PlanTabButton({
   });
 
   return (
-    <animated.button
+    <a.button
       ref={tabRef}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
@@ -45,7 +45,7 @@ function PlanTabButton({
       }}
     >
       {planName}
-    </animated.button>
+    </a.button>
   );
 }
 
@@ -214,7 +214,7 @@ export function PricingRoot() {
               }}
             />
           ))}
-          <animated.div
+          <a.div
             className="absolute bottom-0 left-0 h-[2px] bg-foreground"
             style={indicatorSpring}
           />

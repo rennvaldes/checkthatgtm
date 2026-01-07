@@ -7,13 +7,15 @@ import { GridRoot } from "@/components/home/grid/gridRoot";
 import Link from "next/link";
 import { NavigationMenu } from "./navigationMenu";
 import Logo from "@/components/icons/Logo";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, a } from "@react-spring/web";
+import { useScrollDirection } from "@/lib/hooks";
 
 type NavigationBarProps = {
   showBackButton?: boolean;
   backButtonHref?: string;
   backButtonLabel?: string;
   showBookButton?: boolean;
+  enableScrollAway?: boolean;
 };
 
 export function NavigationBar({
@@ -21,10 +23,20 @@ export function NavigationBar({
   backButtonHref = "/blog",
   backButtonLabel = "News overview",
   showBookButton = true,
+  enableScrollAway = false,
 }: NavigationBarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { isVisible: isScrollVisible } = useScrollDirection();
+
+  // Only apply scroll-away behavior when enabled
+  const shouldShowNav = enableScrollAway ? isScrollVisible : true;
+
+  const navSpring = useSpring({
+    transform: shouldShowNav ? "translateY(0%)" : "translateY(-100%)",
+    config: { tension: 300, friction: 30 },
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +58,8 @@ export function NavigationBar({
   return (
     <>
       {/* Desktop Nav */}
-      <nav
+      <a.nav
+        style={navSpring}
         className={cx(
           "hidden md:block w-full h-16 sticky top-0 z-50",
           "bg-background/75 backdrop-blur-[15px]"
@@ -125,10 +138,10 @@ export function NavigationBar({
             )}
           </div>
         </GridRoot>
-      </nav>
+      </a.nav>
 
       {/* Mobile Header - Back Button or Hamburger */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-110">
+      <a.div style={navSpring} className="md:hidden fixed top-0 left-0 right-0 z-110">
         <GridRoot size="normal" className="h-16 items-center">
           <div className="flex items-center justify-between">
             {showBackButton ? (
@@ -151,7 +164,7 @@ export function NavigationBar({
             </button>
           </div>
         </GridRoot>
-      </div>
+      </a.div>
 
       {/* Mobile Menu Overlay */}
       <NavigationMenu
@@ -179,14 +192,14 @@ const Lines = ({ isOpen }: { isOpen: boolean }) => {
         fill="none"
         strokeWidth="3.3"
       />
-      <animated.g
+      <a.g
         style={{
           transform: spring.v
             .to([0, 1], [90, 315])
             .to((r) => `rotate(${r}deg)`),
         }}
       >
-        <animated.line
+        <a.line
           x1={spring.v.to([0, 1], [0, -11])}
           y1={0}
           x2={spring.v.to([0, 1], [0, 11])}
@@ -196,7 +209,7 @@ const Lines = ({ isOpen }: { isOpen: boolean }) => {
           strokeLinecap="round"
           opacity={spring.v.to([0, 1], [0, 1])}
         />
-        <animated.line
+        <a.line
           x1={spring.v.to([0, 1], [-5, 0])}
           y1={11}
           x2={spring.v.to([0, 1], [-5, 0])}
@@ -205,7 +218,7 @@ const Lines = ({ isOpen }: { isOpen: boolean }) => {
           strokeWidth="4.7"
           strokeLinecap="round"
         />
-        <animated.line
+        <a.line
           x1={spring.v.to([0, 1], [5, 0])}
           y1={11}
           x2={spring.v.to([0, 1], [5, 0])}
@@ -215,7 +228,7 @@ const Lines = ({ isOpen }: { isOpen: boolean }) => {
           strokeLinecap="round"
           opacity={spring.v.to([0, 1], [1, 0])}
         />
-      </animated.g>
+      </a.g>
     </svg>
   );
 };

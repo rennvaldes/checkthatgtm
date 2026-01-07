@@ -13,9 +13,16 @@ export default function ConditionalNavbar() {
 
   // Blog article pages - show back button
   if (pathname?.startsWith("/blog/") && pathname !== "/blog") {
-    return <NavigationBar showBackButton backButtonHref="/blog" backButtonLabel="News overview" />;
+    return (
+      <NavigationBar
+        showBackButton
+        backButtonHref="/blog"
+        backButtonLabel="News overview"
+        enableScrollAway
+      />
+    );
   }
 
   // All other pages use new unified navigation
-  return <NavigationBar />;
+  return <NavigationBar enableScrollAway />;
 }

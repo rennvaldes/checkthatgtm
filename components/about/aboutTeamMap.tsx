@@ -1,6 +1,6 @@
 "use client";
 
-import { animated, useSpring } from "@react-spring/web";
+import { a, useSpring } from "@react-spring/web";
 import { useRef, useState, useEffect } from "react";
 import { GridRoot } from "@/components/home/grid/gridRoot";
 import { useIntersection } from "@/hooks/useIntersection";
@@ -69,7 +69,7 @@ function SVGPhotoMarker({
       height={svgSize}
       style={{ overflow: "visible" }}
     >
-      <animated.div
+      <a.div
         ref={setRef}
         className="w-full h-full rounded-full overflow-hidden"
         style={{
@@ -82,7 +82,7 @@ function SVGPhotoMarker({
           alt={name}
           className="object-cover w-full h-full"
         />
-      </animated.div>
+      </a.div>
     </foreignObject>
   );
 }
@@ -260,7 +260,7 @@ function AnimatedLottieEarth() {
       preserveAspectRatio="xMidYMid meet"
     >
       <g transform="matrix(0.731,0,0,0.731,-236.84,-363.41)" opacity="1">
-        <animated.g
+        <a.g
           opacity="1"
           transform={styles.x.to((x) => `matrix(1,0,0,1,${x},0)`)}
         >
@@ -279,7 +279,7 @@ function AnimatedLottieEarth() {
               index={index}
             />
           ))}
-        </animated.g>
+        </a.g>
       </g>
     </svg>
   );

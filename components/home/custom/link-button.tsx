@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, a } from "@react-spring/web";
 import Link from "next/link";
 import { cx } from "@/lib/classnames";
 import { IconArrowRight } from "@/components/home/assets/assetsIcons";
@@ -58,23 +58,23 @@ export function LinkButton({
 
   if (isExternal) {
     return (
-      <animated.a
+      <a.a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
         {...commonProps}
       >
         {content}
-      </animated.a>
+      </a.a>
     );
   }
 
   // For internal links, use Next.js Link
   return (
     <Link href={href} passHref legacyBehavior>
-      <animated.a {...commonProps}>
+      <a.a {...commonProps}>
         {content}
-      </animated.a>
+      </a.a>
     </Link>
   );
 }

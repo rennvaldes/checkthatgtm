@@ -1,6 +1,6 @@
 "use client";
 
-import { animated, useSpring } from "@react-spring/web";
+import { a, useSpring } from "@react-spring/web";
 
 interface Feature {
   id: string;
@@ -45,10 +45,10 @@ function NavItem({
         onClick={onClick}
         className="text-left w-full text-base hover:opacity-100 transition-opacity flex items-center"
       >
-        <animated.span style={iconSpring} className="mr-2">
+        <a.span style={iconSpring} className="mr-2">
           →
-        </animated.span>
-        <animated.span style={textSpring}>{feature.title}</animated.span>
+        </a.span>
+        <a.span style={textSpring}>{feature.title}</a.span>
       </button>
     </li>
   );

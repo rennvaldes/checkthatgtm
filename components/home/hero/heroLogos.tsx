@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, ReactNode } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, a } from "@react-spring/web";
 import { cx } from "@/lib/classnames";
 import { GridRoot } from "@/components/home/grid/gridRoot";
 import {
@@ -84,12 +84,12 @@ function AnimatedLogo({
   });
 
   return (
-    <animated.div
+    <a.div
       style={spring}
       className="absolute inset-0 flex items-center justify-center [&_svg]:max-h-5 [&_svg]:w-auto transform-gpu"
     >
       {logo}
-    </animated.div>
+    </a.div>
   );
 }
 

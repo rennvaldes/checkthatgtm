@@ -1,6 +1,6 @@
 "use client";
 
-import { animated, useSpring } from "@react-spring/web";
+import { a, useSpring } from "@react-spring/web";
 import { useRef, useEffect } from "react";
 
 interface VisualProps {
@@ -49,7 +49,7 @@ export function PlatformVisual({ visual, inView }: VisualProps) {
 
   return (
     <div className="w-full max-w-[492px] lg:max-w-none flex-1 p-0 lg:p-5 lg:shadow-[inset_0_0_0_0.25px_hsl(var(--border))] flex items-center justify-center">
-      <animated.div
+      <a.div
         style={{
           background: spring.progress.to(
             [0, 1],
@@ -71,7 +71,7 @@ export function PlatformVisual({ visual, inView }: VisualProps) {
           loop
           preload="metadata"
         />
-      </animated.div>
+      </a.div>
     </div>
   );
 }

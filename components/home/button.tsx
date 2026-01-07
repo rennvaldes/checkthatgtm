@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, a } from "@react-spring/web";
 import { cx } from "@/lib/classnames";
 import { IconArrowRight } from "@/components/home/assets/assetsIcons";
 
@@ -56,15 +56,15 @@ export function Button({
 
   if (href) {
     return (
-      <animated.a href={href} {...commonProps}>
+      <a.a href={href} {...commonProps}>
         {content}
-      </animated.a>
+      </a.a>
     );
   }
 
   return (
-    <animated.button onClick={onClick} {...commonProps}>
+    <a.button onClick={onClick} {...commonProps}>
       {content}
-    </animated.button>
+    </a.button>
   );
 }
