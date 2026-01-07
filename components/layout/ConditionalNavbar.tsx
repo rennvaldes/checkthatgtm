@@ -23,6 +23,11 @@ export default function ConditionalNavbar() {
     );
   }
 
+  // About page - scroll-away + CTA after ~400px (past hero)
+  if (pathname === "/about") {
+    return <NavigationBar enableScrollAway showMobileCtaAfter={400} />;
+  }
+
   // All other pages use new unified navigation
   return <NavigationBar enableScrollAway />;
 }
