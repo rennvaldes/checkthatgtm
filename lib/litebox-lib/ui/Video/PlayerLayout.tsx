@@ -40,7 +40,7 @@ export function PlayerLayout({ thumbnails, showControls, disableGestures }: Play
       <Controls.Root
         className={cn(
           controlsStyles,
-          'media-controls:opacity-100 to-ui-black/0 absolute inset-0 z-30 flex h-full w-full flex-col bg-gradient-to-t from-black/10 transition-opacity'
+          'media-controls:opacity-100 to-ui-black/0 absolute inset-0 z-30 flex h-full w-full flex-col bg-linear-to-t from-black/10 transition-opacity'
         )}>
         <div className='flex-1' />
         <Controls.Group className='flex w-full items-center px-2'>

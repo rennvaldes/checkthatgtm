@@ -2,7 +2,7 @@ import React from "react";
 import BlogSlugHeader from "./blogSlugHeader";
 import BlogSlugContent from "./blogSlugContent";
 import BlogSlugKeepReading from "./blogSlugKeepReading";
-import { CtaSection } from "@/components/home/footer";
+import BlogSlugCta from "./blogSlugCta";
 
 interface BlogSlugRootProps {
   articleData: any;
@@ -316,7 +316,7 @@ export default function BlogSlugRoot({
         currentUrl={currentUrl}
       />
       <BlogSlugKeepReading relatedArticles={articleData.related_articles} />
-      <CtaSection />
+      <BlogSlugCta />
     </main>
   );
 }

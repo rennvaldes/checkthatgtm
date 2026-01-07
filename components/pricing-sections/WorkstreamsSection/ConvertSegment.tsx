@@ -97,7 +97,7 @@ const ConvertSegment = () => {
         </h4>
       </div>
       <motion.div
-        className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-[58.25rem]"
+        className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-233"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

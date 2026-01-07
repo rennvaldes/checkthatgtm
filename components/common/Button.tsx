@@ -8,7 +8,7 @@ type ButtonProps = {
   href?: string;
   onClick?: () => void;
   className?: string;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline-solid";
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
   ariaLabel?: string;
@@ -29,12 +29,12 @@ const sizeClasses: Record<NonNullable<ButtonProps["size"]>, string> = {
 };
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-full font-medium tracking-tight transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center justify-center rounded-full font-medium tracking-tight transition-all focus:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary: "",
   secondary: "",
-  outline: "border border-[#303030] bg-transparent text-[#303030] border-[1.5px]",
+  "outline-solid": "border border-[#303030] bg-transparent text-[#303030] border-[1.5px]",
 };
 
 export default function Button({
@@ -57,7 +57,7 @@ export default function Button({
 }: ButtonProps) {
   const isPrimary = variant === "primary";
   const isSecondary = variant === "secondary";
-  const isOutline = variant === "outline";
+  const isOutline = variant === "outline-solid";
 
   const outerCls = [
     baseClasses,

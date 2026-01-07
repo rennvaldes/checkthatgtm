@@ -1,11 +1,5 @@
-import {
-  ElementType,
-  HTMLAttributes,
-  ReactNode,
-  useEffect,
-  useRef,
-} from "react";
-import ReactMarkdown, { Components } from "react-markdown";
+import { HTMLAttributes, ReactNode, useEffect, useRef } from "react";
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import rehypeRaw from "rehype-raw";
@@ -13,6 +7,7 @@ import rehypeRaw from "rehype-raw";
 import { slug } from "../utils/slug";
 import { Skeleton } from "@/lib/shadcn/ui/skeleton";
 import { ScrollAnimationWrapper } from "@/components/blog/blogAnimations";
+import { GridMedia } from "@/components/home/grid/gridRoot";
 
 interface CustomImageProps {
   properties: {
@@ -36,11 +31,10 @@ interface LinkChildrenType extends ChildrenType {
 
 const listIcon = (
   <svg
-    width="17"
-    height="27"
     viewBox="0 0 17 27"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="shrink-0 w-[1em] h-[1em] mr-[0.5em] mt-[0.225em]"
   >
     <path
       d="M1.25078 12.8938L6.83828 18.4813L16.1758 9.1438"
@@ -151,17 +145,22 @@ const MarkdownContent = ({
 
       return (
         <ScrollAnimationWrapper>
-          <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border  my-12 lg:my-44  relative left-1/2 -translate-x-1/2">
-            <picture className="block max-w-[1280px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
+          <GridMedia size="normal">
+            <figure>
               <img
                 src={src}
-                alt={alt}
+                alt={alt || ""}
                 width={width}
                 height={height}
                 className="w-full h-auto"
               />
-            </picture>
-          </div>
+              {alt && (
+                <figcaption>
+                  <p className="!text-sm cinema:!text-lg">{alt}</p>
+                </figcaption>
+              )}
+            </figure>
+          </GridMedia>
         </ScrollAnimationWrapper>
       );
     },
@@ -170,16 +169,13 @@ const MarkdownContent = ({
 
       return (
         <ScrollAnimationWrapper>
-          <div
-            className="w-screen border-t-[0.5px] border-b-[0.5px] border-border my-12 lg:my-44 relative left-1/2
-    -translate-x-1/2"
-          >
-            <div className="block max-w-[1280px] mx-auto p-4 lg:p-5 lg:border-x-[0.5px] border-border">
+          <GridMedia size="normal">
+            <figure>
               <video src={src} controls className="w-full h-auto" {...props}>
                 Your browser does not support the video tag.
               </video>
-            </div>
-          </div>
+            </figure>
+          </GridMedia>
         </ScrollAnimationWrapper>
       );
     },
@@ -218,11 +214,11 @@ const MarkdownContent = ({
       if (isVideo) {
         return (
           <ScrollAnimationWrapper>
-            <div className="w-screen border-t-[0.5px] border-b-[0.5px] border-border my-12 lg:my-44 relative left-1/2 -translate-x-1/2">
-              <div className="block max-w-[1280px] mx-auto lg:border-x-[0.5px] border-border">
+            <GridMedia size="normal">
+              <figure>
                 <AutoplayVideo src={link.href} />
-              </div>
-            </div>
+              </figure>
+            </GridMedia>
           </ScrollAnimationWrapper>
         );
       }
@@ -234,11 +230,11 @@ const MarkdownContent = ({
       );
     },
     ul: (list: ChildrenType) => (
-      <ul className="list-none pl-0">{list.children}</ul>
+      <ul className="list-none pl-0 my-[2rem]">{list.children}</ul>
     ),
     ol: (list: ChildrenType) => <ol>{list.children}</ol>,
     li: (listItem: ChildrenType) => (
-      <li className="flex items-start gap-3">
+      <li className="flex items-start">
         {listIcon}
         <span>{listItem.children}</span>
       </li>
@@ -246,6 +242,17 @@ const MarkdownContent = ({
     table: ({ children }: ChildrenType) => <table>{children}</table>,
     th: ({ children }: ChildrenType) => <th>{children}</th>,
     td: ({ children }: ChildrenType) => <td>{children}</td>,
+    blockquote: ({ children }: ChildrenType) => (
+      <GridMedia size="medium">
+        <figure>
+          <blockquote className="font-serif font-normal text-[2rem] tablet:text-[2.625rem] desktop:text-[3.75rem] cinema:text-[5rem] tracking-[-0.01em] tablet:tracking-[-0.02em] leading-[1.2] m-0 text-black">
+            <span className="ml-[-0.4em]">&quot;</span>
+            {children}
+            &quot;
+          </blockquote>
+        </figure>
+      </GridMedia>
+    ),
   };
 
   return isLoading ? (

@@ -90,7 +90,7 @@ Draft content is shown when:
    - Client components cannot be async
 
 2. **Build Warnings to Address**:
-   - Ambiguous Tailwind class `duration-[150ms]`
+   - Ambiguous Tailwind class `duration-150`
    - Missing dependency in `Input.tsx` useCallback hook
    - aria-disabled not supported by role search
 
@@ -110,12 +110,13 @@ Draft content is shown when:
 **IMPORTANT**: Before creating any git commit, ALWAYS run:
 
 ```bash
-npm run lint
+npm run lint && npm run build
 ```
 
-- Must pass with zero errors before committing
+- Both lint and build must pass with zero errors before committing
 - If lint fails, fix all errors first
-- Never commit with lint errors
+- If build fails, fix all type/compilation errors first
+- Never commit with lint or build errors
 - Never disable ESLint rules to bypass errors (unless explicitly approved)
 
 ## Git Commit Convention

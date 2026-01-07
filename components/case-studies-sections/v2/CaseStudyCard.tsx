@@ -31,7 +31,7 @@ export default function CaseStudyCard({ href, title, image, imageAlt = "", logo,
       ].join(" ")}
     >
       <div className="p-4 lg:p-6 flex flex-col justify-between h-full">
-        <div className="relative mb-6 aspect-[16/9] w-full bg-[#EAE8E4] flex items-center justify-center">
+        <div className="relative mb-6 aspect-video w-full bg-[#EAE8E4] flex items-center justify-center">
           {logo?.src ? (
             <Image src={logo.src} alt={logo.alt} fill sizes="(min-width: 1024px) 480px, 100vw" className="object-contain p-6" />
           ) : image ? (

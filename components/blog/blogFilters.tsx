@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useSpring, a } from "@react-spring/web";
-import { Grid } from "@/components/home/grid/gridRoot";
+import { GridRoot } from "@/components/home/grid/gridRoot";
 import { Icon } from "@iconify/react";
 
 type BlogFiltersProps = {
@@ -52,7 +52,7 @@ function FilterPill({ category, isSelected, onClick }: FilterPillProps) {
           ["hsl(38, 22%, 0%)", "hsl(38, 22%, 93%)"]
         ),
       }}
-      className="rounded-full pl-[22px] pr-[14px] py-[9px] lg:pl-[24px] lg:pr-[16px] text-base lg:text-lg leading-[1.5] tracking-[-0.03em] inline-flex items-center gap-2 relative"
+      className="rounded-full pl-[22px] pr-[14px] py-[9px] lg:pl-[24px] lg:pr-[16px] text-base lg:text-lg leading-normal tracking-[-0.03em] inline-flex items-center gap-2 relative"
     >
       <span>{category}</span>
       <a.span
@@ -98,16 +98,14 @@ export function BlogFilters({
   );
 
   return (
-    <Grid className="py-8 lg:py-16">
-      {/* Label - 2 cols */}
-      <div className="col-span-full md:col-span-2">
-        <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
+    <GridRoot size="normal" className="py-8 tablet:py-16">
+      <div className="flex flex-col tablet:flex-row tablet:items-start">
+        {/* Label */}
+        <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light mb-4 tablet:mb-0 tablet:mr-8 tablet:pt-[11px]">
           Filter by
         </span>
-      </div>
 
-      {/* Filter pills - 10 cols */}
-      <div className="col-span-full md:col-span-10 mt-4 md:mt-0">
+        {/* Filter pills */}
         <div className="flex flex-wrap gap-4">
           {categories.map((category) => (
             <FilterPill
@@ -119,6 +117,6 @@ export function BlogFilters({
           ))}
         </div>
       </div>
-    </Grid>
+    </GridRoot>
   );
 }

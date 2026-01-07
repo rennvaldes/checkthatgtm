@@ -10,7 +10,7 @@ function MarqueeDesktop({
   fullSwipeDurationMs?: number;
 }) {
   return (
-    <div className="relative w-full mb-[7rem] overflow-hidden hidden lg:block">
+    <div className="relative w-full mb-28 overflow-hidden hidden lg:block">
       <div className="flex">
         {Array.from({ length: 3 }).map((_, i) => (
           <div
@@ -20,7 +20,7 @@ function MarqueeDesktop({
           >
             {expertsData.map((expert, index) => (
               <div key={`${expert.name}-${index}`}>
-                <div className="relative w-[25.0625rem] h-[25.5rem]">
+                <div className="relative w-100.25 h-102">
                   <Image src={FrameImage.src} alt="" width={401} height={408} />
                   <Image
                     src={expert.picture}
@@ -29,13 +29,13 @@ function MarqueeDesktop({
                     height={362}
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   />
-                  <div className="absolute w-[22.625rem] px-[0.8125rem] bottom-10 left-[1.2rem] z-[2] text-[#FDFDFF]">
-                    <div className="flex items-center justify-between min-h-[4.875rem] gap-2">
+                  <div className="absolute w-90.5 px-3.25 bottom-10 left-[1.2rem] z-2 text-[#FDFDFF]">
+                    <div className="flex items-center justify-between min-h-19.5 gap-2">
                       <div>
                         <h4 className="text-[1.25rem] font-elza font-semibold mb-2">
                           {expert.name}
                         </h4>
-                        <p className="text-sm font-elza max-w-[10rem] leading-tight">
+                        <p className="text-sm font-elza max-w-40 leading-tight">
                           {expert.description}
                         </p>
                       </div>

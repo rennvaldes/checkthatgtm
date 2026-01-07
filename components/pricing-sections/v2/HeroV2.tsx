@@ -65,7 +65,7 @@ export default function HeroV2() {
                   <div className="text-sm md:text-base bg-black/10 w-fit text-center p-2.5 mb-6">
                     Starting at $15,000 per month
                   </div>
-                  <h2 className="text-3xl lg:text-5xl leading-[1] font-semibold tracking-tighter mb-5 text-primary-black">
+                  <h2 className="text-3xl lg:text-5xl leading-none font-semibold tracking-tighter mb-5 text-primary-black">
                     Let’s build an engine for AI‑led growth
                   </h2>
                   <p className="text-lg lg:text-2xl leading-relaxed max-w-3xl text-[#303030]">

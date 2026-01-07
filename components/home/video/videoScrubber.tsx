@@ -142,7 +142,7 @@ export function VideoScrubber({
   const handleMouseLeave = useCallback(() => setIsHovered(false), []);
 
   // Global event listeners for scrubbing
-  useWindowEvent("blur", handleMouseUp, isActive);
+  useWindowEvent("blur-sm", handleMouseUp, isActive);
   useWindowEvent("mousemove", handleMouseMove, isActive);
   useWindowEvent("mouseup", handleMouseUp, isActive);
   useWindowEvent("touchmove", handleTouchMove, isActive);

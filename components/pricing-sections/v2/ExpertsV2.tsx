@@ -78,7 +78,7 @@ export default function ExpertsV2() {
                       image={expert.picture}
                       grayscale
                       wrapperClassName="w-[260px]"
-                      imageAspectClass="aspect-[4/3]"
+                      imageAspectClass="aspect-4/3"
                       imageSizes="260px"
                       titleClassName="text-lg text-[#303030] mt-1 tracking-tight"
                       rightSlot={

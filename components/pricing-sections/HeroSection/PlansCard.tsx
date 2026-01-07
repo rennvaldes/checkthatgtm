@@ -23,7 +23,7 @@ function PlansCard() {
   };
 
   return (
-    <div className="bg-white w-full max-w-[36.6875rem] px-5 lg:px-12 h-full lg:min-h-[32.5rem] border border-ui-blue">
+    <div className="bg-white w-full max-w-146.75 px-5 lg:px-12 h-full lg:min-h-130 border border-ui-blue">
       <h3 className="font-clash-display mx-auto text-left text-[#20233A] text-[1.875rem] font-medium leading-[40px] pb-2 pt-6 lg:pt-4 lg:text-[2.375rem] lg:leading-[77px] ">
         {staticData.title}&nbsp;
         <span className="font-kepler-std text-ui-blue text-[2rem] italic lg:text-[2.8rem]">

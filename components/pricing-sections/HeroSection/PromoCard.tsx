@@ -13,9 +13,9 @@ const staticData = {
 
 function PromoCard() {
   return (
-    <div className="bg-[#20233A] w-full max-w-[36.6875rem] px-4 lg:px-12 h-full lg:min-h-[32.5rem]">
+    <div className="bg-[#20233A] w-full max-w-146.75 px-4 lg:px-12 h-full lg:min-h-130">
       <div className="flex items-center lg:justify-center pt-6 pb-6 lg:pb-4 lg:pt-10">
-        <span className="text-[#FDFDFF] text-sm border border-[#FDFDFF] rounded-[2rem] py-1 px-4 inline-block lg:mx-auto lg:text-lg">
+        <span className="text-[#FDFDFF] text-sm border border-[#FDFDFF] rounded-4xl py-1 px-4 inline-block lg:mx-auto lg:text-lg">
           {staticData.lead}
         </span>
       </div>

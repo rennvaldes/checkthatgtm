@@ -219,6 +219,7 @@ export function BlogCardsGrid({
               publisher_name="Publisher"
               variant="featured"
               measureRef={refFeaturedCardRef}
+              className="p-4"
             />
           </div>
         </div>
@@ -243,6 +244,7 @@ export function BlogCardsGrid({
               {...item}
               variant={item.isFeatured ? "featured" : "regular"}
               slug={item.slug}
+              className={item.isFeatured ? "p-4" : undefined}
             />
           </a.div>
         ))}

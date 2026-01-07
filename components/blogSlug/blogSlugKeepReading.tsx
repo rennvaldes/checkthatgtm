@@ -1,6 +1,6 @@
 "use client";
 
-import { Grid } from "@/components/home/grid/gridRoot";
+import { GridRoot } from "@/components/home/grid/gridRoot";
 import { BlogCard } from "@/components/blog/blogCard";
 import { CardData } from "@/static/types";
 
@@ -9,64 +9,39 @@ export default function BlogSlugKeepReading({
 }: {
   relatedArticles: CardData[];
 }) {
-  if (!relatedArticles?.length) return null;
+  const featured = relatedArticles?.[0];
+  if (!featured) return null;
 
   return (
     <section className="w-full">
       {/* Header */}
-      <Grid className="mb-6 md:mb-10">
-        {/* Label - col 1 */}
-        <div className="col-span-full md:col-span-2 flex items-start">
-          <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
+      <GridRoot size="normal" className="mb-6 desktop:mb-10">
+        <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
+          <span className="block text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light mb-3 desktop:mb-0">
             Related content
           </span>
-        </div>
-
-        {/* Title - cols 3-10 */}
-        <div className="col-span-full md:col-span-6 md:col-start-3 lg:col-span-8 lg:col-start-3 mt-3 md:mt-0">
-          <h2 className="text-[20px] lg:text-2xl font-[520] leading-[1.5] lg:leading-[1.25] tracking-[-0.06em]">
-            Keep reading.
-          </h2>
-          <p className="text-[20px] lg:text-2xl font-400 leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] text-muted-foreground">
-            We aim to inspire.
-          </p>
-        </div>
-      </Grid>
-
-      <div className="border-t-[0.5px] border-b-[0.5px] border-border">
-        {/* Cards Container */}
-        <Grid className="md:border-l-[0.5px] border-border w-full">
-          {/* Mobile & Tablet: Scroll container */}
-          <div className="col-span-full lg:hidden overflow-x-scroll [scroll-snap-type:x_mandatory] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
-            <ul className="flex">
-              {relatedArticles.map((article) => (
-                <li key={article.id} className="[scroll-snap-align:center]">
-                  <BlogCard
-                    {...article}
-                    variant="regular"
-                    slug={article.slug}
-                    className="size-[88vw] max-size-[576px] border-r-[0.5px] border-border"
-                  />
-                </li>
-              ))}
-            </ul>
+          <div>
+            <h2 className="text-[20px] desktop:text-2xl font-[520] leading-normal desktop:leading-tight tracking-[-0.06em]">
+              Keep reading.
+            </h2>
+            <p className="text-[20px] desktop:text-2xl font-400 leading-normal desktop:leading-tight tracking-[-0.06em] text-muted-foreground">
+              We aim to inspire.
+            </p>
           </div>
+        </div>
+      </GridRoot>
 
-          {/* Desktop: Grid */}
-          <ul className="col-span-full hidden lg:flex">
-            {relatedArticles.slice(0, 3).map((article) => (
-              <li key={article.id}>
-                <BlogCard
-                  {...article}
-                  variant="regular"
-                  slug={article.slug}
-                  className="size-[88vw] max-w-[576px] max-h-[576px] border-r-[0.5px] border-border"
-                />
-              </li>
-            ))}
-          </ul>
-        </Grid>
-      </div>
+      {/* Single featured card */}
+      <hr className="h-[0.5px] border-0 bg-border" />
+      <GridRoot size="normal">
+        <BlogCard
+          {...featured}
+          variant="featured"
+          slug={featured.slug}
+          className="w-full pr-5"
+        />
+      </GridRoot>
+      <hr className="h-[0.5px] border-0 bg-border" />
     </section>
   );
 }

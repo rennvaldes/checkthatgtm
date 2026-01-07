@@ -103,7 +103,7 @@ export default function TestimonialsCarousel<T = any>({
             {items.map((item, index) => (
               <CarouselItem
                 key={index}
-                className={`${itemClassName ?? "basis-[100%] w-[100%] md:basis-auto md:w-auto"} pl-0 first-of-type:pl-4 last-of-type:pr-0 mr-4`}
+                className={`${itemClassName ?? "basis-full w-full md:basis-auto md:w-auto"} pl-0 first-of-type:pl-4 last-of-type:pr-0 mr-4`}
               >
                 {renderSlide(item, index)}
               </CarouselItem>

@@ -1,8 +1,10 @@
 "use client";
 
 import { ReactNode, useMemo } from "react";
-import { useSpring, animated, useInView } from "@react-spring/web";
+import { useSpring, animated } from "@react-spring/web";
 import { useHasMountedWhen } from "@/hooks/useHasMountedWhen";
+import { useIntersection } from "@/hooks/useIntersection";
+import { useMedia } from "@/lib/hooks";
 
 type BlogPageWrapperProps = {
   children: ReactNode;
@@ -16,7 +18,11 @@ type BlogPageWrapperProps = {
  *
  * @param delay - Milliseconds to wait before fading in (default: 250ms)
  */
-export function BlogPageWrapper({ children, delay = 250, className }: BlogPageWrapperProps) {
+export function BlogPageWrapper({
+  children,
+  delay = 250,
+  className,
+}: BlogPageWrapperProps) {
   const hasMountedAfterDelay = useHasMountedWhen(delay);
 
   const fadeInSpring = useSpring({
@@ -31,38 +37,75 @@ export function BlogPageWrapper({ children, delay = 250, className }: BlogPageWr
   );
 }
 
+type BreakpointConfig = {
+  scaleValue: number;
+  translateYValue: number;
+  rootMargin: string;
+};
+
+const ANIMATION_CONFIG = {
+  mobile: { scaleValue: 0.9, translateYValue: 20, rootMargin: "-70px" },
+  tablet: { scaleValue: 0.9, translateYValue: 20, rootMargin: "-70px" },
+  desktop: { scaleValue: 0.95, translateYValue: 90, rootMargin: "-200px" },
+  cinema: { scaleValue: 0.95, translateYValue: 90, rootMargin: "-200px" },
+} as const;
+
+// ~750ms easeInOut
+const SPRING_CONFIG = {
+  tension: 170,
+  friction: 26,
+};
+
 type ScrollAnimationWrapperProps = {
   children: ReactNode;
   className?: string;
+  disabled?: boolean;
 };
 
 /**
- * Scroll-triggered animation wrapper for blog content (images, videos).
- * Fades in and slides up content when it enters the viewport.
- * Respects prefers-reduced-motion preference.
+ * Scroll-triggered animation wrapper for media content.
+ * Scales and translates content when it enters the viewport.
+ * Respects prefers-reduced-motion.
  */
-export function ScrollAnimationWrapper({ children, className }: ScrollAnimationWrapperProps) {
-  // Check for reduced motion preference
+export function ScrollAnimationWrapper({
+  children,
+  className,
+  disabled = false,
+}: ScrollAnimationWrapperProps) {
+  const config = useMedia<BreakpointConfig>(
+    ["(min-width: 1920px)", "(min-width: 1180px)", "(min-width: 768px)"],
+    [ANIMATION_CONFIG.cinema, ANIMATION_CONFIG.desktop, ANIMATION_CONFIG.tablet],
+    ANIMATION_CONFIG.mobile
+  );
+
+  const [setRef, isIntersecting] = useIntersection({
+    rootMargin: config.rootMargin,
+    disabled,
+  });
+
   const prefersReducedMotion = useMemo(() => {
     if (typeof window === "undefined") return false;
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }, []);
 
-  // Detect when element enters viewport
-  const [ref, inView] = useInView({
-    once: true, // Only animate once (hold: true behavior)
+  const shouldSkipAnimation = disabled || prefersReducedMotion;
+
+  const initialTransform = `translateY(${config.translateYValue}px) scale(${config.scaleValue})`;
+  const finalTransform = "translateY(0px) scale(1)";
+
+  const springs = useSpring({
+    transform: isIntersecting ? finalTransform : initialTransform,
+    config: SPRING_CONFIG,
+    immediate: shouldSkipAnimation || !isIntersecting,
+    reset: false,
   });
 
-  // Spring animation: fade in + slide up
-  const springs = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? "translateY(0%)" : "translateY(20%)",
-    config: { tension: 280, friction: 60 },
-    immediate: prefersReducedMotion, // Skip animation if reduced motion
-  });
+  if (shouldSkipAnimation) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
-    <animated.div ref={ref} style={springs} className={className}>
+    <animated.div ref={setRef} style={springs} className={className}>
       {children}
     </animated.div>
   );

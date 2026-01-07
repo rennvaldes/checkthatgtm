@@ -81,7 +81,7 @@ const Video = ({
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'ring-media-focus bg-ui-black/0 aspect-video overflow-hidden rounded-md font-sans text-white data-[focus]:ring-4',
+        'ring-media-focus bg-ui-black/0 aspect-video overflow-hidden rounded-md font-sans text-white data-focus:ring-4',
         className
       )}>
       <PlayerLayout
@@ -92,7 +92,7 @@ const Video = ({
       <MediaProvider>
         {poster && (
           <Poster
-            className='absolute inset-0 block h-full w-full object-cover opacity-0 transition-opacity data-[visible]:opacity-100'
+            className='absolute inset-0 block h-full w-full object-cover opacity-0 transition-opacity data-visible:opacity-100'
             src={poster}
             alt='Video poster'
           />
@@ -105,7 +105,7 @@ const Video = ({
             hasExternalProvider && 'z-20'
           )}>
           <StartButton
-            className='group z-[1000] m-auto flex items-center justify-center rounded-full p-8 ring-0 transition'
+            className='group z-1000 m-auto flex items-center justify-center rounded-full p-8 ring-0 transition'
             onClick={(event: any) => handlePlayButtonClick(event)} // Ensure this only handles the play button click
           />
         </div>

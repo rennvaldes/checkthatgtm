@@ -29,7 +29,7 @@ export function LinkButton({
   });
 
   const baseClasses = cx(
-    "px-[21px] py-[11px] h-11 rounded-full text-base lg:text-lg lg:leading-[1.5] lg:tracking-[-0.04em] font-normal flex items-center gap-2 w-fit",
+    "px-[21px] py-[11px] h-11 rounded-full text-base lg:text-lg lg:leading-normal lg:tracking-[-0.04em] font-normal flex items-center gap-2 w-fit",
     variant === "primary"
       ? "bg-foreground text-background"
       : variant === "secondary"

@@ -26,7 +26,7 @@ function Input({ value, onChange, isDisabled, className, withSearchIcon, placeho
   return (
     <div
       className={cn(
-        'border-ui-black/0 transition-color focus-within:border-ui-black/100 border-[1px] duration-300',
+        'border-ui-black/0 transition-color focus-within:border-ui-black border duration-300',
         className
       )}>
       <div
@@ -34,8 +34,8 @@ function Input({ value, onChange, isDisabled, className, withSearchIcon, placeho
         tabIndex={isDisabled ? undefined : 0}
         onFocus={() => onContainerFocusToggle(true)}
         onBlur={() => onContainerFocusToggle(false)}
-        className='border-ui-black/40 transition-color hover:border-ui-black/100 aria-disabled:hover:border-ui-black/40 focus-within:border-ui-black/100 group flex w-full cursor-text items-center gap-[16px] border-[1px] pb-[11px] pl-[16px] pr-0 pt-[12px] duration-300 focus:outline-none aria-disabled:cursor-not-allowed aria-disabled:opacity-[40%]'>
-        {withSearchIcon && <Search className='h-[16px] w-[16px] flex-shrink-0' />}
+        className='border-ui-black/40 transition-color hover:border-ui-black aria-disabled:hover:border-ui-black/40 focus-within:border-ui-black group flex w-full cursor-text items-center gap-[16px] border pb-[11px] pl-[16px] pr-0 pt-[12px] duration-300 focus:outline-hidden aria-disabled:cursor-not-allowed aria-disabled:opacity-40'>
+        {withSearchIcon && <Search className='h-[16px] w-[16px] shrink-0' />}
         <input
           value={value}
           disabled={isDisabled}
@@ -43,13 +43,13 @@ function Input({ value, onChange, isDisabled, className, withSearchIcon, placeho
           ref={inputRef}
           placeholder={placeholder}
           className={cn(
-            'bg-ui-white/0 placeholder:text-ui-black/40 mt-[1px] h-[16px] w-full outline-none placeholder:font-medium disabled:cursor-not-allowed',
+            'bg-ui-white/0 placeholder:text-ui-black/40 mt-px h-[16px] w-full outline-hidden placeholder:font-medium disabled:cursor-not-allowed',
             inputClassName
           )}
         />
         {!!value && (
           <button onClick={() => onChange('')}>
-            <X className='text-ui-black/40 mr-[10px] h-[10px] w-[10px] flex-shrink-0' />
+            <X className='text-ui-black/40 mr-[10px] h-[10px] w-[10px] shrink-0' />
           </button>
         )}
       </div>

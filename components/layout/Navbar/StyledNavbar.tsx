@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Grid } from "@/components/home/grid/gridRoot";
+import { Grid } from "@/components/home/grid/_gridRoot";
 import KitButton from "@/components/ui/KitButton";
 import Button from "@/components/common/Button";
 import ChevronThin from "@/components/icons/ChevronThin";
@@ -24,7 +24,7 @@ function LearnDropdown() {
         className="peer flex items-center justify-center gap-[12px]"
       >
         Learn
-        <ChevronThin className="flex-shrink-0 text-[10.7px] transition-transform duration-200 group-hover:rotate-180" />
+        <ChevronThin className="shrink-0 text-[10.7px] transition-transform duration-200 group-hover:rotate-180" />
       </KitButton>
       <div className="absolute left-0 w-full pt-[8px] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
         <div className="bg-ui-whitest absolute flex w-full flex-col rounded-[20px] p-[8px] min-w-[240px]">
@@ -34,7 +34,7 @@ function LearnDropdown() {
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal !text-left"
+            className="justify-between font-normal text-left!"
             sameBrowserTab={true}
           >
             Origin Story
@@ -45,7 +45,7 @@ function LearnDropdown() {
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal !text-left"
+            className="justify-between font-normal text-left!"
             sameBrowserTab={true}
           >
             The Problem We&apos;re Solving
@@ -56,7 +56,7 @@ function LearnDropdown() {
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal !text-left"
+            className="justify-between font-normal text-left!"
             sameBrowserTab={true}
           >
             How we work
@@ -67,7 +67,7 @@ function LearnDropdown() {
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal !text-left"
+            className="justify-between font-normal text-left!"
             sameBrowserTab={true}
           >
             Creating a winning content strategy
@@ -100,7 +100,7 @@ function MobileLearnDropdown() {
       >
         Learn
         <ChevronThin 
-          className={`h-[16px] w-[16px] flex-shrink-0 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} 
+          className={`h-[16px] w-[16px] shrink-0 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} 
         />
       </button>
       {isExpanded && (
@@ -110,7 +110,7 @@ function MobileLearnDropdown() {
             withAnimatedArrow="to-top-right"
             variant="ghost"
             size="custom"
-            className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] !text-left"
+            className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] text-left!"
           >
             Origin Story
           </KitButton>
@@ -119,7 +119,7 @@ function MobileLearnDropdown() {
             withAnimatedArrow="to-top-right"
             variant="ghost"
             size="custom"
-            className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] !text-left"
+            className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] text-left!"
           >
             The Problem We&apos;re Solving
           </KitButton>
@@ -128,7 +128,7 @@ function MobileLearnDropdown() {
             withAnimatedArrow="to-top-right"
             variant="ghost"
             size="custom"
-            className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] !text-left"
+            className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] text-left!"
           >
             How we work
           </KitButton>
@@ -137,7 +137,7 @@ function MobileLearnDropdown() {
             withAnimatedArrow="to-top-right"
             variant="ghost"
             size="custom"
-            className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] !text-left"
+            className="flex min-w-[200px] items-center justify-between text-[20px] leading-[22px] text-left!"
           >
             Creating a winning content strategy
           </KitButton>
@@ -291,7 +291,7 @@ function Mobile() {
       {/* Mobile Menu Overlay */}
       <div
         aria-hidden={!isOpen}
-        className="bg-[#F1EEE9] fixed left-0 top-0 z-[100] flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-x-[100%] aria-hidden:opacity-50"
+        className="bg-[#F1EEE9] fixed left-0 top-0 z-100 flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-x-full aria-hidden:opacity-50"
       >
         <div className="flex items-center justify-between py-[16px] pl-[20px] pr-[16px]">
           <Logo className="text-primary-black" />
@@ -311,7 +311,7 @@ function Mobile() {
               onKeyDown={(e) => e.key === 'Enter' && setIsOpen(false)}
             >
               <KitButton
-                className={`${OPTION_STYLES} !text-left`}
+                className={`${OPTION_STYLES} text-left!`}
                 href="/pricing#solutions"
                 variant="ghost"
                 size="custom"
@@ -336,7 +336,7 @@ function Mobile() {
             >
               <KitButton
                 className={cx(
-                  `${OPTION_STYLES} !text-left`,
+                  `${OPTION_STYLES} text-left!`,
                   (pathname === "/pricing" || pathname?.startsWith("/pricing")) ? "opacity-100" : "opacity-70"
                 )}
                 href="/pricing"
@@ -353,7 +353,7 @@ function Mobile() {
             >
               <KitButton
                 className={cx(
-                  `${OPTION_STYLES} !text-left`,
+                  `${OPTION_STYLES} text-left!`,
                   pathname === "/about" ? "opacity-100" : "opacity-70"
                 )}
                 href="/about"
@@ -374,7 +374,7 @@ function Mobile() {
                 variant="ghost"
                 size="custom"
                 className={cx(
-                  `${OPTION_STYLES} !text-left`,
+                  `${OPTION_STYLES} text-left!`,
                   (pathname === "/blog" || pathname?.startsWith("/blog/")) ? "opacity-100" : "opacity-70"
                 )}
               >
@@ -392,7 +392,7 @@ function Mobile() {
             fullWidth
             size='md'
             onClick={() => trackDemoBookingClick('navbar', 'mobile')}
-            className="w-full rounded-full text-ui-black bg-gradient-to-b from-[#FFD75A] to-[#E6A930] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_16px_rgba(0,0,0,0.25)] hover:brightness-105"
+            className="w-full rounded-full text-ui-black bg-linear-to-b from-[#FFD75A] to-[#E6A930] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_16px_rgba(0,0,0,0.25)] hover:brightness-105"
           >
             Reserve your spot
           </Button>

@@ -32,9 +32,9 @@ function MarqueeMobile({
             {expertsTop.map((expert, expertIndex) => (
               <div
                 key={`group-${groupIndex}-expert-${expertIndex}-${expert.name}`}
-                className="flex items-end gap-2 flex-shrink-0 mr-2 w-[17.4375rem]"
+                className="flex items-end gap-2 shrink-0 mr-2 w-69.75"
               >
-                <div className="relative size-[8.3125rem] flex-shrink-0">
+                <div className="relative size-33.25 shrink-0">
                   <div>
                     <Image
                       src={FrameImage.src}
@@ -66,7 +66,7 @@ function MarqueeMobile({
                   <h4 className="text-sm font-elza text-[#20233A] font-semibold">
                     {expert.name}
                   </h4>
-                  <p className="text-[0.75rem] text-[#797E9F] font-elza max-w-[8rem] leading-tight">
+                  <p className="text-[0.75rem] text-[#797E9F] font-elza max-w-32 leading-tight">
                     {expert.description}
                   </p>
                 </div>
@@ -85,9 +85,9 @@ function MarqueeMobile({
             {expertsBottom.map((expert, expertIndex) => (
               <div
                 key={`group-${groupIndex}-expert-${expertIndex}-${expert.name}`}
-                className="flex items-end gap-2 flex-shrink-0 mr-2 w-[17.4375rem]"
+                className="flex items-end gap-2 shrink-0 mr-2 w-69.75"
               >
-                <div className="relative size-[8.3125rem] flex-shrink-0">
+                <div className="relative size-33.25 shrink-0">
                   <div>
                     <Image
                       src={FrameImage.src}
@@ -119,7 +119,7 @@ function MarqueeMobile({
                   <h4 className="text-sm font-elza text-[#20233A] font-semibold">
                     {expert.name}
                   </h4>
-                  <p className="text-[0.75rem] text-[#797E9F] font-elza max-w-[8rem] leading-tight">
+                  <p className="text-[0.75rem] text-[#797E9F] font-elza max-w-32 leading-tight">
                     {expert.description}
                   </p>
                 </div>

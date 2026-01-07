@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState, useCallback } from "react";
-import { Grid } from "@/components/home/grid/gridRoot";
+import { GridRoot } from "@/components/home/grid/gridRoot";
 import { BlogFilters } from "./blogFilters";
 import { BlogCardsGrid } from "./blogCardsGrid";
 import { CardData } from "@/static/types";
@@ -55,15 +55,15 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
   return (
     <>
       {/* Header */}
-      <Grid className="pt-48 md:pt-32 lg:pt-44 pb-32">
-        <h1 className="col-span-full text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
+      <GridRoot size="normal" className="pt-20 tablet:pt-32 desktop:pt-44 pb-32">
+        <h1 className="text-[clamp(50px,50px+(78-50)*(100vw-375px)/(1112-375),78px)] leading-[0.89] tracking-[-0.07em]">
           <span className="text-muted-foreground font-regular">Read</span>
           <br />
           <span className="text-foreground font-semibold">
             Updates, interviews and stories.
           </span>
         </h1>
-      </Grid>
+      </GridRoot>
 
       {/* Filters */}
       <BlogFilters

@@ -1,5 +1,5 @@
 import { cx } from "@/lib/classnames";
-import { Grid } from "@/components/home/grid/gridRoot";
+import { GridRoot } from "@/components/home/grid/gridRoot";
 import { PeopleAvatarStack } from "./peopleAvatarStack";
 import { PeopleCompanyLogos } from "./peopleCompanyLogos";
 import { Data } from "@/lib/data";
@@ -14,48 +14,50 @@ export function PeopleRoot({ className }: PeopleRootProps) {
   return (
     <section
       className={cx(
-        "pt-20 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip",
+        "pt-20 tablet:pt-32 desktop:pt-44 border-t-[0.5px] border-border overflow-x-clip",
         className
       )}
     >
-      <Grid>
-        {/* Label - 2 columns */}
-        <div className="col-span-full md:col-span-2">
-          <span className="text-muted-foreground text-sm">{content.label}</span>
-        </div>
+      <GridRoot size="normal">
+        <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
+          {/* Label */}
+          <span className="block text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light mb-3 desktop:mb-0">
+            {content.label}
+          </span>
 
-        {/* Content - responsive: full -> 8 cols -> 10 cols */}
-        <div className="col-span-full md:col-span-10 flex flex-col mt-3 md:mt-0">
-          {/* Title */}
-          <h2 className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-[520] text-foreground">
-            {content.title}
-          </h2>
+          {/* Content */}
+          <div className="flex flex-col">
+            {/* Title */}
+            <h2 className="text-[20px] desktop:text-2xl leading-normal desktop:leading-tight tracking-[-0.06em] font-[520] text-foreground">
+              {content.title}
+            </h2>
 
-          {/* Subtitle */}
-          <p className="text-[20px] lg:text-2xl leading-[1.5] lg:leading-[1.25] tracking-[-0.06em] font-normal text-muted-foreground">
-            {content.subtitle}
-          </p>
+            {/* Subtitle */}
+            <p className="text-[20px] desktop:text-2xl leading-normal desktop:leading-tight tracking-[-0.06em] font-normal text-muted-foreground">
+              {content.subtitle}
+            </p>
 
-          {/* Two-column row: Avatars + Company Logos */}
-          <div className="md:flex gap-x-10 mt-8 min-w-0">
-            {/* Left: Avatar Stack */}
-            <div className="flex flex-col gap-y-[9px]">
-              <span className="text-foreground text-base lg:text-lg lg:leading-[1.5] lg:tracking-[-0.04em]">
-                {content.avatarLabel}
-              </span>
-              <PeopleAvatarStack team={content.team} />
-            </div>
+            {/* Two-column row: Avatars + Company Logos */}
+            <div className="tablet:flex gap-x-10 mt-8 min-w-0">
+              {/* Left: Avatar Stack */}
+              <div className="flex flex-col gap-y-[9px]">
+                <span className="text-foreground text-base desktop:text-lg desktop:leading-normal desktop:tracking-[-0.04em]">
+                  {content.avatarLabel}
+                </span>
+                <PeopleAvatarStack team={content.team} />
+              </div>
 
-            {/* Right: Company Logos */}
-            <div className="flex flex-col gap-y-[9px] mt-6 md:mt-0">
-              <span className="text-foreground text-base lg:text-lg lg:leading-[1.5] lg:tracking-[-0.04em]">
-                {content.companyLabel}
-              </span>
-              <PeopleCompanyLogos companies={content.companies} />
+              {/* Right: Company Logos */}
+              <div className="flex flex-col gap-y-[9px] mt-6 tablet:mt-0">
+                <span className="text-foreground text-base desktop:text-lg desktop:leading-normal desktop:tracking-[-0.04em]">
+                  {content.companyLabel}
+                </span>
+                <PeopleCompanyLogos companies={content.companies} />
+              </div>
             </div>
           </div>
         </div>
-      </Grid>
+      </GridRoot>
     </section>
   );
 }

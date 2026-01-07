@@ -60,8 +60,8 @@ export function PlatformNav({
   onFeatureClick,
 }: PlatformNavProps) {
   return (
-    <aside className="hidden md:block col-span-2 sticky top-8 self-start h-full">
-      <nav className="h-full flex flex-col justify-center">
+    <aside className="hidden desktop:block w-[calc(5/26*100%)] shrink-0 sticky top-20 self-start mt-60 mb-44">
+      <nav className="flex flex-col justify-center">
         <ul className="space-y-[14px]">
           {features.map((feature) => (
             <NavItem

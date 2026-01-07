@@ -17,7 +17,7 @@ export default function DeliverablesSection() {
   return (
     <section className="py-20" id="workstreams-section">
       <div className="mx-auto w-full max-w-[calc(100vw-32px)] lg:max-w-[1280px]">
-        <div className="text-left max-w-[35rem] lg:max-w-[60.5rem]">
+        <div className="text-left max-w-140 lg:max-w-242">
           <h3 className="text-ui-blue text-lg font-medium mb-1">Included workstreams</h3>
           <h4 className="text-black text-3xl lg:text-5xl leading-tight tracking-tighter w-[90%]">
             A complete growth system

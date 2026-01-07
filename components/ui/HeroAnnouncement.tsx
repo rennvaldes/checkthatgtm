@@ -16,7 +16,7 @@ const HeroAnnouncement: React.FC<HeroAnnouncementProps> = ({ text, link }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <KitButton href={link} size='medium' variant='outline' withAnimatedArrow='to-right'>
+      <KitButton href={link} size='medium' variant='outline-solid' withAnimatedArrow='to-right'>
         {text}
       </KitButton>
     </motion.div>

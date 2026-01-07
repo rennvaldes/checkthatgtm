@@ -9,7 +9,7 @@ type Props = {
 
 function InfiniteImagesSlider({ images, fullSwipeDurationMs, className }: Props) {
   return (
-    <div className={cn('relative h-[5rem] w-full overflow-hidden', className)}>
+    <div className={cn('relative h-20 w-full overflow-hidden', className)}>
       <div className='absolute flex'>
         {Array.from({ length: 3 }).map((_, index) => (
           <div

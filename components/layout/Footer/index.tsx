@@ -19,7 +19,7 @@ function Footer() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       id="footer"
-      className="font-elza bg-ui-veige pb-[64px] pt-[52px] lg:pb-[64px] lg:pt-[64px] relative z-[1]"
+      className="font-elza bg-ui-veige pb-[64px] pt-[52px] lg:pb-[64px] lg:pt-[64px] relative z-1"
       onClick={() => {}}
     >
       <div className="mx-auto w-[320px] overflow-hidden lg:w-full lg:max-w-[1280px]">

@@ -106,7 +106,7 @@ function ReviewCard({ reviewData }: { reviewData: any }) {
           className="h-[40px] w-[40px] rounded-full lg:h-[52px] lg:w-[52px]"
         />
         <div className="font-elza">
-          <h4 className="text-[14px] font-[600] leading-[21px] lg:text-[16px] lg:leading-[24px]">
+          <h4 className="text-[14px] font-semibold leading-[21px] lg:text-[16px] lg:leading-[24px]">
             {reviewData.name}
           </h4>
           <p className="text-[14px] leading-[21px]">{reviewData.legend}</p>
@@ -145,7 +145,7 @@ function ReviewsSection({
       )}
     >
       {customTitle || (
-        <h3 className='flex-shrink-0 text-center text-[28px] leading-[31px] lg:text-[52px] lg:leading-[57px]'>
+        <h3 className='shrink-0 text-center text-[28px] leading-[31px] lg:text-[52px] lg:leading-[57px]'>
           Real people, real{' '}
           <span className='font-kepler-std text-ui-blue text-[32px] italic lg:text-[57px]'>results</span>
         </h3>
@@ -189,7 +189,7 @@ function ReviewsSection({
       {/* Gradient overlay for non-testimonials pages */}
       {!isTestimonialsPage &&
         (gradientOverlay || (
-          <div className='to-ui-white via-ui-white/80 from-ui-white/0 absolute bottom-0 left-0 z-20 h-[300px] w-full bg-gradient-to-b' />
+          <div className='to-ui-white via-ui-white/80 from-ui-white/0 absolute bottom-0 left-0 z-20 h-[300px] w-full bg-linear-to-b' />
         ))}
 
       {/* Conditional button rendering */}

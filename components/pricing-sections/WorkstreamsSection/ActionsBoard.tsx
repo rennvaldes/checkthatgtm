@@ -11,15 +11,15 @@ function ActionsBoard() {
     <div className="relative">
       <div className="px-5 lg:px-20 pb-5 lg:pb-20">
         <div className="flex mt-5 lg:mt-[3.4rem] relative">
-          <div className="w-8 lg:w-14 relative flex-shrink-0">
+          <div className="w-8 lg:w-14 relative shrink-0">
             <div className="h-[calc(100%-6rem)] lg:h-[calc(100%-16.2rem)]">
-              <div className="sticky top-[16%] z-[10]">
+              <div className="sticky top-[16%] z-10">
                 <Image
                   src={arrowDownIcon}
                   alt="Arrow Down"
                   width={56}
                   height={56}
-                  className="flex-grow flex-shrink-0"
+                  className="grow shrink-0"
                 />
               </div>
             </div>
@@ -27,7 +27,7 @@ function ActionsBoard() {
               <HalfCircle className="absolute -bottom-[0.8rem] lg:bottom-0 -right-[2.3rem] lg:-right-12 text-[#33FF9D] scale-[0.5] lg:scale-100" />
             </div>
           </div>
-          <div className="relative z-[2]">
+          <div className="relative z-2">
             <ContentSegment />
             <DistributeSegment />
             <ConvertSegment />

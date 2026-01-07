@@ -139,7 +139,7 @@ export default function BookDemoPage() {
       </div>
       <div className="hidden lg:flex lg:w-1/2 h-full flex-col justify-center items-center bg-primary-black text-white pt-[15dvh] overflow-hidden relative">
         {/* <img src="/demo-line-decoration.svg" alt="Line Decortion" className="absolute top-0 left-0 min-w-[70%] max-w-[90%] max-h-[40dvh] select-none pointer-events-none" aria-hidden="true" />
-        <div className="absolute top-1/2 left-1/2 translate-x-[100%] -translate-y-[80%] w-[160px] h-[520px] pt-2 bg-gradient-to-b from-[#33FF9D] from-[21.19%] to-[#20233A] to-[56.51%] select-none pointer-events-none" aria-hidden="true">
+        <div className="absolute top-1/2 left-1/2 translate-x-full -translate-y-[80%] w-[160px] h-[520px] pt-2 bg-linear-to-b from-[#33FF9D] from-[21.19%] to-[#20233A] to-[56.51%] select-none pointer-events-none" aria-hidden="true">
           <img src="/balloon.png" alt="Balloon Decoration" className="w-full h-auto select-none pointer-events-none" aria-hidden="true" />
         </div> */}
         {/* <div className="demo-dotted-pattern absolute top-[18dvh] left-[3dvh] w-[25dvh] h-[35dvh]"></div> */}
@@ -166,7 +166,7 @@ export default function BookDemoPage() {
             {reviewsData.map((review, index) => (
               <SwiperSlide key={index} className="text-black font-elza text-lg cursor-grab active:cursor-grabbing px-12 py-8">
                 <div className="h-full flex flex-col">
-                  <div className="flex-grow">
+                  <div className="grow">
                     <Quotes className="text-ui-black mb-4" />
                     <p className="text-lg">{review.review_body}</p>
                   </div>

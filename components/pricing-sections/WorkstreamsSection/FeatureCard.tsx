@@ -34,7 +34,7 @@ function FeatureCard({
           alt=""
           width={24}
           height={24}
-          className="mb-4 lg:mb-[1.875rem]"
+          className="mb-4 lg:mb-7.5"
         />
       )}
       <h4 className="text-[#FDFDFF] text-[1.375rem] font-medium mb-4">

@@ -31,7 +31,7 @@ export function StickyBookButton() {
   return (
     <>
       {/* Placeholder that stays in document flow */}
-      <div ref={placeholderRef} className="w-fit relative z-[60]">
+      <div ref={placeholderRef} className="w-fit relative z-60">
         {!shouldStick && (
           <a
             href="https://growthx.ai/book-demo"
@@ -46,7 +46,7 @@ export function StickyBookButton() {
       {/* Fixed button that appears when scrolling */}
       {shouldStick && (
         <div
-          className="fixed top-[14px] z-[60]"
+          className="fixed top-[14px] z-60"
           style={{ right: `${buttonPosition.right}px` }}
         >
           <a

@@ -34,7 +34,7 @@ export function BlogCard({
       <Link
         ref={measureRef}
         href={`/blog/${slug}`}
-        className={cn("group block relative p-4", className)}
+        className={cn("group block relative", className)}
       >
         {/* Mobile: VStack with "Highlight" label */}
         <div className="md:hidden">
@@ -53,19 +53,19 @@ export function BlogCard({
           <div className="p-2 pt-5">
             <div className="mb-8 md:mb-12">
               <div className="flex items-start justify-between gap-2 mb-3 md:mb-5">
-                <h3 className="text-[20px] font-[520] leading-[1.25] tracking-[-0.03em] md:text-[36px] line-clamp-2 flex-1">
+                <h3 className="text-[20px] font-[520] leading-tight tracking-[-0.03em] md:text-[36px] line-clamp-2 flex-1">
                   {title}
                 </h3>
-                <span className="text-[20px] md:text-[36px] mt-0.5 flex-shrink-0">→</span>
+                <span className="text-[20px] md:text-[36px] mt-0.5 shrink-0">→</span>
               </div>
               <div className="flex flex-wrap gap-2.5 mt-3">
-                <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
+                <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-normal tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
                   {category}
                 </span>
               </div>
             </div>
             {description && (
-              <p className="text-base leading-[1.5] tracking-[-0.03em] md:text-[18px] line-clamp-3 mb-12">
+              <p className="text-base leading-normal tracking-[-0.03em] md:text-[18px] line-clamp-3 mb-12">
                 {description}
               </p>
             )}
@@ -108,19 +108,19 @@ export function BlogCard({
           <div className="flex flex-col w-1/2">
             <div className="mb-8 md:mb-12">
               <div className="flex items-start justify-between gap-2 mb-3 md:mb-5">
-                <h3 className="text-[20px] font-[520] leading-[1.25] tracking-[-0.03em] md:text-[36px] line-clamp-2 flex-1">
+                <h3 className="text-[20px] font-[520] leading-tight tracking-[-0.03em] md:text-[36px] line-clamp-2 flex-1">
                   {title}
                 </h3>
-                <span className="text-[20px] md:text-[36px] mt-0.5 flex-shrink-0">→</span>
+                <span className="text-[20px] md:text-[36px] mt-0.5 shrink-0">→</span>
               </div>
               <div className="flex flex-wrap gap-2.5 mt-3">
-                <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
+                <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-normal tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
                   {category}
                 </span>
               </div>
             </div>
             {description && (
-              <p className="text-base leading-[1.5] tracking-[-0.03em] md:text-[18px] line-clamp-3 mb-24">
+              <p className="text-base leading-normal tracking-[-0.03em] md:text-[18px] line-clamp-3 mb-24">
                 {description}
               </p>
             )}
@@ -173,13 +173,13 @@ export function BlogCard({
         {/* Chin top: Title + Category grouped */}
         <div>
           <div className="flex items-start justify-between gap-2">
-            <h3 className="text-[20px] lg:text-[24px] font-[520] leading-[1.25] tracking-[-0.06em] line-clamp-2 flex-1">
+            <h3 className="text-[20px] lg:text-[24px] font-[520] leading-tight tracking-[-0.06em] line-clamp-2 flex-1">
               {title}
             </h3>
-            <span className="text-[20px] lg:text-[24px] mt-0.5 flex-shrink-0">→</span>
+            <span className="text-[20px] lg:text-[24px] mt-0.5 shrink-0">→</span>
           </div>
           <div className="flex flex-wrap gap-2.5 mt-3">
-            <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-[1.5] tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
+            <span className="flex px-3 py-1 h-9 w-fit items-center justify-center text-xs leading-normal tracking-[-0.03em] border-[.5px] border-primary rounded-full md:text-sm">
               {category}
             </span>
           </div>

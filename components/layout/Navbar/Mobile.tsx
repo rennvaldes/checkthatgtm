@@ -22,7 +22,7 @@ function Mobile() {
     <>
       <nav
         aria-hidden={!isVisible}
-        className="bg-[#F1EEE9] fixed z-[100] flex w-screen items-center justify-between bg-opacity-[80%] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]"
+        className="bg-[#F1EEE9] fixed z-100 flex w-screen items-center justify-between bg-opacity-[80%] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]"
       >
         <Logo className="text-primary-black" />
 
@@ -37,7 +37,7 @@ function Mobile() {
 
       <div
         aria-hidden={!isOpen}
-        className="bg-[#F1EEE9] aria-hidden: group fixed left-0 top-0 z-[100] flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-x-[100%] aria-hidden:opacity-50"
+        className="bg-[#F1EEE9] aria-hidden: group fixed left-0 top-0 z-100 flex h-screen w-screen flex-col overflow-hidden transition-all duration-500 aria-hidden:translate-x-full aria-hidden:opacity-50"
       >
         <div className="flex items-center justify-end py-[16px] pr-[16px] transition-transform duration-1000 group-aria-hidden:translate-x-[15%]">
           <button

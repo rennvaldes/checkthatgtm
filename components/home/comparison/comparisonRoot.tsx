@@ -6,6 +6,7 @@ import { cx } from "@/lib/classnames";
 import { Data } from "@/lib/data";
 import { IconCheck, IconCross } from "@/components/home/assets/assetsIcons";
 import { SectionHeader } from "@/components/home/sectionHeader";
+import { GridRoot } from "@/components/home/grid/gridRoot";
 import { Button } from "@/components/home/button";
 
 interface TabButtonProps {
@@ -71,7 +72,7 @@ export function ComparisonRoot() {
   });
 
   return (
-    <section className="pt-20 md:pt-32 lg:pt-44 border-t-[0.5px] border-border overflow-x-clip">
+    <section className="pt-20 tablet:pt-32 desktop:pt-44 border-t-[0.5px] border-border overflow-x-clip">
       <SectionHeader
         label={content.label}
         title={content.title}
@@ -79,7 +80,7 @@ export function ComparisonRoot() {
       />
 
       {/* Desktop Table */}
-      <div className="hidden md:block mt-10 mx-auto w-[calc(100%-48px)] max-w-[1280px]">
+      <GridRoot size="normal" className="hidden tablet:grid mt-10">
         <div className="grid grid-cols-4 gap-0 relative pt-6 pb-6 border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border before:pointer-events-none before:z-20">
           {/* Sticky Header */}
           <div className="sticky top-0 grid grid-cols-4 col-span-4 bg-background z-10 relative">
@@ -100,7 +101,7 @@ export function ComparisonRoot() {
                     Best Choice
                   </div>
                 )}
-                <span className="text-lg leading-[1.5] tracking-[-0.04em]">
+                <span className="text-lg leading-normal tracking-[-0.04em]">
                   {column}
                 </span>
               </div>
@@ -141,10 +142,10 @@ export function ComparisonRoot() {
             <div className="col-span-2" />
           </div>
         </div>
-      </div>
+      </GridRoot>
 
       {/* Mobile Tabs */}
-      <div className="md:hidden mt-10 mx-auto w-[calc(100%-48px)] max-w-[1280px]">
+      <GridRoot size="normal" className="tablet:hidden mt-10">
         {/* Tab Navigation */}
         <div className="flex gap-6 h-16 mb-6 relative after:absolute after:bottom-0 after:inset-x-[calc(-50vw+50%)] after:h-[0.5px] after:bg-border">
           {content.columns.map((column, idx) => (
@@ -183,7 +184,7 @@ export function ComparisonRoot() {
                   <div
                     key={colIdx}
                     className={cx(
-                      "flex-shrink-0 transition-opacity duration-300",
+                      "shrink-0 transition-opacity duration-300",
                       colIdx !== activeTab && "opacity-30"
                     )}
                   >
@@ -197,7 +198,7 @@ export function ComparisonRoot() {
             </div>
           ))}
         </div>
-      </div>
+      </GridRoot>
     </section>
   );
 }

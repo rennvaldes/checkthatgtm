@@ -67,7 +67,7 @@ const HelpedGrowSection = () => {
                   {repeatedLogos.map((logo, index) => (
                     <div 
                       key={index} 
-                      className="flex items-center justify-center p-0 -mt-[1px] -ml-[1px] border border-[#D9D6D2] transition-colors duration-300"
+                      className="flex items-center justify-center p-0 -mt-px -ml-px border border-[#D9D6D2] transition-colors duration-300"
                     >
                       <div className="h-full flex items-center">
                         <Image

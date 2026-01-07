@@ -39,7 +39,7 @@ export default function DesktopGrid({ cardsData, isLoading }: Props) {
   //             {row.map(card => (
   //               <CaseStudyCard
   //                 key={card.documentId}
-  //                 className="!mt-0 w-full"
+  //                 className="mt-0! w-full"
   //                 href={`/case-study/${card.slug ?? card.documentId}`}
   //                 title={card.title}
   //                 image={card.image_16x9 || card.image}

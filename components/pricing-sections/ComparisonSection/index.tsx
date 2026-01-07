@@ -52,11 +52,11 @@ export default function ComparisonSection() {
   return (
     <section className="py-24 bg-background">
       <div className="mx-auto w-full max-w-[calc(100vw-32px)] overflow-hidden lg:w-full lg:max-w-[1280px]">
-        <div className="text-left max-w-[35rem] lg:max-w-[60.5rem]">
+        <div className="text-left max-w-140 lg:max-w-242">
           <h3 className="text-ui-blue text-lg font-medium mb-1">
             Comparison
           </h3>
-          <h4 className="font-clash-display text-black text-[1.75rem] font-medium leading-[1.9375rem] w-[80%] lg:text-[3.25rem] lg:leading-[3.5rem]">
+          <h4 className="font-clash-display text-black text-[1.75rem] font-medium leading-7.75 w-[80%] lg:text-[3.25rem] lg:leading-14">
             GrowthX vs&nbsp;
             <span className="font-kepler-std text-ui-blue text-[2rem] italic lg:text-[3.75rem]">
               others

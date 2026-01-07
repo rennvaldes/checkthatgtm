@@ -43,7 +43,7 @@ function NewsletterForm() {
           placeholder="E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="flex-1 bg-transparent text-white placeholder-white/60 px-5 py-3.5 md:py-4 outline-none tracking-tight"
+          className="flex-1 bg-transparent text-white placeholder-white/60 px-5 py-3.5 md:py-4 outline-hidden tracking-tight"
         />
         <Button
           type="submit"

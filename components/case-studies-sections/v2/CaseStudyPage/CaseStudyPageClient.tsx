@@ -190,7 +190,7 @@ export default function CaseStudyPageClient({
                   rightContent={
                     <div>
                       {sec.image?.url ? (
-                        <div className="relative w-full aspect-[16/9] bg-[#EAE8E4] my-4">
+                        <div className="relative w-full aspect-video bg-[#EAE8E4] my-4">
                           <Image
                             src={sec.image.url}
                             alt={sec.image_alt || sec.title || ""}

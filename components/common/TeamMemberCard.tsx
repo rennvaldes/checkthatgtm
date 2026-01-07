@@ -30,10 +30,10 @@ export default function TeamMemberCard({
   grayscale = true,
   className = "",
   wrapperClassName = "w-[300px] lg:w-[360px]",
-  imageAspectClass = "aspect-[3/3]",
+  imageAspectClass = "aspect-3/3",
   imageSizes = "(max-width: 1024px) 33vw, 360px",
   nameClassName = "text-2xl font-semibold text-[#141414] tracking-tighter",
-  titleClassName = "text-base mt-2.5 tracking-tighter leading-[1.25] max-w-[220px]",
+  titleClassName = "text-base mt-2.5 tracking-tighter leading-tight max-w-[220px]",
   rightSlot,
 }: TeamMemberCardProps) {
   const Wrapper: any = href ? "a" : "div";

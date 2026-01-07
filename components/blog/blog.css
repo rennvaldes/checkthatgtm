@@ -1,47 +1,116 @@
 .blog-content {
-  /* All headings */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 24px;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+  /* h1 - displaySmall */
+  h1 {
+    font-size: 1.75rem;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0;
     font-weight: 540;
-    margin-bottom: 0;
+    margin-top: 4.375rem;
+    margin-bottom: 4.375rem;
   }
 
-  /* Paragraphs */
-  p {
-    font-size: 16px;
-    line-height: 1.6;
-    letter-spacing: -0.04em;
-    margin-bottom: 0;
+  h1:first-of-type {
+    margin-top: 0;
   }
 
-  @media (min-width: 1024px) {
-    p {
-      font-size: 18px;
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 2.125rem;
+      letter-spacing: -0.02em;
     }
   }
 
-  /* Heading + p spacing */
-  h1 + p,
-  h2 + p,
-  h3 + p,
-  h4 + p,
-  h5 + p,
-  h6 + p,
-  p + h1,
-  p + h2,
-  p + h3,
-  p + h4,
-  p + h5,
-  p + h6,
-  p + p {
-    margin-top: 40px;
+  @media (min-width: 1180px) {
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 6rem;
+      margin-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    h1 {
+      font-size: 3.625rem;
+      margin-top: 8rem;
+    }
+  }
+
+  /* h2 - bodyLarge (sans-serif) */
+  h2,
+  h3 {
+    font-weight: 540;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin: 0;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    h2,
+    h3 {
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-top: 6rem;
+      margin-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1180px) {
+    h2,
+    h3 {
+      font-size: 2.25rem;
+      line-height: 1.45;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    h2,
+    h3 {
+      font-size: 2.625rem;
+    }
+  }
+
+  /* h4-h6 - bodyMedium */
+  h4,
+  h5,
+  h6 {
+    font-weight: 540;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    line-height: 1.45;
+    margin: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    h4,
+    h5,
+    h6 {
+      font-size: 1.375rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (min-width: 1180px) {
+    h4,
+    h5,
+    h6 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    h4,
+    h5,
+    h6 {
+      font-size: 2.125rem;
+    }
   }
 
   p + h1,
@@ -50,11 +119,65 @@
   p + h4,
   p + h5,
   p + h6 {
-    margin-top: 80px;
+    margin-top: 4.375rem;
+  }
+
+  @media (min-width: 1180px) {
+    p + h1,
+    p + h2,
+    p + h3,
+    p + h4,
+    p + h5,
+    p + h6 {
+      margin-top: 6rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    p + h1,
+    p + h2,
+    p + h3,
+    p + h4,
+    p + h5,
+    p + h6 {
+      margin-top: 8rem;
+    }
+  }
+
+  /* Paragraphs - bodyMedium */
+  p {
+    font-size: 1.125rem;
+    letter-spacing: -0.03em;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: 1.375rem;
+    }
+  }
+
+  @media (min-width: 1180px) {
+    p {
+      font-size: 1.5rem;
+      letter-spacing: -0.06em;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    p {
+      font-size: 2.125rem;
+    }
+  }
+
+  /* Paragraph spacing */
+  p + p {
+    margin-top: 1.6em;
   }
 
   /* Lists */
-  ul,
+  /* ul,
   ol {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -62,9 +185,9 @@
 
   p + ul {
     margin-top: 18px;
-  }
+  } */
 
-  li {
+  /* li {
     font-size: 16px;
     line-height: 1.6;
     letter-spacing: -0.04em;
@@ -74,11 +197,36 @@
     li {
       font-size: 18px;
     }
+  } */
+
+  /* List styles - bodyMedium */
+  li {
+    font-size: 1.125rem;
+    line-height: 1.45;
+    letter-spacing: -0.03em;
   }
 
-  /* li + li spacing */
+  @media (min-width: 768px) {
+    li {
+      font-size: 1.375rem;
+    }
+  }
+
+  @media (min-width: 1180px) {
+    li {
+      font-size: 1.5rem;
+      letter-spacing: -0.06em;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    li {
+      font-size: 2.125rem;
+    }
+  }
+
   li + li {
-    margin-top: 18px;
+    margin-top: 0.5rem;
   }
 
   /* Links */
@@ -91,10 +239,34 @@
     opacity: 0.8;
   }
 
-  /* Images - margins handled in component */
-  img {
+  /* Figure/Image */
+  figure {
+    margin: 0;
+  }
+
+  figure img {
     width: 100%;
     height: auto;
+  }
+
+  figcaption {
+    font-size: 0.875rem;
+    letter-spacing: -0.02em;
+    line-height: 1.45;
+    color: #707070;
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    figcaption {
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    figcaption {
+      font-size: 1.125rem;
+    }
   }
 
   /* Code blocks */
@@ -118,12 +290,12 @@
     }
   }
 
-  /* Blockquotes */
-  blockquote {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding-left: 24px;
-    border-left: 4px solid currentColor;
-    font-style: italic;
+  /* Blockquote paragraph inline */
+  blockquote p {
+    display: inline;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
   }
 }

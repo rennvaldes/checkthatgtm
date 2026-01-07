@@ -42,7 +42,7 @@ function VideoLoaderComponent({ isLoaded, isActive, dark }: VideoLoaderProps) {
           className={cx(
             "absolute inset-0 w-full h-full",
             "flex items-center justify-center",
-            "z-[3] pointer-events-none"
+            "z-3 pointer-events-none"
           )}
           style={style}
         >

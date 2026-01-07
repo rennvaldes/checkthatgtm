@@ -20,14 +20,14 @@ export function PeopleCompanyLogos({ companies }: PeopleCompanyLogosProps) {
         return (
           <div
             key={company.name}
-            className="group w-fit rounded-full border-[0.5px] border-border bg-background flex items-center overflow-hidden transition-all duration-300 ease-in-out flex-shrink-0 cursor-pointer hover:pr-3 md:hover:pr-4"
+            className="group w-fit rounded-full border-[0.5px] border-border bg-background flex items-center overflow-hidden transition-all duration-300 ease-in-out shrink-0 cursor-pointer hover:pr-3 md:hover:pr-4"
           >
             <Image
               src={company.logo}
               alt={company.name}
               width={48}
               height={48}
-              className="size-9 md:size-12 flex-shrink-0"
+              className="size-9 md:size-12 shrink-0"
             />
             <span className="text-foreground text-xs md:text-sm whitespace-nowrap max-w-0 group-hover:max-w-[200px] overflow-hidden transition-all duration-300 ease-in-out group-hover:ml-1 md:group-hover:ml-1.5">
               {company.name}

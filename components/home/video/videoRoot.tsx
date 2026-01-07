@@ -275,7 +275,7 @@ export function VideoRoot({
     isActive
   );
 
-  useWindowEvent("blur", pause, isActive);
+  useWindowEvent("blur-sm", pause, isActive);
 
   return (
     <div
@@ -290,7 +290,7 @@ export function VideoRoot({
       <video
         ref={videoRef}
         src={src}
-        className="absolute inset-0 h-full w-full object-cover pointer-events-none select-none [transform:translateZ(0)]"
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none select-none transform-[translateZ(0)]"
         playsInline
         muted={mode === "preview"}
         loop={mode === "preview"}

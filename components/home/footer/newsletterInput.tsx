@@ -62,7 +62,7 @@ export function NewsletterInput({ className }: NewsletterInputProps) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail"
           disabled={isSubmitting}
-          className="w-full h-[48px] px-5 pr-14 rounded-full border border-muted-foreground/20 bg-transparent text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground disabled:opacity-50"
+          className="w-full h-[48px] px-5 pr-14 rounded-full border border-muted-foreground/20 bg-transparent text-base text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:border-foreground disabled:opacity-50"
         />
         <button
           type="submit"

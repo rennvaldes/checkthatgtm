@@ -72,20 +72,20 @@ function CaseStudiesListingSection() {
     <section className='mx-auto w-full pb-10 pt-10 lg:pb-[120px] lg:pt-[56px] max-md:px-4'>
       <div className='mx-auto w-full container'>
         <div className='flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
-          <div className='w-[320px] lg:flex-shrink-0'>
+          <div className='w-[320px] lg:shrink-0'>
             <div className='flex items-center gap-2 border-b border-primary-gray pb-2'>
               <Search className='h-5 w-5 lg:h-6 lg:w-6 text-primary-gray' />
               <input
                 value={searchedValue}
                 onChange={(e) => setSearchedValue(e.target.value)}
                 placeholder='Search'
-                className='w-full bg-transparent text-primary-black placeholder:text-primary-gray focus:outline-none text-base lg:text-lg'
+                className='w-full bg-transparent text-primary-black placeholder:text-primary-gray focus:outline-hidden text-base lg:text-lg'
               />
             </div>
           </div>
 
           <div className='hide-scrollbar flex w-full overflow-x-auto lg:w-auto lg:max-w-[900px] lg:items-center'>
-            <p className='mr-[20px] hidden flex-shrink-0 text-xl font-semibold tracking-tight text-primary-gray lg:block'>Filter by</p>
+            <p className='mr-[20px] hidden shrink-0 text-xl font-semibold tracking-tight text-primary-gray lg:block'>Filter by</p>
             {(areCategoriesLoading ? ['1', '2', '3', '4', '5'] : ['all', ...categories]).map((filter: string) =>
               areCategoriesLoading ? (
                 <Skeleton key={filter} className='mr-[8px] h-[40px] w-[90px] rounded-full' />
@@ -93,11 +93,11 @@ function CaseStudiesListingSection() {
                 <Button
                   onClick={() => setSelectedFilter(filter)}
                   key={filter}
-                  variant={filter === selectedFilter ? 'secondary' : 'outline'}
+                  variant={filter === selectedFilter ? 'secondary' : 'outline-solid'}
                   size='sm'
                   className={[
                     'mr-[8px] my-2 rounded-full font-medium ',
-                    filter === selectedFilter ? '' : '!border-0 text-ui-black bg-[#e1ddd8]'
+                    filter === selectedFilter ? '' : 'border-0! text-ui-black bg-[#e1ddd8]'
                   ].join(' ')}
                 >
                   <span className='inline-flex items-center text-lg gap-4'>

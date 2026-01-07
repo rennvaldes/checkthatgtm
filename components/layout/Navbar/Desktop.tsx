@@ -24,7 +24,7 @@ function LearnDropdown() {
         className="peer flex items-center justify-center gap-[12px]"
       >
         Learn
-        <ChevronThin className="flex-shrink-0 text-[10.7px] transition-transform duration-200 group-hover:rotate-180" />
+        <ChevronThin className="shrink-0 text-[10.7px] transition-transform duration-200 group-hover:rotate-180" />
       </KitButton>
       <div className="absolute left-0 w-full pt-[8px] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
         <div className="bg-ui-whitest absolute flex w-full flex-col rounded-[20px] p-[8px] min-w-[240px]">
@@ -34,7 +34,7 @@ function LearnDropdown() {
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal !text-left"
+            className="justify-between font-normal text-left!"
             sameBrowserTab={true}
           >
             Origin Story
@@ -45,7 +45,7 @@ function LearnDropdown() {
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal !text-left"
+            className="justify-between font-normal text-left!"
             sameBrowserTab={true}
           >
             The Problem We&apos;re Solving
@@ -56,7 +56,7 @@ function LearnDropdown() {
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal !text-left"
+            className="justify-between font-normal text-left!"
             sameBrowserTab={true}
           >
             How we work
@@ -67,7 +67,7 @@ function LearnDropdown() {
             variant="secondary"
             size="medium"
             withAnimatedArrow="to-top-right"
-            className="justify-between font-normal !text-left"
+            className="justify-between font-normal text-left!"
             sameBrowserTab={true}
           >
             Creating a winning content strategy
@@ -85,7 +85,7 @@ function Desktop() {
   return (
     <nav
       aria-hidden={!isVisible}
-      className="fixed z-[100] flex w-screen items-center justify-between bg-[#F1EEE9] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]"
+      className="fixed z-100 flex w-screen items-center justify-between bg-[#F1EEE9] py-[16px] pl-[20px] pr-[16px] font-medium backdrop-blur-[20px] transition-transform duration-300 aria-hidden:-translate-y-full lg:px-[52px] lg:py-[16px]"
     >
       <Link href="/">
         <Logo />

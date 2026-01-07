@@ -124,7 +124,7 @@ const staticData = [
 
 const ContentSegment = () => {
   return (
-    <div className="mt-[6.25rem]">
+    <div className="mt-25">
       <div className="flex items-center gap-5 lg:gap-12 relative -left-[3.1rem] mb-4 lg:mb-6">
         <Image
           src={MagicWandIcon}
@@ -138,7 +138,7 @@ const ContentSegment = () => {
         </h4>
       </div>
       <motion.div
-        className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-[58.25rem]"
+        className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-233"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

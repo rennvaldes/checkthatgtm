@@ -3,7 +3,7 @@
 import { useState, useEffect, ReactNode } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import { cx } from "@/lib/classnames";
-import { Grid } from "@/components/home/grid/gridRoot";
+import { GridRoot } from "@/components/home/grid/gridRoot";
 import {
   RampLogo,
   WebflowLogo,
@@ -108,24 +108,19 @@ export function HeroLogos({ className }: HeroLogosProps) {
   return (
     <section className={cx("pt-16", className)}>
       {/* Header */}
-      <Grid>
-        {/* Label */}
-        <div className="col-span-full md:col-span-1 flex items-start">
-          <span className="text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light">
+      <GridRoot size="normal">
+        <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
+          <span className="block text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light mb-3 desktop:mb-0">
             Customers
           </span>
+          <div>
+            <p className="text-[20px] desktop:text-2xl font-[520] leading-normal desktop:leading-tight tracking-[-0.06em]">
+              Trusted by the world&apos;s fastest-growing startups and reputable
+              brands.
+            </p>
+          </div>
         </div>
-
-        {/* Gap - col 2 is empty */}
-
-        {/* Description - responsive: full -> 6 cols (start 3) -> 8 cols (start 3) */}
-        <div className="col-span-full md:col-span-6 md:col-start-3 lg:col-span-8 lg:col-start-3 mt-3 md:mt-0">
-          <p className="text-[20px] lg:text-2xl font-[520] leading-[1.5] lg:leading-[1.25] tracking-[-0.03em] lg:tracking-[-0.06em]">
-            Trusted by the world&apos;s fastest-growing startups and reputable
-            brands.
-          </p>
-        </div>
-      </Grid>
+      </GridRoot>
 
       {/* Mobile Logo Grid - 3 cols, animated checkerboard pattern */}
       <div

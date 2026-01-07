@@ -27,7 +27,7 @@ export { Button } from "./button";
 export { SectionHeader } from "./sectionHeader";
 
 // Grid system
-export { Grid } from "./grid/gridRoot";
+export { Grid } from "./grid/_gridRoot";
 
 // Video components
 export { VideoRoot } from "./video/videoRoot";

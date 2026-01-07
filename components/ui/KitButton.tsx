@@ -10,7 +10,7 @@ type AnimationDirection =
   | "to-bottom-right"
   | "to-left"
   | "to-top-right";
-type ButtonVariant = "primary" | "outline" | "secondary" | "tertiary" | "ghost";
+type ButtonVariant = "primary" | "outline-solid" | "secondary" | "tertiary" | "ghost";
 type ButtonSize = "medium" | "large" | "custom";
 type ArrowSize = "medium" | "large";
 
@@ -35,10 +35,10 @@ type Props = {
 const VARIANT_STYLES: Record<ButtonVariant, string> = {
   primary:
     "text-ui-whitest bg-ui-black font-clash-display focus:bg-ui-blue hover:bg-ui-blue rounded-full font-medium transition-colors duration-200",
-  outline:
-    "text-ui-black hover:border-ui-black hover:bg-ui-black font-clash-display focus:bg-ui-black rounded-full border-[1px] border-ui-black/0 font-medium transition-colors duration-200 hover:bg-opacity-[8%] focus:bg-opacity-[8%] active:bg-opacity-[8%]",
+  "outline-solid":
+    "text-ui-black hover:border-ui-black hover:bg-ui-black font-clash-display focus:bg-ui-black rounded-full border border-ui-black/0 font-medium transition-colors duration-200 hover:bg-opacity-[8%] focus:bg-opacity-[8%] active:bg-opacity-[8%]",
   secondary:
-    "rounded-full ease-in transition-color duration-[150ms] hover:bg-opacity-[8%] hover:bg-ui-black focus:bg-opacity-[8%] focus:bg-ui-black",
+    "rounded-full ease-in transition-color duration-150 hover:bg-opacity-[8%] hover:bg-ui-black focus:bg-opacity-[8%] focus:bg-ui-black",
   tertiary:
     " text-ui-black bg-[#33FF9D] font-clash-display hover:bg-[#FDFDFF] focus:bg-[#FDFDFF] rounded-full font-medium transition-colors duration-200",
   ghost: "",
@@ -212,8 +212,8 @@ function KitButton({
     }
   }
 
-  return variant === "outline" ? (
-    <div className="border-ui-black relative rounded-full border-[1px]">
+  return variant === "outline-solid" ? (
+    <div className="border-ui-black relative rounded-full border">
       {bgOverlayStyles && (
         <div
           className={cn(

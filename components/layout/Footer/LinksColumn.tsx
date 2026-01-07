@@ -14,7 +14,7 @@ function LinksColumn({
     <Skeleton className='h-[200px] w-[160px]' />
   ) : (
     <div className='w-[160px] leading-[20px]'>
-      <h4 className='text-[16px] font-[600]'>{title}</h4>
+      <h4 className='text-[16px] font-semibold'>{title}</h4>
 
       <div className='mt-[24px] flex flex-col items-start gap-[12px]'>
         {links.map(({ to, text, isExternal, sameBrowserTab, scrollTo }, index) =>
