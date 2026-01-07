@@ -65,12 +65,12 @@ export function BlogRoot({ articles, categories }: BlogRootProps) {
         </h1>
       </GridRoot>
 
-      {/* Filters */}
-      <BlogFilters
+      {/* Filters - hidden until we have more articles */}
+      {/* <BlogFilters
         categories={categories}
         selectedFilters={selectedFilters}
         onFilterChange={handleFilterChange}
-      />
+      /> */}
 
       {/* Blog Cards Grid - 4th article is featured when no filters applied */}
       <div className="relative w-full border-l-[0.5px] border-r-[0.5px] border-border before:absolute before:inset-x-[calc(-50vw+50%)] before:top-0 before:h-[0.5px] before:bg-border after:absolute after:inset-x-[calc(-50vw+50%)] after:bottom-0 after:h-[0.5px] after:bg-border">

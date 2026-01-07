@@ -16,7 +16,6 @@ type NavigationBarProps = {
   backButtonLabel?: string;
   showBookButton?: boolean;
   enableScrollAway?: boolean;
-  showMobileCtaAfter?: number;
 };
 
 export function NavigationBar({
@@ -25,11 +24,9 @@ export function NavigationBar({
   backButtonLabel = "News overview",
   showBookButton = true,
   enableScrollAway = false,
-  showMobileCtaAfter = 0,
 }: NavigationBarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [pastThreshold, setPastThreshold] = useState(false);
   const pathname = usePathname();
   const { isVisible } = useScrollDirection();
 
@@ -42,29 +39,9 @@ export function NavigationBar({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Track scroll position for CTA visibility (all logic internal)
-  useEffect(() => {
-    if (showMobileCtaAfter <= 0) return;
-
-    const handleScroll = () => {
-      setPastThreshold(window.scrollY > showMobileCtaAfter);
-    };
-
-    handleScroll(); // Check initial position
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [showMobileCtaAfter]);
-
   // Scroll-away spring (mobile only)
   const navSpring = useSpring({
     transform: enableScrollAway && !isVisible ? "translateY(-100%)" : "translateY(0%)",
-    config: { tension: 300, friction: 35 },
-  });
-
-  // CTA slide-in spring
-  const ctaSpring = useSpring({
-    opacity: pastThreshold ? 1 : 0,
-    transform: pastThreshold ? "translateX(0px)" : "translateX(20px)",
     config: { tension: 300, friction: 35 },
   });
 
@@ -176,22 +153,6 @@ export function NavigationBar({
                 <span>{backButtonLabel}</span>
               </Link>
             ) : null}
-
-            {/* Nav CTA - slides in when past scroll threshold */}
-            {showMobileCtaAfter > 0 && (
-              <a.div
-                style={ctaSpring}
-                className={pastThreshold ? "" : "pointer-events-none"}
-              >
-                <Link
-                  href="/book-demo"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm"
-                >
-                  Book a demo
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </a.div>
-            )}
 
             <button
               type="button"
