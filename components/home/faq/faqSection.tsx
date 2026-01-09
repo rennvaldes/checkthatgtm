@@ -46,7 +46,7 @@ export function FaqSection() {
   ];
 
   return (
-    <section className="pt-20 tablet:pt-32 desktop:pt-44 pb-20 tablet:pb-32 desktop:pb-44">
+    <section className="pt-20 tablet:pt-32 desktop:pt-44 pb-10 tablet:pb-16 desktop:pb-20">
       <GridRoot size="normal">
         {/* Header */}
         <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 desktop:items-start mb-10">
