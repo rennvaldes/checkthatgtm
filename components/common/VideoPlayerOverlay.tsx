@@ -55,7 +55,7 @@ export function VideoPlayerOverlay({ isOpen, onClose, videoUrl }: VideoPlayerOve
       <a.div
         style={playerSpring}
         className="relative w-full max-w-5xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
