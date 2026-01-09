@@ -24,7 +24,7 @@
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.3.0",
-    "framer-motion": "^11.13.1",
+    "framer-motion": "^12.24.12",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.438.0",
