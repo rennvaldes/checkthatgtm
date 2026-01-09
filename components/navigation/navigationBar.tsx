@@ -185,7 +185,7 @@ export function NavigationBar({
                   onClick={scrollToLaunchWeek}
                   className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors whitespace-nowrap w-full"
                 >
-                  Join Launch Week
+                  Reserve your spot
                 </button>
               </a.div>
             )}

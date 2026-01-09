@@ -14,6 +14,7 @@ export function PlatformFeaturesNew() {
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
+    // Observer for individual days
     dayRefs.current.forEach((ref, index) => {
       if (!ref) return;
 
@@ -23,13 +24,13 @@ export function PlatformFeaturesNew() {
             if (entry.isIntersecting) {
               setVisibleDays((prev) => new Set(prev).add(index));
               // Update active day to the most visible one
-              if (entry.intersectionRatio > 0.5) {
+              if (entry.intersectionRatio > 0.3) {
                 setActiveDay(index);
               }
             }
           });
         },
-        { threshold: [0.2, 0.5], rootMargin: "-50px" }
+        { threshold: [0.2, 0.3, 0.5], rootMargin: "-200px 0px" }
       );
 
       observer.observe(ref);
@@ -72,11 +73,11 @@ export function PlatformFeaturesNew() {
         />
 
         <GridRoot size="normal">
-          {/* Desktop: Grid layout with fixed navigation */}
+          {/* Desktop: Grid layout with sticky navigation */}
           <div className="hidden desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
-            {/* Day Navigation - Left Column (5fr) - Fixed */}
+            {/* Day Navigation - Left Column (5fr) - Sticky */}
             <div className="desktop:col-start-1 desktop:col-span-1">
-              <div className="fixed top-32 pt-[72px] flex flex-col gap-3.5 text-[14px] font-bold leading-[1.5] tracking-[-0.42px]">
+              <div className="sticky top-32 pt-[72px] flex flex-col gap-3.5 text-[14px] font-bold leading-[1.5] tracking-[-0.42px]">
                 {[
                   { label: "Day 1", index: 0 },
                   { label: "Day 2", index: 1 },
@@ -106,7 +107,7 @@ export function PlatformFeaturesNew() {
               {/* Day 1 - Full platform access with image on left */}
               <div 
                 ref={(el) => { dayRefs.current[0] = el; }}
-                className="border-l border-r border-border overflow-hidden transition-all duration-700 ease-out"
+                className="border-l border-r border-b border-border overflow-hidden transition-all duration-700 ease-out"
                 style={{
                   opacity: visibleDays.has(0) ? 1 : 0,
                   transform: visibleDays.has(0) ? 'translateY(0)' : 'translateY(40px)',
@@ -182,7 +183,7 @@ export function PlatformFeaturesNew() {
                   <div 
                     key={feature.id}
                     ref={(el) => { dayRefs.current[dayIndex] = el; }}
-                    className="border-l border-r border-t border-border overflow-hidden transition-all duration-700 ease-out"
+                    className="border-l border-r border-t border-b border-border overflow-hidden transition-all duration-700 ease-out -mt-[0.5px]"
                     style={{
                       opacity: visibleDays.has(dayIndex) ? 1 : 0,
                       transform: visibleDays.has(dayIndex) ? 'translateY(0)' : 'translateY(40px)',
@@ -242,7 +243,7 @@ export function PlatformFeaturesNew() {
               {/* Day 1 */}
               <div 
                 ref={(el) => { if (!dayRefs.current[0]) dayRefs.current[0] = el; }}
-                className="border-l border-r border-border overflow-hidden"
+                className="border-l border-r border-b border-border overflow-hidden"
               >
                 <div className="flex flex-col">
                   <div className="flex-1 bg-[#0ABF53] p-5 flex items-center justify-center relative">
@@ -306,7 +307,7 @@ export function PlatformFeaturesNew() {
                   <div 
                     key={feature.id}
                     ref={(el) => { if (!dayRefs.current[dayIndex]) dayRefs.current[dayIndex] = el; }}
-                    className="border-l border-r border-t border-border overflow-hidden"
+                    className="border-l border-r border-t border-b border-border overflow-hidden -mt-[0.5px]"
                   >
                     <div className="flex flex-col">
                       <div className="flex-1 p-10 flex flex-col justify-center">
