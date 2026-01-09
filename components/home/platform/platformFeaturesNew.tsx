@@ -107,7 +107,7 @@ export function PlatformFeaturesNew() {
               {/* Day 1 - Full platform access with image on left */}
               <div 
                 ref={(el) => { dayRefs.current[0] = el; }}
-                className="border-l border-r border-b border-border overflow-hidden transition-all duration-700 ease-out"
+                className={`border-l border-r border-border overflow-hidden transition-all duration-700 ease-out ${!visibleDays.has(1) ? 'border-b' : ''}`}
                 style={{
                   opacity: visibleDays.has(0) ? 1 : 0,
                   transform: visibleDays.has(0) ? 'translateY(0)' : 'translateY(40px)',
@@ -179,11 +179,14 @@ export function PlatformFeaturesNew() {
               {/* Days 2-5 - Text only format */}
               {content.features.slice(1).map((feature: any, index: number) => {
                 const dayIndex = index + 1;
+                const isLastDay = index === content.features.slice(1).length - 1;
+                const nextDayIndex = dayIndex + 1;
+                const showBottomBorder = isLastDay || !visibleDays.has(nextDayIndex);
                 return (
                   <div 
                     key={feature.id}
                     ref={(el) => { dayRefs.current[dayIndex] = el; }}
-                    className="border-l border-r border-t border-b border-border overflow-hidden transition-all duration-700 ease-out -mt-[0.5px]"
+                    className={`border-l border-r border-t border-border overflow-hidden transition-all duration-700 ease-out ${showBottomBorder ? 'border-b' : ''}`}
                     style={{
                       opacity: visibleDays.has(dayIndex) ? 1 : 0,
                       transform: visibleDays.has(dayIndex) ? 'translateY(0)' : 'translateY(40px)',
@@ -243,7 +246,7 @@ export function PlatformFeaturesNew() {
               {/* Day 1 */}
               <div 
                 ref={(el) => { if (!dayRefs.current[0]) dayRefs.current[0] = el; }}
-                className="border-l border-r border-b border-border overflow-hidden"
+                className={`border-l border-r border-border overflow-hidden ${!visibleDays.has(1) ? 'border-b' : ''}`}
               >
                 <div className="flex flex-col">
                   <div className="flex-1 bg-[#0ABF53] p-5 flex items-center justify-center relative">
@@ -303,11 +306,14 @@ export function PlatformFeaturesNew() {
               {/* Days 2-5 */}
               {content.features.slice(1).map((feature: any, index: number) => {
                 const dayIndex = index + 1;
+                const isLastDay = index === content.features.slice(1).length - 1;
+                const nextDayIndex = dayIndex + 1;
+                const showBottomBorder = isLastDay || !visibleDays.has(nextDayIndex);
                 return (
                   <div 
                     key={feature.id}
                     ref={(el) => { if (!dayRefs.current[dayIndex]) dayRefs.current[dayIndex] = el; }}
-                    className="border-l border-r border-t border-b border-border overflow-hidden -mt-[0.5px]"
+                    className={`border-l border-r border-t border-border overflow-hidden ${showBottomBorder ? 'border-b' : ''}`}
                   >
                     <div className="flex flex-col">
                       <div className="flex-1 p-10 flex flex-col justify-center">
