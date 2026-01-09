@@ -177,11 +177,12 @@ export function FaqSection() {
                 <span>{` Create a free account to explore rankings and start tracking prompts.`}</span>
               </p>
               <Button
-                text="Get started"
                 href="/book-demo"
-                color="black"
+                variant="primary"
                 className="shrink-0"
-              />
+              >
+                Get started
+              </Button>
             </div>
           </div>
         </GridRoot>
