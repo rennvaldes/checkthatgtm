@@ -12,6 +12,7 @@ interface FaqData {
 
 export function FaqSection() {
   const [activeIndex, setActiveIndex] = useState(1);
+  const [openMobileIndex, setOpenMobileIndex] = useState<number | null>(null);
 
   const faqs: FaqData[] = [
     {
@@ -74,55 +75,57 @@ export function FaqSection() {
         <GridRoot size="normal">
           <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 relative">
             
-            {/* Q&A Section - starts at column 2, spans to right edge (columns 2-3) */}
-            <div className="desktop:col-start-2 desktop:col-span-2 content-stretch flex flex-col desktop:flex-row items-start relative shrink-0 w-full desktop:h-[480px]">
-              {/* Questions List - Left Column (50%) */}
-              <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
-                <div className="basis-0 content-stretch flex flex-col grow h-full items-start min-h-px min-w-px relative shrink-0">
-                  {/* Left border for questions column */}
-                  <div aria-hidden="true" className="absolute border-l border-border inset-y-0 left-0 pointer-events-none" />
-                  
-                  {faqs.map((faq, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveIndex(index)}
-                      className={cx(
-                        "basis-0 grow min-h-px min-w-px relative shrink-0 w-full",
-                      )}
-                    >
-                      {index > 0 && (
-                        <div 
-                          aria-hidden="true"
-                          className="absolute border-t border-border inset-x-0 top-0 pointer-events-none" 
-                        />
-                      )}
-                      <div className="flex flex-row items-center size-full">
-                        <div className="content-stretch flex gap-[10px] items-center px-[40px] py-[19px] relative size-full">
-                          <p className={cx(
-                            "font-medium leading-[1.5] relative shrink-0 text-[18px] tracking-[-0.72px]",
-                            activeIndex === index ? "text-foreground" : "text-muted-foreground"
-                          )}>
-                            {faq.question}
-                          </p>
-                        </div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Answer Detail - Right Column (50%) */}
-              <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
-                <div className="basis-0 grow h-full min-h-px min-w-px relative shrink-0">
-                  <div aria-hidden="true" className="absolute border-t border-l border-r border-border inset-x-0 inset-y-0 pointer-events-none" />
-                  <div className="flex flex-col justify-start size-full">
-                    <div className="content-stretch flex flex-col items-start justify-start pb-[48px] pt-[40px] px-[40px] relative size-full">
-                      <div className="font-medium leading-[1.5] relative shrink-0 text-foreground text-[18px] tracking-[-0.54px] w-full">
-                        {typeof faqs[activeIndex].answer === 'string' ? (
-                          <p>{faqs[activeIndex].answer}</p>
-                        ) : (
-                          faqs[activeIndex].answer
+            {/* Desktop: Two-column layout */}
+            <div className="hidden desktop:block desktop:col-start-2 desktop:col-span-2 content-stretch relative shrink-0 w-full">
+              <div className="flex flex-row items-start relative shrink-0 w-full h-[480px]">
+                {/* Questions List - Left Column (50%) */}
+                <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
+                  <div className="basis-0 content-stretch flex flex-col grow h-full items-start min-h-px min-w-px relative shrink-0">
+                    {/* Left border for questions column */}
+                    <div aria-hidden="true" className="absolute border-l border-border inset-y-0 left-0 pointer-events-none" />
+                    
+                    {faqs.map((faq, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveIndex(index)}
+                        className={cx(
+                          "basis-0 grow min-h-px min-w-px relative shrink-0 w-full",
                         )}
+                      >
+                        {index > 0 && (
+                          <div 
+                            aria-hidden="true"
+                            className="absolute border-t border-border inset-x-0 top-0 pointer-events-none" 
+                          />
+                        )}
+                        <div className="flex flex-row items-center size-full">
+                          <div className="content-stretch flex gap-[10px] items-center px-[40px] py-[19px] relative size-full">
+                            <p className={cx(
+                              "font-medium leading-[1.5] relative shrink-0 text-[18px] tracking-[-0.72px]",
+                              activeIndex === index ? "text-foreground" : "text-muted-foreground"
+                            )}>
+                              {faq.question}
+                            </p>
+                          </div>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Answer Detail - Right Column (50%) */}
+                <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
+                  <div className="basis-0 grow h-full min-h-px min-w-px relative shrink-0">
+                    <div aria-hidden="true" className="absolute border-t border-l border-r border-border inset-x-0 inset-y-0 pointer-events-none" />
+                    <div className="flex flex-col justify-start size-full">
+                      <div className="content-stretch flex flex-col items-start justify-start pb-[48px] pt-[40px] px-[40px] relative size-full">
+                        <div className="font-medium leading-[1.5] relative shrink-0 text-foreground text-[18px] tracking-[-0.54px] w-full">
+                          {typeof faqs[activeIndex].answer === 'string' ? (
+                            <p>{faqs[activeIndex].answer}</p>
+                          ) : (
+                            faqs[activeIndex].answer
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -130,10 +133,46 @@ export function FaqSection() {
               </div>
             </div>
 
-            {/* CTA Section - also spans columns 2-3 */}
-            <div className="desktop:col-start-2 desktop:col-span-2 content-stretch flex gap-[20px] h-[134px] items-center justify-end p-[40px] relative shrink-0 w-full">
+            {/* Mobile: Accordion layout */}
+            <div className="desktop:hidden relative w-full border-l border-r border-border">
+              {faqs.map((faq, index) => (
+                <div key={index} className="relative">
+                  {index > 0 && (
+                    <div 
+                      aria-hidden="true"
+                      className="absolute border-t border-border inset-x-0 top-0 pointer-events-none" 
+                    />
+                  )}
+                  <button
+                    onClick={() => setOpenMobileIndex(openMobileIndex === index ? null : index)}
+                    className="w-full text-left px-6 py-5"
+                  >
+                    <p className={cx(
+                      "font-medium leading-[1.5] text-[18px] tracking-[-0.72px]",
+                      openMobileIndex === index ? "text-foreground" : "text-muted-foreground"
+                    )}>
+                      {faq.question}
+                    </p>
+                  </button>
+                  {openMobileIndex === index && (
+                    <div className="px-6 pb-6 pt-2">
+                      <div className="font-medium leading-[1.5] text-foreground text-[16px] tracking-[-0.54px]">
+                        {typeof faq.answer === 'string' ? (
+                          <p>{faq.answer}</p>
+                        ) : (
+                          faq.answer
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Section */}
+            <div className="desktop:col-start-2 desktop:col-span-2 content-stretch flex flex-col desktop:flex-row gap-5 desktop:gap-[20px] desktop:h-[134px] items-start desktop:items-center justify-start desktop:justify-end p-6 desktop:p-[40px] relative shrink-0 w-full">
               <div aria-hidden="true" className="absolute border border-border inset-0 pointer-events-none" />
-              <p className="basis-0 font-medium grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-foreground text-[18px] tracking-[-0.54px]">
+              <p className="font-medium leading-[1.5] relative shrink-0 text-foreground text-[16px] desktop:text-[18px] tracking-[-0.54px] desktop:basis-0 desktop:grow desktop:min-h-px desktop:min-w-px">
                 <span className="font-bold">Ready to see your category?</span>
                 <span>{` Create a free account to explore rankings and start tracking prompts.`}</span>
               </p>
@@ -141,7 +180,7 @@ export function FaqSection() {
                 text="Get started"
                 href="/book-demo"
                 color="black"
-                className="shrink-0"
+                className="shrink-0 w-full desktop:w-auto"
               />
             </div>
           </div>
