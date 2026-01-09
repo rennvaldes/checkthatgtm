@@ -61,7 +61,7 @@ export function PlatformFeaturesNew() {
       {/* Day 1 - Full platform access with image on left */}
       <GridRoot size="normal" className="mt-10">
         <div 
-          ref={(el) => (dayRefs.current[0] = el)}
+          ref={(el) => { dayRefs.current[0] = el; }}
           className="border-t border-l border-r border-border overflow-hidden transition-all duration-700 ease-out"
           style={{
             opacity: visibleDays.has(0) ? 1 : 0,
@@ -139,7 +139,7 @@ export function PlatformFeaturesNew() {
         return (
         <GridRoot key={feature.id} size="normal" className="mt-0">
           <div 
-            ref={(el) => (dayRefs.current[dayIndex] = el)}
+            ref={(el) => { dayRefs.current[dayIndex] = el; }}
             className={`border-l border-r border-t border-border overflow-hidden transition-all duration-700 ease-out ${isLast ? 'border-b' : ''}`}
             style={{
               opacity: visibleDays.has(dayIndex) ? 1 : 0,
