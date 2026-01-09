@@ -180,7 +180,7 @@ export function FaqSection() {
                 text="Get started"
                 href="/book-demo"
                 color="black"
-                className="shrink-0 w-full desktop:w-auto"
+                className="shrink-0"
               />
             </div>
           </div>
