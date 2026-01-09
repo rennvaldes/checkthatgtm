@@ -73,9 +73,9 @@ export function PlatformFeaturesNew() {
 
         <GridRoot size="normal">
           {/* Desktop: Grid layout with sticky navigation */}
-          <div className="hidden desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
+          <div className="hidden desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 desktop:items-start">
             {/* Day Navigation - Left Column (5fr) - Sticky */}
-            <div className="desktop:col-start-1 desktop:col-span-1">
+            <div className="desktop:col-start-1 desktop:col-span-1 min-h-full">
               <div className="sticky top-32 pt-[72px] flex flex-col gap-3.5 text-[14px] font-bold leading-[1.5] tracking-[-0.42px]">
                 {[
                   { label: "Day 1", index: 0 },
