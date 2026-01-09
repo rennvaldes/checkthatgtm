@@ -63,80 +63,97 @@ export function FaqSection() {
         </div>
       </GridRoot>
 
-      {/* FAQ Container - matches Figma structure */}
-      <div className="content-stretch flex items-center justify-center relative w-full">
-        <div className="content-stretch flex flex-col items-start px-[224px] py-0 relative shrink-0 w-full desktop:max-w-[1728px]">
-          {/* Outer border */}
-          <div aria-hidden="true" className="absolute border-[#b3b3b3] border-[0.5px] border-solid inset-[-0.25px] pointer-events-none" />
-          
-          {/* Q&A Section */}
-          <div className="content-stretch flex flex-col desktop:flex-row items-center relative shrink-0 w-full">
-            {/* Questions List - Left Column (50%) */}
-            <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0">
-              <div className="basis-0 content-stretch flex flex-col grow h-full items-start min-h-px min-w-px relative shrink-0">
-                {faqs.map((faq, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveIndex(index)}
-                    className={cx(
-                      "basis-0 grow min-h-px min-w-px relative shrink-0 w-full",
-                    )}
-                  >
-                    {index > 0 && (
-                      <div 
-                        aria-hidden="true"
-                        className="absolute border-[0.5px_0px_0px] border-[rgba(8,10,13,0.3)] border-solid inset-0 pointer-events-none" 
-                      />
-                    )}
-                    <div className="flex flex-row items-center size-full">
-                      <div className="content-stretch flex gap-[10px] items-center pl-0 pr-[40px] py-[19px] px-[40px] relative size-full">
-                        <p className={cx(
-                          "basis-0 font-medium grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-[18px] tracking-[-0.72px]",
-                          activeIndex === index ? "text-foreground" : "text-muted-foreground"
-                        )}>
-                          {faq.question}
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Answer Detail - Right Column (50%) */}
-            <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0">
-              <div className="basis-0 grow h-full min-h-px min-w-px relative shrink-0">
-                <div aria-hidden="true" className="absolute border-[#b3b3b3] border-[0.5px] border-solid inset-[-0.25px] pointer-events-none" />
-                <div className="flex flex-col justify-center size-full">
-                  <div className="content-stretch flex flex-col items-start justify-center pb-[48px] pt-[40px] px-[40px] relative size-full">
-                    <div className="font-medium leading-[1.5] relative shrink-0 text-muted-foreground text-[18px] tracking-[-0.54px] w-full">
-                      {typeof faqs[activeIndex].answer === 'string' ? (
-                        <p>{faqs[activeIndex].answer}</p>
-                      ) : (
-                        faqs[activeIndex].answer
+      {/* FAQ Container - full content width with full-width borders */}
+      <div className="relative w-full">
+        {/* Full-width top border */}
+        <div 
+          aria-hidden="true" 
+          className="absolute border-t-[0.5px] border-[#b3b3b3] border-solid top-[-0.25px] left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
+        />
+        
+        <GridRoot size="normal">
+          <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 relative">
+            {/* Right border at content edge (right side of column 3) */}
+            <div aria-hidden="true" className="absolute border-r-[0.5px] border-[#b3b3b3] border-solid inset-y-[-0.25px] right-[-0.25px] pointer-events-none hidden desktop:block" />
+            
+            {/* Q&A Section - starts at column 2, spans 50/50 of middle area */}
+            <div className="desktop:col-start-2 desktop:col-span-1 content-stretch flex flex-col desktop:flex-row items-start relative shrink-0 w-full desktop:h-[480px]">
+              {/* Questions List - Left Column (50%) */}
+              <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
+                <div className="basis-0 content-stretch flex flex-col grow h-full items-start min-h-px min-w-px relative shrink-0">
+                  {/* Left border for questions column */}
+                  <div aria-hidden="true" className="absolute border-l-[0.5px] border-[#b3b3b3] border-solid inset-y-[-0.25px] left-[-0.25px] pointer-events-none" />
+                  
+                  {faqs.map((faq, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveIndex(index)}
+                      className={cx(
+                        "basis-0 grow min-h-px min-w-px relative shrink-0 w-full",
                       )}
+                    >
+                      {index > 0 && (
+                        <div 
+                          aria-hidden="true"
+                          className="absolute border-[0.5px_0px_0px] border-[rgba(8,10,13,0.3)] border-solid inset-0 pointer-events-none" 
+                        />
+                      )}
+                      <div className="flex flex-row items-center size-full">
+                        <div className="content-stretch flex gap-[10px] items-center pl-0 pr-[40px] py-[19px] px-[40px] relative size-full">
+                          <p className={cx(
+                            "basis-0 font-medium grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-[18px] tracking-[-0.72px]",
+                            activeIndex === index ? "text-foreground" : "text-muted-foreground"
+                          )}>
+                            {faq.question}
+                          </p>
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Answer Detail - Right Column (50%) */}
+              <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
+                <div className="basis-0 grow h-full min-h-px min-w-px relative shrink-0">
+                  <div aria-hidden="true" className="absolute border-[#b3b3b3] border-[0.5px] border-solid inset-[-0.25px] pointer-events-none" />
+                  <div className="flex flex-col justify-start size-full">
+                    <div className="content-stretch flex flex-col items-start justify-start pb-[48px] pt-[40px] px-[40px] relative size-full">
+                      <div className="font-medium leading-[1.5] relative shrink-0 text-muted-foreground text-[18px] tracking-[-0.54px] w-full">
+                        {typeof faqs[activeIndex].answer === 'string' ? (
+                          <p>{faqs[activeIndex].answer}</p>
+                        ) : (
+                          faqs[activeIndex].answer
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* CTA Section */}
-          <div className="content-stretch flex gap-[20px] h-[134px] items-center justify-end p-[40px] relative shrink-0 w-full">
-            <div aria-hidden="true" className="absolute border-[#b3b3b3] border-[0.5px] border-solid inset-[-0.25px] pointer-events-none" />
-            <p className="basis-0 font-medium grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-foreground text-[18px] tracking-[-0.54px]">
-              <span className="font-bold">Ready to see your category?</span>
-              <span>{` Create a free account to explore rankings and start tracking prompts.`}</span>
-            </p>
-            <Button
-              text="Get started"
-              href="/book-demo"
-              color="black"
-              className="shrink-0"
-            />
+            {/* CTA Section - also column 2 */}
+            <div className="desktop:col-start-2 desktop:col-span-1 content-stretch flex gap-[20px] h-[134px] items-center justify-end p-[40px] relative shrink-0 w-full">
+              <div aria-hidden="true" className="absolute border-[#b3b3b3] border-[0.5px] border-solid inset-[-0.25px] pointer-events-none" />
+              <p className="basis-0 font-medium grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-foreground text-[18px] tracking-[-0.54px]">
+                <span className="font-bold">Ready to see your category?</span>
+                <span>{` Create a free account to explore rankings and start tracking prompts.`}</span>
+              </p>
+              <Button
+                text="Get started"
+                href="/book-demo"
+                color="black"
+                className="shrink-0"
+              />
+            </div>
           </div>
-        </div>
+        </GridRoot>
+
+        {/* Full-width bottom border */}
+        <div 
+          aria-hidden="true" 
+          className="absolute border-b-[0.5px] border-[#b3b3b3] border-solid bottom-[-0.25px] left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
+        />
       </div>
     </section>
   );
