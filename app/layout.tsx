@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       ? `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}`
       : 'http://localhost:3555'
   ),
-  title: 'GrowthX: Expert-Led, AI‑Powered Growth',
+  title: 'CheckThat: The Public Record of AI Visibility',
   description:
     'Powerful AI workflows. Forward-deployed experts. One system that turns content into compounding organic growth.',
   icons: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       url: '/social.png',
       width: 1200,
       height: 630,
-      alt: 'GrowthX: Expert-Led, AI-Powered Growth',
+      alt: 'CheckThat: The Public Record of AI Visibility',
     }],
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       url: '/social.png',
       width: 1200,
       height: 630,
-      alt: 'GrowthX: Expert-Led, AI-Powered Growth',
+      alt: 'CheckThat: The Public Record of AI Visibility',
     }],
   },
 };
