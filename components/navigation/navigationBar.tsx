@@ -154,13 +154,11 @@ export function NavigationBar({
       {/* Mobile Header - Back Button or Hamburger */}
       <div
         className={cx(
-          "md:hidden fixed left-0 right-0 z-40 transition-all duration-300",
-          isScrolled 
-            ? "top-0 h-16 bg-background/75 backdrop-blur-[15px] border-b border-border" 
-            : "top-0 h-[120px] bg-transparent"
+          // Mobile: keep header static (no scroll transitions)
+          "md:hidden fixed left-0 right-0 top-0 z-40 h-16 bg-background/75 backdrop-blur-[15px] border-b border-border"
         )}
       >
-        <GridRoot size="normal" className={cx("h-full items-center", isScrolled ? "" : "pt-8")}>
+        <GridRoot size="normal" className="h-full items-center">
           <div className="flex items-center justify-between">
             {showBackButton ? (
               <Link
@@ -172,7 +170,7 @@ export function NavigationBar({
               </Link>
             ) : (
               <Link href="/" aria-label="CheckThat Home">
-                <CheckThatLogo className={cx("w-auto transition-all duration-300", isScrolled ? "h-[44px]" : "h-[88px]")} />
+                <CheckThatLogo className="w-auto h-[44px]" />
               </Link>
             )}
 
