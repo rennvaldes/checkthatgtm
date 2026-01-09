@@ -28,6 +28,7 @@ export function HeresTheThing({ onComplete }: HeresTheThingProps) {
   const [completedParagraphs, setCompletedParagraphs] = useState<string[]>([]);
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const [showAvatar, setShowAvatar] = useState(false);
+  const [hasTriggeredContentLoad, setHasTriggeredContentLoad] = useState(false);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const typingSpeed = 10; // Consistent, smooth speed (2x faster)
@@ -54,6 +55,18 @@ export function HeresTheThing({ onComplete }: HeresTheThingProps) {
     };
   }, [hasStarted]);
 
+  // Trigger content load after a short delay
+  useEffect(() => {
+    if (hasStarted && !hasTriggeredContentLoad && onComplete) {
+      const contentLoadTimeout = setTimeout(() => {
+        setHasTriggeredContentLoad(true);
+        onComplete();
+      }, 2000); // Load content after 2 seconds
+
+      return () => clearTimeout(contentLoadTimeout);
+    }
+  }, [hasStarted, hasTriggeredContentLoad, onComplete]);
+
   // Typewriter effect
   useEffect(() => {
     if (!hasStarted) return;
@@ -66,9 +79,6 @@ export function HeresTheThing({ onComplete }: HeresTheThingProps) {
         setTimeout(() => {
           setShowAvatar(true);
         }, 200);
-        if (onComplete) {
-          onComplete();
-        }
       }
       return;
     }
@@ -95,7 +105,7 @@ export function HeresTheThing({ onComplete }: HeresTheThingProps) {
 
       return () => clearTimeout(pauseTimeout);
     }
-  }, [hasStarted, currentParagraphIndex, currentText, completedParagraphs, isAnimationComplete, onComplete]);
+  }, [hasStarted, currentParagraphIndex, currentText, completedParagraphs, isAnimationComplete]);
 
   return (
     <section ref={sectionRef} className="pt-20 tablet:pt-32 desktop:pt-44 pb-20 tablet:pb-32 desktop:pb-44 border-b border-border">
