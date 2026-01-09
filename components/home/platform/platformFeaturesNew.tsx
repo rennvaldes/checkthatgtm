@@ -71,37 +71,38 @@ export function PlatformFeaturesNew() {
           className="absolute border-t border-border top-0 left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
         />
 
-        <GridRoot size="normal" innerClassName="!self-start">
-          <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 desktop:items-start relative">
-            {/* Day Navigation - Left Column - Sticky throughout all days */}
-            <div className="hidden desktop:block desktop:col-start-1 desktop:col-span-1">
-              <div className="sticky top-32 pt-[72px] flex flex-col gap-3.5 text-[14px] font-bold leading-[1.5] tracking-[-0.42px]">
-                {[
-                  { label: "Day 1", index: 0 },
-                  { label: "Day 2", index: 1 },
-                  { label: "Day 3", index: 2 },
-                  { label: "Day 4", index: 3 },
-                  { label: "Day 5", index: 4 },
-                ].map((day) => (
-                  <button
-                    key={day.index}
-                    onClick={() => {
-                      dayRefs.current[day.index]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }}
-                    className={`text-left transition-colors ${
-                      activeDay === day.index ? "text-foreground" : "text-muted-foreground"
-                    }`}
-                  >
-                    {activeDay === day.index && <span className="mr-2">→</span>}
-                    {activeDay !== day.index && <span className="mr-2 opacity-0">→</span>}
-                    {day.label}
-                  </button>
-                ))}
+        <div className="w-full max-w-[1920px] mx-auto">
+          <div className="grid grid-cols-[repeat(30,1fr)] gap-0 w-full">
+            <div className="col-[3/span_26] desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 relative">
+              {/* Day Navigation - Left Column - Sticky throughout all days */}
+              <div className="hidden desktop:block desktop:col-start-1 desktop:col-span-1 desktop:self-start">
+                <div className="sticky top-32 pt-[72px] flex flex-col gap-3.5 text-[14px] font-bold leading-[1.5] tracking-[-0.42px]">
+                  {[
+                    { label: "Day 1", index: 0 },
+                    { label: "Day 2", index: 1 },
+                    { label: "Day 3", index: 2 },
+                    { label: "Day 4", index: 3 },
+                    { label: "Day 5", index: 4 },
+                  ].map((day) => (
+                    <button
+                      key={day.index}
+                      onClick={() => {
+                        dayRefs.current[day.index]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }}
+                      className={`text-left transition-colors ${
+                        activeDay === day.index ? "text-foreground" : "text-muted-foreground"
+                      }`}
+                    >
+                      {activeDay === day.index && <span className="mr-2">→</span>}
+                      {activeDay !== day.index && <span className="mr-2 opacity-0">→</span>}
+                      {day.label}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Days Content - Column 2-3 */}
-            <div className="desktop:col-start-2 desktop:col-span-2 flex flex-col">
+              {/* Days Content - Column 2-3 */}
+              <div className="desktop:col-start-2 desktop:col-span-2 flex flex-col">
               {/* Day 1 - Full platform access with image on left */}
               <div 
                 ref={(el) => { dayRefs.current[0] = el; }}
@@ -234,7 +235,8 @@ export function PlatformFeaturesNew() {
               })}
             </div>
           </div>
-        </GridRoot>
+        </div>
+      </div>
 
         {/* Full-width bottom border for Day 5 */}
         <div 
