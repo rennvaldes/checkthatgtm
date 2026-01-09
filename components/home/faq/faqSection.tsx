@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { cx } from "@/lib/classnames";
 import { GridRoot } from "@/components/home/grid/gridRoot";
+import { Button } from "@/components/home/button";
 
 interface FaqData {
   question: string;
@@ -60,17 +61,19 @@ export function FaqSection() {
             </p>
           </div>
         </div>
+      </GridRoot>
 
-        {/* Q&A Section - Two Column Layout */}
-        <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
-          <div className="desktop:col-start-2 desktop:col-span-1">
-            <div className="relative">
-              {/* Border container */}
-              <div 
-                aria-hidden="true" 
-                className="absolute border-[0.5px] border-border border-solid inset-[-0.25px] pointer-events-none" 
-              />
-              
+      {/* Q&A Section with full-width container */}
+      <div className="relative w-full">
+        {/* Full width border */}
+        <div 
+          aria-hidden="true" 
+          className="absolute border-[0.5px] border-border border-solid inset-y-[-0.25px] left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
+        />
+        
+        <GridRoot size="normal">
+          <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
+            <div className="desktop:col-start-2 desktop:col-span-1">
               <div className="flex flex-col desktop:flex-row relative">
                 {/* Questions List - Left Column */}
                 <div className="flex-1 flex flex-col desktop:border-r desktop:border-r-[0.5px] desktop:border-border">
@@ -111,8 +114,36 @@ export function FaqSection() {
               </div>
             </div>
           </div>
-        </div>
-      </GridRoot>
+        </GridRoot>
+      </div>
+
+      {/* CTA Section with full-width container */}
+      <div className="relative w-full mt-0">
+        {/* Full width border */}
+        <div 
+          aria-hidden="true" 
+          className="absolute border-[0.5px] border-border border-solid inset-[-0.25px] left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
+        />
+        
+        <GridRoot size="normal">
+          <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
+            <div className="desktop:col-start-2 desktop:col-span-1">
+              <div className="relative flex items-center gap-5 px-10 py-10">
+                <p className="flex-1 text-[18px] font-medium leading-[1.5] tracking-[-0.54px] text-foreground">
+                  <span className="font-bold">Ready to see your category?</span>
+                  {" "}Create a free account to explore rankings and start tracking prompts.
+                </p>
+                <Button
+                  text="Get started"
+                  href="/book-demo"
+                  color="black"
+                  className="shrink-0"
+                />
+              </div>
+            </div>
+          </div>
+        </GridRoot>
+      </div>
     </section>
   );
 }
