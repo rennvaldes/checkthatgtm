@@ -26,7 +26,6 @@ export function NavigationBar({
   const [isBannerHidden, setIsBannerHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [videoPassed, setVideoPassed] = useState(false);
-  const [ctaNearBanner, setCtaNearBanner] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const pathname = usePathname();
 
@@ -34,15 +33,8 @@ export function NavigationBar({
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 0);
+      setIsBannerHidden(scrollY > 100);
       setVideoPassed(scrollY > 800);
-      
-      // Check if Get Started CTA is near the banner (within ~40px distance)
-      // The sticky button appears around scrollY ~600, and banner should move when CTA gets close
-      const isNearCta = scrollY > 560 && scrollY <= 680;
-      setCtaNearBanner(isNearCta);
-      
-      // Hide banner only after CTA animation completes
-      setIsBannerHidden(scrollY > 680);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -95,14 +87,10 @@ export function NavigationBar({
 
   // Large countdown banner animation (opposite of mini countdown)
   const largeCountdownSpring = useSpring({
-    from: { opacity: 0, transform: "translateY(-20px) translateX(0px)" },
+    from: { opacity: 0, transform: "translateY(-20px)" },
     to: {
-      opacity: !isBannerHidden && !ctaNearBanner ? 1 : 0,
-      transform: ctaNearBanner 
-        ? "translateY(-60px) translateX(-40px)" 
-        : !isBannerHidden 
-          ? "translateY(0px) translateX(0px)" 
-          : "translateY(-20px) translateX(0px)",
+      opacity: !isBannerHidden ? 1 : 0,
+      transform: !isBannerHidden ? "translateY(0px)" : "translateY(-20px)",
     },
     config: { tension: 300, friction: 20 },
   });
@@ -164,7 +152,7 @@ export function NavigationBar({
               <a.div
                 style={{
                   ...largeCountdownSpring,
-                  pointerEvents: !isBannerHidden && !ctaNearBanner ? 'auto' : 'none',
+                  pointerEvents: !isBannerHidden ? 'auto' : 'none',
                 }}
                 className="absolute right-0 top-4 bg-[#09a847] text-white px-6 py-5 rounded-lg flex flex-col items-center gap-4 shadow-lg"
               >
