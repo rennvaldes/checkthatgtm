@@ -151,7 +151,7 @@ export function HeresTheThing({ onComplete }: HeresTheThingProps) {
               Here&apos;s the thing:
             </h2>
             
-            <div className="text-[20px] desktop:text-2xl font-[500] leading-normal desktop:leading-tight tracking-[-0.06em] space-y-6 min-h-[480px] desktop:min-h-[400px]">
+            <div className="text-[20px] desktop:text-2xl font-[500] leading-normal desktop:leading-tight tracking-[-0.06em] space-y-6 min-h-[620px] desktop:min-h-[520px]">
               {paragraphs.map((text, index) => {
                 let displayText = "";
                 let shouldShow = false;
