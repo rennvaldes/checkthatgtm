@@ -73,11 +73,9 @@ export function FaqSection() {
         
         <GridRoot size="normal">
           <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 relative">
-            {/* Right border at content edge (right side of column 3) */}
-            <div aria-hidden="true" className="absolute border-r-[0.5px] border-[#b3b3b3] border-solid inset-y-[-0.25px] right-[-0.25px] pointer-events-none hidden desktop:block" />
             
-            {/* Q&A Section - starts at column 2, spans 50/50 of middle area */}
-            <div className="desktop:col-start-2 desktop:col-span-1 content-stretch flex flex-col desktop:flex-row items-start relative shrink-0 w-full desktop:h-[480px]">
+            {/* Q&A Section - starts at column 2, spans to right edge (columns 2-3) */}
+            <div className="desktop:col-start-2 desktop:col-span-2 content-stretch flex flex-col desktop:flex-row items-start relative shrink-0 w-full desktop:h-[480px]">
               {/* Questions List - Left Column (50%) */}
               <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
                 <div className="basis-0 content-stretch flex flex-col grow h-full items-start min-h-px min-w-px relative shrink-0">
@@ -132,8 +130,8 @@ export function FaqSection() {
               </div>
             </div>
 
-            {/* CTA Section - also column 2 */}
-            <div className="desktop:col-start-2 desktop:col-span-1 content-stretch flex gap-[20px] h-[134px] items-center justify-end p-[40px] relative shrink-0 w-full">
+            {/* CTA Section - also spans columns 2-3 */}
+            <div className="desktop:col-start-2 desktop:col-span-2 content-stretch flex gap-[20px] h-[134px] items-center justify-end p-[40px] relative shrink-0 w-full">
               <div aria-hidden="true" className="absolute border-[#b3b3b3] border-[0.5px] border-solid inset-[-0.25px] pointer-events-none" />
               <p className="basis-0 font-medium grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-foreground text-[18px] tracking-[-0.54px]">
                 <span className="font-bold">Ready to see your category?</span>
