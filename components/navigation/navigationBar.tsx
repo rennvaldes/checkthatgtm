@@ -8,6 +8,7 @@ import Link from "next/link";
 import { NavigationMenu } from "./navigationMenu";
 import CheckThatLogo from "@/components/icons/CheckThatLogo";
 import { useSpring, a } from "@react-spring/web";
+import { VideoPlayerOverlay } from "@/components/common/VideoPlayerOverlay";
 
 type NavigationBarProps = {
   showBackButton?: boolean;
@@ -27,6 +28,7 @@ export function NavigationBar({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [videoPassed, setVideoPassed] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [isVideoPlayerOpen, setIsVideoPlayerOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -211,7 +213,7 @@ export function NavigationBar({
               {/* Watch Intro CTA */}
               {showBookButton && (
                 <a.button
-                  onClick={scrollToVideo}
+                  onClick={() => setIsVideoPlayerOpen(true)}
                   style={{
                     ...watchIntroSpring,
                     pointerEvents: videoPassed ? 'auto' : 'none',
@@ -262,7 +264,7 @@ export function NavigationBar({
               {/* Watch Intro button - mobile */}
               {videoPassed && (
                 <button
-                  onClick={scrollToVideo}
+                  onClick={() => setIsVideoPlayerOpen(true)}
                   className="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-foreground transition-all hover:opacity-80 whitespace-nowrap"
                 >
                   <svg 
@@ -294,6 +296,13 @@ export function NavigationBar({
         isOpen={isMenuOpen}
         onClose={handleMenuClose}
         pathname={pathname}
+      />
+
+      {/* Video Player Overlay */}
+      <VideoPlayerOverlay
+        isOpen={isVideoPlayerOpen}
+        onClose={() => setIsVideoPlayerOpen(false)}
+        videoUrl="/growthx-vid-compressed.mp4"
       />
     </>
   );

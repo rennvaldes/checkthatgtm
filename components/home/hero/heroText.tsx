@@ -126,7 +126,7 @@ export function HeroText({ className }: HeroTextProps) {
           </span>
           <div>
             <p className="text-[20px] desktop:text-2xl font-[600] leading-normal desktop:leading-tight tracking-[-0.06em]">
-              CheckThat is the Open AI Visibility Index. Track your brand across real prompts, see what's shifting, and get a 5-day action plan to become AEO-ready.
+              CheckThat is the Open AI Visibility&nbsp;Index. Track your brand across real&nbsp;prompts, see what's&nbsp;shifting,<br className="hidden desktop:inline" /> and get a 5-day action&nbsp;plan to become&nbsp;AEO-ready.
             </p>
           </div>
           <div className="flex justify-start desktop:justify-end mt-6 desktop:mt-0">

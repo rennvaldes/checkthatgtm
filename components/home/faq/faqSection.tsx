@@ -17,7 +17,7 @@ export function FaqSection() {
   const faqs: FaqData[] = [
     {
       question: "What is the Open AI Visibility Index?",
-      answer: "The Open AI Visibility Index is a public database that tracks how AI models like ChatGPT, Claude, and others describe your market. We track 100,000+ industry prompts to show you which brands AI favors and why.",
+      answer: "The Open AI Visibility Index is a public database that tracks how AI models like ChatGPT, Claude, and others describe your market. We track 100,000+ industry prompts to show you which brands AI favors and\u00A0why.",
     },
     {
       question: "What does \"AEO\" mean in practice?",
@@ -33,15 +33,15 @@ export function FaqSection() {
     },
     {
       question: "Which models / answer engines are included?",
-      answer: "We track across major AI platforms including ChatGPT, Claude, Perplexity, and other leading answer engines to give you comprehensive visibility across the AI landscape.",
+      answer: "We track across major AI platforms including ChatGPT, Claude, Perplexity, and other leading answer engines to give you comprehensive visibility across the AI\u00A0landscape.",
     },
     {
       question: "What do I get for free vs paid?",
-      answer: "We're not charging for access to the data. The index is public and free. We charge for help acting on it - like custom audits, workshops, and implementation support.",
+      answer: "We're not charging for access to the data. The index is public and free. We charge for help acting on it - like custom audits, workshops, and implementation\u00A0support.",
     },
     {
       question: "How do you generate the rankings?",
-      answer: "We run thousands of prompts across your category, analyze which brands are mentioned and cited, and track patterns over time to create a comprehensive AI visibility score.",
+      answer: "We run thousands of prompts across your category, analyze which brands are mentioned and cited, and track patterns over time to create a comprehensive AI visibility\u00A0score.",
     },
   ];
 

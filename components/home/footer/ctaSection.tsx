@@ -11,9 +11,9 @@ type CtaSectionProps = {
 const content = {
   default: {
     label: "AI Visibility Index",
-    title: "Get access to the Open AI Visibility Index.",
+    title: "Get access to the Open AI Visibility\u00A0Index.",
     description:
-      "Create a free account to track your brand and get the 5-day action plan.",
+      "Create a free account to track your brand and get the 5-day action\u00A0plan.",
     buttonText: "Get started",
     buttonHref: "https://checkthat.ai",
   },
