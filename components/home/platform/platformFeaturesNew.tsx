@@ -40,16 +40,16 @@ export function PlatformFeaturesNew() {
     <section className="pt-20 tablet:pt-32 desktop:pt-44" data-section="launch-week">
       {/* Section Header */}
       <GridRoot size="normal">
-        <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
-          <span className="block text-sm leading-none tracking-[-0.03em] text-muted-foreground font-normal mb-3 desktop:mb-0">
+        <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 desktop:items-start">
+          <span className="block text-sm leading-[1.2] tracking-[-0.03em] text-muted-foreground font-normal mb-3 desktop:mb-0 desktop:pt-[4px]">
             {content.sectionLabel}
           </span>
-          <div className="relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-full after:mt-10 after:w-screen after:h-[0.5px] after:bg-border">
-            <h2 className="text-[20px] desktop:text-2xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]">
+          <div className="relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-full after:mt-20 after:w-screen after:h-[0.5px] after:bg-border">
+            <h2 className="text-[40px] desktop:text-5xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]">
               {content.heading}
             </h2>
             <p
-              className="text-[20px] desktop:text-2xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]"
+              className="text-[40px] desktop:text-5xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]"
               style={{ color: "#0ABF53" }}
             >
               {content.subheading}
