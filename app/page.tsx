@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { HeroText, HeroLogos, HeroImage, HeresTheThing } from "@/components/home/hero";
 import { PlatformFeaturesNew } from "@/components/home/platform/platformFeaturesNew";
+import { FaqSection } from "@/components/home/faq";
 import { PeopleRoot } from "@/components/home/people";
 import { ProcessRoot } from "@/components/home/process/processRoot";
 import { ComparisonRoot } from "@/components/home/comparison";
@@ -32,6 +33,7 @@ export default function Home() {
       {isManifestoComplete && (
         <>
           <PlatformFeaturesNew />
+          <FaqSection />
           {/* Hidden sections for CheckThat landing page */}
           {/* <PeopleRoot />
           <ProcessRoot />
