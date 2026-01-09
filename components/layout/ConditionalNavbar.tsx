@@ -18,16 +18,15 @@ export default function ConditionalNavbar() {
         showBackButton
         backButtonHref="/blog"
         backButtonLabel="News overview"
-        enableScrollAway
       />
     );
   }
 
   // About page - scroll-away nav
   if (pathname === "/about") {
-    return <NavigationBar enableScrollAway />;
+    return <NavigationBar />;
   }
 
   // All other pages use new unified navigation
-  return <NavigationBar enableScrollAway />;
+  return <NavigationBar />;
 }
