@@ -64,34 +64,48 @@ export function FaqSection() {
         {/* Q&A Section - Two Column Layout */}
         <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
           <div className="desktop:col-start-2 desktop:col-span-1">
-            <div className="flex flex-col desktop:flex-row border border-border">
-              {/* Questions List - Left Column */}
-              <div className="flex-1 flex flex-col">
-                {faqs.map((faq, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveIndex(index)}
-                    className={cx(
-                      "flex items-center px-10 py-6 text-left text-[18px] font-medium leading-[1.5] tracking-[-0.72px] transition-colors border-b border-border last:border-b-0 desktop:border-b desktop:last:border-b-0 desktop:border-r",
-                      activeIndex === index
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    {faq.question}
-                  </button>
-                ))}
-              </div>
+            <div className="relative">
+              {/* Border container */}
+              <div 
+                aria-hidden="true" 
+                className="absolute border-[0.5px] border-border border-solid inset-[-0.25px] pointer-events-none" 
+              />
+              
+              <div className="flex flex-col desktop:flex-row relative">
+                {/* Questions List - Left Column */}
+                <div className="flex-1 flex flex-col desktop:border-r desktop:border-r-[0.5px] desktop:border-border">
+                  {faqs.map((faq, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveIndex(index)}
+                      className={cx(
+                        "relative flex items-center px-10 py-6 text-left text-[18px] font-medium leading-[1.5] tracking-[-0.72px] transition-colors",
+                        activeIndex === index
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      {index > 0 && (
+                        <div 
+                          aria-hidden="true"
+                          className="absolute border-t-[0.5px] border-[rgba(8,10,13,0.3)] border-solid inset-x-[-0.25px] top-0 pointer-events-none" 
+                        />
+                      )}
+                      {faq.question}
+                    </button>
+                  ))}
+                </div>
 
-              {/* Answer Detail - Right Column */}
-              <div className="flex-1 border-t desktop:border-t-0 border-border">
-                <div className="flex flex-col justify-center px-10 py-12">
-                  <div className="text-[18px] font-medium leading-[1.5] tracking-[-0.54px] text-muted-foreground">
-                    {typeof faqs[activeIndex].answer === 'string' ? (
-                      <p>{faqs[activeIndex].answer}</p>
-                    ) : (
-                      faqs[activeIndex].answer
-                    )}
+                {/* Answer Detail - Right Column */}
+                <div className="flex-1 relative border-t desktop:border-t-0 border-border">
+                  <div className="flex flex-col justify-center px-10 py-12">
+                    <div className="text-[18px] font-medium leading-[1.5] tracking-[-0.54px] text-muted-foreground">
+                      {typeof faqs[activeIndex].answer === 'string' ? (
+                        <p>{faqs[activeIndex].answer}</p>
+                      ) : (
+                        faqs[activeIndex].answer
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
