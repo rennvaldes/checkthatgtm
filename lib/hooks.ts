@@ -20,6 +20,14 @@ export function useMediaQuery(query: string): boolean {
   return matches;
 }
 
+export function usePrefersReducedMotion(): boolean {
+  return useMediaQuery("(prefers-reduced-motion: reduce)");
+}
+
+export function useIsMobile(): boolean {
+  return useMediaQuery("(max-width: 767px)");
+}
+
 // Scroll direction hook (for hiding navbar on scroll)
 export function useScrollDirection() {
   const [isVisible, setIsVisible] = useState(true);

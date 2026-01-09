@@ -1,18 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { useScroll } from "@react-spring/web";
+import { useEffect, useRef, useState } from "react";
 
 export function StickyBookButton() {
   const placeholderRef = useRef<HTMLDivElement>(null);
   const [buttonPosition, setButtonPosition] = useState({ right: 0 });
   const [shouldStick, setShouldStick] = useState(false);
 
-  // Desktop: 14px from top
-  // Mobile: 22px from top (centers with hamburger button at 40px: hamburger at top-2 (8px) + half of size-16 (32px) - half of h-9 (18px))
+  // Keep the CTA aligned with its original position until it sticks.
+  useEffect(() => {
+    let rafId = 0;
 
-  useScroll({
-    onChange: () => {
+    const update = () => {
       if (!placeholderRef.current) return;
 
       const rect = placeholderRef.current.getBoundingClientRect();
@@ -25,8 +24,26 @@ export function StickyBookButton() {
       }
 
       setShouldStick(rect.top <= 14);
-    },
-  });
+    };
+
+    const scheduleUpdate = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = 0;
+        update();
+      });
+    };
+
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    scheduleUpdate();
+
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   return (
     <>

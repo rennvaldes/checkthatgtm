@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import FeatureCard from "./FeatureCard";
+import { useIsMobile, usePrefersReducedMotion } from "@/lib/hooks";
 import MagicWandIcon from "@/assets/img/workstreamsSection/icons/magic-wand.svg";
 import PenIcon from "@/assets/img/workstreamsSection/cardIcons/pen.svg";
 import WorldIcon from "@/assets/img/workstreamsSection/cardIcons/world.svg";
@@ -123,6 +124,10 @@ const staticData = [
 ];
 
 const ContentSegment = () => {
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const shouldAnimate = !isMobile && !prefersReducedMotion;
+
   return (
     <div className="mt-25">
       <div className="flex items-center gap-5 lg:gap-12 relative -left-[3.1rem] mb-4 lg:mb-6">
@@ -137,17 +142,25 @@ const ContentSegment = () => {
           Content
         </h4>
       </div>
-      <motion.div
-        className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-233"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        {staticData.map((item) => (
-          <FeatureCard key={item.title} {...item} />
-        ))}
-      </motion.div>
+      {shouldAnimate ? (
+        <motion.div
+          className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-233"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          {staticData.map((item) => (
+            <FeatureCard key={item.title} {...item} />
+          ))}
+        </motion.div>
+      ) : (
+        <div className="ml-3 lg:ml-11 grid lg:grid-cols-2 gap-6 max-w-233">
+          {staticData.map((item) => (
+            <FeatureCard key={item.title} {...item} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

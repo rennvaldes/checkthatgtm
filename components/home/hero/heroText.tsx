@@ -5,6 +5,7 @@ import { GridRoot } from "@/components/home/grid/gridRoot";
 import { StickyBookButton } from "./stickyBookButton";
 import { RadarBackground } from "./radarBackground";
 import { useState, useEffect } from "react";
+import { useIsMobile, usePrefersReducedMotion } from "@/lib/hooks";
 
 interface HeroTextProps {
   className?: string;
@@ -31,8 +32,24 @@ export function HeroText({ className }: HeroTextProps) {
   const [displayText2, setDisplayText2] = useState("");
   const [phase, setPhase] = useState<"typing1" | "typing2" | "pause" | "fadeout">("typing1");
   const [opacity, setOpacity] = useState(1);
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const shouldAnimate = !isMobile && !prefersReducedMotion;
 
   useEffect(() => {
+    if (shouldAnimate) return;
+
+    // Mobile/reduced-motion: keep it fast and stable.
+    setCurrentSetIndex(0);
+    setDisplayText1(textSets[0].line1);
+    setDisplayText2(textSets[0].line2);
+    setPhase("pause");
+    setOpacity(1);
+  }, [shouldAnimate]);
+
+  useEffect(() => {
+    if (!shouldAnimate) return;
+
     const currentSet = textSets[currentSetIndex];
     
     const typingSpeed = 25; // Consistent, fast speed
@@ -83,7 +100,7 @@ export function HeroText({ className }: HeroTextProps) {
       }, 300);
       return () => clearTimeout(timeout);
     }
-  }, [displayText1, displayText2, phase, currentSetIndex]);
+  }, [displayText1, displayText2, phase, currentSetIndex, shouldAnimate]);
 
   return (
     <section className={cx("pb-32 relative", className)}>
@@ -126,7 +143,7 @@ export function HeroText({ className }: HeroTextProps) {
           </span>
           <div>
             <p className="text-[20px] desktop:text-2xl font-[600] leading-normal desktop:leading-tight tracking-[-0.06em]">
-              CheckThat is the Open AI Visibility Index. Track your brand across real prompts, see what's shifting, and get a 5-day action plan to become AEO-ready.
+              CheckThat is the Open AI Visibility Index. Track your brand across real prompts, see what&apos;s shifting, and get a 5-day action plan to become AEO-ready.
             </p>
           </div>
           <div className="flex justify-start desktop:justify-end mt-6 desktop:mt-0">

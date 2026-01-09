@@ -1,10 +1,10 @@
 "use client";
 
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import { useSpring, a } from "@react-spring/web";
 import { useHasMountedWhen } from "@/hooks/useHasMountedWhen";
 import { useIntersection } from "@/hooks/useIntersection";
-import { useMedia } from "@/lib/hooks";
+import { useIsMobile, useMedia, usePrefersReducedMotion } from "@/lib/hooks";
 
 type BlogPageWrapperProps = {
   children: ReactNode;
@@ -24,10 +24,14 @@ export function BlogPageWrapper({
   className,
 }: BlogPageWrapperProps) {
   const hasMountedAfterDelay = useHasMountedWhen(delay);
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const shouldSkipAnimation = isMobile || prefersReducedMotion;
 
   const fadeInSpring = useSpring({
-    opacity: hasMountedAfterDelay ? 1 : 0,
+    opacity: shouldSkipAnimation ? 1 : hasMountedAfterDelay ? 1 : 0,
     config: { tension: 280, friction: 60 },
+    immediate: shouldSkipAnimation,
   });
 
   return (
@@ -83,12 +87,10 @@ export function ScrollAnimationWrapper({
     disabled,
   });
 
-  const prefersReducedMotion = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }, []);
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
-  const shouldSkipAnimation = disabled || prefersReducedMotion;
+  const shouldSkipAnimation = disabled || prefersReducedMotion || isMobile;
 
   const initialTransform = `translateY(${config.translateYValue}px) scale(${config.scaleValue})`;
   const finalTransform = "translateY(0px) scale(1)";

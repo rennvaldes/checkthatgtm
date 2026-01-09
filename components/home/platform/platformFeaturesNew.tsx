@@ -97,8 +97,8 @@ export function PlatformFeaturesNew() {
             </h3>
 
             <p className="text-[18px] font-[500] leading-[1.5] tracking-[-0.54px] text-muted-foreground mb-6">
-              This is what you're agreeing to.<br />
-              This is what we're building together.
+              This is what you&apos;re agreeing to.<br />
+              This is what we&apos;re building together.
             </p>
 
             <div className="space-y-0">
