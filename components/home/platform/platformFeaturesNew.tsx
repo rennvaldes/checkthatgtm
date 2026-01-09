@@ -71,11 +71,11 @@ export function PlatformFeaturesNew() {
           className="absolute border-t border-border top-0 left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
         />
 
-        <GridRoot size="normal">
-          <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 desktop:items-start relative min-h-screen">
+        <GridRoot size="normal" innerClassName="!self-start">
+          <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 desktop:items-start relative">
             {/* Day Navigation - Left Column - Sticky throughout all days */}
             <div className="hidden desktop:block desktop:col-start-1 desktop:col-span-1">
-              <div className="sticky top-32 pt-[72px] flex flex-col gap-3.5 text-[14px] font-bold leading-[1.5] tracking-[-0.42px] z-10">
+              <div className="sticky top-32 pt-[72px] flex flex-col gap-3.5 text-[14px] font-bold leading-[1.5] tracking-[-0.42px]">
                 {[
                   { label: "Day 1", index: 0 },
                   { label: "Day 2", index: 1 },
