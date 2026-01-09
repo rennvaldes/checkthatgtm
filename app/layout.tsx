@@ -115,7 +115,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* End Twitter conversion tracking base code */}
       </head>
       <body
-        className={`${clashDisplay.variable} ${messinaSans.variable} font-messina-sans bg-[#F1EEE9] text-foreground text-[14px] font-normal leading-none`}>
+        className={`${clashDisplay.variable} ${messinaSans.variable} font-messina-sans bg-white text-foreground text-[14px] font-normal leading-none overflow-x-hidden`}>
         {/* LinkedIn Insight Tag (noscript) */}
         <noscript>
           <img height="1" width="1" style={{ display: 'none' }} alt="" src="https://px.ads.linkedin.com/collect/?pid=7407172&fmt=gif" />

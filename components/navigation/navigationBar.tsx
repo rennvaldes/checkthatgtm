@@ -6,16 +6,14 @@ import { cx } from "@/lib/classnames";
 import { GridRoot } from "@/components/home/grid/gridRoot";
 import Link from "next/link";
 import { NavigationMenu } from "./navigationMenu";
-import Logo from "@/components/icons/Logo";
+import CheckThatLogo from "@/components/icons/CheckThatLogo";
 import { useSpring, a } from "@react-spring/web";
-import { useScrollDirection } from "@/lib/hooks";
 
 type NavigationBarProps = {
   showBackButton?: boolean;
   backButtonHref?: string;
   backButtonLabel?: string;
   showBookButton?: boolean;
-  enableScrollAway?: boolean;
 };
 
 export function NavigationBar({
@@ -23,26 +21,68 @@ export function NavigationBar({
   backButtonHref = "/blog",
   backButtonLabel = "News overview",
   showBookButton = true,
-  enableScrollAway = false,
 }: NavigationBarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBannerHidden, setIsBannerHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [videoPassed, setVideoPassed] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const pathname = usePathname();
-  const { isVisible } = useScrollDirection();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 0);
+      setIsBannerHidden(scrollY > 100);
+      setVideoPassed(scrollY > 800);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll-away spring (mobile only)
-  const navSpring = useSpring({
-    transform: enableScrollAway && !isVisible ? "translateY(-100%)" : "translateY(0%)",
-    config: { tension: 300, friction: 35 },
+  // Countdown timer
+  useEffect(() => {
+    const targetDate = new Date(2026, 0, 26, 0, 0, 0).getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        });
+      }
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Mini countdown animation
+  const miniCountdownSpring = useSpring({
+    from: { opacity: 0, transform: "translateY(-20px) scale(0.8)" },
+    to: {
+      opacity: isBannerHidden ? 1 : 0,
+      transform: isBannerHidden ? "translateY(0px) scale(1)" : "translateY(-20px) scale(0.8)",
+    },
+    config: { tension: 300, friction: 20 },
+  });
+
+  // Watch Intro button animation
+  const watchIntroSpring = useSpring({
+    from: { opacity: 0, transform: "translateX(20px) scale(0.95)" },
+    to: {
+      opacity: videoPassed ? 1 : 0,
+      transform: videoPassed ? "translateX(0px) scale(1)" : "translateX(20px) scale(0.95)",
+    },
+    config: { tension: 250, friction: 25 },
   });
 
   const handleMenuToggle = useCallback(() => {
@@ -53,16 +93,32 @@ export function NavigationBar({
     setIsMenuOpen(false);
   }, []);
 
+  const scrollToLaunchWeek = () => {
+    const launchWeekSection = document.querySelector('[data-section="launch-week"]');
+    if (launchWeekSection) {
+      launchWeekSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToVideo = () => {
+    const videoSection = document.querySelector('[data-section="hero-video"]');
+    if (videoSection) {
+      videoSection.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   return (
     <>
       {/* Desktop Nav */}
       <nav
         className={cx(
-          "hidden md:block w-full h-16 sticky top-0 z-50",
-          "bg-background/75 backdrop-blur-[15px]"
+          "hidden md:block w-full fixed left-0 right-0 z-40 transition-all duration-300",
+          isScrolled 
+            ? "top-0 h-16 bg-background/75 backdrop-blur-[15px] border-b border-border" 
+            : "top-0 h-[120px] bg-transparent"
         )}
       >
-        <GridRoot size="normal" className="h-full items-center">
+        <GridRoot size="normal" className={cx("h-full items-center", isScrolled ? "" : "pt-8")}>
           <div className="flex items-center h-full">
             {/* Logo or Back Button */}
             <div className="flex items-center">
@@ -75,74 +131,65 @@ export function NavigationBar({
                   <span>{backButtonLabel}</span>
                 </Link>
               ) : (
-                <Link href="/" aria-label="GrowthX Home">
-                  <Logo className="h-[18px] w-auto" />
+                <Link href="/" aria-label="CheckThat Home">
+                  <CheckThatLogo className={cx("w-auto transition-all duration-300", isScrolled ? "h-[44px]" : "h-[88px]")} />
                 </Link>
               )}
             </div>
 
-            {/* Navigation Links */}
-            <div className="flex items-center gap-10 h-full ml-10">
-              <Link
-                href="/about"
-                className={cx(
-                  "relative inline-flex items-center text-sm transition-all h-full",
-                  "after:absolute after:bottom-[-0.5px] after:h-[0.5px] after:transition-all",
-                  pathname === "/about"
-                    ? "text-foreground after:bg-foreground after:left-0 after:right-0"
-                    : "text-foreground/40 after:bg-transparent after:left-0 after:right-0 hover:text-foreground/60"
-                )}
-              >
-                <span className="inline-block">Company</span>
-              </Link>
-              <Link
-                href="/careers"
-                className={cx(
-                  "relative inline-flex items-center text-sm transition-all h-full",
-                  "after:absolute after:bottom-[-0.5px] after:h-[0.5px] after:transition-all",
-                  pathname === "/careers"
-                    ? "text-foreground after:bg-foreground after:left-0 after:right-0"
-                    : "text-foreground/40 after:bg-transparent after:left-0 after:right-0 hover:text-foreground/60"
-                )}
-              >
-                <span className="inline-block">Careers</span>
-              </Link>
-              <Link
-                href="/blog"
-                className={cx(
-                  "relative inline-flex items-center text-sm transition-all h-full",
-                  "after:absolute after:bottom-[-0.5px] after:h-[0.5px] after:transition-all",
-                  pathname === "/blog" || pathname?.startsWith("/blog/")
-                    ? "text-foreground after:bg-foreground after:left-0 after:right-0"
-                    : "text-foreground/40 after:bg-transparent after:left-0 after:right-0 hover:text-foreground/60"
-                )}
-              >
-                <span className="inline-block">News</span>
-              </Link>
-            </div>
-
-            {/* Book Demo CTA */}
-            {showBookButton && (
-              <div className="flex items-center ml-auto">
-                <Link
-                  href="/book-demo"
-                  className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
+            {/* Mini Countdown and Watch Intro - Centered together */}
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-5 transition-all duration-300">
+              {isBannerHidden && (
+                <a.button
+                  onClick={scrollToLaunchWeek}
+                  style={miniCountdownSpring}
+                  className="bg-[#09a847] text-white px-4 rounded-full text-sm inline-flex items-center gap-3 hover:bg-[#0ABF53] transition-colors cursor-pointer shadow-lg w-[280px] justify-center h-9"
                 >
-                  Book a demo
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            )}
+                  <span className="tracking-[-0.03em] font-normal">Launch Week</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-base tracking-[-0.03em] font-bold">{timeLeft.days}<span className="font-normal">d</span></span>
+                    <span className="text-base tracking-[-0.03em] font-bold">{timeLeft.hours}<span className="font-normal">h</span></span>
+                    <span className="text-base tracking-[-0.03em] font-bold">{timeLeft.minutes}<span className="font-normal">m</span></span>
+                    <span className="text-base tracking-[-0.03em] font-bold">{timeLeft.seconds}<span className="font-normal">s</span></span>
+                  </div>
+                </a.button>
+              )}
+
+              {/* Watch Intro CTA */}
+              {showBookButton && (
+                <a.button
+                  onClick={scrollToVideo}
+                  style={{
+                    ...watchIntroSpring,
+                    pointerEvents: videoPassed ? 'auto' : 'none',
+                  }}
+                  className="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-foreground hover:opacity-80 whitespace-nowrap"
+                >
+                  <svg 
+                    className="w-3 h-3 text-foreground" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Watch Intro
+                </a.button>
+              )}
+            </div>
           </div>
         </GridRoot>
       </nav>
 
       {/* Mobile Header - Back Button or Hamburger */}
-      <a.div
-        style={navSpring}
-        className="md:hidden fixed top-0 left-0 right-0 z-110"
+      <div
+        className={cx(
+          "md:hidden fixed left-0 right-0 z-40 transition-all duration-300",
+          isScrolled 
+            ? "top-0 h-16 bg-background/75 backdrop-blur-[15px] border-b border-border" 
+            : "top-0 h-[120px] bg-transparent"
+        )}
       >
-        <GridRoot size="normal" className="h-16 items-center">
+        <GridRoot size="normal" className={cx("h-full items-center", isScrolled ? "" : "pt-8")}>
           <div className="flex items-center justify-between">
             {showBackButton ? (
               <Link
@@ -152,19 +199,42 @@ export function NavigationBar({
                 <span>←</span>
                 <span>{backButtonLabel}</span>
               </Link>
-            ) : null}
+            ) : (
+              <Link href="/" aria-label="CheckThat Home">
+                <CheckThatLogo className={cx("w-auto transition-all duration-300", isScrolled ? "h-[44px]" : "h-[88px]")} />
+              </Link>
+            )}
 
-            <button
-              type="button"
-              onClick={handleMenuToggle}
-              className="flex size-8 items-center justify-center rounded-full bg-transparent ml-auto overflow-visible"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            >
-              <Lines isOpen={isMenuOpen} />
-            </button>
+            <div className="flex items-center gap-3 ml-auto">
+              {/* Watch Intro button - mobile */}
+              {videoPassed && (
+                <button
+                  onClick={scrollToVideo}
+                  className="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-foreground transition-all hover:opacity-80 whitespace-nowrap"
+                >
+                  <svg 
+                    className="w-3 h-3 text-foreground" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Watch Intro
+                </button>
+              )}
+              
+              <button
+                type="button"
+                onClick={handleMenuToggle}
+                className="flex size-8 items-center justify-center rounded-full bg-transparent overflow-visible"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              >
+                <Lines isOpen={isMenuOpen} />
+              </button>
+            </div>
           </div>
         </GridRoot>
-      </a.div>
+      </div>
 
       {/* Mobile Menu Overlay */}
       <NavigationMenu
@@ -176,59 +246,21 @@ export function NavigationBar({
   );
 }
 
-const Lines = ({ isOpen }: { isOpen: boolean }) => {
-  const spring = useSpring({
-    v: isOpen ? 1 : 0,
-    config: { tension: 300, friction: 35 },
-  });
-
+function Lines({ isOpen }: { isOpen: boolean }) {
   return (
-    <svg viewBox="-25 -25 50 50" className="w-full h-full overflow-visible">
-      <circle
-        cx="0"
-        cy="0"
-        r="25"
-        stroke="black"
-        fill="none"
-        strokeWidth="3.3"
+    <div className="flex flex-col items-center justify-center w-full h-full gap-[6px]">
+      <div
+        className={cx(
+          "h-[1.5px] w-5 bg-foreground transition-all duration-300 origin-center",
+          isOpen && "rotate-45 translate-y-[3.75px]"
+        )}
       />
-      <a.g
-        style={{
-          transform: spring.v
-            .to([0, 1], [90, 315])
-            .to((r) => `rotate(${r}deg)`),
-        }}
-      >
-        <a.line
-          x1={spring.v.to([0, 1], [0, -11])}
-          y1={0}
-          x2={spring.v.to([0, 1], [0, 11])}
-          y2={0}
-          stroke="black"
-          strokeWidth="4.7"
-          strokeLinecap="round"
-          opacity={spring.v.to([0, 1], [0, 1])}
-        />
-        <a.line
-          x1={spring.v.to([0, 1], [-5, 0])}
-          y1={11}
-          x2={spring.v.to([0, 1], [-5, 0])}
-          y2={-11}
-          stroke="black"
-          strokeWidth="4.7"
-          strokeLinecap="round"
-        />
-        <a.line
-          x1={spring.v.to([0, 1], [5, 0])}
-          y1={11}
-          x2={spring.v.to([0, 1], [5, 0])}
-          y2={spring.v.to([0, 1], [-1, 0])}
-          stroke="black"
-          strokeWidth="4.7"
-          strokeLinecap="round"
-          opacity={spring.v.to([0, 1], [1, 0])}
-        />
-      </a.g>
-    </svg>
+      <div
+        className={cx(
+          "h-[1.5px] w-5 bg-foreground transition-all duration-300 origin-center",
+          isOpen && "-rotate-45 -translate-y-[3.75px]"
+        )}
+      />
+    </div>
   );
-};
+}

@@ -184,9 +184,9 @@
   :root {
     /* =========================
        SHADCN SEMANTIC COLORS
-       Mapped to GrowthX brand palette
+       Mapped to CheckThat brand palette
        ========================= */
-    --background: 38 22% 93%; /* #F1EEE9 - paper */
+    --background: 0 0% 100%; /* #FFFFFF - pure white */
     --foreground: 210 23% 3%; /* #080A0D - ink */
 
     --card: 0 0% 100%; /* #FFFFFF */
@@ -196,21 +196,21 @@
     --popover-foreground: 210 23% 3%;
 
     --primary: 210 23% 3%; /* #080A0D - ink */
-    --primary-foreground: 38 22% 93%; /* paper */
+    --primary-foreground: 0 0% 95%; /* #F1EEE9 - light */
 
-    --secondary: 37 14% 89%; /* #E6E3DE - paper-secondary */
+    --secondary: 0 0% 98%; /* #F9F9F9 - very light gray */
     --secondary-foreground: 210 23% 3%;
 
-    --muted: 37 14% 89%; /* #E6E3DE */
-    --muted-foreground: 0 0% 58%; /* #959595 - charcoal */
+    --muted: 0 0% 98%; /* #F9F9F9 */
+    --muted-foreground: 0 0% 58%; /* #959595 - gray */
 
-    --accent: 341 100% 88%; /* #FFC3D6 - pink */
-    --accent-foreground: 210 23% 3%;
+    --accent: 146 100% 38%; /* #0ABF53 - CheckThat green */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 70%; /* #B3B3B3 */
+    --border: 0 0% 90%; /* #E5E5E5 - more subtle */
     --input: 0 0% 70%;
     --ring: 210 23% 3%; /* ink */
 
@@ -218,7 +218,8 @@
        ADDITIONAL BRAND COLORS
        ========================= */
     --icon: 0 4% 12%; /* #231F20 */
-    --pink: 341 100% 88%; /* #FFC3D6 */
+    --checkthat-green: 146 100% 38%; /* #0ABF53 - primary brand */
+    --checkthat-green-dark: 146 100% 30%; /* #189A4C - darker green */
     --yellow: 48 100% 74%; /* #FFE57B */
 
     /* =========================

@@ -62,7 +62,7 @@ export function PlatformSection({
           </div>
         )}
 
-        <h3 className="text-[18px] leading-normal tracking-[-0.03em] mb-[9px] flex items-center">
+        <h3 className="text-[18px] font-bold leading-normal tracking-[-0.03em] mb-[9px] flex items-center">
           {/* Inline icon on mobile */}
           <span className="desktop:hidden mr-3 w-4 h-4 [&_svg]:w-4 [&_svg]:h-4">
             {feature.id === "context" && <IconContext />}

@@ -50,10 +50,10 @@ export function PlatformFeatures() {
             {content.sectionLabel}
           </span>
           <div className="relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-full after:mt-10 after:w-screen after:h-[0.5px] after:bg-border">
-            <h2 className="text-[20px] desktop:text-2xl font-[520] leading-normal desktop:leading-tight tracking-[-0.06em]">
+            <h2 className="text-[20px] desktop:text-2xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]">
               {content.heading}
             </h2>
-            <p className="text-[20px] desktop:text-2xl font-400 leading-normal desktop:leading-tight tracking-[-0.06em] text-muted-foreground">
+            <p className="text-[20px] desktop:text-2xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]" style={{color: "#0ABF53"}}>
               {content.subheading}
             </p>
           </div>

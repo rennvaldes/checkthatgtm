@@ -34,11 +34,11 @@ export function StickyBookButton() {
       <div ref={placeholderRef} className="w-fit relative z-60">
         {!shouldStick && (
           <a
-            href="https://growthx.ai/book-demo"
-            className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
+            href="https://checkthat.ai"
+            className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
           >
-            Book a demo
-            <span aria-hidden="true">→</span>
+            Get started
+            <span aria-hidden="true" className="font-bold">→</span>
           </a>
         )}
       </div>
@@ -50,11 +50,11 @@ export function StickyBookButton() {
           style={{ right: `${buttonPosition.right}px` }}
         >
           <a
-            href="https://growthx.ai/book-demo"
-            className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
+            href="https://checkthat.ai"
+            className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-80 whitespace-nowrap"
           >
-            Book a demo
-            <span aria-hidden="true">→</span>
+            Get started
+            <span aria-hidden="true" className="font-bold">→</span>
           </a>
         </div>
       )}

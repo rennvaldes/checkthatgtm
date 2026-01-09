@@ -2,6 +2,7 @@
 
 import { GridRoot } from "@/components/home/grid/gridRoot";
 import { Button } from "@/components/home/button";
+import { RadarGrid } from "./radarGrid";
 
 type CtaSectionProps = {
   variant?: "default" | "careers";
@@ -9,15 +10,15 @@ type CtaSectionProps = {
 
 const content = {
   default: {
-    label: "Join us",
-    title: "Get started with AI-Led Growth",
+    label: "AI Visibility Index",
+    title: "Get access to the Open AI Visibility Index.",
     description:
-      "Whether you're a budding startup or an established enterprise, discover how our AI can streamline your content creation and fuel your growth.",
-    buttonText: "Discover now",
-    buttonHref: "https://growthx.ai/book-demo",
+      "Create a free account to track your brand and get the 5-day action plan.",
+    buttonText: "Get started",
+    buttonHref: "https://checkthat.ai",
   },
   careers: {
-    label: "Join us",
+    label: "AI Visibility Index",
     title: "Build the future of AI-Led Growth",
     description:
       "We're looking for talented people who want to shape how companies grow with AI. Join our fully remote team.",
@@ -30,8 +31,16 @@ export function CtaSection({ variant = "default" }: CtaSectionProps) {
   const { label, title, description, buttonText, buttonHref } = content[variant];
 
   return (
-    <section className="pt-20 desktop:pt-44">
-      <GridRoot size="normal">
+    <section className="pt-[456px] desktop:pt-[576px] pb-20 desktop:pb-44 relative overflow-visible">
+      {/* Radar background - positioned to extend behind footer */}
+      <div className="absolute inset-0 overflow-visible pointer-events-none" style={{ top: 'calc(-40% + 200px)', bottom: '-40%' }}>
+        <RadarGrid />
+      </div>
+      
+      {/* White gradient fade underneath AI Visibility Index content */}
+      <div className="absolute top-0 left-0 right-0 h-[768px] bg-gradient-to-b from-white via-white/60 to-transparent pointer-events-none z-[5]" />
+      
+      <GridRoot size="normal" className="relative z-10 -mt-[280px] desktop:-mt-[400px]">
         <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
           {/* Label */}
           <span className="block text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light mb-3 desktop:mb-0">
@@ -40,7 +49,7 @@ export function CtaSection({ variant = "default" }: CtaSectionProps) {
 
           {/* Content */}
           <div>
-            <h2 className="text-[20px] desktop:text-2xl font-[520] leading-normal desktop:leading-tight tracking-[-0.06em]">
+            <h2 className="text-[20px] desktop:text-2xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]">
               {title}
             </h2>
             <p className="text-[20px] desktop:text-2xl font-400 leading-normal desktop:leading-tight tracking-[-0.06em] text-muted-foreground">

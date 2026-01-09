@@ -200,81 +200,81 @@
     ]
   },
   "platformFeatures": {
-    "sectionLabel": "Platform",
-    "heading": "Turn content into your growth multiplier.",
-    "subheading": "The operating system to turn content into a growth engine that compounds over time.",
+    "sectionLabel": "Launch Week",
+    "heading": "Go from 0 to everything you need",
+    "subheading": "to conquer AEO in 5 days",
     "features": [
       {
-        "id": "context",
-        "title": "Context",
-        "description": "Understand your company, audience, and market deeply to identify where you should be the definitive answer to questions that drive decisions.",
+        "id": "day1",
+        "title": "Day 1: Full Platform Access",
+        "description": "Immediate access to the CheckThat platform. See data across 100,000+ of the most important industry prompts. Track up to 50 custom prompts for your brand. See which brands AI already favors in your category.",
         "visual": {
           "type": "stack",
           "video": "/videos/context.mov",
           "poster": "/images/posters/context-poster.webp",
           "items": [
-            "Content Analysis",
-            "Tone of Voice",
-            "Brand Identity",
-            "Traffic",
-            "Competitive Landscape",
-            "Personas"
+            "Immediate platform access",
+            "100,000+ industry prompts",
+            "50 custom brand prompts",
+            "Brand visibility tracking"
           ]
         }
       },
       {
-        "id": "strategy",
-        "title": "Strategy",
-        "description": "Map the opportunities that position your brand as the best answer, driving visibility in AI and search while creating clear paths to conversion.",
+        "id": "day2",
+        "title": "Day 2: The $1M AEO Research Study",
+        "description": "The deepest research study we've run on what actually influences AI citations. Built from GrowthX learnings across real brands and categories. Covers what gets cited, what doesn't, and patterns that repeat across categories.",
         "visual": {
           "type": "cards",
           "video": "/videos/strategy.mov",
           "poster": "/images/posters/strategy-poster.webp",
           "items": [
-            {
-              "label": "Opportunity",
-              "score": "8.3",
-              "question": "Which tool should I use for high volume transfers?"
-            }
+            "What gets cited",
+            "What doesn't",
+            "Patterns that repeat across categories"
           ]
         }
       },
       {
-        "id": "execution",
-        "title": "Execution",
-        "description": "Codify expert processes into agentic AI workflows with human review at critical moments, ensuring brand alignment and quality never slip.",
+        "id": "day3",
+        "title": "Day 3: Your Custom AEO Audit",
+        "description": "A decisive, brand-specific audit focused on action. We show you what to fix, what to publish, and what to ignore. Get clear priorities for your AEO strategy.",
         "visual": {
           "type": "workflow",
           "video": "/videos/execution.mov",
           "poster": "/images/posters/execution-poster.webp",
           "items": [
-            "Run Workflow",
-            "Classify Opportunity",
-            "Decide"
+            "Brand-specific audit",
+            "Action plan",
+            "Priority fixes"
           ]
         }
       },
       {
-        "id": "optimization",
-        "title": "Optimization",
-        "description": "Monitor the right signals across visibility, engagement, and conversion, then feed insights back to improve every output.",
+        "id": "day4",
+        "title": "Day 4: 2-Hour Content Workshop",
+        "description": "A full workshop on building content that performs in AI systems. Led with content and frameworks from our partners in the ALG community. Get a repeatable content workflow and the framework for earning AI citations.",
         "visual": {
           "type": "metrics",
           "video": "/videos/optimization.mov",
           "poster": "/images/posters/optimization-poster.webp",
           "items": [
-            {
-              "metric": "Impressions",
-              "change": "+38%"
-            },
-            {
-              "metric": "Time on page",
-              "change": "+48%"
-            },
-            {
-              "metric": "CTA clicks",
-              "change": "+43%"
-            }
+            "Workshop Duration",
+            "Content Templates",
+            "AI Citation Framework"
+          ]
+        }
+      },
+      {
+        "id": "day5",
+        "title": "Day 5: Sneak Peek - AEO Masterclass",
+        "description": "A preview of the cohorted masterclass and what \"good\" looks like when you're trying to win AI discovery. Covers what \"good\" looks like across research, content, and distribution, and the playbook outline we use to move from visibility data → action.",
+        "visual": {
+          "type": "preview",
+          "items": [
+            "What \"good\" looks like",
+            "Playbook outline",
+            "Preview of cohort"
           ]
         }
       }
