@@ -44,7 +44,7 @@
     "remark-unwrap-images": "^5.0.0",
     "sass": "^1.83.0",
     "swiper": "^11.2.10",
-    "tailwind-merge": "^2.5.2",
+    "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
