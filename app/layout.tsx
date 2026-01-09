@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     'Powerful AI workflows. Forward-deployed experts. One system that turns content into compounding organic growth.',
   icons: {
-    icon: '/icon.svg',
+    icon: '/favicon.png',
   },
   openGraph: {
     images: [{
