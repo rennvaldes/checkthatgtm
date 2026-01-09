@@ -68,7 +68,7 @@ export function FaqSection() {
         {/* Full-width top border */}
         <div 
           aria-hidden="true" 
-          className="absolute border-t-[0.5px] border-[#b3b3b3] border-solid top-[-0.25px] left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
+          className="absolute border-t border-border top-0 left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
         />
         
         <GridRoot size="normal">
@@ -80,7 +80,7 @@ export function FaqSection() {
               <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
                 <div className="basis-0 content-stretch flex flex-col grow h-full items-start min-h-px min-w-px relative shrink-0">
                   {/* Left border for questions column */}
-                  <div aria-hidden="true" className="absolute border-l-[0.5px] border-[#b3b3b3] border-solid inset-y-[-0.25px] left-[-0.25px] pointer-events-none" />
+                  <div aria-hidden="true" className="absolute border-l border-border inset-y-0 left-0 pointer-events-none" />
                   
                   {faqs.map((faq, index) => (
                     <button
@@ -93,13 +93,13 @@ export function FaqSection() {
                       {index > 0 && (
                         <div 
                           aria-hidden="true"
-                          className="absolute border-[0.5px_0px_0px] border-[rgba(8,10,13,0.3)] border-solid inset-0 pointer-events-none" 
+                          className="absolute border-t border-border inset-x-0 top-0 pointer-events-none" 
                         />
                       )}
                       <div className="flex flex-row items-center size-full">
-                        <div className="content-stretch flex gap-[10px] items-center pl-0 pr-[40px] py-[19px] px-[40px] relative size-full">
+                        <div className="content-stretch flex gap-[10px] items-center px-[40px] py-[19px] relative size-full">
                           <p className={cx(
-                            "basis-0 font-medium grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-[18px] tracking-[-0.72px]",
+                            "font-medium leading-[1.5] relative shrink-0 text-[18px] tracking-[-0.72px]",
                             activeIndex === index ? "text-foreground" : "text-muted-foreground"
                           )}>
                             {faq.question}
@@ -114,10 +114,10 @@ export function FaqSection() {
               {/* Answer Detail - Right Column (50%) */}
               <div className="basis-0 flex flex-row grow items-start self-stretch shrink-0">
                 <div className="basis-0 grow h-full min-h-px min-w-px relative shrink-0">
-                  <div aria-hidden="true" className="absolute border-[#b3b3b3] border-[0.5px] border-solid inset-[-0.25px] pointer-events-none" />
+                  <div aria-hidden="true" className="absolute border-t border-l border-r border-border inset-x-0 inset-y-0 pointer-events-none" />
                   <div className="flex flex-col justify-start size-full">
                     <div className="content-stretch flex flex-col items-start justify-start pb-[48px] pt-[40px] px-[40px] relative size-full">
-                      <div className="font-medium leading-[1.5] relative shrink-0 text-muted-foreground text-[18px] tracking-[-0.54px] w-full">
+                      <div className="font-medium leading-[1.5] relative shrink-0 text-foreground text-[18px] tracking-[-0.54px] w-full">
                         {typeof faqs[activeIndex].answer === 'string' ? (
                           <p>{faqs[activeIndex].answer}</p>
                         ) : (
@@ -132,7 +132,7 @@ export function FaqSection() {
 
             {/* CTA Section - also spans columns 2-3 */}
             <div className="desktop:col-start-2 desktop:col-span-2 content-stretch flex gap-[20px] h-[134px] items-center justify-end p-[40px] relative shrink-0 w-full">
-              <div aria-hidden="true" className="absolute border-[#b3b3b3] border-[0.5px] border-solid inset-[-0.25px] pointer-events-none" />
+              <div aria-hidden="true" className="absolute border border-border inset-0 pointer-events-none" />
               <p className="basis-0 font-medium grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-foreground text-[18px] tracking-[-0.54px]">
                 <span className="font-bold">Ready to see your category?</span>
                 <span>{` Create a free account to explore rankings and start tracking prompts.`}</span>
@@ -150,7 +150,7 @@ export function FaqSection() {
         {/* Full-width bottom border */}
         <div 
           aria-hidden="true" 
-          className="absolute border-b-[0.5px] border-[#b3b3b3] border-solid bottom-[-0.25px] left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
+          className="absolute border-b border-border bottom-0 left-1/2 -translate-x-1/2 w-screen pointer-events-none" 
         />
       </div>
     </section>
