@@ -2,7 +2,7 @@
 
 export function RadarBackground() {
   return (
-    <div className="absolute left-[50%] -translate-x-1/2 top-[-400px] w-[1540px] h-[1540px] opacity-50 pointer-events-none animate-[spin_20s_linear_infinite]">
+    <div className="absolute left-[50%] -translate-x-1/2 top-[-400px] w-[1540px] h-[1540px] opacity-50 pointer-events-none motion-reduce:animate-none md:animate-[spin_20s_linear_infinite]">
       <svg
         className="block size-full"
         fill="none"

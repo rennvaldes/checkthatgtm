@@ -1,13 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { cx } from "@/lib/classnames";
 import { GridRoot } from "@/components/home/grid/gridRoot";
 import Link from "next/link";
-import { NavigationMenu } from "./navigationMenu";
 import CheckThatLogo from "@/components/icons/CheckThatLogo";
-import { useSpring, a } from "@react-spring/web";
 
 type NavigationBarProps = {
   showBackButton?: boolean;
@@ -24,10 +21,8 @@ export function NavigationBar({
 }: NavigationBarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isBannerHidden, setIsBannerHidden] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [videoPassed, setVideoPassed] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +39,11 @@ export function NavigationBar({
 
   // Countdown timer
   useEffect(() => {
+    // Only shown on desktop, and only on pages without the back button.
+    if (showBackButton) return;
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
+
     const targetDate = new Date(2026, 0, 26, 0, 0, 0).getTime();
 
     const updateCountdown = () => {
@@ -63,35 +63,7 @@ export function NavigationBar({
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, []);
-
-  // Mini countdown animation
-  const miniCountdownSpring = useSpring({
-    from: { opacity: 0, transform: "translateY(-20px) scale(0.8)" },
-    to: {
-      opacity: isBannerHidden ? 1 : 0,
-      transform: isBannerHidden ? "translateY(0px) scale(1)" : "translateY(-20px) scale(0.8)",
-    },
-    config: { tension: 300, friction: 20 },
-  });
-
-  // Watch Intro button animation
-  const watchIntroSpring = useSpring({
-    from: { opacity: 0, transform: "translateX(20px) scale(0.95)" },
-    to: {
-      opacity: videoPassed ? 1 : 0,
-      transform: videoPassed ? "translateX(0px) scale(1)" : "translateX(20px) scale(0.95)",
-    },
-    config: { tension: 250, friction: 25 },
-  });
-
-  const handleMenuToggle = useCallback(() => {
-    setIsMenuOpen((prev) => !prev);
-  }, []);
-
-  const handleMenuClose = useCallback(() => {
-    setIsMenuOpen(false);
-  }, []);
+  }, [showBackButton]);
 
   const scrollToLaunchWeek = () => {
     const launchWeekSection = document.querySelector('[data-section="launch-week"]');
@@ -140,9 +112,8 @@ export function NavigationBar({
             {/* Mini Countdown and Watch Intro - Centered together */}
             <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-5 transition-all duration-300">
               {isBannerHidden && (
-                <a.button
+                <button
                   onClick={scrollToLaunchWeek}
-                  style={miniCountdownSpring}
                   className="bg-[#09a847] text-white px-4 rounded-full text-sm inline-flex items-center gap-3 hover:bg-[#0ABF53] transition-colors cursor-pointer shadow-lg w-[280px] justify-center h-9"
                 >
                   <span className="tracking-[-0.03em] font-normal">Launch Week</span>
@@ -152,18 +123,18 @@ export function NavigationBar({
                     <span className="text-base tracking-[-0.03em] font-bold">{timeLeft.minutes}<span className="font-normal">m</span></span>
                     <span className="text-base tracking-[-0.03em] font-bold">{timeLeft.seconds}<span className="font-normal">s</span></span>
                   </div>
-                </a.button>
+                </button>
               )}
 
               {/* Watch Intro CTA */}
               {showBookButton && (
-                <a.button
+                <button
                   onClick={scrollToVideo}
-                  style={{
-                    ...watchIntroSpring,
-                    pointerEvents: videoPassed ? 'auto' : 'none',
-                  }}
-                  className="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-foreground hover:opacity-80 whitespace-nowrap"
+                  disabled={!videoPassed}
+                  className={cx(
+                    "inline-flex h-9 items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-foreground whitespace-nowrap transition-opacity",
+                    videoPassed ? "hover:opacity-80" : "opacity-0 pointer-events-none"
+                  )}
                 >
                   <svg 
                     className="w-3 h-3 text-foreground" 
@@ -173,7 +144,7 @@ export function NavigationBar({
                     <path d="M8 5v14l11-7z" />
                   </svg>
                   Watch Intro
-                </a.button>
+                </button>
               )}
             </div>
           </div>
@@ -183,13 +154,11 @@ export function NavigationBar({
       {/* Mobile Header - Back Button or Hamburger */}
       <div
         className={cx(
-          "md:hidden fixed left-0 right-0 z-40 transition-all duration-300",
-          isScrolled 
-            ? "top-0 h-16 bg-background/75 backdrop-blur-[15px] border-b border-border" 
-            : "top-0 h-[120px] bg-transparent"
+          // Mobile: keep header static (no scroll transitions)
+          "md:hidden fixed left-0 right-0 top-0 z-40 h-16 bg-background/75 backdrop-blur-[15px] border-b border-border"
         )}
       >
-        <GridRoot size="normal" className={cx("h-full items-center", isScrolled ? "" : "pt-8")}>
+        <GridRoot size="normal" className="h-full items-center">
           <div className="flex items-center justify-between">
             {showBackButton ? (
               <Link
@@ -201,7 +170,7 @@ export function NavigationBar({
               </Link>
             ) : (
               <Link href="/" aria-label="CheckThat Home">
-                <CheckThatLogo className={cx("w-auto transition-all duration-300", isScrolled ? "h-[44px]" : "h-[88px]")} />
+                <CheckThatLogo className="w-auto h-[44px]" />
               </Link>
             )}
 
@@ -222,45 +191,10 @@ export function NavigationBar({
                   Watch Intro
                 </button>
               )}
-              
-              <button
-                type="button"
-                onClick={handleMenuToggle}
-                className="flex size-8 items-center justify-center rounded-full bg-transparent overflow-visible"
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              >
-                <Lines isOpen={isMenuOpen} />
-              </button>
             </div>
           </div>
         </GridRoot>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      <NavigationMenu
-        isOpen={isMenuOpen}
-        onClose={handleMenuClose}
-        pathname={pathname}
-      />
     </>
-  );
-}
-
-function Lines({ isOpen }: { isOpen: boolean }) {
-  return (
-    <div className="flex flex-col items-center justify-center w-full h-full gap-[6px]">
-      <div
-        className={cx(
-          "h-[1.5px] w-5 bg-foreground transition-all duration-300 origin-center",
-          isOpen && "rotate-45 translate-y-[3.75px]"
-        )}
-      />
-      <div
-        className={cx(
-          "h-[1.5px] w-5 bg-foreground transition-all duration-300 origin-center",
-          isOpen && "-rotate-45 -translate-y-[3.75px]"
-        )}
-      />
-    </div>
   );
 }
