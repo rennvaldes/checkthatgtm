@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ),
   title: 'CheckThat: The Public Record of AI Visibility',
   description:
-    'Powerful AI workflows. Forward-deployed experts. One system that turns content into compounding organic growth.',
+    'CheckThat is the Open AI Visibility Index. Track your brand across real prompts, see what\'s shifting, and get a 5-day action plan to become AEO-ready.',
   icons: {
     icon: '/favicon.png',
   },
