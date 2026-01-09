@@ -193,29 +193,6 @@ export function NavigationBar({
                   Watch Intro
                 </button>
               )}
-
-              {!showBackButton && (
-                <div className="flex items-center gap-2 overflow-x-auto max-w-[70vw] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-                  <Link
-                    href="/pricing"
-                    className="inline-flex h-9 items-center justify-center rounded-full bg-secondary px-3 text-sm font-semibold text-foreground/80 hover:text-foreground hover:opacity-90 whitespace-nowrap"
-                  >
-                    Pricing
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="inline-flex h-9 items-center justify-center rounded-full bg-secondary px-3 text-sm font-semibold text-foreground/80 hover:text-foreground hover:opacity-90 whitespace-nowrap"
-                  >
-                    News
-                  </Link>
-                  <Link
-                    href="/book-demo"
-                    className="inline-flex h-9 items-center justify-center rounded-full bg-primary px-3 text-sm font-semibold text-primary-foreground hover:opacity-90 whitespace-nowrap"
-                  >
-                    Book a demo
-                  </Link>
-                </div>
-              )}
             </div>
           </div>
         </GridRoot>
