@@ -31,13 +31,19 @@ export const strapiAPI = createApiInstance({
 });
 
 export async function getWithQsParams(path: string, params?: any) {
-  let url = path;
-  if (params) {
-    const queryString = QueryString.stringify(params);
-    url += `?${queryString}`;
+  try {
+    let url = path;
+    if (params) {
+      const queryString = QueryString.stringify(params);
+      url += `?${queryString}`;
+    }
+
+    const { data } = await strapiAPI({ method: 'GET', url });
+
+    return data;
+  } catch (error) {
+    console.error(`Failed to fetch from Strapi: ${path}`, error);
+    // Return empty data structure to prevent build failures
+    return { data: [] };
   }
-
-  const { data } = await strapiAPI({ method: 'GET', url });
-
-  return data;
 }
