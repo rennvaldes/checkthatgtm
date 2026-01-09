@@ -18,7 +18,7 @@ export function FaqSection() {
       answer: "The Open AI Visibility Index is a public database that tracks how AI models like ChatGPT, Claude, and others describe your market. We track 100,000+ industry prompts to show you which brands AI favors and why.",
     },
     {
-      question: "What does "AEO" mean in practice?",
+      question: "What does \"AEO\" mean in practice?",
       answer: (
         <div>
           <p className="mb-0">AEO (Answer Engine Optimization) is the work of improving how often your brand is mentioned, recommended, and cited inside AI answers. In practice, it means:</p>
