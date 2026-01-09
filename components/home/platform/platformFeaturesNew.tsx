@@ -44,12 +44,12 @@ export function PlatformFeaturesNew() {
           <span className="block text-sm leading-[1.2] tracking-[-0.03em] text-muted-foreground font-normal mb-3 desktop:mb-0 desktop:pt-[4px]">
             {content.sectionLabel}
           </span>
-          <div className="relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-full after:mt-20 after:w-screen after:h-[0.5px] after:bg-border">
-            <h2 className="text-[40px] desktop:text-5xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]">
+          <div className="relative">
+            <h2 className="text-[40px] desktop:text-5xl font-bold leading-tight desktop:leading-[1.1] tracking-[-0.06em]">
               {content.heading}
             </h2>
             <p
-              className="text-[40px] desktop:text-5xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]"
+              className="text-[40px] desktop:text-5xl font-bold leading-tight desktop:leading-[1.1] tracking-[-0.06em]"
               style={{ color: "#0ABF53" }}
             >
               {content.subheading}
@@ -59,7 +59,7 @@ export function PlatformFeaturesNew() {
       </GridRoot>
 
       {/* Day 1 - Full platform access with image on left */}
-      <GridRoot size="normal" className="mt-10">
+      <GridRoot size="normal" className="mt-20">
         <div 
           ref={(el) => { dayRefs.current[0] = el; }}
           className="border-t border-l border-r border-border overflow-hidden transition-all duration-700 ease-out"

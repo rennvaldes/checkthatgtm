@@ -41,15 +41,15 @@ export function CtaSection({ variant = "default" }: CtaSectionProps) {
       <div className="absolute top-0 left-0 right-0 h-[768px] bg-gradient-to-b from-white via-white/60 to-transparent pointer-events-none z-[5]" />
       
       <GridRoot size="normal" className="relative z-10 -mt-[280px] desktop:-mt-[400px]">
-        <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0">
+        <div className="desktop:grid desktop:grid-cols-[5fr_16fr_5fr] desktop:gap-0 desktop:items-start">
           {/* Label */}
-          <span className="block text-sm leading-none tracking-[-0.03em] text-muted-foreground font-light mb-3 desktop:mb-0">
+          <span className="block text-sm leading-[1.2] tracking-[-0.03em] text-muted-foreground font-light mb-3 desktop:mb-0 desktop:pt-[4px]">
             {label}
           </span>
 
           {/* Content */}
           <div>
-            <h2 className="text-[20px] desktop:text-2xl font-bold leading-normal desktop:leading-tight tracking-[-0.06em]">
+            <h2 className="text-[40px] desktop:text-5xl font-bold leading-tight desktop:leading-[1.1] tracking-[-0.06em] mb-6">
               {title}
             </h2>
             <p className="text-[20px] desktop:text-2xl font-400 leading-normal desktop:leading-tight tracking-[-0.06em] text-muted-foreground">

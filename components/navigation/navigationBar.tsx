@@ -26,6 +26,7 @@ export function NavigationBar({
   const [isBannerHidden, setIsBannerHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [videoPassed, setVideoPassed] = useState(false);
+  const [ctaNearBanner, setCtaNearBanner] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const pathname = usePathname();
 
@@ -33,8 +34,15 @@ export function NavigationBar({
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 0);
-      setIsBannerHidden(scrollY > 100);
       setVideoPassed(scrollY > 800);
+      
+      // Check if Get Started CTA is near the banner (within ~40px distance)
+      // The sticky button appears around scrollY ~600, and banner should move when CTA gets close
+      const isNearCta = scrollY > 560 && scrollY <= 680;
+      setCtaNearBanner(isNearCta);
+      
+      // Hide banner only after CTA animation completes
+      setIsBannerHidden(scrollY > 680);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -85,6 +93,20 @@ export function NavigationBar({
     config: { tension: 250, friction: 25 },
   });
 
+  // Large countdown banner animation (opposite of mini countdown)
+  const largeCountdownSpring = useSpring({
+    from: { opacity: 0, transform: "translateY(-20px) translateX(0px)" },
+    to: {
+      opacity: !isBannerHidden && !ctaNearBanner ? 1 : 0,
+      transform: ctaNearBanner 
+        ? "translateY(-60px) translateX(-40px)" 
+        : !isBannerHidden 
+          ? "translateY(0px) translateX(0px)" 
+          : "translateY(-20px) translateX(0px)",
+    },
+    config: { tension: 300, friction: 20 },
+  });
+
   const handleMenuToggle = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
   }, []);
@@ -119,7 +141,7 @@ export function NavigationBar({
         )}
       >
         <GridRoot size="normal" className={cx("h-full items-center", isScrolled ? "" : "pt-8")}>
-          <div className="flex items-center h-full">
+          <div className="flex items-center h-full relative">
             {/* Logo or Back Button */}
             <div className="flex items-center">
               {showBackButton ? (
@@ -136,6 +158,49 @@ export function NavigationBar({
                 </Link>
               )}
             </div>
+
+            {/* Large Countdown Banner - Top Right */}
+            {!showBackButton && (
+              <a.div
+                style={{
+                  ...largeCountdownSpring,
+                  pointerEvents: !isBannerHidden && !ctaNearBanner ? 'auto' : 'none',
+                }}
+                className="absolute right-0 top-4 bg-[#09a847] text-white px-6 py-5 rounded-lg flex flex-col items-center gap-4 shadow-lg"
+              >
+                <div className="text-center">
+                  <span className="text-base tracking-[-0.03em] font-bold">Launch Week</span>
+                  {" "}
+                  <span className="text-base tracking-[-0.03em] font-normal">is coming</span>
+                </div>
+                
+                <div className="flex items-center gap-3 min-w-[240px] justify-center py-2">
+                  <div className="flex flex-col items-center min-w-[48px]">
+                    <span className="text-2xl tracking-[-0.03em] font-bold leading-none tabular-nums">{timeLeft.days}</span>
+                    <span className="text-xs font-normal leading-none mt-1">days</span>
+                  </div>
+                  <div className="flex flex-col items-center min-w-[48px]">
+                    <span className="text-2xl tracking-[-0.03em] font-bold leading-none tabular-nums">{timeLeft.hours}</span>
+                    <span className="text-xs font-normal leading-none mt-1">hours</span>
+                  </div>
+                  <div className="flex flex-col items-center min-w-[48px]">
+                    <span className="text-2xl tracking-[-0.03em] font-bold leading-none tabular-nums">{timeLeft.minutes}</span>
+                    <span className="text-xs font-normal leading-none mt-1">mins</span>
+                  </div>
+                  <div className="flex flex-col items-center min-w-[48px]">
+                    <span className="text-2xl tracking-[-0.03em] font-bold leading-none tabular-nums">{timeLeft.seconds}</span>
+                    <span className="text-xs font-normal leading-none mt-1">secs</span>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={scrollToLaunchWeek}
+                  className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors whitespace-nowrap w-full"
+                >
+                  Join Launch Week
+                </button>
+              </a.div>
+            )}
 
             {/* Mini Countdown and Watch Intro - Centered together */}
             <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-5 transition-all duration-300">
